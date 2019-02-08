@@ -10,6 +10,22 @@ lstg.ResTexture = ResTexture
 --------------------------------
 
 --- 
+---@param nVertex number
+---@param nIndex number
+---@return lstg.ResTexture
+function ResTexture:setCustomVertex(nVertex, nIndex)
+end
+
+--------------------------------
+
+--- 
+---@return cc.V3F_C4B_T2F[]
+function ResTexture:getVertexData()
+end
+
+--------------------------------
+
+--- 
 ---@param blend lstg.BlendMode
 ---@param quad cc.V3F_C4B_T2F_Quad
 ---@return boolean
@@ -22,6 +38,50 @@ end
 --- 
 ---@return cc.Texture2D
 function ResTexture:getTexture()
+end
+
+--------------------------------
+
+--- 
+---@return number[]
+function ResTexture:getIndexData()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResTexture
+function ResTexture:clearVertex()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResTexture:getIndexCount()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResTexture:getVertexCount()
+end
+
+--------------------------------
+
+--- 
+---@param nCol number
+---@param nRow number
+---@return lstg.ResTexture
+function ResTexture:setGridVertex(nCol, nRow)
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResTexture
+function ResTexture:setQuadVertex()
 end
 
 --------------------------------

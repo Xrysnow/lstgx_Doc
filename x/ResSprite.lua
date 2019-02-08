@@ -49,6 +49,13 @@ end
 --------------------------------
 
 --- 
+---@return cc.Texture2D
+function ResSprite:getNormalMap()
+end
+
+--------------------------------
+
+--- 
 ---@param newName string
 ---@return lstg.ResSprite
 function ResSprite:clone(newName)
@@ -70,6 +77,14 @@ end
 ---@param y2 number
 ---@return boolean
 function ResSprite:renderRect(x1, y1, x2, y2)
+end
+
+--------------------------------
+
+--- 
+---@param texture cc.Texture2D
+---@return lstg.ResSprite
+function ResSprite:setNormalMap(texture)
 end
 
 --------------------------------
