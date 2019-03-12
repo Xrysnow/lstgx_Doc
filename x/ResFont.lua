@@ -31,7 +31,7 @@ end
 --------------------------------
 
 --- 
----@param conf cc._ttfConfig
+---@param conf cc.ttfConfig
 ---@return lstg.ResFont
 function ResFont:setTTFConfig(conf)
 end
@@ -74,7 +74,7 @@ end
 --------------------------------
 
 --- 
----@return cc._ttfConfig
+---@return cc.ttfConfig
 function ResFont:getTTFConfig()
 end
 
@@ -343,11 +343,11 @@ end
 --------------------------------
 
 --- 
----@param src XLabel
+---@param src
 ---@param target cc.Label
 ---@return lstg.ResFont
-function ResFont:syncLabelSetting(src, target)
-end
+--function ResFont:syncLabelSetting(src, target)
+--end
 
 --------------------------------
 

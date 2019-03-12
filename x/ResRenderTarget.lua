@@ -10,6 +10,13 @@ lstg.ResRenderTarget = ResRenderTarget
 --------------------------------
 
 --- 
+---@return lstg.Color
+function ResRenderTarget:getClearColor()
+end
+
+--------------------------------
+
+--- 
 ---@param shader lstg.ResFX
 ---@param blend lstg.BlendMode
 ---@return boolean
@@ -26,8 +33,17 @@ end
 --------------------------------
 
 --- 
----@return boolean
-function ResRenderTarget:pop()
+---@param b boolean
+---@return lstg.ResRenderTarget
+function ResRenderTarget:setNeedBlendFix(b)
+end
+
+--------------------------------
+
+--- 
+---@param color lstg.Color
+---@return lstg.ResRenderTarget
+function ResRenderTarget:setClearColor(color)
 end
 
 --------------------------------
@@ -35,6 +51,20 @@ end
 --- 
 ---@return cc.RenderTexture
 function ResRenderTarget:getTarget()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResRenderTarget:isNeedBlendFix()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResRenderTarget:pop()
 end
 
 --------------------------------

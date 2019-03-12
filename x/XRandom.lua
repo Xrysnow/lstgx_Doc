@@ -130,8 +130,8 @@ end
 --------------------------------
 
 ---  Choose a random item from range(start, stop[, step]).<br>
--- It does not include the endpoint.<br>
--- If range is empty, it returns start. 
+--- It does not include the endpoint.<br>
+--- If range is empty, it returns start.
 ---@param start number
 ---@param stop number
 ---@param step number

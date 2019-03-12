@@ -19,13 +19,6 @@ end
 --------------------------------
 
 --- 
----@return cc.V3F_C4B_T2F[]
-function ResTexture:getVertexData()
-end
-
---------------------------------
-
---- 
 ---@param blend lstg.BlendMode
 ---@param quad cc.V3F_C4B_T2F_Quad
 ---@return boolean
@@ -38,13 +31,6 @@ end
 --- 
 ---@return cc.Texture2D
 function ResTexture:getTexture()
-end
-
---------------------------------
-
---- 
----@return number[]
-function ResTexture:getIndexData()
 end
 
 --------------------------------

@@ -17,6 +17,14 @@ end
 --------------------------------
 
 --- 
+---@param type number
+---@return lstg.WindowHelperDesktop
+function WindowHelperDesktop:setStandardCursor(type)
+end
+
+--------------------------------
+
+--- 
 ---@return lstg.WindowHelperDesktop
 function WindowHelperDesktop:setFullscreen()
 end
@@ -42,6 +50,15 @@ end
 --- 
 ---@return boolean
 function WindowHelperDesktop:isCursorVisible()
+end
+
+--------------------------------
+
+--- 
+---@param filename string
+---@param hotspot vec2_table
+---@return lstg.WindowHelperDesktop
+function WindowHelperDesktop:setCustomCursor(filename, hotspot)
 end
 
 --------------------------------
@@ -108,15 +125,6 @@ end
 --- 
 ---@return vec2_table
 function WindowHelperDesktop:getPosition()
-end
-
---------------------------------
-
---- 
----@param filename string
----@param hotspot vec2_table
----@return lstg.WindowHelperDesktop
-function WindowHelperDesktop:setCursor(filename, hotspot)
 end
 
 --------------------------------
