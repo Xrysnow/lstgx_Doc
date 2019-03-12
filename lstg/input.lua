@@ -5,13 +5,6 @@
 ---
 
 
---region 输入控制函数
-
-
----当前，手柄输入被映射到0x92和0xFE（共2个手柄、32个按键）的位置上。
----其中，X轴Y轴的位置被映射到前4个按键上，对应上下左右。
-
-
 ---立即更新输入状态
 --function UpdateInput()
 --end
@@ -20,89 +13,17 @@
 ---    VK_CODE的具体含义请查阅MSDN
 ---@param vk_code number
 ---@return boolean
-function GetKeyState(vk_code)
-end
+--function GetKeyState(vk_code)
+--end
 
 ---返回最后一次输入的按键的虚拟键代码
 ---@return number
-function GetLastKey()
-end
+--function GetLastKey()
+--end
 
 ---返回上一次输入的字符
 ---@return string
 function GetLastChar()
-end
-
---
-
----GetControllerNumber
-function GetControllerNumber()
-    return 0
-end
-
----GetLastControllerKey
----@return GetLastControllerKey @i, keyCode, threshold, positive, iKey, isAnalog
-function GetLastControllerKey()
-    ---@class LastControllerKey:table @
-    local ret = {
-        i         = 0,
-        keyCode   = 0,
-        threshold = 0,
-        positive  = true,
-        iKey      = 0,
-        isAnalog  = true,
-    }
-    return ret
-end
-
----GetControllerMapping
----return nil if no mapping
----@return number,number,number,boolean @index, keyCode, threshold, positive
-function GetControllerMapping(iKey)
-    return 0, 0, 0, true
-end
-
----SetControllerMapping
----@param idx number
----@param iKey number
----@param keyCode number
----@param threshold number
----@param positive boolean
-function SetControllerMapping(idx, iKey, keyCode, threshold, positive)
-end
-
----GetControllerUnmapping
----@return number,number @iKey, threshold
-function GetControllerUnmapping(idx, keyCode, positive)
-    return 0, 0
-end
-
----GetControllerInfo
----@return string,number @name, ID
-function GetControllerInfo(idx)
-    return '', 0
-end
-
----SetControllerUseAxis
-function SetControllerUseAxis(b)
-end
-
----SetControllerLogStatus
-function SetControllerLogStatus(b)
-end
-
----GetControllerRawLast
----@return ControllerRawLast @i, keyCode, value, isPressed, isAnalog
-function GetControllerRawLast()
-    ---@class ControllerRawLast:table @
-    local ret = {
-        i         = 0,
-        keyCode   = 0,
-        value     = 0,
-        isPressed = true,
-        isAnalog  = true,
-    }
-    return ret
 end
 
 --
@@ -117,4 +38,32 @@ end
 function GetMouseState(button)
 end
 
---endregion
+---
+---@return cc.Controller[]
+function GetAllControllers()
+end
+
+---
+---@param f fun(controller:cc.Controller, keyCode:number, value:number, isPressed:boolean, isAnalog:boolean)
+function SetOnControllerKeyDown(f)
+end
+
+---
+---@param f fun(controller:cc.Controller, keyCode:number, value:number, isPressed:boolean, isAnalog:boolean)
+function SetOnControllerKeyUp(f)
+end
+
+---
+---@param f fun(controller:cc.Controller, keyCode:number, value:number, isPressed:boolean, isAnalog:boolean)
+function SetOnControllerAxisEvent(f)
+end
+
+---
+---@param f fun(controller:cc.Controller)
+function SetOnControllerConnect(f)
+end
+
+---
+---@param f fun(controller:cc.Controller)
+function SetOnControllerDisconnect(f)
+end

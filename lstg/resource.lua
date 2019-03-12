@@ -20,10 +20,10 @@ function RemoveResource(pool, type, name)
 end
 
 ---获得一个资源的类别，通常用于检测资源是否存在。
----    细节
----        方法会根据名称先在全局资源池中寻找，若有则返回global。
----        若全局资源表中没有找到资源，则在关卡资源池中找，若有则返回stage。
----        若不存在资源，则返回nil。
+--->   细节
+--->       方法会根据名称先在全局资源池中寻找，若有则返回global。
+--->       若全局资源表中没有找到资源，则在关卡资源池中找，若有则返回stage。
+--->       若不存在资源，则返回nil。
 function CheckRes(type, name)
 end
 
@@ -37,11 +37,7 @@ end
 function GetTextureSize(name)
 end
 
----从文件载入纹理，支持多种格式，推荐png
----@param texname string
----@param filename string
----@param mipmap boolean @是否使用纹理链
----@return lstg.ResTexture
+
 function LoadTexture(texname, filename, mipmap)
 end
 
@@ -222,12 +218,12 @@ end
 
 ---
 ---设置全局图像渲染缩放
-function SetImageScale(scale)
-end
-
-function GetImageScale()
-    return 1
-end
+--function SetImageScale(scale)
+--end
+--
+--function GetImageScale()
+--    return 1
+--end
 
 
 --[[

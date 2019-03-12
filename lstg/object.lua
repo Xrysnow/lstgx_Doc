@@ -57,9 +57,14 @@ end
 
 ---对组A和B进行碰撞检测。如果组A中对象与组B中对象发生碰撞，将执行A中对象的碰撞回调函数。
 ---禁止在协程上调用该方法。
+---@param A number|object
+---@param B number|object
+function CollisionCheck(A, B)
+end
+
 ---@param A number
 ---@param B number
-function CollisionCheck(A, B)
+function CollisionCheck3D(A, B)
 end
 
 ---刷新对象的dx,dy,lastx,lasty,rot（若navi=true）值。
@@ -207,7 +212,6 @@ function ObjList(groupid)
 end
 
 ---获取C++对象属性
----用于 enemybase laser_bent
 ---@param obj object
 ---@param key string
 ---@return any
@@ -215,39 +219,15 @@ function GetAttr(obj, key)
 end
 
 ---设置属性，视情况设置C++对象的属性或lua对象的属性
----用于 boss enemybase laser_bent
 ---@param obj object
 ---@param key string
 ---@param v any
 function SetAttr(obj, key, v)
 end
 
----启动绑定在对象上的粒子发射器
 ---@param object object
-function ParticleFire(object)
-end
-
----停止绑定在对象上的粒子发射器
----@param object object
-function ParticleStop(object)
-end
-
----返回绑定在对象上的粒子发射器的存活粒子数
----@param object object
-function ParticleGetn(object)
-end
-
----获取绑定在对象上粒子发射器的发射密度（个/秒）
---- 细节
----　 luastg/luastg+更新粒子发射器的时钟始终为1/60s。
----@param object object
-function ParticleGetEmission(object)
-end
-
----设置绑定在对象上粒子发射器的发射密度（个/秒）
----@param object object
----@param count number
-function ParticleSetEmission(object, count)
+---@return lstg.ParticlePool
+function GetParticlePool(object)
 end
 
 function RegisterClass(class)

@@ -91,9 +91,17 @@ end
 --function PostEffectApply(fx_name, blend_mode, params)
 --end
 
+---CreateGLProgramFromPath
+---@param vert string
+---@param frag string
+---@return cc.GLProgram
 function CreateGLProgramFromPath(vert, frag)
 end
 
+---CreateGLProgramFromString
+---@param vert string
+---@param frag string
+---@return cc.GLProgram
 function CreateGLProgramFromString(vert, frag)
 end
 
