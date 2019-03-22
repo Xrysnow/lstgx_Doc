@@ -10,10 +10,16 @@ lstg.ResTexture = ResTexture
 --------------------------------
 
 --- 
----@param nVertex number
----@param nIndex number
+---@return lstg.XTriangles
+function ResTexture:getTriangles()
+end
+
+--------------------------------
+
+--- 
+---@param tri lstg.XTriangles
 ---@return lstg.ResTexture
-function ResTexture:setCustomVertex(nVertex, nIndex)
+function ResTexture:setTriangles(tri)
 end
 
 --------------------------------
@@ -31,43 +37,6 @@ end
 --- 
 ---@return cc.Texture2D
 function ResTexture:getTexture()
-end
-
---------------------------------
-
---- 
----@return lstg.ResTexture
-function ResTexture:clearVertex()
-end
-
---------------------------------
-
---- 
----@return number
-function ResTexture:getIndexCount()
-end
-
---------------------------------
-
---- 
----@return number
-function ResTexture:getVertexCount()
-end
-
---------------------------------
-
---- 
----@param nCol number
----@param nRow number
----@return lstg.ResTexture
-function ResTexture:setGridVertex(nCol, nRow)
-end
-
---------------------------------
-
---- 
----@return lstg.ResTexture
-function ResTexture:setQuadVertex()
 end
 
 --------------------------------
