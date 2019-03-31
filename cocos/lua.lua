@@ -78,10 +78,16 @@ local PhysicsMaterial = { density = 0, restitution = 0, friction = 0 }
 ---@class cc.BlendFunc
 local blendFunc = { src = 0, dst = 0 }
 
+---@class quat_table
+local quat = { x = 0, y = 0, z = 0, w = 0 }
 -------------------------------------------------
 
 ---@class margin_table
 local Margin = { left = 0, right = 0, top = 0, bottom = 0 }
+
+---@class ttfconfig_table
+local ttfconfig = {
+    fontFilePath = '', fontSize = 0, glyphs = 0, customGlyphs = '', distanceFieldEnabled = false, outlineSize = 0 }
 
 -------------------------------------------------
 
