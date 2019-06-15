@@ -150,7 +150,7 @@ end
 ---  Ends grabbing.
 --- lua endToLua
 ---@return cc.RenderTexture
-function RenderTexture:end()
+function RenderTexture:endToLua()
 end
 
 --------------------------------

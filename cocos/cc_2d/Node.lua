@@ -10,11 +10,9 @@ cc.Node = Node
 --------------------------------
 
 --- Adds a child to the container with a local z-order.<br>
--- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called immediately.<br>
--- param child     A child node.<br>
--- param localZOrder    Z order for drawing priority. Please refer to `setLocalZOrder(int)`.
----@param child cc.Node
----@param localZOrder number
+--- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called immediately.<br>
+---@param child cc.Node A child node.<br>
+---@param localZOrder number Z order for drawing priority. Please refer to `setLocalZOrder(int)`.
 ---@param name string
 ---@return cc.Node
 ---@overload fun(self:cc.Node, child:cc.Node, localZOrder:number):cc.Node
@@ -404,23 +402,23 @@ end
 --------------------------------
 
 --- Removes all children from the container, and do a cleanup to all running actions depending on the cleanup parameter.<br>
--- param cleanup   True if all running actions on all children nodes should be cleanup, false otherwise.<br>
--- js removeAllChildren<br>
--- lua removeAllChildren
+--- param cleanup   True if all running actions on all children nodes should be cleanup, false otherwise.<br>
+--- js removeAllChildren<br>
+--- lua removeAllChildren
 ---@param cleanup boolean
 ---@return cc.Node
 ---@overload fun(self:cc.Node):cc.Node
-function Node:removeAllChildrenWithCleanup(cleanup)
+function Node:removeAllChildren(cleanup)
 end
 
 --------------------------------
 
 --- Returns the affine transform matrix that transform the node's (local) space coordinates into the parent's space coordinates.<br>
--- The matrix is in Pixels.<br>
--- Note: If ancestor is not a valid ancestor of the node, the API would return the same value as @see getNodeToWorldAffineTransform<br>
--- param ancestor The parent's node pointer.<br>
--- since v3.7<br>
--- return The affine transformation matrix.
+--- The matrix is in Pixels.<br>
+--- Note: If ancestor is not a valid ancestor of the node, the API would return the same value as @see getNodeToWorldAffineTransform<br>
+--- param ancestor The parent's node pointer.<br>
+--- since v3.7<br>
+--- return The affine transformation matrix.
 ---@param ancestor cc.Node
 ---@return cc.AffineTransform
 ---@overload fun(self:cc.Node):cc.AffineTransform
@@ -473,11 +471,11 @@ end
 --------------------------------
 
 --- Returns the matrix that transform the node's (local) space coordinates into the parent's space coordinates.<br>
--- The matrix is in Pixels.<br>
--- Note: If ancestor is not a valid ancestor of the node, the API would return the same value as @see getNodeToWorldTransform<br>
--- param ancestor The parent's node pointer.<br>
--- since v3.7<br>
--- return The transformation matrix.
+--- The matrix is in Pixels.<br>
+--- Note: If ancestor is not a valid ancestor of the node, the API would return the same value as @see getNodeToWorldTransform<br>
+--- param ancestor The parent's node pointer.<br>
+--- since v3.7<br>
+--- return The transformation matrix.
 ---@param ancestor cc.Node
 ---@return mat4_table
 ---@overload fun(self:cc.Node):mat4_table
@@ -539,15 +537,15 @@ end
 --------------------------------
 
 --- Sets the position (x,y) of the node in its parent's coordinate system.<br>
--- Passing two numbers (x,y) is much efficient than passing Vec2 object.<br>
--- This method is bound to Lua and JavaScript.<br>
--- Passing a number is 10 times faster than passing a object from Lua to c++.<br>
--- code sample code in Lua<br>
--- local pos  = node::getPosition()  -- returns Vec2 object from C++.<br>
--- node:setPosition(x, y)            -- pass x, y coordinate to C++.<br>
--- endcode<br>
--- param x     X coordinate for position.<br>
--- param y     Y coordinate for position.
+--- Passing two numbers (x,y) is much efficient than passing Vec2 object.<br>
+--- This method is bound to Lua and JavaScript.<br>
+--- Passing a number is 10 times faster than passing a object from Lua to c++.<br>
+--- code sample code in Lua<br>
+--- local pos  = node::getPosition()  -- returns Vec2 object from C++.<br>
+--- node:setPosition(x, y)            -- pass x, y coordinate to C++.<br>
+--- endcode<br>
+--- param x     X coordinate for position.<br>
+--- param y     Y coordinate for position.
 ---@param x number
 ---@param y number
 ---@return cc.Node

@@ -271,7 +271,7 @@ end
 --- param out The quaternion to set to this property's interpreted value.
 --- return True on success, false if the property does not exist or could not be scanned.
 ---@param name string
----@param out cc.Quaternion
+---@param out quat_table
 ---@return boolean
 function Properties:getQuaternionFromAxisAngle(name, out)
 end
@@ -312,7 +312,7 @@ end
 --- param out A Quaternion populated with the orientation of the axis-angle, if successful.
 --- return True if a valid axis-angle was parsed, false otherwise.
 ---@param str string
----@param out cc.Quaternion
+---@param out quat_table
 ---@return boolean
 function Properties:parseAxisAngle(str, out)
 end
