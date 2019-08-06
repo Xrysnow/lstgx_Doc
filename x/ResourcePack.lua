@@ -55,16 +55,8 @@ end
 --------------------------------
 
 --- 
----@param v number
----@return lstg.ResourcePack
-function ResourcePack:setPriority(v)
-end
-
---------------------------------
-
---- 
----@return string[]
-function ResourcePack:listCachedFiles()
+---@return array_table
+function ResourcePack:listFiles()
 end
 
 --------------------------------
@@ -101,8 +93,17 @@ end
 --------------------------------
 
 --- 
----@return string[]
-function ResourcePack:listFiles()
+---@param fpath string
+---@return lstg.Buffer
+function ResourcePack:loadAndCache(fpath)
+end
+
+--------------------------------
+
+--- 
+---@param fpath string
+---@return boolean
+function ResourcePack:isFileCached(fpath)
 end
 
 --------------------------------
@@ -112,6 +113,14 @@ end
 ---@param callback fun()
 ---@return lstg.ResourcePack
 function ResourcePack:cacheFileAsync(fpath, callback)
+end
+
+--------------------------------
+
+--- 
+---@param v number
+---@return lstg.ResourcePack
+function ResourcePack:setPriority(v)
 end
 
 --------------------------------
@@ -139,9 +148,8 @@ end
 --------------------------------
 
 --- 
----@param fpath string
----@return boolean
-function ResourcePack:isFileCached(fpath)
+---@return array_table
+function ResourcePack:listCachedFiles()
 end
 
 --------------------------------

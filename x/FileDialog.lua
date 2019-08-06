@@ -1,18 +1,18 @@
 
 --------------------------------
--- @module XFileDialog
+-- @module FileDialog
 -- @parent_module lstg
 
----@class lstg.XFileDialog
-local XFileDialog = {}
-lstg.XFileDialog = XFileDialog
+---@class lstg.FileDialog
+local FileDialog = {}
+lstg.FileDialog = FileDialog
 --------------------------------
 
 --- 
 ---@param filterList string
 ---@param defaultPath string
 ---@return array_table
-function XFileDialog:openMultiple(filterList, defaultPath)
+function FileDialog:openMultiple(filterList, defaultPath)
 end
 
 --------------------------------
@@ -20,14 +20,14 @@ end
 --- 
 ---@param defaultPath string
 ---@return string
-function XFileDialog:pickFolder(defaultPath)
+function FileDialog:pickFolder(defaultPath)
 end
 
 --------------------------------
 
 --- 
 ---@return string
-function XFileDialog:getLastError()
+function FileDialog:getLastError()
 end
 
 --------------------------------
@@ -36,7 +36,7 @@ end
 ---@param filterList string
 ---@param defaultPath string
 ---@return string
-function XFileDialog:save(filterList, defaultPath)
+function FileDialog:save(filterList, defaultPath)
 end
 
 --------------------------------
@@ -45,7 +45,7 @@ end
 ---@param filterList string
 ---@param defaultPath string
 ---@return string
-function XFileDialog:open(filterList, defaultPath)
+function FileDialog:open(filterList, defaultPath)
 end
 
 

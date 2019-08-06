@@ -10,14 +10,14 @@ lstg.ResTexture = ResTexture
 --------------------------------
 
 --- 
----@return lstg.XTriangles
+---@return lstg.Triangles
 function ResTexture:getTriangles()
 end
 
 --------------------------------
 
 --- 
----@param tri lstg.XTriangles
+---@param tri lstg.Triangles
 ---@return lstg.ResTexture
 function ResTexture:setTriangles(tri)
 end

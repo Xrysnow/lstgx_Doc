@@ -27,22 +27,8 @@ end
 --------------------------------
 
 --- 
----@return number
-function ResAudio:getFFTSize()
-end
-
---------------------------------
-
---- 
 ---@return lstg.ResAudio
 function ResAudio:resume()
-end
-
---------------------------------
-
---- 
----@return number
-function ResAudio:getTime()
 end
 
 --------------------------------
@@ -55,20 +41,6 @@ end
 --------------------------------
 
 --- 
----@return float
-function ResAudio:getFFT()
-end
-
---------------------------------
-
---- 
----@return number
-function ResAudio:getTotalTime()
-end
-
---------------------------------
-
---- 
 ---@return boolean
 function ResAudio:isStopped()
 end
@@ -76,25 +48,15 @@ end
 --------------------------------
 
 --- 
----@param time number
----@return lstg.ResAudio
-function ResAudio:setTime(time)
+---@return lstg.StreamMemory
+function ResAudio:getStream()
 end
 
 --------------------------------
 
 --- 
----@param v vec3_table
----@return lstg.ResAudio
-function ResAudio:setVelocity(v)
-end
-
---------------------------------
-
---- 
----@param pitch number
----@return lstg.ResAudio
-function ResAudio:setPitch(pitch)
+---@return audio.Source
+function ResAudio:getSource()
 end
 
 --------------------------------
@@ -102,22 +64,6 @@ end
 --- 
 ---@return boolean
 function ResAudio:isPlaying()
-end
-
---------------------------------
-
---- 
----@param pos vec3_table
----@return lstg.ResAudio
-function ResAudio:setPosition(pos)
-end
-
---------------------------------
-
---- 
----@param v number
----@return lstg.ResAudio
-function ResAudio:setVolume(v)
 end
 
 --------------------------------

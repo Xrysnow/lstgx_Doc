@@ -1,17 +1,21 @@
+--
+
 --- The functions in this built-in module control the behavior of the JIT compiler engine. Note that JIT-compilation is fully automatic — you probably won't need to use any of the following functions unless you have special needs.
+---@class jit
 jit = jit or {}
 
+--- Turns the whole JIT compiler on (default).
 function jit.on()
 end
+--- Turns the whole JIT compiler off.
 function jit.off()
 end
---- Turns the whole JIT compiler on (default) or off.
 
---- These functions are typically used with the command line options -j on or -j off.
+-- These functions are typically used with the command line options -j on or -j off.
 
+--- Flushes the whole cache of compiled code.
 function jit.flush()
 end
---- Flushes the whole cache of compiled code.
 
 --- jit.on(func|true [,true|false])
 --- jit.off(func|true [,true|false])
@@ -33,26 +37,32 @@ end
 --- jit.flush(tr)
 --- Flushes the root trace, specified by its number, and all of its side traces from the cache. The code for the trace will be retained as long as there are any other traces which link to it.
 
---- status, ... = jit.status()
+--- `status, ... = jit.status()`
 --- Returns the current status of the JIT compiler. The first result is either true or false if the JIT compiler is turned on or off. The remaining results are strings for CPU-specific features and enabled optimizations.
 function jit.status()
 end
 
 --- Contains the LuaJIT version string.
+---@field version string
 jit.version = ''
 
 --- Contains the version number of the LuaJIT core. Version xx.yy.zz is represented by the decimal number xxyyzz.
+---@field version_num number
 jit.version_num = 0
 
 --- Contains the target OS name: "Windows", "Linux", "OSX", "BSD", "POSIX" or "Other".
+---@field os string
 jit.os = ''
 
 --- Contains the target architecture name: "x86", "x64", "arm", "ppc", "ppcspe", or "mips".
+---@field arch string
 jit.arch = ''
 
 local opt = {}
+
 --- jit.opt.* — JIT compiler optimization control
 --- This sub-module provides the backend for the -O command line option.
+---@class jit.opt
 jit.opt = opt
 
 --- You can also use it programmatically, e.g.:
@@ -65,8 +75,10 @@ function opt.start()
 end
 
 local util = {}
+
 --- jit.util.* — JIT compiler introspection
 --- This sub-module holds functions to introspect the bytecode, generated traces, the IR and the generated machine code. The functionality provided by this module is still in flux and therefore undocumented.
+---@class jit.util
 jit.util = util
 
 --- The debug modules -jbc, -jv and -jdump make extensive use of these functions. Please check out their source code, if you want to know more.

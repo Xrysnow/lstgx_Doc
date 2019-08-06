@@ -34,12 +34,25 @@ end
 ---执行指定路径的脚本。已执行过的脚本会再次执行。
 ---若文件不存在、编译失败、执行失败则抛出错误。
 ---@param path string
----@return void
 function DoFile(path)
 end
 
 ---装载载入窗口。参数为图片路径。
 ---若图片加载失败或为空则使用内置的图片打开窗口。
 function ShowSplashWindow(path)
+end
+
+---
+---@param n number
+function SetThreadPoolSize(n)
+end
+
+---
+---@return number
+function GetThreadPoolSize()
+end
+
+---
+function SetOnWriteLog(f)
 end
 

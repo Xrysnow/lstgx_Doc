@@ -70,14 +70,14 @@ end
 --------------------------------
 
 ---
----@param name char
+---@param name string
 ---@return number
 function BlendMode:getIDByName(name)
 end
 --------------------------------
 
 ---
----@param name char
+---@param name string
 ---@return lstg.BlendMode
 function BlendMode:getByName(name)
 end

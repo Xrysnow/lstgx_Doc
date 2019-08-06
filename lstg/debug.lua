@@ -5,10 +5,7 @@
 ---
 
 
---region 调试函数
-
----该方法可以获得对象池所在的table。慎用。
+---获得对象池所在的table
 function ObjTable()
 end
 
---endregion

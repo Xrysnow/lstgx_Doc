@@ -1,19 +1,19 @@
 
 --------------------------------
--- @module XRandom
+-- @module Random
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.XRandom:cc.Ref
-local XRandom = {}
-lstg.XRandom = XRandom
+---@class lstg.Random:lstg.Ref
+local Random = {}
+lstg.Random = Random
 --------------------------------
 
 ---  get random float in range [a, b] 
 ---@param a number
 ---@param b number
 ---@return number
-function XRandom:randFloat(a, b)
+function Random:randFloat(a, b)
 end
 
 --------------------------------
@@ -25,7 +25,7 @@ end
 ---@param mu number
 ---@param sigma number
 ---@return number
-function XRandom:log_norml(mu, sigma)
+function Random:log_norml(mu, sigma)
 end
 
 --------------------------------
@@ -38,14 +38,14 @@ end
 ---@param mu number
 ---@param kappa number
 ---@return number
-function XRandom:vonMises(mu, kappa)
+function Random:vonMises(mu, kappa)
 end
 
 --------------------------------
 
 --- 
 ---@return number
-function XRandom:getSeed()
+function Random:getSeed()
 end
 
 --------------------------------
@@ -55,9 +55,9 @@ end
 ---@param high number
 ---@param mode number
 ---@return number
----@overload fun(self:lstg.XRandom, low:number, high:number):number
----@overload fun(self:lstg.XRandom):number
-function XRandom:triangular(low, high, mode)
+---@overload fun(self:lstg.Random, low:number, high:number):number
+---@overload fun(self:lstg.Random):number
+function Random:triangular(low, high, mode)
 end
 
 --------------------------------
@@ -66,7 +66,7 @@ end
 ---@param a number
 ---@param b number
 ---@return number
-function XRandom:randInt(a, b)
+function Random:randInt(a, b)
 end
 
 --------------------------------
@@ -76,7 +76,7 @@ end
 ---@param alpha number
 ---@param beta number
 ---@return number
-function XRandom:weibull(alpha, beta)
+function Random:weibull(alpha, beta)
 end
 
 --------------------------------
@@ -86,7 +86,7 @@ end
 ---@param mu number
 ---@param sigma number
 ---@return number
-function XRandom:normal(mu, sigma)
+function Random:normal(mu, sigma)
 end
 
 --------------------------------
@@ -95,7 +95,7 @@ end
 --- Return 0 if n is 0. 
 ---@param n number
 ---@return number
-function XRandom:below(n)
+function Random:below(n)
 end
 
 --------------------------------
@@ -106,7 +106,7 @@ end
 ---@param mu number
 ---@param sigma number
 ---@return number
-function XRandom:gauss(mu, sigma)
+function Random:gauss(mu, sigma)
 end
 
 --------------------------------
@@ -116,28 +116,28 @@ end
 ---@param a number
 ---@param b number
 ---@return number
-function XRandom:uniform(a, b)
+function Random:uniform(a, b)
 end
 
 --------------------------------
 
 --- 
 ---@param seed number
----@return lstg.XRandom
-function XRandom:setSeed(seed)
+---@return lstg.Random
+function Random:setSeed(seed)
 end
 
 --------------------------------
 
 ---  Choose a random item from range(start, stop[, step]).<br>
---- It does not include the endpoint.<br>
---- If range is empty, it returns start.
+-- It does not include the endpoint.<br>
+-- If range is empty, it returns start. 
 ---@param start number
 ---@param stop number
 ---@param step number
 ---@return number
----@overload fun(self:lstg.XRandom, start:number):number
-function XRandom:range(start, stop, step)
+---@overload fun(self:lstg.Random, start:number):number
+function Random:range(start, stop, step)
 end
 
 --------------------------------
@@ -148,7 +148,7 @@ end
 ---@param alpha number
 ---@param beta number
 ---@return number
-function XRandom:beta(alpha, beta)
+function Random:beta(alpha, beta)
 end
 
 --------------------------------
@@ -160,14 +160,14 @@ end
 --- infinity to 0 if lambda is negative.
 ---@param lambda number
 ---@return number
-function XRandom:expo(lambda)
+function Random:expo(lambda)
 end
 
 --------------------------------
 
 ---  get random 1 or -1 
 ---@return number
-function XRandom:randSign()
+function Random:randSign()
 end
 
 --------------------------------
@@ -176,7 +176,7 @@ end
 --- alpha is the shape parameter.
 ---@param alpha number
 ---@return number
-function XRandom:pareto(alpha)
+function Random:pareto(alpha)
 end
 
 --------------------------------
@@ -186,16 +186,16 @@ end
 ---@param alpha number
 ---@param beta number
 ---@return number
-function XRandom:gamma(alpha, beta)
+function Random:gamma(alpha, beta)
 end
 
 --------------------------------
 
 --- 
 ---@param seed number
----@return lstg.XRandom
----@overload fun(self:lstg.XRandom):lstg.XRandom
-function XRandom:create(seed)
+---@return lstg.Random
+---@overload fun(self:lstg.Random):lstg.Random
+function Random:create(seed)
 end
 
 

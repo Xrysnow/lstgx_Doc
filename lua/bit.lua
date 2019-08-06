@@ -1,4 +1,7 @@
+--
+
 ---Lua BitOp is a C extension module for Lua 5.1/5.2 which adds bitwise operations on numbers.
+---@class bit
 bit = bit or {}
 
 ---Normalizes a number to the numeric range for bit operations and returns it. This function is usually not needed since all bit operations already normalize all of their input arguments.

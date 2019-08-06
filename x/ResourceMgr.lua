@@ -49,6 +49,22 @@ end
 
 --------------------------------
 
+--- 
+---@param fpath string
+---@return lstg.Buffer
+function ResourceMgr:loadLocalFileAndCache(fpath)
+end
+
+--------------------------------
+
+--- 
+---@param filePath string
+---@return string
+function ResourceMgr:getStringFromFile(filePath)
+end
+
+--------------------------------
+
 ---  Gives a vector of all ResourcePacks in priority order (higher in front). 
 ---@return lstg.ResourcePack[]
 function ResourceMgr:getResourcePacks()
@@ -118,6 +134,14 @@ end
 ---@param fpath string
 ---@return boolean
 function ResourceMgr:isFileOrDirectoryExist(fpath)
+end
+
+--------------------------------
+
+--- 
+---@param filePath string
+---@return lstg.Buffer
+function ResourceMgr:getBufferFromFile(filePath)
 end
 
 --------------------------------
