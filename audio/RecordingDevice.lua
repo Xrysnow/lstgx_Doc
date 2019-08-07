@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module audio
 
----@class audio.RecordingDevice:audio.Ref
+---@class audio.RecordingDevice:cc.Ref
 local RecordingDevice = {}
 audio.RecordingDevice = RecordingDevice
 --------------------------------

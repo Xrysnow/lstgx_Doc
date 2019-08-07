@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module audio
 
----@class audio.Decoder:audio.Ref
+---@class audio.Decoder:cc.Ref
 local Decoder = {}
 audio.Decoder = Decoder
 --------------------------------

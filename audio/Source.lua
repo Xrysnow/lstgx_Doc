@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module audio
 
----@class audio.Source:audio.Ref
+---@class audio.Source:cc.Ref
 local Source = {}
 audio.Source = Source
 --------------------------------
