@@ -40,6 +40,14 @@ end
 
 --------------------------------
 
+--- Gets maximum number of scene EFX effects.
+--- return number of effects.
+---@return number
+function Engine:getMaxEffectCount()
+end
+
+--------------------------------
+
 --- Sets the velocity of the listener.
 ---@param v vec3_table
 ---@return audio.Engine
@@ -53,7 +61,7 @@ end
 --- param params Effect description table.
 --- return true if successful, false otherwise.
 ---@param name string
----@param params map_table
+---@param params table
 ---@return boolean
 function Engine:setEffect(name, params)
 end
@@ -76,10 +84,10 @@ end
 
 --------------------------------
 
---- Gets EFX (or analog) availability.
---- return true if supported.
----@return boolean
-function Engine:isEFXsupported()
+--- Gets the maximum supported number of simultaneous playing sources.
+--- return The maximum supported number of simultaneous playing sources.
+---@return number
+function Engine:getMaxSourceCount()
 end
 
 --------------------------------
@@ -91,25 +99,9 @@ end
 
 --------------------------------
 
---- Gets maximum number of source EFX effects.
---- return number of effects.
----@return number
-function Engine:getMaxSourceEffects()
-end
-
---------------------------------
-
 --- Gets the position of the listener.
 ---@return vec3_table
 function Engine:getPosition()
-end
-
---------------------------------
-
---- Gets maximum number of scene EFX effects.
---- return number of effects.
----@return number
-function Engine:getMaxSceneEffects()
 end
 
 --------------------------------
@@ -139,12 +131,10 @@ end
 
 --------------------------------
 
---- Removes scene EFX effect.
---- param name Effect name to clear.
---- return true if successful, false otherwise.
----@param name string
----@return boolean
-function Engine:unsetEffect(name)
+--- Gets maximum number of source EFX effects.
+--- return number of effects.
+---@return number
+function Engine:getMaxSourceEffectCount()
 end
 
 --------------------------------
@@ -173,6 +163,14 @@ end
 
 --------------------------------
 
+--- Gets EFX (or analog) availability.
+--- return true if supported.
+---@return boolean
+function Engine:isEffectSupported()
+end
+
+--------------------------------
+
 --- Gets the current number of simultaneous playing sources.
 --- return The current number of simultaneous playing sources.
 ---@return number
@@ -190,18 +188,23 @@ end
 
 --------------------------------
 
---- Gets the maximum supported number of simultaneous playing sources.
---- return The maximum supported number of simultaneous playing sources.
----@return number
-function Engine:getMaxSources()
-end
-
---------------------------------
-
 --- Sets the position of the listener.
 ---@param v vec3_table
 ---@return audio.Engine
 function Engine:setPosition(v)
+end
+
+--------------------------------
+
+--- Gets the OpenAL format identifier based on number of
+--- channels and bits.
+--- param channels
+--- param bitDepth Either 8-bit samples, or 16-bit samples.
+--- return One of AL_FORMAT_*, or AL_NONE if unsupported format.
+---@param bitDepth number
+---@param channels number
+---@return number
+function Engine:getFormat(bitDepth, channels)
 end
 
 --------------------------------
@@ -217,7 +220,7 @@ end
 --- param name Effect name to get data from.
 --- return Effect description table.
 ---@param name string
----@return map_table
+---@return table
 function Engine:getEffect(name)
 end
 
@@ -258,29 +261,12 @@ end
 
 --------------------------------
 
---- 
----@return audio.Engine
-function Engine:destroyInstance()
-end
-
---------------------------------
-
---- Gets the OpenAL format identifier based on number of
---- channels and bits.
---- param channels
---- param bitDepth Either 8-bit samples, or 16-bit samples.
---- return One of AL_FORMAT_*, or AL_NONE if unsupported format.
----@param bitDepth number
----@param channels number
----@return number
-function Engine:getFormat(bitDepth, channels)
-end
-
---------------------------------
-
---- 
----@return audio.Engine
-function Engine:getInstance()
+--- Removes scene EFX effect.
+--- param name Effect name to clear.
+--- return true if successful, false otherwise.
+---@param name string
+---@return boolean
+function Engine:removeEffect(name)
 end
 
 
