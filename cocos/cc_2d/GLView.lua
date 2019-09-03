@@ -97,10 +97,9 @@ end
 --------------------------------
 
 --- Hide or Show the mouse cursor if there is one.
---- param isVisible Hide or Show the mouse cursor if there is one.
----@param  boolean
+---@param isVisible boolean Hide or Show the mouse cursor if there is one.
 ---@return cc.GLView
-function GLView:setCursorVisible()
+function GLView:setCursorVisible(isVisible)
 end
 
 --------------------------------
