@@ -44,9 +44,32 @@ end
 --------------------------------
 
 --- 
+---@return number
+function Model:getDrawableCount()
+end
+
+--------------------------------
+
+--- 
+---@param name string
+---@return number
+function Model:getDrawableOpacity(name)
+end
+
+--------------------------------
+
+--- 
 ---@param opacity number
 ---@return l2d.Model
 function Model:setModelOpacity(opacity)
+end
+
+--------------------------------
+
+--- 
+---@param name string
+---@return number
+function Model:getDrawableBlendMode(name)
 end
 
 --------------------------------
@@ -70,6 +93,15 @@ end
 --------------------------------
 
 --- 
+---@param name string
+---@param opacity number
+---@return l2d.Model
+function Model:setPartOpacity(name, opacity)
+end
+
+--------------------------------
+
+--- 
 ---@param value number
 ---@return l2d.Model
 function Model:setLipValue(value)
@@ -78,8 +110,22 @@ end
 --------------------------------
 
 --- 
+---@return vec2_table
+function Model:getWind()
+end
+
+--------------------------------
+
+--- 
 ---@return number
 function Model:getModelOpacity()
+end
+
+--------------------------------
+
+--- 
+---@return array_table
+function Model:getDrawableNames()
 end
 
 --------------------------------
@@ -116,6 +162,14 @@ end
 --------------------------------
 
 --- 
+---@param name string
+---@return number
+function Model:getPartOpacity(name)
+end
+
+--------------------------------
+
+--- 
 ---@param group string
 ---@param no number
 ---@param priority number
@@ -130,6 +184,13 @@ end
 ---@param priority number
 ---@return boolean
 function Model:startRandomMotion(group, priority)
+end
+
+--------------------------------
+
+--- 
+---@return number
+function Model:getPartCount()
 end
 
 --------------------------------
@@ -153,6 +214,21 @@ end
 
 --- 
 ---@param name string
+---@return number
+function Model:getParameterDefaultValue(name)
+end
+
+--------------------------------
+
+--- 
+---@return array_table
+function Model:getParameterNames()
+end
+
+--------------------------------
+
+--- 
+---@param name string
 ---@param value number
 ---@param weight number
 ---@return l2d.Model
@@ -167,6 +243,13 @@ end
 ---@param opening number
 ---@return l2d.Model
 function Model:setBlinkingSettings(closing, closed, opening)
+end
+
+--------------------------------
+
+--- 
+---@return array_table
+function Model:getPartNames()
 end
 
 --------------------------------
@@ -195,6 +278,13 @@ end
 --- 
 ---@return cc.DrawNode
 function Model:getDebugRectRenderer()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function Model:getParameterCount()
 end
 
 --------------------------------
@@ -239,8 +329,9 @@ end
 --------------------------------
 
 --- 
----@return vec2_table
-function Model:getWind()
+---@param name string
+---@return number
+function Model:getDrawableCulling(name)
 end
 
 --------------------------------
@@ -300,6 +391,20 @@ end
 ---@param flags number
 ---@return l2d.Model
 function Model:draw(renderer, transform, flags)
+end
+
+--------------------------------
+
+--- 
+---@return l2d.Model
+function Model:onEnter()
+end
+
+--------------------------------
+
+--- 
+---@return l2d.Model
+function Model:onExit()
 end
 
 --------------------------------
