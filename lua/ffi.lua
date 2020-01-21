@@ -88,21 +88,25 @@ end
 -- The following API functions return information about C types. They are most useful for inspecting cdata objects.
 
 ---Returns the size of ct in bytes. Returns nil if the size is not known (e.g. for "void" or function types). Requires nelem for VLA/VLS types, except for cdata objects.
+---@return number
 function ffi.sizeof(ct, nelem)
 end
 
 ---Returns the minimum required alignment for ct in bytes.
+---@return number
 function ffi.alignof(ct)
 end
 
 ---ofs,bpos,bsize = ffi.offsetof(ct, field)
 ---Returns the offset (in bytes) of field relative to the start of ct, which must be a struct. Additionally returns the position and the field size (in bits) for bit fields.
+---@return number,number,number
 function ffi.offsetof(ct, field)
 end
 
 ---Returns true if obj has the C type given by ct. Returns false otherwise.
 ---C type qualifiers (const etc.) are ignored. Pointers are checked with the standard pointer compatibility rules, but without any special treatment for void *. If ct specifies a struct/union, then a pointer to this type is accepted, too. Otherwise the types must match exactly.
 ---Note: this function accepts all kinds of Lua objects for the obj argument, but always returns false for non-cdata objects.
+---@return boolean
 function ffi.istype(ct, obj)
 end
 
@@ -111,6 +115,7 @@ end
 --- Returns the error number set by the last C function call which indicated an error condition. If the optional newerr argument is present, the error number is set to the new value and the previous value is returned.
 --- This function offers a portable and OS-independent way to get and set the error number. Note that only some C functions set the error number. And it's only significant if the function actually indicated an error condition (e.g. with a return value of -1 or NULL). Otherwise, it may or may not contain any previously set value.
 --- You're advised to call this function only when needed and as close as possible after the return of the related C function. The errno value is preserved across hooks, memory allocations, invocations of the JIT compiler and other internal VM activity. The same applies to the value returned by GetLastError() on Windows, but you need to declare and call it yourself.
+---@return string
 function ffi.errno(newerr)
 end
 
@@ -119,6 +124,7 @@ end
 --- Otherwise ptr is converted to a "void *" and len gives the length of the data. The data may contain embedded zeros and need not be byte-oriented (though this may cause endianess issues).
 --- This function is mainly useful to convert (temporary) "const char *" pointers returned by C functions to Lua strings and store them or pass them to other functions expecting a Lua string. The Lua string is an (interned) copy of the data and bears no relation to the original data area anymore. Lua strings are 8 bit clean and may be used to hold arbitrary, non-character data.
 --- Performance notice: it's faster to pass the length of the string, if it's known. E.g. when the length is returned by a C call like sprintf().
+---@return string
 function ffi.string(ptr, len)
 end
 
@@ -190,3 +196,5 @@ local cdata = {}
 -- The parser for Lua source code treats numeric literals with the suffixes LL or ULL as signed or unsigned 64 bit integers. Case doesn't matter, but uppercase is recommended for readability. It handles both decimal (42LL) and hexadecimal (0x2aLL) literals.
 
 -- The imaginary part of complex numbers can be specified by suffixing number literals with i or I, e.g. 12.5i. Caveat: you'll need to use 1i to get an imaginary part with the value one, since i itself still refers to a variable named i.
+
+return ffi

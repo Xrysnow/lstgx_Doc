@@ -18,8 +18,8 @@ end
 
 ---获取鼠标的位置，以窗口左下角为原点
 ---@return number,number
-function GetMousePosition()
-end
+--function GetMousePosition()
+--end
 
 ---检查鼠标按键是否按下
 ---@param button number 可取0、1、2，分别对应鼠标左键、中键、右键

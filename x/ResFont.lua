@@ -343,15 +343,6 @@ end
 --------------------------------
 
 --- 
----@param src
----@param target cc.Label
----@return lstg.ResFont
---function ResFont:syncLabelSetting(src, target)
---end
-
---------------------------------
-
---- 
 ---@param data string
 ---@param outTexName string
 ---@return string
