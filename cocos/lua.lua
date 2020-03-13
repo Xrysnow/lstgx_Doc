@@ -2,6 +2,7 @@
 
 cc = cc or {}
 ccui = ccui or {}
+ccb = ccb or {}
 
 ---@class point_table
 local point = { x = 0, y = 0 }
@@ -80,6 +81,13 @@ local blendFunc = { src = 0, dst = 0 }
 
 ---@class quat_table
 local quat = { x = 0, y = 0, z = 0, w = 0 }
+
+---@class cc.Viewport
+local viewport = { x = 0, y = 0, w = 0, h = 0 }
+
+---@class ccb.UniformLocation
+local UniformLocation = { location = { 0, 0 }, shaderStage = 0 }
+
 -------------------------------------------------
 
 ---@class margin_table
@@ -88,13 +96,17 @@ local Margin = { left = 0, right = 0, top = 0, bottom = 0 }
 ---@class ttfconfig_table
 local ttfconfig = {
     fontFilePath = '', fontSize = 0, glyphs = 0, customGlyphs = '', distanceFieldEnabled = false, outlineSize = 0 }
+---@class cc._ttfConfig:ttfconfig_table
 
 -------------------------------------------------
 
 ---@class array_table
 local _
 
----@class cc.Renderer
+---@class map_table
+local _
+
+---@class cc.TextureAtlas
 local _
 
 ---@class cc.ResourceData
