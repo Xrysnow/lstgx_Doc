@@ -31,7 +31,7 @@ end
 --------------------------------
 
 --- 
----@param conf cc.ttfConfig
+---@param conf cc._ttfConfig
 ---@return lstg.ResFont
 function ResFont:setTTFConfig(conf)
 end
@@ -74,14 +74,14 @@ end
 --------------------------------
 
 --- 
----@return cc.ttfConfig
+---@return cc._ttfConfig
 function ResFont:getTTFConfig()
 end
 
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function ResFont:getGlowColor()
 end
 
@@ -95,7 +95,7 @@ end
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function ResFont:getOutlineColor()
 end
 
@@ -111,13 +111,6 @@ end
 --- 
 ---@return number
 function ResFont:getShadowBlurRadius()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:enableUnderline()
 end
 
 --------------------------------
@@ -167,7 +160,7 @@ end
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@param size number
 ---@return lstg.ResFont
 function ResFont:enableOutline(color, size)
@@ -183,7 +176,7 @@ end
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function ResFont:getColor()
 end
 
@@ -197,14 +190,6 @@ end
 --------------------------------
 
 --- 
----@param m lstg.BlendMode
----@return lstg.ResFont
-function ResFont:setBlendMode(m)
-end
-
---------------------------------
-
---- 
 ---@return lstg.ResFont
 function ResFont:disableBold()
 end
@@ -212,14 +197,14 @@ end
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function ResFont:getShadowColor()
 end
 
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@return lstg.ResFont
 function ResFont:setOutlineColor(color)
 end
@@ -249,7 +234,7 @@ end
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@return lstg.ResFont
 function ResFont:enableGlow(color)
 end
@@ -257,7 +242,7 @@ end
 --------------------------------
 
 --- 
----@param c lstg.Color
+---@param c color4b_table
 ---@return lstg.ResFont
 function ResFont:setColor(c)
 end
@@ -267,6 +252,13 @@ end
 --- 
 ---@return boolean
 function ResFont:isStrikethrough()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.RenderMode
+function ResFont:getRenderMode()
 end
 
 --------------------------------
@@ -286,8 +278,8 @@ end
 --------------------------------
 
 --- 
----@return lstg.BlendMode
-function ResFont:getBlendMode()
+---@return lstg.ResFont
+function ResFont:enableUnderline()
 end
 
 --------------------------------
@@ -310,6 +302,14 @@ end
 --- 
 ---@return lstg.ResFont
 function ResFont:disableStrikethrough()
+end
+
+--------------------------------
+
+--- 
+---@param m lstg.RenderMode
+---@return lstg.ResFont
+function ResFont:setRenderMode(m)
 end
 
 --------------------------------
@@ -352,7 +352,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResFont:getInfo()
 end
 

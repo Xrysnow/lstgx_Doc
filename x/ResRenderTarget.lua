@@ -10,7 +10,7 @@ lstg.ResRenderTarget = ResRenderTarget
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function ResRenderTarget:getClearColor()
 end
 
@@ -18,7 +18,7 @@ end
 
 --- 
 ---@param shader lstg.ResFX
----@param blend lstg.BlendMode
+---@param blend lstg.RenderMode
 ---@return boolean
 function ResRenderTarget:render(shader, blend)
 end
@@ -41,7 +41,7 @@ end
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@return lstg.ResRenderTarget
 function ResRenderTarget:setClearColor(color)
 end
@@ -92,7 +92,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResRenderTarget:getInfo()
 end
 

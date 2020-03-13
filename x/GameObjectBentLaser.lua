@@ -11,7 +11,7 @@ lstg.GameObjectBentLaser = GameObjectBentLaser
 
 --- 
 ---@param texture lstg.ResTexture
----@param blend lstg.BlendMode
+---@param blend lstg.RenderMode
 ---@param color lstg.Color
 ---@param tex_left number
 ---@param tex_top number

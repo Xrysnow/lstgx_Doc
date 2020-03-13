@@ -31,7 +31,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResourceColliable:getInfo()
 end
 

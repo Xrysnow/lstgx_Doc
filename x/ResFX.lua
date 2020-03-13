@@ -10,19 +10,42 @@ lstg.ResFX = ResFX
 --------------------------------
 
 --- 
----@param key string
----@param val number
+---@param uniform string
+---@param value mat4_table
 ---@return lstg.ResFX
-function ResFX:setValue(key, val)
+function ResFX:setMat4(uniform, value)
 end
 
 --------------------------------
 
 --- 
----@param key string
----@param val lstg.Color
+---@return array_table
+function ResFX:getUniformNames()
+end
+
+--------------------------------
+
+--- 
+---@param uniform string
+---@param value color4b_table
 ---@return lstg.ResFX
-function ResFX:setColor(key, val)
+function ResFX:setColor(uniform, value)
+end
+
+--------------------------------
+
+--- 
+---@param uniform string
+---@param value number
+---@return lstg.ResFX
+function ResFX:setFloat(uniform, value)
+end
+
+--------------------------------
+
+--- 
+---@return lstg.RenderMode
+function ResFX:getRenderMode()
 end
 
 --------------------------------
@@ -36,41 +59,68 @@ end
 --------------------------------
 
 --- 
----@return cc.GLProgramState
+---@return ccb.ProgramState
 function ResFX:getProgramState()
 end
 
 --------------------------------
 
 --- 
----@return cc.GLProgram
+---@param uniform string
+---@param value vec4_table
+---@return lstg.ResFX
+function ResFX:setVec4(uniform, value)
+end
+
+--------------------------------
+
+--- 
+---@return ccb.Program
 function ResFX:getProgram()
 end
 
 --------------------------------
 
 --- 
----@param key string
----@param val cc.Texture2D
+---@param uniform string
+---@param value cc.Texture2D
 ---@return lstg.ResFX
-function ResFX:setTexture(key, val)
+function ResFX:setTexture(uniform, value)
 end
 
 --------------------------------
 
 --- 
----@param rect rect_table
+---@param uniform string
+---@param value vec3_table
 ---@return lstg.ResFX
-function ResFX:setViewport(rect)
+function ResFX:setVec3(uniform, value)
+end
+
+--------------------------------
+
+--- 
+---@param uniform string
+---@param value vec2_table
+---@return lstg.ResFX
+function ResFX:setVec2(uniform, value)
+end
+
+--------------------------------
+
+--- 
+---@param vp cc.Viewport
+---@return lstg.ResFX
+function ResFX:setViewport(vp)
 end
 
 --------------------------------
 
 --- 
 ---@param name string
----@param glProgram cc.GLProgram
+---@param program ccb.Program
 ---@return lstg.ResFX
-function ResFX:createWithGLProgram(name, glProgram)
+function ResFX:createWithProgram(name, program)
 end
 
 --------------------------------
@@ -96,7 +146,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResFX:getInfo()
 end
 

@@ -27,6 +27,13 @@ end
 --------------------------------
 
 --- 
+---@return number
+function ResAudio:getFFTSize()
+end
+
+--------------------------------
+
+--- 
 ---@return lstg.ResAudio
 function ResAudio:resume()
 end
@@ -69,6 +76,13 @@ end
 --------------------------------
 
 --- 
+---@return float
+function ResAudio:getFFT()
+end
+
+--------------------------------
+
+--- 
 ---@return string
 function ResAudio:getPath()
 end
@@ -76,7 +90,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResAudio:getInfo()
 end
 

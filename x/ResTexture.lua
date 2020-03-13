@@ -25,7 +25,7 @@ end
 --------------------------------
 
 --- 
----@param blend lstg.BlendMode
+---@param blend lstg.RenderMode
 ---@param quad cc.V3F_C4B_T2F_Quad
 ---@return boolean
 ---@overload fun(self:lstg.ResTexture, quad:cc.V3F_C4B_T2F_Quad):boolean
@@ -60,7 +60,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResTexture:getInfo()
 end
 

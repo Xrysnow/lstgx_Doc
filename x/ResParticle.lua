@@ -10,15 +10,15 @@ lstg.ResParticle = ResParticle
 --------------------------------
 
 --- 
----@return cc.Sprite
-function ResParticle:getBindSprite()
+---@return lstg.RenderMode
+function ResParticle:getRenderMode()
 end
 
 --------------------------------
 
 --- 
----@return lstg.BlendMode
-function ResParticle:getBlendMode()
+---@return cc.Sprite
+function ResParticle:getBindSprite()
 end
 
 --------------------------------
@@ -37,7 +37,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResParticle:getInfo()
 end
 

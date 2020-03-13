@@ -10,7 +10,7 @@ lstg.Resource = Resource
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function Resource:getInfo()
 end
 

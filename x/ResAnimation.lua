@@ -105,17 +105,17 @@ end
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@param i number
 ---@return lstg.ResAnimation
----@overload fun(self:lstg.ResAnimation, color:lstg.Color):lstg.ResAnimation
+---@overload fun(self:lstg.ResAnimation, color:color4b_table):lstg.ResAnimation
 function ResAnimation:setColor(color, i)
 end
 
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResAnimation:getInfo()
 end
 

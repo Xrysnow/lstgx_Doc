@@ -28,9 +28,34 @@ end
 --------------------------------
 
 --- 
----@param handler number
+---@param b boolean
 ---@return l2d.Model
-function Model:setOnDraggingCallback(handler)
+function Model:setDebugRectEnable(b)
+end
+
+--------------------------------
+
+--- 
+---@param groupName string
+---@param index number
+---@return string
+function Model:getSoundFileName(groupName, index)
+end
+
+--------------------------------
+
+--- 
+---@return l2d.Model
+function Model:resetDragging()
+end
+
+--------------------------------
+
+--- 
+---@param x number
+---@param y number
+---@return l2d.Model
+function Model:setTouchDragging(x, y)
 end
 
 --------------------------------
@@ -85,18 +110,18 @@ end
 --------------------------------
 
 --- 
----@param b boolean
+---@param name string
+---@param opacity number
 ---@return l2d.Model
-function Model:setDebugRectEnable(b)
+function Model:setPartOpacity(name, opacity)
 end
 
 --------------------------------
 
 --- 
----@param name string
----@param opacity number
+---@param b boolean
 ---@return l2d.Model
-function Model:setPartOpacity(name, opacity)
+function Model:setAutoDragging(b)
 end
 
 --------------------------------
@@ -126,14 +151,6 @@ end
 --- 
 ---@return array_table
 function Model:getDrawableNames()
-end
-
---------------------------------
-
---- 
----@param handler number
----@return l2d.Model
-function Model:setOnHitCallback(handler)
 end
 
 --------------------------------
@@ -170,20 +187,20 @@ end
 --------------------------------
 
 --- 
----@param group string
----@param no number
+---@param groupName string
+---@param index number
 ---@param priority number
 ---@return boolean
-function Model:startMotion(group, no, priority)
+function Model:startMotion(groupName, index, priority)
 end
 
 --------------------------------
 
 --- 
----@param group string
+---@param groupName string
 ---@param priority number
 ---@return boolean
-function Model:startRandomMotion(group, priority)
+function Model:startRandomMotion(groupName, priority)
 end
 
 --------------------------------
@@ -196,18 +213,18 @@ end
 --------------------------------
 
 --- 
----@return rect_table
-function Model:getCanvasRect()
-end
-
---------------------------------
-
---- 
 ---@param name string
 ---@param value number
 ---@param weight number
 ---@return l2d.Model
 function Model:addParameterValue(name, value, weight)
+end
+
+--------------------------------
+
+--- 
+---@return string
+function Model:getDirectory()
 end
 
 --------------------------------
@@ -262,8 +279,8 @@ end
 --------------------------------
 
 --- 
----@return array_table
-function Model:getMotionNames()
+---@return number
+function Model:getLipValue()
 end
 
 --------------------------------
@@ -290,15 +307,15 @@ end
 --------------------------------
 
 --- 
----@param expressionID string
+---@param expressionName string
 ---@return boolean
-function Model:setExpression(expressionID)
+function Model:setExpression(expressionName)
 end
 
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@return l2d.Model
 function Model:setModelColor(color)
 end
@@ -314,16 +331,17 @@ end
 --------------------------------
 
 --- 
+---@param name string
 ---@return number
-function Model:getLipValue()
+function Model:getParameterMaximumValue(name)
 end
 
 --------------------------------
 
 --- 
----@param name string
+---@param groupName string
 ---@return number
-function Model:getParameterMaximumValue(name)
+function Model:getMotionCount(groupName)
 end
 
 --------------------------------
@@ -337,7 +355,7 @@ end
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function Model:getModelColor()
 end
 
@@ -381,30 +399,6 @@ end
 ---@param fileName string
 ---@return l2d.Model
 function Model:create(dir, fileName)
-end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return l2d.Model
-function Model:draw(renderer, transform, flags)
-end
-
---------------------------------
-
---- 
----@return l2d.Model
-function Model:onEnter()
-end
-
---------------------------------
-
---- 
----@return l2d.Model
-function Model:onExit()
 end
 
 --------------------------------

@@ -357,14 +357,6 @@ end
 --------------------------------
 
 --- 
----@param m lstg.BlendMode
----@return lstg.ParticlePool
-function ParticlePool:setBlendMode(m)
-end
-
---------------------------------
-
---- 
 ---@return number
 function ParticlePool:getColorVar()
 end
@@ -388,6 +380,13 @@ end
 --- 
 ---@return number
 function ParticlePool:getGravityMin()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.RenderMode
+function ParticlePool:getRenderMode()
 end
 
 --------------------------------
@@ -429,13 +428,6 @@ end
 --------------------------------
 
 --- 
----@return lstg.BlendMode
-function ParticlePool:getBlendMode()
-end
-
---------------------------------
-
---- 
 ---@param val number
 ---@return lstg.ParticlePool
 function ParticlePool:setSizeEnd(val)
@@ -454,6 +446,14 @@ end
 ---@param val number
 ---@return lstg.ParticlePool
 function ParticlePool:setLifetime(val)
+end
+
+--------------------------------
+
+--- 
+---@param m lstg.RenderMode
+---@return lstg.ParticlePool
+function ParticlePool:setRenderMode(m)
 end
 
 --------------------------------

@@ -18,40 +18,25 @@ end
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@param i number
 ---@return lstg.ResourceQuad
----@overload fun(self:lstg.ResourceQuad, color:lstg.Color):lstg.ResourceQuad
+---@overload fun(self:lstg.ResourceQuad, color:color4b_table):lstg.ResourceQuad
 function ResourceQuad:setColor(color, i)
 end
 
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return lstg.RenderMode
+function ResourceQuad:getRenderMode()
+end
+
+--------------------------------
+
+--- 
+---@return color4b_table
 function ResourceQuad:getColor()
-end
-
---------------------------------
-
---- 
----@param blm lstg.BlendMode
----@return lstg.ResourceQuad
-function ResourceQuad:setBlendMode(blm)
-end
-
---------------------------------
-
---- 
----@return lstg.BlendMode
-function ResourceQuad:getBlendMode()
-end
-
---------------------------------
-
---- 
----@return cc.V3F_C4B_T2F_Quad
-function ResourceQuad:getVertex()
 end
 
 --------------------------------
@@ -65,7 +50,22 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return cc.V3F_C4B_T2F_Quad
+function ResourceQuad:getVertex()
+end
+
+--------------------------------
+
+--- 
+---@param m lstg.RenderMode
+---@return lstg.ResourceQuad
+function ResourceQuad:setRenderMode(m)
+end
+
+--------------------------------
+
+--- 
+---@return map_table
 function ResourceQuad:getInfo()
 end
 

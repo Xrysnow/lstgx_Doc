@@ -118,7 +118,7 @@ end
 --------------------------------
 
 --- 
----@return string
+---@return map_table
 function ResSprite:getInfo()
 end
 
