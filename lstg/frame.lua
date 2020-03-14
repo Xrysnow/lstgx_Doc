@@ -52,7 +52,23 @@ end
 function GetThreadPoolSize()
 end
 
+function FrameInit()
+end
+function FrameReset()
+end
+function FrameEnd()
+end
+
 ---
 function SetOnWriteLog(f)
 end
 
+
+---@param msg string
+---@param title string
+function MessageBox(msg, title)
+end
+
+function GetPlatform()
+    return ''
+end

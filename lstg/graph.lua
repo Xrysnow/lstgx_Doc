@@ -65,21 +65,21 @@ end
 ---@param near number
 ---@param far number
 ---@param color lstg.Color 默认为0x00FFFFFF
-function SetFog(near, far, color)
-end
+--function SetFog(near, far, color)
+--end
 
----CreateGLProgramFromPath
+---
 ---@param vert string
 ---@param frag string
----@return cc.GLProgram
-function CreateGLProgramFromPath(vert, frag)
+---@return ccb.Program
+function CreateShaderProgramFromPath(vert, frag)
 end
 
----CreateGLProgramFromString
+---
 ---@param vert string
 ---@param frag string
----@return cc.GLProgram
-function CreateGLProgramFromString(vert, frag)
+---@return ccb.Program
+function CreateShaderProgramFromString(vert, frag)
 end
 
 ---@return cc.RenderTexture
@@ -92,4 +92,10 @@ end
 
 ---@return cc.RenderTexture
 function GetFrameBuffer()
+end
+
+---
+---@param level number
+---@return boolean
+function SetMSAALevel(level)
 end
