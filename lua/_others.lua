@@ -1,5 +1,4 @@
 --- JSON4Lua: JSON encoding / decoding support for the Lua language.
----@class json
 json = {}
 
 --- Encodes an arbitrary Lua object / variable.
@@ -20,17 +19,9 @@ end
 function json.null()
 end
 
-rebounding = {}
+--rebounding = {}
 lfs = {}
 
---endregion
-
---region EX
-
-ex = {}
-
----@param factor number
----@return void
-function ex.SetFactor(factor)
-end
-
+--- array of commandline arguments
+---@type string[]
+_ARGS = {}
