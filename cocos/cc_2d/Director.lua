@@ -17,42 +17,12 @@ end
 
 --------------------------------
 
---- Clones a projection matrix and put it to the top of projection matrix stack.
---- param index The index of projection matrix stack.
---- js NA
----@param index number
----@return cc.Director
-function Director:pushProjectionMatrix(index)
-end
-
---------------------------------
-
----  Pops the top matrix of the projection matrix stack.
---- param index The index of projection matrix stack.
---- js NA
----@param index number
----@return cc.Director
-function Director:popProjectionMatrix(index)
-end
-
---------------------------------
-
 ---  Sets the EventDispatcher associated with this director.
 --- since v3.0
 --- js NA
 ---@param dispatcher cc.EventDispatcher
 ---@return cc.Director
 function Director:setEventDispatcher(dispatcher)
-end
-
---------------------------------
-
----  Adds an identity matrix to the top of projection matrix stack.
---- param index The index of projection matrix stack.
---- js NA
----@param index number
----@return cc.Director
-function Director:loadProjectionIdentityMatrix(index)
 end
 
 --------------------------------
@@ -111,14 +81,6 @@ end
 ---@param actionManager cc.ActionManager
 ---@return cc.Director
 function Director:setActionManager(actionManager)
-end
-
---------------------------------
-
----  Enables/disables OpenGL alpha blending. 
----@param on boolean
----@return cc.Director
-function Director:setAlphaBlending(on)
 end
 
 --------------------------------
@@ -196,14 +158,6 @@ end
 
 --------------------------------
 
----  Enables/disables OpenGL depth test. 
----@param on boolean
----@return cc.Director
-function Director:setDepthTest(on)
-end
-
---------------------------------
-
 --- Gets Frame Rate.
 --- js NA
 ---@return number
@@ -268,18 +222,6 @@ end
 
 --------------------------------
 
---- Multiplies a matrix to the top of projection matrix stack.
---- param mat The matrix that to be multiplied.
---- param index The index of projection matrix stack.
---- js NA
----@param mat mat4_table
----@param index number
----@return cc.Director
-function Director:multiplyProjectionMatrix(mat, index)
-end
-
---------------------------------
-
 --- Gets the top matrix of specified type of matrix stack.
 --- js NA
 ---@param type number
@@ -301,6 +243,14 @@ end
 --- warning Don't call this function to start the main loop. To run the main loop call runWithScene.
 ---@return cc.Director
 function Director:startAnimation()
+end
+
+--------------------------------
+
+---  Returns the Renderer associated with this director.
+--- since v3.0
+---@return cc.Renderer
+function Director:getRenderer()
 end
 
 --------------------------------
@@ -536,28 +486,6 @@ end
 --- The value is equal to `Director::getWinSize()` if don't invoke `GLView::setDesignResolutionSize()`.
 ---@return size_table
 function Director:getVisibleSize()
-end
-
---------------------------------
-
---- Adds a matrix to the top of projection matrix stack.
---- param mat The matrix that to be added.
---- param index The index of projection matrix stack.
---- js NA
----@param mat mat4_table
----@param index number
----@return cc.Director
-function Director:loadProjectionMatrix(mat, index)
-end
-
---------------------------------
-
---- Init the projection matrix stack.
---- param stackCount The size of projection matrix stack.
---- js NA
----@param stackCount number
----@return cc.Director
-function Director:initProjectionMatrixStack(stackCount)
 end
 
 --------------------------------

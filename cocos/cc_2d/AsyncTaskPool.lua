@@ -17,7 +17,7 @@ cc.AsyncTaskPool = AsyncTaskPool
 ---@param callbackParam void
 ---@param task fun()
 ---@return cc.AsyncTaskPool
----@overload fun(self:cc.AsyncTaskPool, type:number, task:fun()):cc.AsyncTaskPool
+---@overload fun(self:cc.AsyncTaskPool, type:number, task:function):cc.AsyncTaskPool
 function AsyncTaskPool:enqueue(type, callback, callbackParam, task)
 end
 

@@ -45,7 +45,7 @@ end
 ---@param normalSprite cc.Node
 ---@param selectedSprite cc.Node
 ---@param disabledSprite cc.Node
----@param callback fun()
+---@param callback fun(arg0:cc.Ref)
 ---@return boolean
 function MenuItemSprite:initWithNormalSprite(normalSprite, selectedSprite, disabledSprite, callback)
 end

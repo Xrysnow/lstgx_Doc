@@ -105,7 +105,7 @@ end
 
 --- 
 ---@param filename string
----@param callback fun()
+---@param callback fun(arg0:cc.Ref)
 ---@return cc.Node
 ---@overload fun(self:cc.CSLoader, filename:string):cc.Node
 function CSLoader:createNodeWithVisibleSize(filename, callback)

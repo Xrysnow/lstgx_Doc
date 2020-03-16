@@ -91,7 +91,7 @@ end
 
 --- brief Add a page turn callback to PageView, then when one page is turning, the callback will be called.
 --- param callback A page turning callback.
----@param callback fun()
+---@param callback fun(arg0:cc.Ref,arg1:ccui.PageView::EventType)
 ---@return ccui.PageView
 function PageView:addEventListener(callback)
 end

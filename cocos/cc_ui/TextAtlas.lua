@@ -19,14 +19,16 @@ end
 
 --------------------------------
 
---- 
+--- Get string value for labelatlas.
+--- return The string value of TextAtlas.
 ---@return string
 function TextAtlas:getString()
 end
 
 --------------------------------
 
---- 
+--- Set string value for labelatlas.
+--- param value A given string needs to be displayed.
 ---@param value string
 ---@return ccui.TextAtlas
 function TextAtlas:setString(value)

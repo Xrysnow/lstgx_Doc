@@ -101,8 +101,8 @@ end
 ---@param packageUrl string
 ---@param versionFileUrl string
 ---@param storagePath string
----@param errorCallback fun()
----@param progressCallback fun()
+---@param errorCallback fun(arg0:number)
+---@param progressCallback fun(arg0:number)
 ---@param successCallback fun()
 ---@return cc.AssetsManager
 function AssetsManager:create(packageUrl, versionFileUrl, storagePath, errorCallback, progressCallback, successCallback)

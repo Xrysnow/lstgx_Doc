@@ -9,13 +9,6 @@ local Camera = {}
 cc.Camera = Camera
 --------------------------------
 
---- Restore the FBO, RenderTargets and viewport.
----@return cc.Camera
-function Camera:restore()
-end
-
---------------------------------
-
 --- get depth, camera with larger depth is drawn on top of camera with smaller depth, the depth of camera with CameraFlag::DEFAULT is 0, user defined camera is -1 by default
 ---@return number
 function Camera:getDepth()
@@ -94,13 +87,6 @@ end
 
 --------------------------------
 
---- 
----@return cc.Camera
-function Camera:restoreViewport()
-end
-
---------------------------------
-
 --- Before rendering scene with this camera, the background need to be cleared. It clears the depth buffer with max depth by default. Use setBackgroundBrush to modify the default behavior
 ---@return cc.Camera
 function Camera:clearBackground()
@@ -112,14 +98,6 @@ end
 ---@param mat mat4_table
 ---@return cc.Camera
 function Camera:setAdditionalProjection(mat)
-end
-
---------------------------------
-
---- Set Viewport for camera.
----@param vp ccexp.Viewport
----@return cc.Camera
-function Camera:setViewport(vp)
 end
 
 --------------------------------
@@ -196,13 +174,6 @@ end
 
 --------------------------------
 
---- 
----@return cc.Camera
-function Camera:restoreFrameBufferObject()
-end
-
---------------------------------
-
 --- Gets the camera's view matrix.
 --- return The camera view matrix.
 ---@return mat4_table
@@ -237,21 +208,6 @@ end
 --- Get the frustum's far plane.
 ---@return number
 function Camera:getFarPlane()
-end
-
---------------------------------
-
---- 
----@return cc.Camera
-function Camera:applyFrameBufferObject()
-end
-
---------------------------------
-
---- Set FBO, which will attach several render target for the rendered result.
----@param fbo ccexp.FrameBuffer
----@return cc.Camera
-function Camera:setFrameBufferObject(fbo)
 end
 
 --------------------------------
@@ -320,14 +276,14 @@ end
 --------------------------------
 
 --- 
----@return ccexp.Viewport
+---@return cc.Viewport
 function Camera:getDefaultViewport()
 end
 
 --------------------------------
 
 --- 
----@param vp ccexp.Viewport
+---@param vp cc.Viewport
 ---@return cc.Camera
 function Camera:setDefaultViewport(vp)
 end

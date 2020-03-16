@@ -223,7 +223,7 @@ end
 
 --- Add callback function which will be called  when scrollview event triggered.
 --- param callback A callback function with type of `ccScrollViewCallback`.
----@param callback fun()
+---@param callback fun(arg0:cc.Ref,arg1:ccui.ScrollView::EventType)
 ---@return ccui.ScrollView
 function ScrollView:addEventListener(callback)
 end

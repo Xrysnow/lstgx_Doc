@@ -298,6 +298,14 @@ end
 
 --------------------------------
 
+--- Set ProgramState
+---@param programState ccb.ProgramState
+---@return cc.SpriteBatchNode
+function SpriteBatchNode:setProgramState(programState)
+end
+
+--------------------------------
+
 --- 
 ---@param child cc.Node
 ---@param zOrder number

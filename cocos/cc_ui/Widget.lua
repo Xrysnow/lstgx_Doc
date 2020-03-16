@@ -4,7 +4,7 @@
 -- @extend ProtectedNode,LayoutParameterProtocol
 -- @parent_module ccui
 
----@class ccui.Widget:cc.Node,ccui.LayoutParameterProtocol
+---@class ccui.Widget:ccui.ProtectedNode,ccui.LayoutParameterProtocol
 local Widget = {}
 ccui.Widget = Widget
 --------------------------------

@@ -11,7 +11,7 @@ cc.EventListenerAssetsManagerEx = EventListenerAssetsManagerEx
 
 ---  Initializes event with type and callback function 
 ---@param AssetsManagerEx cc.AssetsManagerEx
----@param callback fun()
+---@param callback fun(arg0:cc.EventAssetsManagerEx)
 ---@return boolean
 function EventListenerAssetsManagerEx:init(AssetsManagerEx, callback)
 end

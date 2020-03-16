@@ -84,10 +84,26 @@ end
 
 --------------------------------
 
+--- set the callback which invoked before update of each object in physics world.
+---@param callback fun()
+---@return cc.PhysicsWorld
+function PhysicsWorld:setPreUpdateCallback(callback)
+end
+
+--------------------------------
+
 --- Get the auto step of this physics world.
 --- return A bool object.
 ---@return boolean
 function PhysicsWorld:isAutoStep()
+end
+
+--------------------------------
+
+--- set the callback which invoked after update of each object in physics world.
+---@param callback fun()
+---@return cc.PhysicsWorld
+function PhysicsWorld:setPostUpdateCallback(callback)
 end
 
 --------------------------------

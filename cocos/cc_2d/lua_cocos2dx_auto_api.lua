@@ -12,6 +12,21 @@
 
 
 --------------------------------------------------------
+-- the cc EventListener
+-- @field [parent=#cc] EventListener#EventListener EventListener preloaded module
+
+
+--------------------------------------------------------
+-- the cc EventListenerCustom
+-- @field [parent=#cc] EventListenerCustom#EventListenerCustom EventListenerCustom preloaded module
+
+
+--------------------------------------------------------
+-- the cc ShaderCache
+-- @field [parent=#cc] ShaderCache#ShaderCache ShaderCache preloaded module
+
+
+--------------------------------------------------------
 -- the cc Texture2D
 -- @field [parent=#cc] Texture2D#Texture2D Texture2D preloaded module
 
@@ -99,11 +114,6 @@
 --------------------------------------------------------
 -- the cc Image
 -- @field [parent=#cc] Image#Image Image preloaded module
-
-
---------------------------------------------------------
--- the cc GLProgramState
--- @field [parent=#cc] GLProgramState#GLProgramState GLProgramState preloaded module
 
 
 --------------------------------------------------------
@@ -292,11 +302,6 @@
 
 
 --------------------------------------------------------
--- the cc EventListener
--- @field [parent=#cc] EventListener#EventListener EventListener preloaded module
-
-
---------------------------------------------------------
 -- the cc EventDispatcher
 -- @field [parent=#cc] EventDispatcher#EventDispatcher EventDispatcher preloaded module
 
@@ -309,11 +314,6 @@
 --------------------------------------------------------
 -- the cc EventListenerAcceleration
 -- @field [parent=#cc] EventListenerAcceleration#EventListenerAcceleration EventListenerAcceleration preloaded module
-
-
---------------------------------------------------------
--- the cc EventListenerCustom
--- @field [parent=#cc] EventListenerCustom#EventListenerCustom EventListenerCustom preloaded module
 
 
 --------------------------------------------------------
@@ -1227,23 +1227,8 @@
 
 
 --------------------------------------------------------
--- the cc GLProgram
--- @field [parent=#cc] GLProgram#GLProgram GLProgram preloaded module
-
-
---------------------------------------------------------
--- the cc GLProgramCache
--- @field [parent=#cc] GLProgramCache#GLProgramCache GLProgramCache preloaded module
-
-
---------------------------------------------------------
 -- the cc RenderState
 -- @field [parent=#cc] RenderState#RenderState RenderState preloaded module
-
-
---------------------------------------------------------
--- the cc Pass
--- @field [parent=#cc] Pass#Pass Pass preloaded module
 
 
 --------------------------------------------------------
@@ -1254,6 +1239,16 @@
 --------------------------------------------------------
 -- the cc Material
 -- @field [parent=#cc] Material#Material Material preloaded module
+
+
+--------------------------------------------------------
+-- the cc Pass
+-- @field [parent=#cc] Pass#Pass Pass preloaded module
+
+
+--------------------------------------------------------
+-- the cc Renderer
+-- @field [parent=#cc] Renderer#Renderer Renderer preloaded module
 
 
 --------------------------------------------------------
@@ -1329,6 +1324,16 @@
 --------------------------------------------------------
 -- the cc TileMapAtlas
 -- @field [parent=#cc] TileMapAtlas#TileMapAtlas TileMapAtlas preloaded module
+
+
+--------------------------------------------------------
+-- the cc FastTMXLayer
+-- @field [parent=#cc] FastTMXLayer#FastTMXLayer FastTMXLayer preloaded module
+
+
+--------------------------------------------------------
+-- the cc FastTMXTiledMap
+-- @field [parent=#cc] FastTMXTiledMap#FastTMXTiledMap FastTMXTiledMap preloaded module
 
 
 --------------------------------------------------------

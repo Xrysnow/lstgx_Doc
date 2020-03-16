@@ -31,7 +31,7 @@ end
 --------------------------------
 
 --- Sets the source blending function.
---- param blendFunc A structure with source and destination factor to specify pixel arithmetic. e.g. {GL_ONE, GL_ONE}, {GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA}.
+--- param blendFunc A structure with source and destination factor to specify pixel arithmetic. e.g. {BlendFactor::ONE, BlendFactor::ONE}, {BlendFactor::SRC_ALPHA, BlendFactor::ONE_MINUS_SRC_ALPHA}.
 --- js NA
 --- lua NA
 ---@param blendFunc cc.BlendFunc
@@ -130,9 +130,8 @@ end
 --------------------------------
 
 --- 
----@param ignore boolean
----@return ccui.ImageView
-function ImageView:ignoreContentAdaptWithSize(ignore)
+---@return boolean
+function ImageView:init()
 end
 
 --------------------------------
@@ -145,31 +144,16 @@ end
 --------------------------------
 
 --- 
----@return boolean
-function ImageView:init()
-end
-
---------------------------------
-
---- 
----@param glProgram cc.GLProgram
----@return ccui.ImageView
-function ImageView:setGLProgram(glProgram)
-end
-
---------------------------------
-
---- 
----@param glProgramState cc.GLProgramState
----@return ccui.ImageView
-function ImageView:setGLProgramState(glProgramState)
-end
-
---------------------------------
-
---- 
 ---@return size_table
 function ImageView:getVirtualRendererSize()
+end
+
+--------------------------------
+
+--- 
+---@param ignore boolean
+---@return ccui.ImageView
+function ImageView:ignoreContentAdaptWithSize(ignore)
 end
 
 --------------------------------

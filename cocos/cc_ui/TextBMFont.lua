@@ -19,14 +19,14 @@ end
 
 --------------------------------
 
---- 
+---  get string value for labelbmfont
 ---@return string
 function TextBMFont:getString()
 end
 
 --------------------------------
 
---- 
+---  set string value for labelbmfont
 ---@param value string
 ---@return ccui.TextBMFont
 function TextBMFont:setString(value)

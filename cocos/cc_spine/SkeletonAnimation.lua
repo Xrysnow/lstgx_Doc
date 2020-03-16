@@ -11,7 +11,7 @@ sp.SkeletonAnimation = SkeletonAnimation
 
 --- 
 ---@param entry spTrackEntry
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setTrackCompleteListener(entry, listener)
 end
@@ -27,7 +27,7 @@ end
 --------------------------------
 
 --- 
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setCompleteListener(listener)
 end
@@ -46,7 +46,7 @@ end
 
 --- 
 ---@param entry spTrackEntry
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setTrackStartListener(entry, listener)
 end
@@ -64,7 +64,7 @@ end
 --------------------------------
 
 --- 
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setDisposeListener(listener)
 end
@@ -73,7 +73,7 @@ end
 
 --- 
 ---@param entry spTrackEntry
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setTrackInterruptListener(entry, listener)
 end
@@ -81,7 +81,7 @@ end
 --------------------------------
 
 --- 
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setEndListener(listener)
 end
@@ -90,7 +90,7 @@ end
 
 --- 
 ---@param entry spTrackEntry
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setTrackDisposeListener(entry, listener)
 end
@@ -98,7 +98,7 @@ end
 --------------------------------
 
 --- 
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry,arg1:spEvent)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setEventListener(listener)
 end
@@ -116,7 +116,7 @@ end
 
 --- 
 ---@param entry spTrackEntry
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry,arg1:spEvent)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setTrackEventListener(entry, listener)
 end
@@ -131,7 +131,7 @@ end
 --------------------------------
 
 --- 
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setInterruptListener(listener)
 end
@@ -155,7 +155,7 @@ end
 
 --- 
 ---@param entry spTrackEntry
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setTrackEndListener(entry, listener)
 end
@@ -163,7 +163,7 @@ end
 --------------------------------
 
 --- 
----@param listener fun()
+---@param listener fun(arg0:spTrackEntry)
 ---@return sp.SkeletonAnimation
 function SkeletonAnimation:setStartListener(listener)
 end

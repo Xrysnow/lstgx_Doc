@@ -1,11 +1,11 @@
 
 --------------------------------
 -- @module AudioEngine
--- @parent_module ccexp
+-- @parent_module cc
 
----@class ccexp.AudioEngine
+---@class cc.AudioEngine
 local AudioEngine = {}
-ccexp.AudioEngine = AudioEngine
+cc.AudioEngine = AudioEngine
 --------------------------------
 
 --- 
@@ -42,21 +42,21 @@ end
 --- warning This can lead to stop related audio first.
 --- param filePath Audio file path.
 ---@param filePath string
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:uncache(filePath)
 end
 
 --------------------------------
 
 ---  Resume all suspended audio instances. 
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:resumeAll()
 end
 
 --------------------------------
 
 ---  Stop all audio instances. 
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:stopAll()
 end
 
@@ -65,7 +65,7 @@ end
 --- Pause an audio instance.
 --- param audioID An audioID returned by the play2d function.
 ---@param audioID number
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:pause(audioID)
 end
 
@@ -115,7 +115,7 @@ end
 --------------------------------
 
 ---  Pause all playing audio instances. 
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:pauseAll()
 end
 
@@ -123,7 +123,7 @@ end
 
 --- Uncache all audio data from internal buffer.
 --- warning All audio will be stopped first.
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:uncacheAll()
 end
 
@@ -134,7 +134,7 @@ end
 --- param volume Volume value (range from 0.0 to 1.0).
 ---@param audioID number
 ---@param volume number
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:setVolume(audioID, volume)
 end
 
@@ -144,9 +144,9 @@ end
 -- param filePath The file path of an audio.<br>
 -- param callback A callback which will be called after loading is finished.
 ---@param filePath string
----@param callback fun()
----@return ccexp.AudioEngine
----@overload fun(self:ccexp.AudioEngine, filePath:string):ccexp.AudioEngine
+---@param callback fun(arg0:boolean)
+---@return cc.AudioEngine
+---@overload fun(self:cc.AudioEngine, filePath:string):cc.AudioEngine
 function AudioEngine:preload(filePath, callback)
 end
 
@@ -155,7 +155,7 @@ end
 --- Whether to enable playing audios
 --- note If it's disabled, current playing audios will be stopped and the later 'preload', 'play2d' methods will take no effects.
 ---@param isEnabled boolean
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:setEnabled(isEnabled)
 end
 
@@ -171,7 +171,7 @@ end
 ---@param filePath string
 ---@param loop boolean
 ---@param volume number
----@param profile ccexp.AudioProfile
+---@param profile cc.AudioProfile
 ---@return number
 function AudioEngine:play2d(filePath, loop, volume, profile)
 end
@@ -191,7 +191,7 @@ end
 --- Resume an audio instance.
 --- param audioID An audioID returned by the play2d function.
 ---@param audioID number
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:resume(audioID)
 end
 
@@ -200,7 +200,7 @@ end
 --- Stop an audio instance.
 --- param audioID An audioID returned by the play2d function.
 ---@param audioID number
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:stop(audioID)
 end
 
@@ -209,8 +209,8 @@ end
 --- Release objects relating to AudioEngine.
 --- warning It must be called before the application exit.
 --- lua endToLua
----@return ccexp.AudioEngine
-function AudioEngine:end()
+---@return cc.AudioEngine
+function AudioEngine:endToLua()
 end
 
 --------------------------------
@@ -230,7 +230,7 @@ end
 --- param loop Whether audio instance loop or not.
 ---@param audioID number
 ---@param loop boolean
----@return ccexp.AudioEngine
+---@return cc.AudioEngine
 function AudioEngine:setLoop(audioID, loop)
 end
 
@@ -238,7 +238,7 @@ end
 
 --- Gets the default profile of audio instances.
 --- return The default profile of audio instances.
----@return ccexp.AudioProfile
+---@return cc.AudioProfile
 function AudioEngine:getDefaultProfile()
 end
 
@@ -248,7 +248,7 @@ end
 -- param profileName A name of audio profile.<br>
 -- return The audio profile.
 ---@param audioID number
----@return ccexp.AudioProfile
+---@return cc.AudioProfile
 function AudioEngine:getProfile(audioID)
 end
 

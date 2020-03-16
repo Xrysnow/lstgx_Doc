@@ -23,6 +23,15 @@ end
 
 --------------------------------
 
+--- When isolated is set, the position of the node is no longer affected by parent nodes.
+--- Which means it will be drawn just like a root node.
+---@param isolated boolean
+---@return cc.DrawNode
+function DrawNode:setIsolated(isolated)
+end
+
+--------------------------------
+
 ---  Draws a rectangle with 4 points.<br>
 -- param p1 The rectangle vertex point.<br>
 -- param p2 The rectangle vertex point.<br>
@@ -70,15 +79,6 @@ end
 
 --------------------------------
 
---- js NA
----@param transform mat4_table
----@param flags number
----@return cc.DrawNode
-function DrawNode:onDrawGLPoint(transform, flags)
-end
-
---------------------------------
-
 ---  draw a dot at a position, with a given radius and color. 
 --- param pos The dot center.
 --- param radius The dot radius.
@@ -111,15 +111,6 @@ end
 --- lua NA
 ---@return cc.BlendFunc
 function DrawNode:getBlendFunc()
-end
-
---------------------------------
-
---- js NA
----@param transform mat4_table
----@param flags number
----@return cc.DrawNode
-function DrawNode:onDraw(transform, flags)
 end
 
 --------------------------------
@@ -159,15 +150,6 @@ end
 ---@param color color4f_table
 ---@return cc.DrawNode
 function DrawNode:drawQuadBezier(origin, control, destination, segments, color)
-end
-
---------------------------------
-
---- js NA
----@param transform mat4_table
----@param flags number
----@return cc.DrawNode
-function DrawNode:onDrawGLLine(transform, flags)
 end
 
 --------------------------------
@@ -244,6 +226,13 @@ end
 
 --------------------------------
 
+--- 
+---@return boolean
+function DrawNode:isIsolated()
+end
+
+--------------------------------
+
 ---  Draw a cubic bezier curve with color and number of segments
 --- param origin The origin of the bezier path.
 --- param control1 The first control of the bezier path.
@@ -277,6 +266,16 @@ end
 ---@param flags number
 ---@return cc.DrawNode
 function DrawNode:draw(renderer, transform, flags)
+end
+
+--------------------------------
+
+--- 
+---@param renderer cc.Renderer
+---@param parentTransform mat4_table
+---@param parentFlags number
+---@return cc.DrawNode
+function DrawNode:visit(renderer, parentTransform, parentFlags)
 end
 
 --------------------------------

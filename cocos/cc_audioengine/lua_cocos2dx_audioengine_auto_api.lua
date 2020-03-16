@@ -1,14 +1,14 @@
 --------------------------------
--- @module ccexp
+-- @module cc
 
 --------------------------------------------------------
--- the ccexp AudioProfile
--- @field [parent=#ccexp] AudioProfile#AudioProfile AudioProfile preloaded module
+-- the cc AudioProfile
+-- @field [parent=#cc] AudioProfile#AudioProfile AudioProfile preloaded module
 
 
 --------------------------------------------------------
--- the ccexp AudioEngine
--- @field [parent=#ccexp] AudioEngine#AudioEngine AudioEngine preloaded module
+-- the cc AudioEngine
+-- @field [parent=#cc] AudioEngine#AudioEngine AudioEngine preloaded module
 
 
 return nil

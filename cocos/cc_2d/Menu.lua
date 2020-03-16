@@ -17,9 +17,9 @@ end
 
 --------------------------------
 
---- Set whether the menu is visible. If set false, interacting with the menu
+--- Set whether the menu is enabled. If set to false, interacting with the menu
 --- will have no effect.
---- The default value is true, a menu is default to visible.
+--- The default value is true, a menu is enabled by default.
 --- param value true if menu is to be enabled, false if menu is to be disabled.
 ---@param value boolean
 ---@return cc.Menu

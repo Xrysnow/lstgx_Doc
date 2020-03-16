@@ -93,14 +93,6 @@ end
 
 --------------------------------
 
---- 
----@param cleanup boolean
----@return cc.Sprite
-function Sprite:removeAllChildrenWithCleanup(cleanup)
-end
-
---------------------------------
-
 --- setCenterRectNormalized
 --- Useful to implement "9 sliced" sprites.
 --- The default value is (0,0) - (1,1), which means that only one "slice" will be used: From top-left (0,0) to bottom-right (1,1).
@@ -170,6 +162,14 @@ end
 
 --------------------------------
 
+--- Sets the weak reference of the TextureAtlas when the sprite is rendered using via SpriteBatchNode.
+---@param textureAtlas cc.TextureAtlas
+---@return cc.Sprite
+function Sprite:setTextureAtlas(textureAtlas)
+end
+
+--------------------------------
+
 --- Sets the batch node to sprite.
 --- warning This method is not recommended for game developers. Sample code for using batch node
 --- code
@@ -201,17 +201,24 @@ end
 
 --------------------------------
 
---- Sets the weak reference of the TextureAtlas when the sprite is rendered using via SpriteBatchNode.
----@param textureAtlas cc.TextureAtlas
----@return cc.Sprite
-function Sprite:setTextureAtlas(textureAtlas)
+--- Returns the current displayed frame.
+---@return cc.SpriteFrame
+function Sprite:getSpriteFrame()
 end
 
 --------------------------------
 
---- Returns the current displayed frame.
----@return cc.SpriteFrame
-function Sprite:getSpriteFrame()
+--- 
+---@return cc.Sprite
+function Sprite:setVertexLayout()
+end
+
+--------------------------------
+
+--- 
+---@param cleanup boolean
+---@return cc.Sprite
+function Sprite:removeAllChildrenWithCleanup(cleanup)
 end
 
 --------------------------------
@@ -317,6 +324,15 @@ end
 
 --------------------------------
 
+--- 
+---@param vert string
+---@param frag string
+---@return cc.Sprite
+function Sprite:updateShaders(vert, frag)
+end
+
+--------------------------------
+
 --- Gets the weak reference of the TextureAtlas when the sprite is rendered using via SpriteBatchNode.
 ---@return cc.TextureAtlas
 function Sprite:getTextureAtlas()
@@ -389,7 +405,7 @@ end
 --- Creates a sprite with an sprite frame name.
 --- A SpriteFrame will be fetched from the SpriteFrameCache by spriteFrameName param.
 --- If the SpriteFrame doesn't exist it will raise an exception.
---- param   spriteFrameName A null terminated string which indicates the sprite frame name.
+--- param   spriteFrameName The name of sprite frame.
 --- return  An autoreleased sprite object.
 ---@param spriteFrameName string
 ---@return cc.Sprite
@@ -448,6 +464,14 @@ end
 ---@return cc.Sprite
 ---@overload fun(self:cc.Sprite, scale:number):cc.Sprite
 function Sprite:setScale(scaleX, scaleY)
+end
+
+--------------------------------
+
+--- Set ProgramState
+---@param programState ccb.ProgramState
+---@return cc.Sprite
+function Sprite:setProgramState(programState)
 end
 
 --------------------------------
@@ -531,6 +555,13 @@ end
 
 --------------------------------
 
+--- Get current ProgramState
+---@return ccb.ProgramState
+function Sprite:getProgramState()
+end
+
+--------------------------------
+
 --- 
 ---@return cc.Sprite
 function Sprite:sortAllChildren()
@@ -597,7 +628,7 @@ end
 
 --- js ctor
 ---@return cc.Sprite
-function Sprite:create()
+function Sprite:Sprite()
 end
 
 

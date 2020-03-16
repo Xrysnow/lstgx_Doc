@@ -15,7 +15,7 @@ cc.MenuItemAtlasFont = MenuItemAtlasFont
 ---@param itemWidth number
 ---@param itemHeight number
 ---@param startCharMap number
----@param callback fun()
+---@param callback fun(arg0:cc.Ref)
 ---@return boolean
 function MenuItemAtlasFont:initWithString(value, charMapFile, itemWidth, itemHeight, startCharMap, callback)
 end

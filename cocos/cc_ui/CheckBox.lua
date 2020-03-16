@@ -11,7 +11,7 @@ ccui.CheckBox = CheckBox
 
 --- Add a callback function which would be called when checkbox is selected or unselected.
 --- param callback A std::function with type @see `ccCheckBoxCallback`
----@param callback fun()
+---@param callback fun(arg0:cc.Ref,arg1:ccui.CheckBox::EventType)
 ---@return ccui.CheckBox
 function CheckBox:addEventListener(callback)
 end

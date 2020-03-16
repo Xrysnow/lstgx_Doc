@@ -13,7 +13,7 @@ cc.ActionFloat = ActionFloat
 ---@param duration number
 ---@param from number
 ---@param to number
----@param callback fun()
+---@param callback fun(arg0:number)
 ---@return boolean
 function ActionFloat:initWithDuration(duration, from, to, callback)
 end
@@ -30,7 +30,7 @@ end
 ---@param duration number
 ---@param from number
 ---@param to number
----@param callback fun()
+---@param callback fun(arg0:number)
 ---@return cc.ActionFloat
 function ActionFloat:create(duration, from, to, callback)
 end

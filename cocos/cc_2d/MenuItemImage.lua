@@ -44,7 +44,7 @@ end
 ---@param normalImage string
 ---@param selectedImage string
 ---@param disabledImage string
----@param callback fun()
+---@param callback fun(arg0:cc.Ref)
 ---@return boolean
 function MenuItemImage:initWithNormalImage(normalImage, selectedImage, disabledImage, callback)
 end

@@ -23,19 +23,16 @@ end
 
 --------------------------------
 
----  Render the scene.<br>
--- param renderer The renderer use to render the scene.<br>
--- param eyeTransforms The AdditionalTransform List of camera of multiView.<br>
--- param eyeProjections The projection matrix List of camera of multiView.<br>
--- param multiViewCount The number of multiView.<br>
--- js NA
+---  Render the scene.
+--- param renderer The renderer use to render the scene.
+--- param eyeTransform The AdditionalTransform of camera.
+--- param eyeProjection The projection matrix of camera.
+--- js NA
 ---@param renderer cc.Renderer
----@param eyeTransforms mat4_table
----@param eyeProjections mat4_table
----@param multiViewCount number
+---@param eyeTransform mat4_table
+---@param eyeProjection mat4_table
 ---@return cc.Scene
----@overload fun(self:cc.Scene, renderer:cc.Renderer, eyeTransform:mat4_table, eyeProjection:mat4_table):cc.Scene
-function Scene:render(renderer, eyeTransforms, eyeProjections, multiViewCount)
+function Scene:render(renderer, eyeTransform, eyeProjection)
 end
 
 --------------------------------

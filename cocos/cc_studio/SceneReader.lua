@@ -9,7 +9,7 @@ ccs.SceneReader = SceneReader
 --------------------------------
 
 --- 
----@param selector fun()
+---@param selector fun(arg0:cc.Ref,arg1:void)
 ---@return ccs.SceneReader
 function SceneReader:setTarget(selector)
 end

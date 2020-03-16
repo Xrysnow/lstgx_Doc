@@ -9,10 +9,9 @@ local AtlasNode = {}
 cc.AtlasNode = AtlasNode
 --------------------------------
 
----  updates the Atlas (indexed vertex array).
---- Shall be overridden in subclasses.
----@return cc.AtlasNode
-function AtlasNode:updateAtlasValues()
+--- lua NA
+---@return cc.BlendFunc
+function AtlasNode:getBlendFunc()
 end
 
 --------------------------------
@@ -24,21 +23,6 @@ end
 ---@param itemsToRender number
 ---@return boolean
 function AtlasNode:initWithTileFile(tile, tileWidth, tileHeight, itemsToRender)
-end
-
---------------------------------
-
---- 
----@return cc.Texture2D
-function AtlasNode:getTexture()
-end
-
---------------------------------
-
----  Set an buffer manager of the texture vertex. 
----@param textureAtlas cc.TextureAtlas
----@return cc.AtlasNode
-function AtlasNode:setTextureAtlas(textureAtlas)
 end
 
 --------------------------------
@@ -55,6 +39,21 @@ end
 
 --------------------------------
 
+---  Set an buffer manager of the texture vertex. 
+---@param textureAtlas cc.TextureAtlas
+---@return cc.AtlasNode
+function AtlasNode:setTextureAtlas(textureAtlas)
+end
+
+--------------------------------
+
+--- 
+---@return cc.Texture2D
+function AtlasNode:getTexture()
+end
+
+--------------------------------
+
 ---  Return the buffer manager of the texture vertex. 
 --- return Return A TextureAtlas.
 ---@return cc.TextureAtlas
@@ -63,16 +62,10 @@ end
 
 --------------------------------
 
---- lua NA
----@return cc.BlendFunc
-function AtlasNode:getBlendFunc()
-end
-
---------------------------------
-
---- 
----@return number
-function AtlasNode:getQuadsToDraw()
+---  updates the Atlas (indexed vertex array).
+--- Shall be overridden in subclasses.
+---@return cc.AtlasNode
+function AtlasNode:updateAtlasValues()
 end
 
 --------------------------------
@@ -92,6 +85,13 @@ end
 ---@param itemsToRender number
 ---@return boolean
 function AtlasNode:initWithTexture(texture, tileWidth, tileHeight, itemsToRender)
+end
+
+--------------------------------
+
+--- 
+---@return number
+function AtlasNode:getQuadsToDraw()
 end
 
 --------------------------------

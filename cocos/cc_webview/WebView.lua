@@ -2,16 +2,16 @@
 --------------------------------
 -- @module WebView
 -- @extend Widget
--- @parent_module ccexp
+-- @parent_module ccui
 
----@class ccexp.WebView:ccexp.Widget
+---@class ccui.WebView:ccui.Widget
 local WebView = {}
-ccexp.WebView = WebView
+ccui.WebView = WebView
 --------------------------------
 
 --- SetOpacity of webview.
 ---@param opacity number
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:setOpacityWebView(opacity)
 end
 
@@ -30,21 +30,21 @@ end
 --- param baseURL The base URL for the content.
 ---@param string string
 ---@param baseURL string
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:loadHTMLString(string, baseURL)
 end
 
 --------------------------------
 
 --- Goes forward in the history.
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:goForward()
 end
 
 --------------------------------
 
 --- Goes back in the history.
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:goBack()
 end
 
@@ -52,7 +52,7 @@ end
 
 --- Set WebView should support zooming. The default value is false.
 ---@param scalesPageToFit boolean
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:setScalesPageToFit(scalesPageToFit)
 end
 
@@ -61,7 +61,7 @@ end
 --- Loads the given fileName.
 --- param fileName Content fileName.
 ---@param fileName string
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:loadFile(fileName)
 end
 
@@ -72,8 +72,8 @@ end
 -- cleanCachedData Whether to clean cached data.
 ---@param url string
 ---@param cleanCachedData boolean
----@return ccexp.ui::WebView
----@overload fun(self:ccexp.ui::WebView, url:string):ccexp.ui::WebView
+---@return ccui.WebView
+---@overload fun(self:ccui.WebView, url:string):ccui.WebView
 function WebView:loadURL(url, cleanCachedData)
 end
 
@@ -81,7 +81,7 @@ end
 
 --- Set whether the webview bounces at end of scroll of WebView.
 ---@param bounce boolean
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:setBounces(bounce)
 end
 
@@ -89,21 +89,21 @@ end
 
 --- Evaluates JavaScript in the context of the currently displayed page.
 ---@param js string
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:evaluateJS(js)
 end
 
 --------------------------------
 
 --- set the background transparent
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:setBackgroundTransparent()
 end
 
 --------------------------------
 
 --- Get the Javascript callback.
----@return fun()
+---@return function
 function WebView:getOnJSCallback()
 end
 
@@ -118,7 +118,7 @@ end
 --------------------------------
 
 --- Stops the current load.
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:stopLoading()
 end
 
@@ -132,7 +132,7 @@ end
 --------------------------------
 
 --- Reloads the current URL.
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:reload()
 end
 
@@ -141,21 +141,21 @@ end
 --- Set javascript interface scheme.
 --- see WebView::setOnJSCallback()
 ---@param scheme string
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:setJavascriptInterfaceScheme(scheme)
 end
 
 --------------------------------
 
 --- Allocates and initializes a WebView.
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:create()
 end
 
 --------------------------------
 
 --- 
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:onEnter()
 end
 
@@ -163,21 +163,21 @@ end
 
 --- Toggle visibility of WebView.
 ---@param visible boolean
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:setVisible(visible)
 end
 
 --------------------------------
 
 --- 
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:onExit()
 end
 
 --------------------------------
 
 --- Default constructor.
----@return ccexp.ui::WebView
+---@return ccui.WebView
 function WebView:WebView()
 end
 

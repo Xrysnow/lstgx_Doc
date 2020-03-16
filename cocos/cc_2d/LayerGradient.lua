@@ -91,11 +91,11 @@ end
 ---  Initializes the Layer with a gradient between start and end in the direction of v.<br>
 -- js init<br>
 -- lua init
----@param start lstg.Color
----@param end lstg.Color
+---@param start color4b_table
+---@param end color4b_table
 ---@param v vec2_table
 ---@return boolean
----@overload fun(self:cc.LayerGradient, start:lstg.Color, end:lstg.Color):boolean
+---@overload fun(self:cc.LayerGradient, start:color4b_table, end:color4b_table):boolean
 function LayerGradient:initWithColor(start, end, v)
 end
 
@@ -130,11 +130,11 @@ end
 -- param start The start color.<br>
 -- param end The end color.<br>
 -- return An autoreleased LayerGradient object.
----@param start lstg.Color
----@param end lstg.Color
+---@param start color4b_table
+---@param end color4b_table
 ---@param v vec2_table
 ---@return cc.LayerGradient
----@overload fun(self:cc.LayerGradient, start:lstg.Color, end:lstg.Color):cc.LayerGradient
+---@overload fun(self:cc.LayerGradient, start:color4b_table, end:color4b_table):cc.LayerGradient
 ---@overload fun(self:cc.LayerGradient):cc.LayerGradient
 function LayerGradient:create(start, end, v)
 end

@@ -34,7 +34,7 @@ end
 
 ---  @brief Set the verification function for checking whether downloaded asset is correct, e.g. using md5 verification
 --- param callback  The verify callback function
----@param callback fun()
+---@param callback fun(arg0:std::string&,arg1:cc.ManifestAsset):boolean
 ---@return cc.AssetsManagerEx
 function AssetsManagerEx:setVerifyCallback(callback)
 end
@@ -57,7 +57,7 @@ end
 
 ---  @brief Set the handle function for comparing manifests versions
 --- param handle    The compare function
----@param handle fun()
+---@param handle fun(arg0:std::string&,arg1:std::string&):number
 ---@return cc.AssetsManagerEx
 function AssetsManagerEx:setVersionCompareHandle(handle)
 end

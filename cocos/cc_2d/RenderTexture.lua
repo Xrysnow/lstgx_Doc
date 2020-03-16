@@ -82,6 +82,27 @@ end
 
 --------------------------------
 
+---  saves the texture into a file in non-PMA. The format could be JPG or PNG. The file will be saved in the Documents folder.<br>
+-- Returns true if the operation is successful.<br>
+-- Notes: since v3.x, saveToFile will generate a custom command, which will be called in the following render->render().<br>
+-- So if this function is called in a event handler, the actual save file will be called in the next frame. If we switch to a different scene, the game will crash.<br>
+-- To solve this, add Director::getInstance()->getRenderer()->render(); after this function.<br>
+-- param filename The file name.<br>
+-- param format The image format.<br>
+-- param isRGBA The file is RGBA or not.<br>
+-- param callback When the file is save finished,it will callback this function.<br>
+-- return Returns true if the operation is successful.
+---@param fileName string
+---@param format number
+---@param isRGBA boolean
+---@param callback fun(arg0:cc.RenderTexture,arg1:std::string&)
+---@return boolean
+---@overload fun(self:cc.RenderTexture, filename:string, isRGBA:boolean, callback:function):boolean
+function RenderTexture:saveToFileAsNonPMA(fileName, format, isRGBA, callback)
+end
+
+--------------------------------
+
 ---  Flag: Use stack matrix computed from scene hierarchy or generate new modelView and projection matrix.
 --- param keepMatrix Whether or not use stack matrix computed from scene hierarchy or generate new modelView and projection matrix.
 --- js NA
@@ -93,7 +114,7 @@ end
 --------------------------------
 
 ---  Set flags.
---- param clearFlags Valid flags: GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT, GL_STENCIL_BUFFER_BIT.
+--- param clearFlags set clear flags.
 ---@param clearFlags number
 ---@return cc.RenderTexture
 function RenderTexture:setClearFlags(clearFlags)
@@ -121,9 +142,9 @@ end
 ---@param filename string
 ---@param format number
 ---@param isRGBA boolean
----@param callback fun()
+---@param callback fun(arg0:cc.RenderTexture,arg1:std::string&)
 ---@return boolean
----@overload fun(self:cc.RenderTexture, filename:string, isRGBA:boolean, callback:fun()):boolean
+---@overload fun(self:cc.RenderTexture, filename:string, isRGBA:boolean, callback:function):boolean
 function RenderTexture:saveToFile(filename, format, isRGBA, callback)
 end
 
@@ -208,17 +229,10 @@ end
 
 --------------------------------
 
----  Valid flags: GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT, GL_STENCIL_BUFFER_BIT. They can be OR'ed. Valid when "autoDraw" is true. 
+---  Valid when "autoDraw" is true.
 --- return Clear flags.
 ---@return number
 function RenderTexture:getClearFlags()
-end
-
---------------------------------
-
---- 
----@return cc.Image
-function RenderTexture:newImage()
 end
 
 --------------------------------

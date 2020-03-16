@@ -1,16 +1,16 @@
 
 --------------------------------
 -- @module AudioProfile
--- @parent_module ccexp
+-- @parent_module cc
 
----@class ccexp.AudioProfile
+---@class cc.AudioProfile
 local AudioProfile = {}
-ccexp.AudioProfile = AudioProfile
+cc.AudioProfile = AudioProfile
 --------------------------------
 
 --- Default constructor
 --- lua new
----@return ccexp.AudioProfile
+---@return cc.AudioProfile
 function AudioProfile:AudioProfile()
 end
 

@@ -26,11 +26,29 @@ end
 
 --------------------------------
 
---- get a script Handler
---- js NA
---- lua NA
----@return number
-function EditBox:getScriptEditBoxHandler()
+--- Sets the maximum input length of the edit box.
+--- Setting this value enables multiline input mode by default.
+--- Available on Android, iOS and Windows Phone.
+--- param maxLength The maximum length.
+---@param maxLength number
+---@return ccui.EditBox
+function EditBox:setMaxLength(maxLength)
+end
+
+--------------------------------
+
+--- 
+---@return ccui.EditBox
+function EditBox:openKeyboard()
+end
+
+--------------------------------
+
+--- Set the font size.
+--- param fontSize The font size.
+---@param fontSize number
+---@return ccui.EditBox
+function EditBox:setFontSize(fontSize)
 end
 
 --------------------------------
@@ -47,6 +65,22 @@ end
 --- return One of the EditBox::InputMode constants.
 ---@return number
 function EditBox:getInputMode()
+end
+
+--------------------------------
+
+--- Init edit box with specified size. This method should be invoked right after constructor.<br>
+-- param size The size of edit box.<br>
+-- param normal9SpriteBg  background image of edit box.<br>
+-- return Whether initialization is successfully or not.
+---@param size size_table
+---@param normalSprite ccui.Scale9Sprite
+---@param pressedSprite ccui.Scale9Sprite
+---@param disabledSprite ccui.Scale9Sprite
+---@return boolean
+---@overload fun(self:ccui.EditBox, size:size_table, normal9SpriteBg:ccui.Scale9Sprite):boolean
+---@overload fun(self:ccui.EditBox, size:size_table, normal9SpriteBg:string, texType:number):boolean
+function EditBox:initWithSizeAndBackgroundSprite(size, normalSprite, pressedSprite, disabledSprite)
 end
 
 --------------------------------
@@ -81,6 +115,14 @@ end
 --- return The font size.
 ---@return number
 function EditBox:getPlaceholderFontSize()
+end
+
+--------------------------------
+
+--- Return the capInsets of disabled state scale9sprite.
+--- return The disabled scale9 renderer capInsets.
+---@return rect_table
+function EditBox:getCapInsetsDisabledRenderer()
 end
 
 --------------------------------
@@ -130,11 +172,31 @@ end
 
 --------------------------------
 
+--- Sets capInsets for edit box, only the disabled state scale9 renderer will be affected.
+--- param capInsets  capInsets in Rect.
+---@param capInsets rect_table
+---@return ccui.EditBox
+function EditBox:setCapInsetsDisabledRenderer(capInsets)
+end
+
+--------------------------------
+
 --- Set the placeholder's font size.
 --- param fontSize The font size.
 ---@param fontSize number
 ---@return ccui.EditBox
 function EditBox:setPlaceholderFontSize(fontSize)
+end
+
+--------------------------------
+
+--- Load disabled state texture for edit box.
+--- param disabled    dark state texture.
+--- param texType    @see `TextureResType`
+---@param disabled string
+---@param texType number
+---@return ccui.EditBox
+function EditBox:loadTextureDisabled(disabled, texType)
 end
 
 --------------------------------
@@ -207,17 +269,28 @@ end
 
 --------------------------------
 
---- 
----@param sender cc.Ref
----@param controlEvent number
+--- Sets capInsets for edit box, only the normal state scale9 renderer will be affected.
+--- param capInsets    capInsets in Rect.
+---@param capInsets rect_table
 ---@return ccui.EditBox
-function EditBox:touchDownAction(sender, controlEvent)
+function EditBox:setCapInsetsNormalRenderer(capInsets)
+end
+
+--------------------------------
+
+--- Load pressed state texture for edit box.
+--- param pressed    pressed state texture.
+--- param texType    @see `TextureResType`
+---@param pressed string
+---@param texType number
+---@return ccui.EditBox
+function EditBox:loadTexturePressed(pressed, texType)
 end
 
 --------------------------------
 
 --- Get the font color of the widget's text.
----@return lstg.Color
+---@return color4b_table
 function EditBox:getFontColor()
 end
 
@@ -231,9 +304,131 @@ end
 
 --------------------------------
 
+--- Init edit box with specified size. This method should be invoked right after constructor.
+--- param size The size of edit box.
+--- param normalImage  normal state texture name.
+--- param pressedImage  pressed state texture name.
+--- param disabledImage  disabled state texture name.
+--- return Whether initialization is successfully or not.
+---@param size size_table
+---@param normalImage string
+---@param pressedImage string
+---@param disabledImage string
+---@param texType number
+---@return boolean
+function EditBox:initWithSizeAndTexture(size, normalImage, pressedImage, disabledImage, texType)
+end
+
+--------------------------------
+
 --- Get the text horizontal alignment.
 ---@return number
 function EditBox:getTextHorizontalAlignment()
+end
+
+--------------------------------
+
+--- Return the capInsets of normal state scale9sprite.
+--- return The normal scale9 renderer capInsets.
+---@return rect_table
+function EditBox:getCapInsetsNormalRenderer()
+end
+
+--------------------------------
+
+--- Return the capInsets of pressed state scale9sprite.
+--- return The pressed scale9 renderer capInsets.
+---@return rect_table
+function EditBox:getCapInsetsPressedRenderer()
+end
+
+--------------------------------
+
+--- get a script Handler
+--- js NA
+--- lua NA
+---@return number
+function EditBox:getScriptEditBoxHandler()
+end
+
+--------------------------------
+
+--- Load textures for edit box.
+--- param normal    normal state texture name.
+--- param pressed    pressed state texture name.
+--- param disabled    disabled state texture name.
+--- param texType    @see `TextureResType`
+---@param normal string
+---@param pressed string
+---@param disabled string
+---@param texType number
+---@return ccui.EditBox
+function EditBox:loadTextures(normal, pressed, disabled, texType)
+end
+
+--------------------------------
+
+--- Set a text in the edit box that acts as a placeholder when an
+--- edit box is empty.
+--- param pText The given text.
+---@param pText string
+---@return ccui.EditBox
+function EditBox:setPlaceHolder(pText)
+end
+
+--------------------------------
+
+--- Set the input flags that are to be applied to the edit box.
+--- param inputFlag One of the EditBox::InputFlag constants.
+---@param inputFlag number
+---@return ccui.EditBox
+function EditBox:setInputFlag(inputFlag)
+end
+
+--------------------------------
+
+--- Set the return type that are to be applied to the edit box.
+--- param returnType One of the EditBox::KeyboardReturnType constants.
+---@param returnType number
+---@return ccui.EditBox
+function EditBox:setReturnType(returnType)
+end
+
+--------------------------------
+
+--- Load normal state texture for edit box.
+--- param normal    normal state texture.
+--- param texType    @see `TextureResType`
+---@param normal string
+---@param texType number
+---@return ccui.EditBox
+function EditBox:loadTextureNormal(normal, texType)
+end
+
+--------------------------------
+
+--- Gets the maximum input length of the edit box.
+--- return Maximum input length.
+---@return number
+function EditBox:getMaxLength()
+end
+
+--------------------------------
+
+--- Sets capInsets for edit box, only the pressed state scale9 renderer will be affected.
+--- param capInsets    capInsets in Rect
+---@param capInsets rect_table
+---@return ccui.EditBox
+function EditBox:setCapInsetsPressedRenderer(capInsets)
+end
+
+--------------------------------
+
+--- Set the text entered in the edit box.
+--- param pText The given text.
+---@param pText string
+---@return ccui.EditBox
+function EditBox:setText(pText)
 end
 
 --------------------------------
@@ -249,88 +444,18 @@ end
 
 --------------------------------
 
---- Set the font size.
---- param fontSize The font size.
----@param fontSize number
----@return ccui.EditBox
-function EditBox:setFontSize(fontSize)
-end
-
---------------------------------
-
---- Init edit box with specified size. This method should be invoked right after constructor.<br>
--- param size The size of edit box.<br>
--- param normal9SpriteBg  background image of edit box.<br>
--- return Whether initialization is successfully or not.
----@param size size_table
----@param normal9SpriteBg string
----@param texType number
----@return boolean
----@overload fun(self:ccui.EditBox, size:size_table, normal9SpriteBg:ccui.Scale9Sprite):boolean
-function EditBox:initWithSizeAndBackgroundSprite(size, normal9SpriteBg, texType)
-end
-
---------------------------------
-
---- Set a text in the edit box that acts as a placeholder when an
---- edit box is empty.
---- param pText The given text.
----@param pText string
----@return ccui.EditBox
-function EditBox:setPlaceHolder(pText)
-end
-
---------------------------------
-
---- Set the return type that are to be applied to the edit box.
---- param returnType One of the EditBox::KeyboardReturnType constants.
----@param returnType number
----@return ccui.EditBox
-function EditBox:setReturnType(returnType)
-end
-
---------------------------------
-
---- Set the input flags that are to be applied to the edit box.
---- param inputFlag One of the EditBox::InputFlag constants.
----@param inputFlag number
----@return ccui.EditBox
-function EditBox:setInputFlag(inputFlag)
-end
-
---------------------------------
-
---- Gets the maximum input length of the edit box.
---- return Maximum input length.
----@return number
-function EditBox:getMaxLength()
-end
-
---------------------------------
-
---- Set the text entered in the edit box.
---- param pText The given text.
----@param pText string
----@return ccui.EditBox
-function EditBox:setText(pText)
-end
-
---------------------------------
-
 --- Get the font color of the placeholder text when the edit box is empty.
----@return lstg.Color
+---@return color4b_table
 function EditBox:getPlaceholderFontColor()
 end
 
 --------------------------------
 
---- Sets the maximum input length of the edit box.
---- Setting this value enables multiline input mode by default.
---- Available on Android, iOS and Windows Phone.
---- param maxLength The maximum length.
----@param maxLength number
+--- Sets capInsets for edit box.
+--- param capInsets    capInset in Rect.
+---@param capInsets rect_table
 ---@return ccui.EditBox
-function EditBox:setMaxLength(maxLength)
+function EditBox:setCapInsets(capInsets)
 end
 
 --------------------------------
@@ -357,12 +482,14 @@ end
 --- create a edit box with size.<br>
 -- return An autorelease pointer of EditBox, you don't need to release it only if you retain it again.
 ---@param size size_table
----@param normalSprite ccui.Scale9Sprite
----@param pressedSprite ccui.Scale9Sprite
----@param disabledSprite ccui.Scale9Sprite
+---@param normalImage string
+---@param pressedImage string
+---@param disabledImage string
+---@param texType number
 ---@return ccui.EditBox
----@overload fun(self:ccui.EditBox, size:size_table, normal9SpriteBg:string, texType:number):ccui.EditBox
-function EditBox:create(size, normalSprite, pressedSprite, disabledSprite)
+---@overload fun(self:ccui.EditBox, size:size_table, normalImage:string, texType:number):ccui.EditBox
+---@overload fun(self:ccui.EditBox, size:size_table, normalSprite:ccui.Scale9Sprite, pressedSprite:ccui.Scale9Sprite, disabledSprite:ccui.Scale9Sprite):ccui.EditBox
+function EditBox:create(size, normalImage, pressedImage, disabledImage, texType)
 end
 
 --------------------------------

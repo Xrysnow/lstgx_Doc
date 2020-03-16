@@ -11,7 +11,7 @@ ccui.RadioButton = RadioButton
 
 --- Add a callback function which would be called when radio button is selected or unselected.
 --- param callback A std::function with type @see `ccRadioButtonCallback`
----@param callback fun()
+---@param callback fun(arg0:ccui.RadioButton,arg1:ccui.RadioButton::EventType)
 ---@return ccui.RadioButton
 function RadioButton:addEventListener(callback)
 end

@@ -28,7 +28,8 @@ end
 
 --------------------------------
 
---- 
+--- Gets the string value of label.
+--- return String value.
 ---@return string
 function Text:getString()
 end
@@ -55,7 +56,7 @@ end
 
 ---  Gets text color.
 --- return Text color.
----@return lstg.Color
+---@return color4b_table
 function Text:getTextColor()
 end
 
@@ -116,7 +117,8 @@ end
 
 --------------------------------
 
---- 
+--- Changes the string value of label.
+--- param text  String value.
 ---@param text string
 ---@return ccui.Text
 function Text:setString(text)
@@ -198,7 +200,7 @@ end
 --- It only works on IOS and Android when you use System fonts.
 --- param outlineColor The color of outline.
 --- param outlineSize The size of outline.
----@param outlineColor lstg.Color
+---@param outlineColor color4b_table
 ---@param outlineSize number
 ---@return ccui.Text
 function Text:enableOutline(outlineColor, outlineSize)
@@ -207,7 +209,7 @@ end
 --------------------------------
 
 --- Return current effect color value.
----@return lstg.Color
+---@return color4b_table
 function Text:getEffectColor()
 end
 
@@ -246,7 +248,7 @@ end
 --------------------------------
 
 --- Return the shadow effect color value.
----@return lstg.Color
+---@return color4b_table
 function Text:getShadowColor()
 end
 
@@ -254,7 +256,7 @@ end
 
 ---  Sets text color.
 --- param color Text color.
----@param color lstg.Color
+---@param color color4b_table
 ---@return ccui.Text
 function Text:setTextColor(color)
 end
@@ -263,7 +265,7 @@ end
 
 ---  Only support for TTF.
 --- param glowColor The color of glow.
----@param glowColor lstg.Color
+---@param glowColor color4b_table
 ---@return ccui.Text
 function Text:enableGlow(glowColor)
 end
@@ -280,7 +282,7 @@ end
 --------------------------------
 
 --- Sets the source blending function.
---- param blendFunc A structure with source and destination factor to specify pixel arithmetic. e.g. {GL_ONE, GL_ONE}, {GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA}.
+--- param blendFunc A structure with source and destination factor to specify pixel arithmetic. e.g. {BlendFactor::ONE, BlendFactor::ONE}, {BlendFactor::SRC_ALPHA, BlendFactor::ONE_MINUS_SRC_ALPHA}.
 --- js NA
 --- lua NA
 ---@param blendFunc cc.BlendFunc
@@ -316,18 +318,18 @@ end
 --------------------------------
 
 --- Create a Text object with textContent, fontName and fontSize.<br>
---- The fontName could be a system font name or a TTF file path.<br>
---- Usage:<br>
---- code<br>
---- create a system font UIText.<br>
---- Text *text = Text::create("Hello", "Arial", 20);<br>
---- create a TTF font UIText.<br>
---- Text *text = Text::create("Hello", "xxx\xxx.ttf", 20);<br>
---- endcode<br>
---- param textContent Text content string.<br>
---- param fontName A given font name.<br>
---- param fontSize A given font size.<br>
---- return An autoreleased Text object.
+-- The fontName could be a system font name or a TTF file path.<br>
+-- Usage:<br>
+-- code<br>
+-- create a system font UIText.<br>
+-- Text *text = Text::create("Hello", "Arial", 20);<br>
+-- create a TTF font UIText.<br>
+-- Text *text = Text::create("Hello", "xxx\xxx.ttf", 20);<br>
+-- endcode<br>
+-- param textContent Text content string.<br>
+-- param fontName A given font name.<br>
+-- param fontSize A given font size.<br>
+-- return An autoreleased Text object.
 ---@param textContent string
 ---@param fontName string
 ---@param fontSize number

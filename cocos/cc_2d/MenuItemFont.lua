@@ -32,7 +32,7 @@ end
 
 ---  Initializes a menu item from a string with a target/selector. 
 ---@param value string
----@param callback fun()
+---@param callback fun(arg0:cc.Ref)
 ---@return boolean
 function MenuItemFont:initWithString(value, callback)
 end

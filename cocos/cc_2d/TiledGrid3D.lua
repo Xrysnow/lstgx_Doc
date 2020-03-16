@@ -43,13 +43,5 @@ end
 function TiledGrid3D:reuse()
 end
 
---------------------------------
-
---- Constructor.
---- js ctor
----@return cc.TiledGrid3D
-function TiledGrid3D:TiledGrid3D()
-end
-
 
 return nil

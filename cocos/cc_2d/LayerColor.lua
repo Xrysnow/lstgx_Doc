@@ -51,11 +51,11 @@ end
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@param width number
 ---@param height number
 ---@return boolean
----@overload fun(self:cc.LayerColor, color:lstg.Color):boolean
+---@overload fun(self:cc.LayerColor, color:color4b_table):boolean
 function LayerColor:initWithColor(color, width, height)
 end
 
@@ -75,12 +75,12 @@ end
 -- param width The width of layer.<br>
 -- param height The height of layer.<br>
 -- return An autoreleased LayerColor object.
----@param color lstg.Color
+---@param color color4b_table
 ---@param width number
 ---@param height number
 ---@return cc.LayerColor
 ---@overload fun(self:cc.LayerColor):cc.LayerColor
----@overload fun(self:cc.LayerColor, color:lstg.Color):cc.LayerColor
+---@overload fun(self:cc.LayerColor, color:color4b_table):cc.LayerColor
 function LayerColor:create(color, width, height)
 end
 
@@ -99,13 +99,6 @@ end
 --- 
 ---@return boolean
 function LayerColor:init()
-end
-
---------------------------------
-
---- 
----@return string
-function LayerColor:getDescription()
 end
 
 --------------------------------

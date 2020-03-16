@@ -61,7 +61,7 @@ end
 
 --- get the TabHeader text color.
 --- return Color4B of TabHeader text.
----@return lstg.Color
+---@return color4b_table
 function TabHeader:getTitleColor()
 end
 
@@ -86,7 +86,7 @@ end
 
 --- Change the color of he TabHeader text
 --- param color The he TabHeader text's color in Color4B.
----@param color lstg.Color
+---@param color color4b_table
 ---@return ccui.TabHeader
 function TabHeader:setTitleColor(color)
 end

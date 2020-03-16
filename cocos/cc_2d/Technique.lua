@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module Technique
--- @extend RenderState
+-- @extend Ref
 -- @parent_module cc
 
----@class cc.Technique:cc.RenderState
+---@class cc.Technique:cc.Ref
 local Technique = {}
 cc.Technique = Technique
 --------------------------------
@@ -12,6 +12,14 @@ cc.Technique = Technique
 ---  Returns the number of Passes in the Technique 
 ---@return number
 function Technique:getPassCount()
+end
+
+--------------------------------
+
+--- 
+---@param material cc.Material
+---@return cc.Technique
+function Technique:setMaterial(material)
 end
 
 --------------------------------
@@ -54,20 +62,20 @@ end
 
 --------------------------------
 
---- 
+---  Creates a new Technique with a GLProgramState.
+--- Method added to support legacy code
 ---@param parent cc.Material
+---@param state ccb.ProgramState
 ---@return cc.Technique
-function Technique:create(parent)
+function Technique:createWithProgramState(parent, state)
 end
 
 --------------------------------
 
----  Creates a new Technique with a GLProgramState.
---- Method added to support legacy code
+--- 
 ---@param parent cc.Material
----@param state cc.GLProgramState
 ---@return cc.Technique
-function Technique:createWithGLProgramState(parent, state)
+function Technique:create(parent)
 end
 
 

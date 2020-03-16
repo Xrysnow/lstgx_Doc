@@ -10,7 +10,7 @@ cc.LayerRadialGradient = LayerRadialGradient
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function LayerRadialGradient:getStartColor()
 end
 
@@ -46,7 +46,7 @@ end
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function LayerRadialGradient:getEndColor()
 end
 
@@ -91,8 +91,8 @@ end
 --------------------------------
 
 --- 
----@param startColor lstg.Color
----@param endColor lstg.Color
+---@param startColor color4b_table
+---@param endColor color4b_table
 ---@param radius number
 ---@param center vec2_table
 ---@param expand number
@@ -156,8 +156,8 @@ end
 --------------------------------
 
 --- 
----@param startColor lstg.Color
----@param endColor lstg.Color
+---@param startColor color4b_table
+---@param endColor color4b_table
 ---@param radius number
 ---@param center vec2_table
 ---@param expand number

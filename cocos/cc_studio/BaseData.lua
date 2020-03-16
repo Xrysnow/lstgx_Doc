@@ -10,14 +10,14 @@ ccs.BaseData = BaseData
 --------------------------------
 
 --- 
----@return lstg.Color
+---@return color4b_table
 function BaseData:getColor()
 end
 
 --------------------------------
 
 --- 
----@param color lstg.Color
+---@param color color4b_table
 ---@return ccs.BaseData
 function BaseData:setColor(color)
 end

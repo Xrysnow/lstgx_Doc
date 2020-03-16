@@ -23,6 +23,15 @@ end
 
 --------------------------------
 
+---   Sets a new ProgramState for the Mesh
+--- A new Material will be created for it
+---@param programState ccb.ProgramState
+---@return cc.Mesh
+function Mesh:setProgramState(programState)
+end
+
+--------------------------------
+
 ---  Sets a new Material to the Mesh 
 ---@param material cc.Material
 ---@return cc.Mesh
@@ -91,6 +100,14 @@ end
 
 --------------------------------
 
+--- get ProgramState
+--- lua NA
+---@return ccb.ProgramState
+function Mesh:getProgramState()
+end
+
+--------------------------------
+
 --- get mesh vertex attribute count
 ---@return number
 function Mesh:getMeshVertexAttribCount()
@@ -125,15 +142,6 @@ end
 --- 
 ---@return boolean
 function Mesh:isVisible()
-end
-
---------------------------------
-
----   Sets a new GLProgramState for the Mesh
---- A new Material will be created for it
----@param glProgramState cc.GLProgramState
----@return cc.Mesh
-function Mesh:setGLProgramState(glProgramState)
 end
 
 --------------------------------

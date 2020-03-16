@@ -132,7 +132,7 @@ end
 
 --- lua endToLua
 ---@return ccs.ComAudio
-function ComAudio:end()
+function ComAudio:endToLua()
 end
 
 --------------------------------

@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module Material
--- @extend RenderState
+-- @extend Ref
 -- @parent_module cc
 
----@class cc.Material:cc.RenderState
+---@class cc.Material:cc.Ref
 local Material = {}
 cc.Material = Material
 --------------------------------
@@ -16,9 +16,24 @@ end
 
 --------------------------------
 
----  Returns the number of Techniques in the Material. 
----@return number
-function Material:getTechniqueCount()
+--- 
+---@param meshCommand cc.MeshCommand
+---@param globalZOrder number
+---@param vertexBuffer ccb.Buffer
+---@param indexBuffer ccb.Buffer
+---@param primitive number
+---@param indexFormat number
+---@param indexCount number
+---@param modelView mat4_table
+---@return cc.Material
+function Material:draw(meshCommand, globalZOrder, vertexBuffer, indexBuffer, primitive, indexFormat, indexCount, modelView)
+end
+
+--------------------------------
+
+--- 
+---@return cc.RenderState
+function Material:getRenderState()
 end
 
 --------------------------------
@@ -50,6 +65,13 @@ end
 ---  Returns the list of Techniques 
 ---@return array_table
 function Material:getTechniques()
+end
+
+--------------------------------
+
+---  Returns the number of Techniques in the Material. 
+---@return number
+function Material:getTechniqueCount()
 end
 
 --------------------------------
@@ -98,16 +120,6 @@ end
 
 --------------------------------
 
----  Creates a Material with a GLProgramState.
---- It will only contain one Technique and one Pass.
---- Added in order to support legacy code.
----@param programState cc.GLProgramState
----@return cc.Material
-function Material:createWithGLStateProgram(programState)
-end
-
---------------------------------
-
 --- Creates a material from the specified properties object.
 --- param materialProperties The properties object defining the
 --- material (must have namespace equal to 'material').
@@ -115,6 +127,16 @@ end
 ---@param materialProperties cc.Properties
 ---@return cc.Material
 function Material:createWithProperties(materialProperties)
+end
+
+--------------------------------
+
+---  Creates a Material with a GLProgramState.
+--- It will only contain one Technique and one Pass.
+--- Added in order to support legacy code.
+---@param programState ccb.ProgramState
+---@return cc.Material
+function Material:createWithProgramState(programState)
 end
 
 

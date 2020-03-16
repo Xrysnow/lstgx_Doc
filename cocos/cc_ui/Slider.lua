@@ -121,7 +121,7 @@ end
 
 --- Add call back function called when slider's percent has changed to slider.
 --- param callback An given call back function called when slider's percent has changed to slider.
----@param callback fun()
+---@param callback fun(arg0:cc.Ref,arg1:ccui.Slider::EventType)
 ---@return ccui.Slider
 function Slider:addEventListener(callback)
 end
@@ -160,6 +160,13 @@ end
 --- return capInsets Capinsets for bar slider.
 ---@return rect_table
 function Slider:getCapInsetsBarRenderer()
+end
+
+--------------------------------
+
+--- Updates the visual elements of the slider.
+---@return ccui.Slider
+function Slider:updateVisualSlider()
 end
 
 --------------------------------

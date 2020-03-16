@@ -16,20 +16,9 @@ end
 
 --------------------------------
 
---- brief    Save Image data to the specified file, with specified format.
---- param    filePath        the file's absolute path, including file suffix.
---- param    isToRGB        whether the image is saved as RGB format.
----@param filename string
----@param isToRGB boolean
----@return boolean
-function Image:saveToFile(filename, isToRGB)
-end
-
---------------------------------
-
 --- 
----@return boolean
-function Image:hasAlpha()
+---@return cc.Image
+function Image:reversePremultipliedAlpha()
 end
 
 --------------------------------
@@ -42,8 +31,29 @@ end
 --------------------------------
 
 --- 
+---@return boolean
+function Image:hasAlpha()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function Image:getPixelFormat()
+end
+
+--------------------------------
+
+--- 
 ---@return number
 function Image:getHeight()
+end
+
+--------------------------------
+
+--- 
+---@return cc.Image
+function Image:premultiplyAlpha()
 end
 
 --------------------------------
@@ -93,9 +103,13 @@ end
 
 --------------------------------
 
---- 
----@return number
-function Image:getRenderFormat()
+--- brief    Save Image data to the specified file, with specified format.
+--- param    filePath        the file's absolute path, including file suffix.
+--- param    isToRGB        whether the image is saved as RGB format.
+---@param filename string
+---@param isToRGB boolean
+---@return boolean
+function Image:saveToFile(filename, isToRGB)
 end
 
 --------------------------------

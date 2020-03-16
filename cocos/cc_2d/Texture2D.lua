@@ -53,15 +53,6 @@ end
 
 --------------------------------
 
----  Release only the gl texture.
---- js NA
---- lua NA
----@return cc.Texture2D
-function Texture2D:releaseGLTexture()
-end
-
---------------------------------
-
 ---  Whether or not the texture has their Alpha premultiplied. 
 ---@return boolean
 function Texture2D:hasPremultipliedAlpha()
@@ -77,7 +68,7 @@ end
 --------------------------------
 
 --- 
----@return number
+---@return boolean
 function Texture2D:getAlphaTextureName()
 end
 
@@ -93,9 +84,10 @@ end
 
 --------------------------------
 
----  Gets the texture name. 
----@return number
-function Texture2D:getName()
+---  Sets max S. 
+---@param maxS number
+---@return cc.Texture2D
+function Texture2D:setMaxS(maxS)
 end
 
 --------------------------------
@@ -135,8 +127,16 @@ end
 
 ---  Draws a texture inside a rect.
 ---@param rect rect_table
+---@param globalZOrder number
 ---@return cc.Texture2D
-function Texture2D:drawInRect(rect)
+function Texture2D:drawInRect(rect, globalZOrder)
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function Texture2D:isRenderTarget()
 end
 
 --------------------------------
@@ -186,15 +186,6 @@ end
 
 --------------------------------
 
---- Get texture name, dimensions and coordinates message by a string.
---- js NA
---- lua NA
----@return string
-function Texture2D:getDescription()
-end
-
---------------------------------
-
 ---  Gets the pixel format of the texture. 
 ---@return number
 function Texture2D:getPixelFormat()
@@ -202,11 +193,9 @@ end
 
 --------------------------------
 
----  Set a shader program to the texture.
---- It's used by drawAtPoint and drawInRect
----@param program cc.GLProgram
----@return cc.Texture2D
-function Texture2D:setGLProgram(program)
+--- 
+---@return ccb.TextureBackend
+function Texture2D:getBackendTexture()
 end
 
 --------------------------------
@@ -229,15 +218,9 @@ end
 --- These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_COORD_ARRAY client states to be enabled.
 --- Draws a texture at a given point. 
 ---@param point vec2_table
+---@param globalZOrder number
 ---@return cc.Texture2D
-function Texture2D:drawAtPoint(point)
-end
-
---------------------------------
-
----  Get a shader program from the texture.
----@return cc.GLProgram
-function Texture2D:getGLProgram()
+function Texture2D:drawAtPoint(point, globalZOrder)
 end
 
 --------------------------------
@@ -249,10 +232,19 @@ end
 
 --------------------------------
 
----  Sets max S. 
----@param maxS number
+--- 
+---@param renderTarget boolean
 ---@return cc.Texture2D
-function Texture2D:setMaxS(maxS)
+function Texture2D:setRenderTarget(renderTarget)
+end
+
+--------------------------------
+
+--- 
+---@param texture ccb.TextureBackend
+---@param preMultipliedAlpha boolean
+---@return boolean
+function Texture2D:initWithBackendTexture(texture, preMultipliedAlpha)
 end
 
 --------------------------------
@@ -260,12 +252,12 @@ end
 ---  sets the default pixel format for UIImagescontains alpha channel.
 --- param format
 --- If the UIImage contains alpha channel, then the options are:
---- - generate 32-bit textures: Texture2D::PixelFormat::RGBA8888 (default one)
---- - generate 24-bit textures: Texture2D::PixelFormat::RGB888
---- - generate 16-bit textures: Texture2D::PixelFormat::RGBA4444
---- - generate 16-bit textures: Texture2D::PixelFormat::RGB5A1
---- - generate 16-bit textures: Texture2D::PixelFormat::RGB565
---- - generate 8-bit textures: Texture2D::PixelFormat::A8 (only use it if you use just 1 color)
+--- - generate 32-bit textures: backend::PixelFormat::RGBA8888 (default one)
+--- - generate 24-bit textures: backend::PixelFormat::RGB888
+--- - generate 16-bit textures: backend::PixelFormat::RGBA4444
+--- - generate 16-bit textures: backend::PixelFormat::RGB5A1
+--- - generate 16-bit textures: backend::PixelFormat::RGB565
+--- - generate 8-bit textures: backend::PixelFormat::A8 (only use it if you use just 1 color)
 --- How does it work ?
 --- - If the image is an RGBA (with Alpha) then the default pixel format will be used (it can be a 8-bit, 16-bit or 32-bit texture)
 --- - If the image is an RGB (without Alpha) then: If the default pixel format is RGBA8888 then a RGBA8888 (32-bit) will be used. Otherwise a RGB565 (16-bit texture) will be used.

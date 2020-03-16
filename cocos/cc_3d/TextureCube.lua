@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module TextureCube
--- @extend Texture2D
+-- @extend Ref
 -- @parent_module cc
 
----@class cc.TextureCube:cc.Texture2D
+---@class cc.TextureCube:cc.Ref
 local TextureCube = {}
 cc.TextureCube = TextureCube
 --------------------------------
@@ -16,9 +16,16 @@ end
 
 --------------------------------
 
+--- 
+---@return ccb.TextureBackend
+function TextureCube:getBackendTexture()
+end
+
+--------------------------------
+
 ---  Sets the min filter, mag filter, wrap s and wrap t texture parameters.
 --- If the texture size is NPOT (non power of 2), then in can only use GL_CLAMP_TO_EDGE in GL_TEXTURE_WRAP_{S,T}.
----@param  cc.Texture2D::_TexParams
+---@param  ccb.SamplerDescriptor
 ---@return cc.TextureCube
 function TextureCube:setTexParameters()
 end

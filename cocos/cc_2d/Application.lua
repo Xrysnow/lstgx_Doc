@@ -48,12 +48,11 @@ end
 
 --------------------------------
 
---- 
+--- brief    Callback by Director to limit FPS.
+--- param interval The time, expressed in seconds, between current frame and next.
 ---@param interval number
----@param reason number
 ---@return cc.Application
----@overload fun(self:cc.Application, interval:number):cc.Application
-function Application:setAnimationInterval(interval, reason)
+function Application:setAnimationInterval(interval)
 end
 
 --------------------------------

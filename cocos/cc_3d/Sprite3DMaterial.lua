@@ -44,19 +44,17 @@ end
 
 --------------------------------
 
---- Create material with GLProgramState
---- param programState GLProgramState instance
---- return Created material
----@param programState cc.GLProgramState
+--- Release all built in materials
 ---@return cc.Sprite3DMaterial
-function Sprite3DMaterial:createWithGLStateProgram(programState)
+function Sprite3DMaterial:releaseBuiltInMaterial()
 end
 
 --------------------------------
 
---- Release all built in materials
+--- 
+---@param programState ccb.ProgramState
 ---@return cc.Sprite3DMaterial
-function Sprite3DMaterial:releaseBuiltInMaterial()
+function Sprite3DMaterial:createWithProgramState(programState)
 end
 
 --------------------------------

@@ -26,25 +26,16 @@ end
 
 --------------------------------
 
---- 
+--- Interface, Calculate the vertices used for the blit.
 ---@return cc.GridBase
-function GridBase:afterBlit()
+function GridBase:calculateVertexPoints()
 end
 
 --------------------------------
 
---- brief Get the effect grid rect.
---- return Return the effect grid rect.
----@return rect_table
-function GridBase:getGridRect()
-end
-
---------------------------------
-
---- 
----@param target cc.Node
+--- Interface, Reuse the grid vertices.
 ---@return cc.GridBase
-function GridBase:afterDraw(target)
+function GridBase:reuse()
 end
 
 --------------------------------
@@ -57,9 +48,10 @@ end
 
 --------------------------------
 
---- Interface, Calculate the vertices used for the blit.
----@return cc.GridBase
-function GridBase:calculateVertexPoints()
+--- brief Get the effect grid rect.
+--- return Return the effect grid rect.
+---@return rect_table
+function GridBase:getGridRect()
 end
 
 --------------------------------
@@ -78,9 +70,9 @@ end
 
 --------------------------------
 
----  Pixels between the grids. 
----@return vec2_table
-function GridBase:getStep()
+--- 
+---@return cc.GridBase
+function GridBase:afterBlit()
 end
 
 --------------------------------
@@ -88,6 +80,13 @@ end
 --- Change projection to 2D for grabbing.
 ---@return cc.GridBase
 function GridBase:set2DProjection()
+end
+
+--------------------------------
+
+---  Pixels between the grids. 
+---@return vec2_table
+function GridBase:getStep()
 end
 
 --------------------------------
@@ -169,20 +168,10 @@ end
 
 --------------------------------
 
---- Interface, Reuse the grid vertices.
+--- 
+---@param target cc.Node
 ---@return cc.GridBase
-function GridBase:reuse()
-end
-
---------------------------------
-
----  create one Grid 
----@param gridSize size_table
----@param texture cc.Texture2D
----@param flipped boolean
----@return cc.GridBase
----@overload fun(self:cc.GridBase, gridSize:size_table):cc.GridBase
-function GridBase:create(gridSize, texture, flipped)
+function GridBase:afterDraw(target)
 end
 
 

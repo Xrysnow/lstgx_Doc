@@ -43,9 +43,9 @@ end
 --------------------------------
 
 --- 
----@param cullFace number
+---@param side number
 ---@return cc.Sprite3D
-function Sprite3D:setCullFace(cullFace)
+function Sprite3D:setCullFace(side)
 end
 
 --------------------------------
@@ -214,10 +214,10 @@ end
 
 --------------------------------
 
----  just remember bind attributes 
----@param glprogram cc.GLProgram
+---  set ProgramState, you should bind attributes by yourself 
+---@param programState ccb.ProgramState
 ---@return cc.Sprite3D
-function Sprite3D:setGLProgram(glprogram)
+function Sprite3D:setProgramState(programState)
 end
 
 --------------------------------
@@ -226,14 +226,6 @@ end
 --- Note: the bounding-box is just get from the AABB which as Z=0, so that is not very accurate.
 ---@return rect_table
 function Sprite3D:getBoundingBox()
-end
-
---------------------------------
-
----  set GLProgramState, you should bind attributes by yourself 
----@param glProgramState cc.GLProgramState
----@return cc.Sprite3D
-function Sprite3D:setGLProgramState(glProgramState)
 end
 
 

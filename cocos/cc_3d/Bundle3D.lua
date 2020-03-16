@@ -61,9 +61,11 @@ end
 
 --------------------------------
 
---- create a new bundle, destroy it when finish using it
----@return cc.Bundle3D
-function Bundle3D:createBundle()
+--- get define data type
+--- param str The type in string
+---@param str string
+---@return number
+function Bundle3D:parseSamplerAddressMode(str)
 end
 
 --------------------------------
@@ -72,6 +74,23 @@ end
 ---@param bundle cc.Bundle3D
 ---@return cc.Bundle3D
 function Bundle3D:destroyBundle(bundle)
+end
+
+--------------------------------
+
+--- create a new bundle, destroy it when finish using it
+---@return cc.Bundle3D
+function Bundle3D:createBundle()
+end
+
+--------------------------------
+
+--- get define data type
+--- param str The type in string
+---@param str string
+---@param size number
+---@return number
+function Bundle3D:parseGLDataType(str, size)
 end
 
 --------------------------------

@@ -1,12 +1,12 @@
 
 --------------------------------
--- @module TMXLayer
+-- @module FastTMXLayer
 -- @extend Node
--- @parent_module ccexp
+-- @parent_module cc
 
----@class ccexp.TMXLayer:ccexp.Node
-local TMXLayer = {}
-ccexp.TMXLayer = TMXLayer
+---@class cc.FastTMXLayer:cc.Node
+local FastTMXLayer = {}
+cc.FastTMXLayer = FastTMXLayer
 --------------------------------
 
 ---  Returns the position in points of a given tile coordinate.
@@ -14,7 +14,7 @@ ccexp.TMXLayer = TMXLayer
 --- return The position in points of a given tile coordinate.
 ---@param tileCoordinate vec2_table
 ---@return vec2_table
-function TMXLayer:getPositionAt(tileCoordinate)
+function FastTMXLayer:getPositionAt(tileCoordinate)
 end
 
 --------------------------------
@@ -22,8 +22,8 @@ end
 ---  Set Layer orientation, which is the same as the map orientation. 
 --- param orientation Layer orientation, which is the same as the map orientation.
 ---@param orientation number
----@return ccexp.TMXLayer
-function TMXLayer:setLayerOrientation(orientation)
+---@return cc.FastTMXLayer
+function FastTMXLayer:setLayerOrientation(orientation)
 end
 
 --------------------------------
@@ -31,7 +31,7 @@ end
 ---  Size of the layer in tiles.
 --- return Size of the layer in tiles.
 ---@return size_table
-function TMXLayer:getLayerSize()
+function FastTMXLayer:getLayerSize()
 end
 
 --------------------------------
@@ -39,8 +39,8 @@ end
 ---  Set the size of the map's tile. 
 --- param size The new size of the map's tile.
 ---@param size size_table
----@return ccexp.TMXLayer
-function TMXLayer:setMapTileSize(size)
+---@return cc.FastTMXLayer
+function FastTMXLayer:setMapTileSize(size)
 end
 
 --------------------------------
@@ -48,7 +48,7 @@ end
 ---  Layer orientation, which is the same as the map orientation.
 --- return Layer orientation, which is the same as the map orientation.
 ---@return number
-function TMXLayer:getLayerOrientation()
+function FastTMXLayer:getLayerOrientation()
 end
 
 --------------------------------
@@ -56,8 +56,8 @@ end
 ---  Set the properties to the layer.
 --- param properties The properties to the layer.
 ---@param properties map_table
----@return ccexp.TMXLayer
-function TMXLayer:setProperties(properties)
+---@return cc.FastTMXLayer
+function FastTMXLayer:setProperties(properties)
 end
 
 --------------------------------
@@ -65,8 +65,8 @@ end
 ---  Set the tile layer name.
 --- param layerName The new layer name.
 ---@param layerName string
----@return ccexp.TMXLayer
-function TMXLayer:setLayerName(layerName)
+---@return cc.FastTMXLayer
+function FastTMXLayer:setLayerName(layerName)
 end
 
 --------------------------------
@@ -74,8 +74,8 @@ end
 ---  Removes a tile at given tile coordinate.
 --- param tileCoordinate The tile Coordinate.
 ---@param tileCoordinate vec2_table
----@return ccexp.TMXLayer
-function TMXLayer:removeTileAt(tileCoordinate)
+---@return cc.FastTMXLayer
+function FastTMXLayer:removeTileAt(tileCoordinate)
 end
 
 --------------------------------
@@ -83,14 +83,14 @@ end
 ---  Properties from the layer. They can be added using Tiled.<br>
 -- return Properties from the layer. They can be added using Tiled.
 ---@return map_table
-function TMXLayer:getProperties()
+function FastTMXLayer:getProperties()
 end
 
 --------------------------------
 
 ---  Creates the tiles. 
----@return ccexp.TMXLayer
-function TMXLayer:setupTiles()
+---@return cc.FastTMXLayer
+function FastTMXLayer:setupTiles()
 end
 
 --------------------------------
@@ -102,8 +102,8 @@ end
 ---@param sprite cc.Sprite
 ---@param pos vec2_table
 ---@param gid number
----@return ccexp.TMXLayer
-function TMXLayer:setupTileSprite(sprite, pos, gid)
+---@return cc.FastTMXLayer
+function FastTMXLayer:setupTileSprite(sprite, pos, gid)
 end
 
 --------------------------------
@@ -118,9 +118,9 @@ end
 ---@param gid number
 ---@param tileCoordinate vec2_table
 ---@param flags number
----@return ccexp.TMXLayer
----@overload fun(self:ccexp.TMXLayer, gid:number, tileCoordinate:vec2_table):ccexp.TMXLayer
-function TMXLayer:setTileGID(gid, tileCoordinate, flags)
+---@return cc.FastTMXLayer
+---@overload fun(self:cc.FastTMXLayer, gid:number, tileCoordinate:vec2_table):cc.FastTMXLayer
+function FastTMXLayer:setTileGID(gid, tileCoordinate, flags)
 end
 
 --------------------------------
@@ -128,7 +128,7 @@ end
 ---  Size of the map's tile (could be different from the tile's size).
 --- return Size of the map's tile (could be different from the tile's size).
 ---@return size_table
-function TMXLayer:getMapTileSize()
+function FastTMXLayer:getMapTileSize()
 end
 
 --------------------------------
@@ -138,7 +138,7 @@ end
 --- return The value for the specific property name.
 ---@param propertyName string
 ---@return cc.Value
-function TMXLayer:getProperty(propertyName)
+function FastTMXLayer:getProperty(propertyName)
 end
 
 --------------------------------
@@ -146,8 +146,8 @@ end
 ---  Set the size of the layer in tiles. 
 --- param size The new size of the layer in tiles.
 ---@param size size_table
----@return ccexp.TMXLayer
-function TMXLayer:setLayerSize(size)
+---@return cc.FastTMXLayer
+function FastTMXLayer:setLayerSize(size)
 end
 
 --------------------------------
@@ -155,7 +155,7 @@ end
 ---  Get the tile layer name.
 --- return The tile layer name.
 ---@return string
-function TMXLayer:getLayerName()
+function FastTMXLayer:getLayerName()
 end
 
 --------------------------------
@@ -163,8 +163,8 @@ end
 ---  Set the tileset information for the layer. 
 --- param info The new tileset information for the layer.
 ---@param info cc.TMXTilesetInfo
----@return ccexp.TMXLayer
-function TMXLayer:setTileSet(info)
+---@return cc.FastTMXLayer
+function FastTMXLayer:setTileSet(info)
 end
 
 --------------------------------
@@ -172,7 +172,7 @@ end
 ---  Tileset information for the layer.
 --- return Tileset information for the layer.
 ---@return cc.TMXTilesetInfo
-function TMXLayer:getTileSet()
+function FastTMXLayer:getTileSet()
 end
 
 --------------------------------
@@ -185,7 +185,7 @@ end
 --- return Returns the tile (Sprite) at a given a tile coordinate.
 ---@param tileCoordinate vec2_table
 ---@return cc.Sprite
-function TMXLayer:getTileAt(tileCoordinate)
+function FastTMXLayer:getTileAt(tileCoordinate)
 end
 
 --------------------------------
@@ -198,8 +198,8 @@ end
 ---@param tilesetInfo cc.TMXTilesetInfo
 ---@param layerInfo cc.TMXLayerInfo
 ---@param mapInfo cc.TMXMapInfo
----@return ccexp.TMXLayer
-function TMXLayer:create(tilesetInfo, layerInfo, mapInfo)
+---@return cc.FastTMXLayer
+function FastTMXLayer:create(tilesetInfo, layerInfo, mapInfo)
 end
 
 --------------------------------
@@ -207,8 +207,8 @@ end
 --- 
 ---@param child cc.Node
 ---@param cleanup boolean
----@return ccexp.TMXLayer
-function TMXLayer:removeChild(child, cleanup)
+---@return cc.FastTMXLayer
+function FastTMXLayer:removeChild(child, cleanup)
 end
 
 --------------------------------
@@ -217,22 +217,22 @@ end
 ---@param renderer cc.Renderer
 ---@param transform mat4_table
 ---@param flags number
----@return ccexp.TMXLayer
-function TMXLayer:draw(renderer, transform, flags)
+---@return cc.FastTMXLayer
+function FastTMXLayer:draw(renderer, transform, flags)
 end
 
 --------------------------------
 
 --- 
 ---@return string
-function TMXLayer:getDescription()
+function FastTMXLayer:getDescription()
 end
 
 --------------------------------
 
 --- js ctor
----@return ccexp.TMXLayer
-function TMXLayer:TMXLayer()
+---@return cc.FastTMXLayer
+function FastTMXLayer:FastTMXLayer()
 end
 
 

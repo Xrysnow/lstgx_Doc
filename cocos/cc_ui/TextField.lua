@@ -53,7 +53,7 @@ end
 
 --- brief Query the text string color.
 --- return The color of the text.
----@return lstg.Color
+---@return color4b_table
 function TextField:getTextColor()
 end
 
@@ -129,7 +129,7 @@ end
 
 --- Add a event listener to TextField, when some predefined event happens, the callback will be called.
 --- param callback A callback function with type of `ccTextFieldCallback`.
----@param callback fun()
+---@param callback fun(arg0:cc.Ref,arg1:ccui.TextField::EventType)
 ---@return ccui.TextField
 function TextField:addEventListener(callback)
 end
@@ -194,7 +194,7 @@ end
 
 --- brief Query the placeholder string color.
 --- return The color of placeholder.
----@return lstg.Color
+---@return color4b_table
 function TextField:getPlaceHolderColor()
 end
 
@@ -299,7 +299,7 @@ end
 
 --- brief Change the text color.
 --- param textColor The color value in `Color4B`.
----@param textColor lstg.Color
+---@param textColor color4b_table
 ---@return ccui.TextField
 function TextField:setTextColor(textColor)
 end

@@ -163,7 +163,7 @@ end
 
 --- Add an event click callback to ListView, then one item of Listview is clicked, the callback will be called.
 --- param callback A callback function with type of `ccListViewCallback`.
----@param callback fun()
+---@param callback fun(arg0:cc.Ref,arg1:ccui.ListView::EventType)
 ---@return ccui.ListView
 function ListView:addEventListener(callback)
 end
@@ -225,7 +225,7 @@ end
 
 --- Return all items in a ListView.
 --- returns A vector of widget pointers.
----@return ccui.Widget[]
+---@return array_table
 function ListView:getItems()
 end
 

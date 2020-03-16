@@ -28,6 +28,14 @@ end
 
 --------------------------------
 
+--- Get scale factor of the vertical direction.
+--- return Scale factor of the vertical direction.
+---@return number
+function GLView:getScaleY()
+end
+
+--------------------------------
+
 ---  Only works on ios platform. Set Content Scale of the Factor. 
 ---@param  number
 ---@return boolean
@@ -55,13 +63,6 @@ end
 --- Gets safe area rectangle
 ---@return rect_table
 function GLView:getSafeAreaRect()
-end
-
---------------------------------
-
---- 
----@return cc.VRIRenderer
-function GLView:getVR()
 end
 
 --------------------------------
@@ -97,9 +98,10 @@ end
 --------------------------------
 
 --- Hide or Show the mouse cursor if there is one.
----@param isVisible boolean Hide or Show the mouse cursor if there is one.
+--- param isVisible Hide or Show the mouse cursor if there is one.
+---@param  boolean
 ---@return cc.GLView
-function GLView:setCursorVisible(isVisible)
+function GLView:setCursorVisible()
 end
 
 --------------------------------
@@ -113,10 +115,11 @@ end
 
 --------------------------------
 
---- Get scale factor of the vertical direction.
---- return Scale factor of the vertical direction.
----@return number
-function GLView:getScaleY()
+---  Set default window icon (implemented for windows and linux).
+--- On windows it will use icon from .exe file (if included).
+--- On linux it will use default window icon.
+---@return cc.GLView
+function GLView:setDefaultIcon()
 end
 
 --------------------------------
@@ -165,6 +168,16 @@ end
 
 --------------------------------
 
+---  Set window icon (implemented for windows and linux).<br>
+-- Best icon (based on size) will be auto selected.<br>
+-- param filelist The array contains icons.
+---@param filename string
+---@return cc.GLView
+function GLView:setIcon(filename)
+end
+
+--------------------------------
+
 ---  When the window is closed, it will return false if the platforms is Ios or Android.
 --- If the platforms is windows or Mac,it will return true.
 --- return In ios and android it will return false,if in windows or Mac it will return true.
@@ -208,7 +221,7 @@ end
 ---  Force destroying EGL view, subclass must implement this method. 
 --- lua endToLua
 ---@return cc.GLView
-function GLView:end()
+function GLView:endToLua()
 end
 
 --------------------------------
@@ -227,15 +240,6 @@ end
 ---@param renderer cc.Renderer
 ---@return cc.GLView
 function GLView:renderScene(scene, renderer)
-end
-
---------------------------------
-
---- Sets a VR renderer. 
---- if `vrrenderer` is `nullptr` VR will be disabled
----@param vrrenderer cc.VRIRenderer
----@return cc.GLView
-function GLView:setVR(vrrenderer)
 end
 
 --------------------------------

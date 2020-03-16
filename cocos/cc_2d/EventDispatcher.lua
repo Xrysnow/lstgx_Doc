@@ -114,7 +114,7 @@ end
 --- param callback A given callback method that associated the event name.
 --- return the generated event. Needed in order to remove the event from the dispatcher
 ---@param eventName string
----@param callback fun()
+---@param callback fun(arg0:cc.EventCustom)
 ---@return cc.EventListenerCustom
 function EventDispatcher:addCustomEventListener(eventName, callback)
 end

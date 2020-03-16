@@ -16,26 +16,10 @@ end
 
 --------------------------------
 
---- 
----@param texture cc.Texture2D
----@return cc.MotionStreak
-function MotionStreak:setTexture(texture)
-end
-
---------------------------------
-
---- 
----@return cc.Texture2D
-function MotionStreak:getTexture()
-end
-
---------------------------------
-
----  Color used for the tint.
---- param colors The color used for the tint.
----@param colors color3b_table
----@return cc.MotionStreak
-function MotionStreak:tintWithColor(colors)
+--- js NA
+--- lua NA
+---@return cc.BlendFunc
+function MotionStreak:getBlendFunc()
 end
 
 --------------------------------
@@ -49,6 +33,22 @@ end
 
 --------------------------------
 
+---  Color used for the tint.
+--- param colors The color used for the tint.
+---@param colors color3b_table
+---@return cc.MotionStreak
+function MotionStreak:tintWithColor(colors)
+end
+
+--------------------------------
+
+--- 
+---@return cc.Texture2D
+function MotionStreak:getTexture()
+end
+
+--------------------------------
+
 ---  Sets the starting position initialized or not.
 --- param bStartingPositionInitialized True if initialized the starting position.
 ---@param bStartingPositionInitialized boolean
@@ -58,10 +58,10 @@ end
 
 --------------------------------
 
---- js NA
---- lua NA
----@return cc.BlendFunc
-function MotionStreak:getBlendFunc()
+--- 
+---@param texture cc.Texture2D
+---@return cc.MotionStreak
+function MotionStreak:setTexture(texture)
 end
 
 --------------------------------

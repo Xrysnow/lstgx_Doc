@@ -54,7 +54,7 @@ end
 -- param callback Function that will be called when file is read. Will be called <br>
 -- on the main cocos thread.
 ---@param path string
----@param callback fun()
+---@param callback fun(arg0:string)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, filename:string):cc.FileUtils
 function FileUtils:getStringFromFile(path, callback)
@@ -77,7 +77,7 @@ end
 -- param callback The function that will be called when the operation is complete. Will have one boolean<br>
 -- argument, true if the file was successfully removed, false otherwise.
 ---@param filepath string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, filepath:string):cc.FileUtils
 function FileUtils:removeFile(filepath, callback)
@@ -92,7 +92,7 @@ end
 --- js NA
 --- lua NA
 ---@param dirPath string
----@param callback fun()
+---@param callback fun(arg0:array_table)
 ---@return cc.FileUtils
 function FileUtils:listFilesRecursivelyAsync(dirPath, callback)
 end
@@ -120,11 +120,11 @@ end
 ---@param path string
 ---@param oldname string
 ---@param name string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, path:string, oldname:string, name:string):cc.FileUtils
 ---@overload fun(self:cc.FileUtils, oldfullpath:string, newfullpath:string):cc.FileUtils
----@overload fun(self:cc.FileUtils, oldfullpath:string, newfullpath:string, callback:fun()):cc.FileUtils
+---@overload fun(self:cc.FileUtils, oldfullpath:string, newfullpath:string, callback:function):cc.FileUtils
 function FileUtils:renameFile(path, oldname, name, callback)
 end
 
@@ -260,7 +260,7 @@ end
 -- param callback The function that will be called when the operation is complete. Will have one long<br>
 -- argument, the file size.
 ---@param filepath string
----@param callback fun()
+---@param callback fun(arg0:number)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, filepath:string):cc.FileUtils
 function FileUtils:getFileSize(filepath, callback)
@@ -283,7 +283,7 @@ end
 -- param callback The function that will be called when the operation is complete. Will have one boolean<br>
 -- argument, true if the directory was successfully removed, false otherwise.
 ---@param dirPath string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, dirPath:string):cc.FileUtils
 function FileUtils:removeDirectory(dirPath, callback)
@@ -323,7 +323,7 @@ end
 -- signifying if the write was successful.
 ---@param dataStr string
 ---@param fullPath string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, dataStr:string, fullPath:string):cc.FileUtils
 function FileUtils:writeStringToFile(dataStr, fullPath, callback)
@@ -376,7 +376,7 @@ end
 -- signifying if the write was successful.
 ---@param vecData array_table
 ---@param fullPath string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, vecData:array_table, fullPath:string):cc.FileUtils
 function FileUtils:writeValueVectorToFile(vecData, fullPath, callback)
@@ -391,7 +391,7 @@ end
 -- param callback The function that will be called when the operation is complete. Will have one boolean<br>
 -- argument, true if the file exists, false otherwise.
 ---@param filename string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, filename:string):cc.FileUtils
 function FileUtils:isFileExist(filename, callback)
@@ -442,7 +442,7 @@ end
 -- signifying if the write was successful.
 ---@param dict map_table
 ---@param fullPath string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, dict:map_table, fullPath:string):cc.FileUtils
 function FileUtils:writeValueMapToFile(dict, fullPath, callback)
@@ -482,7 +482,7 @@ end
 -- param callback that will accept a boolean, true if the file exists, false otherwise. <br>
 -- Callback will happen on the main cocos thread.
 ---@param fullPath string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, dirPath:string):cc.FileUtils
 function FileUtils:isDirectoryExist(fullPath, callback)
@@ -513,7 +513,7 @@ end
 -- param callback The function that will be called when the operation is complete. Will have one boolean<br>
 -- argument, true if the directory was successfully, false otherwise.
 ---@param dirPath string
----@param callback fun()
+---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
 ---@overload fun(self:cc.FileUtils, dirPath:string):cc.FileUtils
 function FileUtils:createDirectory(dirPath, callback)
@@ -527,7 +527,7 @@ end
 --- js NA
 --- lua NA
 ---@param dirPath string
----@param callback fun()
+---@param callback fun(arg0:array_table)
 ---@return cc.FileUtils
 function FileUtils:listFilesAsync(dirPath, callback)
 end

@@ -48,5 +48,12 @@ end
 function GLViewImpl:isOpenGLReady()
 end
 
+--------------------------------
+
+--- 
+---@return rect_table
+function GLViewImpl:getSafeAreaRect()
+end
+
 
 return nil

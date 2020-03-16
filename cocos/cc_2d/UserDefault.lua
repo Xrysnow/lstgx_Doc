@@ -170,7 +170,7 @@ end
 
 --------------------------------
 
----  All supported platforms other iOS & Android and CC_PLATFORM_WINRT use xml file to save values. This function checks whether the xml file exists or not.
+---  All supported platforms other iOS & Android use xml file to save values. This function checks whether the xml file exists or not.
 --- return True if the xml file exists, false if not.
 --- js NA
 ---@return boolean

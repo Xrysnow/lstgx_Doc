@@ -1,42 +1,36 @@
 
 --------------------------------
 -- @module Pass
--- @extend RenderState
+-- @extend Ref
 -- @parent_module cc
 
----@class cc.Pass:cc.RenderState
+---@class cc.Pass:cc.Ref
 local Pass = {}
 cc.Pass = Pass
 --------------------------------
 
----  Unbinds the Pass.
---- This method must be called AFTER calling the actual draw call
+--- 
+---@param  void
+---@param  number
 ---@return cc.Pass
-function Pass:unbind()
+function Pass:setUniformPointLightPosition(, )
 end
 
 --------------------------------
 
 --- 
----@param modelView mat4_table
----@param bindAttributes boolean
+---@param  void
+---@param  number
 ---@return cc.Pass
----@overload fun(self:cc.Pass, modelView:mat4_table):cc.Pass
-function Pass:bind(modelView, bindAttributes)
+function Pass:setUniformDirLightDir(, )
 end
 
 --------------------------------
 
---- Returns a clone (deep-copy) of this instance 
+--- 
+---@param technique cc.Technique
 ---@return cc.Pass
-function Pass:clone()
-end
-
---------------------------------
-
----  Returns the GLProgramState 
----@return cc.GLProgramState
-function Pass:getGLProgramState()
+function Pass:setTechnique(technique)
 end
 
 --------------------------------
@@ -50,8 +44,143 @@ end
 --------------------------------
 
 --- 
----@return number
-function Pass:getHash()
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformSpotLightOuterAngleCos(, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformSpotLightDir(, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformMatrixPalette(, )
+end
+
+--------------------------------
+
+--- 
+---@param name string
+---@return cc.Pass
+function Pass:setName(name)
+end
+
+--------------------------------
+
+--- 
+---@return string
+function Pass:getName()
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformSpotLightRangeInverse(, )
+end
+
+--------------------------------
+
+--- Returns a clone (deep-copy) of this instance 
+---@return cc.Pass
+function Pass:clone()
+end
+
+--------------------------------
+
+--- 
+---@param meshCommand cc.MeshCommand
+---@param globalZOrder number
+---@param vertexBuffer ccb.Buffer
+---@param indexBuffer ccb.Buffer
+---@param primitive number
+---@param indexFormat number
+---@param indexCount number
+---@param modelView mat4_table
+---@return cc.Pass
+function Pass:draw(meshCommand, globalZOrder, vertexBuffer, indexBuffer, primitive, indexFormat, indexCount, modelView)
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformPointLightRangeInverse(, )
+end
+
+--------------------------------
+
+--- 
+---@param slot number
+---@param  ccb.TextureBackend
+---@return cc.Pass
+function Pass:setUniformNormTexture(slot, )
+end
+
+--------------------------------
+
+--- 
+---@param modelView mat4_table
+---@return cc.Pass
+function Pass:updateMVPUniform(modelView)
+end
+
+--------------------------------
+
+---  Returns the ProgramState 
+---@return ccb.ProgramState
+function Pass:getProgramState()
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformSpotLightColor(, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformAmbientLigthColor(, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformDirLightColor(, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformSpotLightPosition(, )
 end
 
 --------------------------------
@@ -68,18 +197,54 @@ end
 --------------------------------
 
 --- 
----@param parent cc.Technique
+---@param slot number
+---@param  ccb.TextureBackend
 ---@return cc.Pass
-function Pass:create(parent)
+function Pass:setUniformTexture(slot, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformSpotLightInnerAngleCos(, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformColor(, )
+end
+
+--------------------------------
+
+--- 
+---@param  void
+---@param  number
+---@return cc.Pass
+function Pass:setUniformPointLightColor(, )
 end
 
 --------------------------------
 
 ---  Creates a Pass with a GLProgramState.
 ---@param parent cc.Technique
----@param programState cc.GLProgramState
+---@param programState ccb.ProgramState
 ---@return cc.Pass
-function Pass:createWithGLProgramState(parent, programState)
+function Pass:createWithProgramState(parent, programState)
+end
+
+--------------------------------
+
+--- 
+---@param parent cc.Technique
+---@return cc.Pass
+function Pass:create(parent)
 end
 
 

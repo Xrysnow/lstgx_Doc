@@ -10,7 +10,7 @@ cc.EventListenerAcceleration = EventListenerAcceleration
 --------------------------------
 
 --- 
----@param callback fun()
+---@param callback fun(arg0:cc.Acceleration,arg1:cc.Event)
 ---@return boolean
 function EventListenerAcceleration:init(callback)
 end

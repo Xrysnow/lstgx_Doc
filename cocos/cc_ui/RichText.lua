@@ -142,7 +142,7 @@ end
 --------------------------------
 
 --- 
----@param color4b lstg.Color
+---@param color4b color4b_table
 ---@return string
 function RichText:stringWithColor4B(color4b)
 end
@@ -152,7 +152,7 @@ end
 --- 
 ---@param xml string
 ---@param defaults map_table
----@param handleOpenUrl fun()
+---@param handleOpenUrl fun(arg0:std::string&)
 ---@return boolean
 function RichText:initWithXML(xml, defaults, handleOpenUrl)
 end
@@ -381,7 +381,7 @@ end
 --- return RichText instance.
 ---@param xml string
 ---@param defaults map_table
----@param handleOpenUrl fun()
+---@param handleOpenUrl fun(arg0:std::string&)
 ---@return ccui.RichText
 function RichText:createWithXML(xml, defaults, handleOpenUrl)
 end

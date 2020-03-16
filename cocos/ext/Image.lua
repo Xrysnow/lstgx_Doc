@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module cc
 
----@type cc.Image:cc.Ref
+---@type cc.Image
 local Image = {}
 cc.Image = Image
 --------------------------------
@@ -13,6 +13,17 @@ cc.Image = Image
 ---@param b lstg.Buffer buffer which holds the image data.
 ---@return boolean true if loaded correctly.
 function Image:initWithImageData(b)
+end
+
+--------------------------------
+
+---
+---@param path string
+---@param scale number
+---@param units string
+---@param dpi number
+---@return boolean
+function Image:initWithSVGFile(path, scale, units, dpi)
 end
 
 --------------------------------

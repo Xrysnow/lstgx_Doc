@@ -41,7 +41,7 @@ end
 
 ---  Initializes a MenuItemLabel with a Label, target and selector. 
 ---@param label cc.Node
----@param callback fun()
+---@param callback fun(arg0:cc.Ref)
 ---@return boolean
 function MenuItemLabel:initWithLabel(label, callback)
 end

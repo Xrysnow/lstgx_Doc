@@ -118,7 +118,7 @@ end
 
 --- Add a callback function which would be called when selected tab changed
 --- param callback A std::function with type @see `ccTabControlCallback`
----@param callback fun()
+---@param callback fun(arg0:number,arg1:ccui.TabControl::EventType)
 ---@return ccui.TabControl
 function TabControl:setTabChangedEventListener(callback)
 end

@@ -73,8 +73,18 @@ end
 
 --------------------------------
 
+--- Returns type of label
+--- warning Not support system font.
+--- return the type of label
+--- since v3.18.0
+---@return number
+function Label:getLabelType()
+end
+
+--------------------------------
+
 ---  Returns the text color of the Label.
----@return lstg.Color
+---@return color4b_table
 function Label:getTextColor()
 end
 
@@ -293,7 +303,7 @@ end
 
 --- Enable outline effect to Label.
 --- warning Limiting use to only when the Label created with true type font or system font.
----@param outlineColor lstg.Color
+---@param outlineColor color4b_table
 ---@param outlineSize number
 ---@return cc.Label
 function Label:enableOutline(outlineColor, outlineSize)
@@ -375,6 +385,13 @@ end
 
 --------------------------------
 
+--- Returns font size
+---@return number
+function Label:getRenderingFontSize()
+end
+
+--------------------------------
+
 --- Returns the line height of this Label.
 --- warning Not support system font.
 --- since v3.2.0
@@ -409,7 +426,7 @@ end
 --- Sets the text color of Label.
 --- The text color is different from the color of Node.
 --- warning Limiting use to only when the Label created with true type font or system font.
----@param color lstg.Color
+---@param color color4b_table
 ---@return cc.Label
 function Label:setTextColor(color)
 end
@@ -444,7 +461,7 @@ end
 
 --- Enable glow effect to Label.
 --- warning Limiting use to only when the Label created with true type font.
----@param glowColor lstg.Color
+---@param glowColor color4b_table
 ---@return cc.Label
 function Label:enableGlow(glowColor)
 end
@@ -690,6 +707,14 @@ end
 ---@param parentOpacity number
 ---@return cc.Label
 function Label:updateDisplayedOpacity(parentOpacity)
+end
+
+--------------------------------
+
+--- set ProgramState of current render command
+---@param programState ccb.ProgramState
+---@return cc.Label
+function Label:setProgramState(programState)
 end
 
 --------------------------------

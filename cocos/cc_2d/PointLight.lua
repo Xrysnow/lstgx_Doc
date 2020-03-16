@@ -18,7 +18,7 @@ end
 
 --- 
 ---@param range number
----@return cc.PointLight
+---@return point_table
 function PointLight:setRange(range)
 end
 
@@ -32,7 +32,7 @@ end
 ---@param position vec3_table
 ---@param color color3b_table
 ---@param range number
----@return cc.PointLight
+---@return point_table
 function PointLight:create(position, color, range)
 end
 
@@ -46,7 +46,7 @@ end
 --------------------------------
 
 --- 
----@return cc.PointLight
+---@return point_table
 function PointLight:PointLight()
 end
 

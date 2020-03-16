@@ -62,7 +62,7 @@ end
 --------------------------------
 
 ---  Get the collision callback function. 
----@return fun()
+---@return function
 function Physics3DObject:getCollisionCallback()
 end
 

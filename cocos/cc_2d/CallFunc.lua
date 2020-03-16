@@ -16,23 +16,6 @@ end
 
 --------------------------------
 
----  Get the selector target.
---- return The selector target.
----@return cc.Ref
-function CallFunc:getTargetCallback()
-end
-
---------------------------------
-
----  Set the selector target.
---- param sel The selector target.
----@param sel cc.Ref
----@return cc.CallFunc
-function CallFunc:setTargetCallback(sel)
-end
-
---------------------------------
-
 --- 
 ---@return cc.CallFunc
 function CallFunc:clone()
