@@ -1698,4 +1698,34 @@ end
 function imgui.getBackgroundDrawList(viewport)
 end
 
+--------------------------------
+
+--- adjust scrolling amount to make current cursor position visible. center_x_ratio=0.0: left, 0.5: center, 1.0: right. When using to make a "default/current item" visible, consider using SetItemDefaultFocus() instead.
+function imgui.setScrollHereX()
+end
+
+--------------------------------
+
+--- was the last item open state toggled? set by TreeNode().
+---@return boolean
+function imgui.isItemToggledOpen()
+end
+
+--------------------------------
+
+--- adjust scrolling amount to make given position visible. Generally GetCursorStartPos() + offset to compute a valid position.
+---@param local_x number
+---@param center_x_ratio number
+function imgui.setScrollFromPosX(local_x, center_x_ratio)
+end
+
+--------------------------------
+
+--- is mouse dragging? (if lock_threshold < -1.0f, uses io.MouseDraggingThreshold)
+---@param button number
+---@param lock_threshold number
+---@return boolean
+function imgui.isMouseDragging(button, lock_threshold)
+end
+
 return nil

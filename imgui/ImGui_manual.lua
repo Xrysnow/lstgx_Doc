@@ -96,6 +96,22 @@ end
 --
 
 ---
+---@param node cc.Node
+---@param tint_color ImVec4
+---@param border_color ImVec4
+function imgui.ccNode(node, tint_color, border_color)
+end
+
+---
+---@param node cc.Node
+---@param frame_padding number if <0, uses default frame padding settings. 0 for no padding
+---@param bg_color ImVec4
+---@param tint_color ImVec4
+---@return boolean
+function imgui.ccNodeButton(node, frame_padding, bg_color, tint_color)
+end
+
+---
 ---@param tex cc.Texture2D
 ---@param size ImVec2
 ---@param uv0 ImVec2
@@ -598,6 +614,12 @@ end
 --- access the Style structure (colors, sizes). Always use PushStyleCol(), PushStyleVar() to modify style mid-frame.
 ---@return imgui.ImGuiStyle
 function imgui.getStyle()
+end
+
+---
+---@param idx number
+---@param col ImVec4
+function imgui.setStyleColor(idx, col)
 end
 
 --- return a zero-terminated string with the .ini data which you can save by your own mean. call when io.WantSaveIniSettings is set, then save data by your own mean and clear io.WantSaveIniSettings.
