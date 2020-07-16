@@ -25,7 +25,7 @@ end
 ---@param mu number
 ---@param sigma number
 ---@return number
-function Random:log_norml(mu, sigma)
+function Random:log_normal(mu, sigma)
 end
 
 --------------------------------
