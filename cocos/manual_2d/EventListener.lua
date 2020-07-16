@@ -22,7 +22,7 @@ end
 local EventListenerKeyboard = {}
 
 ---registerScriptHandler
----@param handler function
+---@param handler fun(keyCode:number, event:cc.EventKeyboard)
 ---@param handlerType number @enum in cc.Handler, can be EVENT_KEYBOARD_PRESSED(38) or EVENT_KEYBOARD_RELEASED(39)
 function EventListenerKeyboard:registerScriptHandler(handler, handlerType)
 end

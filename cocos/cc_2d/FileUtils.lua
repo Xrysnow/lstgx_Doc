@@ -56,7 +56,7 @@ end
 ---@param path string
 ---@param callback fun(arg0:string)
 ---@return cc.FileUtils
----@overload fun(self:cc.FileUtils, filename:string):cc.FileUtils
+---@overload fun(self:cc.FileUtils, filename:string):string
 function FileUtils:getStringFromFile(path, callback)
 end
 

@@ -94,7 +94,7 @@ end
 --------------------------------
 
 --- 
----@return array_table
+---@return cc.Node[]
 function Node:getChildren()
 end
 
@@ -1014,10 +1014,10 @@ end
 --------------------------------
 
 --- Sets the scale (x,y) of the node.<br>
--- It is a scaling factor that multiplies the width and height of the node and its children.<br>
--- param scaleX     The scale factor on X axis.<br>
--- param scaleY     The scale factor on Y axis.<br>
--- warning The physics body doesn't support this.
+--- It is a scaling factor that multiplies the width and height of the node and its children.<br>
+--- param scaleX     The scale factor on X axis.<br>
+--- param scaleY     The scale factor on Y axis.<br>
+--- warning The physics body doesn't support this.
 ---@param scaleX number
 ---@param scaleY number
 ---@return cc.Node
