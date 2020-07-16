@@ -1,7 +1,7 @@
 --
 
---- The functions in this built-in module control the behavior of the JIT compiler engine. Note that JIT-compilation is fully automatic — you probably won't need to use any of the following functions unless you have special needs.
 ---@class jit
+--- The functions in this built-in module control the behavior of the JIT compiler engine. Note that JIT-compilation is fully automatic — you probably won't need to use any of the following functions unless you have special needs.
 jit = jit or {}
 
 --- Turns the whole JIT compiler on (default).

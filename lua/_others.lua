@@ -20,7 +20,6 @@ function json.null()
 end
 
 --rebounding = {}
-lfs = {}
 
 --- array of commandline arguments
 ---@type string[]
