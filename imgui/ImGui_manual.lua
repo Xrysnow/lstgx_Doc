@@ -96,22 +96,6 @@ end
 --
 
 ---
----@param node cc.Node
----@param tint_color ImVec4
----@param border_color ImVec4
-function imgui.ccNode(node, tint_color, border_color)
-end
-
----
----@param node cc.Node
----@param frame_padding number if <0, uses default frame padding settings. 0 for no padding
----@param bg_color ImVec4
----@param tint_color ImVec4
----@return boolean
-function imgui.ccNodeButton(node, frame_padding, bg_color, tint_color)
-end
-
----
 ---@param tex cc.Texture2D
 ---@param size ImVec2
 ---@param uv0 ImVec2
@@ -369,10 +353,10 @@ end
 ---@param label string
 ---@param v number
 ---@param step number
----@param step_fase number
+---@param step_fast number
 ---@param flags number
 ---@return boolean,number
-function imgui.inputInt(label, v, step, step_fase, flags)
+function imgui.inputInt(label, v, step, step_fast, flags)
 end
 
 ---
@@ -525,7 +509,7 @@ end
 -- Those three properties are connected. The library needs to hold their visibility state because it can close popups at any time.
 --
 
---- modal dialog (regular window with title bar, block interactions behind the modal window, can't close the modal window by clicking outside)
+--- return true if the modal is open, and you can start outputting to it.
 ---@param name string
 ---@param open boolean optional, nullable
 ---@param flags number optional
@@ -638,6 +622,66 @@ end
 
 ---@return cc.Layer
 function imgui.createLayer()
+end
+
+function imgui.shutdown()
+end
+
+---
+---@param node cc.Node
+---@param tint_color ImVec4
+---@param border_color ImVec4
+function imgui.ccNode(node, tint_color, border_color)
+end
+
+---
+---@param node cc.Node
+---@param frame_padding number if <0, uses default frame padding settings. 0 for no padding
+---@param bg_color ImVec4
+---@param tint_color ImVec4
+---@return boolean
+function imgui.ccNodeButton(node, frame_padding, bg_color, tint_color)
+end
+
+---
+---@param node cc.Node
+---@param col number|ImVec4
+function imgui.setCCNodeColor(node, col)
+end
+
+---
+---@param label cc.Label
+---@param col number|ImVec4|boolean
+function imgui.setCCLabelColor(label, col)
+end
+
+-- markdown
+
+---
+---@param f fun(text:string,link:string,isImage:boolean)
+function imgui.setMarkdownLinkCallback(f)
+end
+
+---
+---@param f fun(text:string,link:string):cc.Sprite,ImVec2,ImVec4,ImVec4
+function imgui.setMarkdownImageCallback(f)
+end
+
+---
+---@param index number
+---@param font imgui.ImFont
+---@param seperator boolean
+function imgui.setMarkdownFont(index, font, seperator)
+end
+
+---
+---@param icon string
+function imgui.setMarkdownLinkIcon(icon)
+end
+
+---
+---@param content string
+function imgui.markdown(content)
 end
 
 ---@class ImVec2:vec2_table
