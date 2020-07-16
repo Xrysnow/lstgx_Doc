@@ -1,7 +1,7 @@
 ---
 --- frame.lua
 ---
---- Copyright (C) 2018-2019 Xrysnow. All rights reserved.
+--- Copyright (C) 2018-2020 Xrysnow. All rights reserved.
 ---
 
 
@@ -20,11 +20,10 @@ end
 function SetVsync(boolean)
 end
 
-
 ---向日志文件写入字符串
 ---@param str string
 function SystemLog(str)
-    lstg.LogSystem:getInstance():writeLine('[LOG] '.. str)
+    lstg.LogSystem:getInstance():writeLine('[LOG] ' .. str)
 end
 
 ---将若干值写到日志。
@@ -63,7 +62,6 @@ end
 function SetOnWriteLog(f)
 end
 
-
 ---@param msg string
 ---@param title string
 function MessageBox(msg, title)
@@ -71,4 +69,14 @@ end
 
 function GetPlatform()
     return ''
+end
+
+---@param data any
+---@return number
+function XXHash32(data)
+end
+
+---@param data string|ffi.cdata
+---@return string
+function RC4XOR(data, size)
 end
