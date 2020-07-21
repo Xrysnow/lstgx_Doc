@@ -1,0 +1,28 @@
+var classtable =
+[
+    [ "append", "classtable.html#aa87f8afb49c5a13c9e69fb6e4b137c1b", null ],
+    [ "average", "classtable.html#acb4d22ad1edbb383bc7704226674c285", null ],
+    [ "average_by", "classtable.html#a3721979b0e0cf72909712f280a0fbb20", null ],
+    [ "choose", "classtable.html#af1228e072dff1262b4a353f7a0f13461", null ],
+    [ "clone", "classtable.html#a92a994827295e92c8b9a210bbfeeb152", null ],
+    [ "collect", "classtable.html#a64cfb5476a4c558e1b739d36b86ae2b4", null ],
+    [ "concat", "classtable.html#a1f5467707d10527c996682690d26a6d9", null ],
+    [ "deploy", "classtable.html#ae7ba9111ec2426bd7067f2b577816495", null ],
+    [ "dump", "classtable.html#a9df54905dc47095ed8117dab6242c1d9", null ],
+    [ "exists", "classtable.html#af10b95f05546b9386344c005a5515963", null ],
+    [ "exists2", "classtable.html#ab2deaf3f423768798f384a7873f74395", null ],
+    [ "ffind", "classtable.html#a5bb5f48417f1499fb5011b0bf4aa586d", null ],
+    [ "ffindkey", "classtable.html#a648eb3ca7c59921fe42a138d742e800b", null ],
+    [ "filter", "classtable.html#a0ad21ab2e2900002c4d9c5e71f007ff7", null ],
+    [ "forall", "classtable.html#abb5eaedb6218224c6dcbaca40787892d", null ],
+    [ "has", "classtable.html#a39afbeaf2c604ac4f3f20afbe2871224", null ],
+    [ "insert", "classtable.html#a00127da3421fd50f332ac5efd1d41078", null ],
+    [ "is_empty", "classtable.html#a610739b31ee309088eefdf66adb894fa", null ],
+    [ "length", "classtable.html#a75b052b1c45581de2022f0c27391b8f9", null ],
+    [ "map", "classtable.html#af437ebb772cf78053842d874b7a627f0", null ],
+    [ "maxn", "classtable.html#a7f7ca4a0eb51762f0ac3715443b9df9f", null ],
+    [ "pack", "classtable.html#a61048d4669ee43c2217b21dac9f1e6fa", null ],
+    [ "remove", "classtable.html#ac16e7dd244f95d3337ea7bb8d81009e6", null ],
+    [ "sort", "classtable.html#aae5e03e4ab4823d7b97c15a189619360", null ],
+    [ "supplement", "classtable.html#ae758f73a55c974dcd63359b4c39299a2", null ]
+];

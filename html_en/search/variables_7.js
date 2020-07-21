@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['g_5037',['g',['../classlstg_1_1_color.html#aee53422e7420269163096f39949ea549',1,'lstg::Color::g()'],['../classxobject.html#a557c33bb2f9dc5eaf4ac64d49d35e150',1,'xobject::G()']]],
+  ['gainsboro_5038',['Gainsboro',['../classx_1_1color.html#a2a70949e7b84693935869cc97deac0ca',1,'x::color']]],
+  ['ghostwhite_5039',['GhostWhite',['../classx_1_1color.html#a15c551bc59a810a692cabd3c72f5ed83',1,'x::color']]],
+  ['gold_5040',['GOLD',['../class___g.html#a225792a2a1ab8d18d4d4a4afc481abc5',1,'_G::GOLD()'],['../classx_1_1color.html#a95084ec0406df6c3e162eeff39d7890e',1,'x::color::Gold()']]],
+  ['goldenrod_5041',['Goldenrod',['../classx_1_1color.html#a33abd121c57e844df5e601b7d0536e42',1,'x::color']]],
+  ['gray_5042',['Gray',['../classx_1_1color.html#a94d7793de428e5ab2f89824e1d19e853',1,'x::color']]],
+  ['graze_5043',['graze',['../class___g_1_1sound_volume.html#a9af0d683ee35685c8cc6cd93ae9da0d9',1,'_G::soundVolume']]],
+  ['green_5044',['Green',['../classx_1_1color.html#a4a413846f1048fc0c3c841bd9887d5bc',1,'x::color']]],
+  ['greenyellow_5045',['GreenYellow',['../classx_1_1color.html#ad682a4473d1590732ec6107406ba3d9a',1,'x::color']]],
+  ['group_5046',['group',['../classobject.html#adfef0d01674a3d0c9ed8571f63756998',1,'object']]],
+  ['group_5fall_5047',['GROUP_ALL',['../class___g.html#a61a6f5e9fe4dd71386d3dd1cd6b9232e',1,'_G']]],
+  ['group_5fenemy_5048',['GROUP_ENEMY',['../class___g.html#ab1b88c5ce99032385f0f21b94b943f0b',1,'_G']]],
+  ['group_5fenemy_5fbullet_5049',['GROUP_ENEMY_BULLET',['../class___g.html#afcdf2bce4eb311aad1ad1da05a0151ab',1,'_G']]],
+  ['group_5fghost_5050',['GROUP_GHOST',['../class___g.html#acd1d53d673dd52c9555356e212c8bbb3',1,'_G']]],
+  ['group_5findes_5051',['GROUP_INDES',['../class___g.html#a7c8a37328644f3ae6a86eefff4f207d0',1,'_G']]],
+  ['group_5fitem_5052',['GROUP_ITEM',['../class___g.html#a827419b1b7522fb400090d245d34d514',1,'_G']]],
+  ['group_5fnontjt_5053',['GROUP_NONTJT',['../class___g.html#a902a58a0c0ef7527364743bc5e7f8425',1,'_G']]],
+  ['group_5fnum_5fof_5fgroup_5054',['GROUP_NUM_OF_GROUP',['../class___g.html#a8b3067df0c19d0dbbf0f3adcee2f6e38',1,'_G']]],
+  ['group_5fplayer_5055',['GROUP_PLAYER',['../class___g.html#ac9391b1591421bb423837d7a40e24efb',1,'_G']]],
+  ['group_5fplayer_5fbullet_5056',['GROUP_PLAYER_BULLET',['../class___g.html#a9b917a81f8b1cba3997b026db65a1a06',1,'_G']]],
+  ['gun00_5057',['gun00',['../class___g_1_1sound_volume.html#aeac1c1e14b79250e5af30b74c539d1e8',1,'_G::soundVolume']]]
+];
