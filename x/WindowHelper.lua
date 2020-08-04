@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.WindowHelper:lstg.Ref
+---@class lstg.WindowHelper:cc.Ref
 local WindowHelper = {}
 lstg.WindowHelper = WindowHelper
 --------------------------------

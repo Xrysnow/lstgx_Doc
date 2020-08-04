@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.Resource:lstg.Ref
+---@class lstg.Resource:cc.Ref
 local Resource = {}
 lstg.Resource = Resource
 --------------------------------

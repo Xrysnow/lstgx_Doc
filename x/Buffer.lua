@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.Buffer:lstg.Ref
+---@class lstg.Buffer:cc.Ref
 local Buffer = {}
 lstg.Buffer = Buffer
 --------------------------------

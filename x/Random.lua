@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.Random:lstg.Ref
+---@class lstg.Random:cc.Ref
 local Random = {}
 lstg.Random = Random
 --------------------------------

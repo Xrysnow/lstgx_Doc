@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.Triangles:lstg.Ref
+---@class lstg.Triangles:cc.Ref
 local Triangles = {}
 lstg.Triangles = Triangles
 --------------------------------

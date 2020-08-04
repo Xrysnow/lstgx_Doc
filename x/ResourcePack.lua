@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.ResourcePack:lstg.Ref
+---@class lstg.ResourcePack:cc.Ref
 local ResourcePack = {}
 lstg.ResourcePack = ResourcePack
 --------------------------------

@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.RenderMode:lstg.Ref
+---@class lstg.RenderMode:cc.Ref
 local RenderMode = {}
 lstg.RenderMode = RenderMode
 --------------------------------

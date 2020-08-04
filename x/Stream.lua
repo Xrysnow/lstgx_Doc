@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.Stream:lstg.Ref
+---@class lstg.Stream:cc.Ref
 local Stream = {}
 lstg.Stream = Stream
 --------------------------------

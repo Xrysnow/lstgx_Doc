@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module lstg
 
----@class lstg.GameObjectBentLaser:lstg.Ref
+---@class lstg.GameObjectBentLaser:cc.Ref
 local GameObjectBentLaser = {}
 lstg.GameObjectBentLaser = GameObjectBentLaser
 --------------------------------
