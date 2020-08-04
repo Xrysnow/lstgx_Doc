@@ -215,7 +215,7 @@ end
 
 --- Gets the original search path array set by 'setSearchPaths' or 'addSearchPath'.
 --- return The array of the original search paths
----@return array_table
+---@return string[]
 function FileUtils:getOriginalSearchPaths()
 end
 
@@ -237,7 +237,7 @@ end
 --- param dirPath The path of the directory, it could be a relative or an absolute path.
 --- return File paths in a string vector
 ---@param dirPath string
----@return array_table
+---@return string[]
 function FileUtils:listFiles(dirPath)
 end
 
@@ -305,7 +305,7 @@ end
 --- since v2.1
 --- In js:var setSearchPaths(var jsval);
 --- lua NA
----@param searchPaths array_table
+---@param searchPaths string[]
 ---@return cc.FileUtils
 function FileUtils:setSearchPaths(searchPaths)
 end

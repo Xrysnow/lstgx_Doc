@@ -68,10 +68,10 @@ end
 --------------------------------
 
 ---  Returns a Texture2D object given an Image.<br>
--- If the image was not previously loaded, it will create a new Texture2D object and it will return it.<br>
--- Otherwise it will return a reference of a previously loaded image.<br>
--- param key The "key" parameter will be used as the "key" for the cache.<br>
--- If "key" is nil, then a new texture will be created each time.
+--- If the image was not previously loaded, it will create a new Texture2D object and it will return it.<br>
+--- Otherwise it will return a reference of a previously loaded image.<br>
+--- param key The "key" parameter will be used as the "key" for the cache.<br>
+--- If "key" is nil, then a new texture will be created each time.
 ---@param image cc.Image
 ---@param key string
 ---@return cc.Texture2D
