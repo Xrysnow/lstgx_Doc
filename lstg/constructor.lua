@@ -5,7 +5,10 @@
 ---
 
 
----创建并返回颜色类
+---@~chinese 创建一个颜色对象
+---
+---@~english Create a Color object.
+---
 ---@param a number
 ---@param r number
 ---@param g number
@@ -15,7 +18,10 @@
 function Color(a, r, g, b)
 end
 
----创建并返回随机数发生器
+---@~chinese 创建一个随机数发生器
+---
+---@~english Create a random number generator.
+---
 ---@return lstg.Rand
 function Rand()
     local lstgRand = {
@@ -33,8 +39,11 @@ function Rand()
     return userdata
 end
 
----创建并返回曲线激光类
----@return lstg.BentLaserData
+---@~chinese 创建并返回曲线激光对象
+---
+---@~english Create a BentLaser object.
+---
+---@return lstg.GameObjectBentLaser
 function BentLaserData()
 end
 

@@ -8,7 +8,10 @@
 -- 对象控制函数
 
 
----获取对象池中对象个数
+---@~chinese 获取对象池中对象个数
+---
+---@~english Get game object count.
+---
 ---@return number
 function GetnObj()
 end
