@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResAnimation
 -- @extend ResourceQuad
@@ -7,66 +6,6 @@
 ---@class lstg.ResAnimation:lstg.ResourceQuad
 local ResAnimation = {}
 lstg.ResAnimation = ResAnimation
---------------------------------
-
---- 
----@param v cc.V3F_C4B_T2F_Quad
----@param i number
----@return lstg.ResAnimation
-function ResAnimation:setVertex(v, i)
-end
-
---------------------------------
-
---- 
----@return number
-function ResAnimation:getInterval()
-end
-
---------------------------------
-
---- 
----@param ani_timer number
----@param x number
----@param y number
----@param rot number
----@param hscale number
----@param vscale number
----@return boolean
-function ResAnimation:render(ani_timer, x, y, rot, hscale, vscale)
-end
-
---------------------------------
-
---- 
----@param v number
----@return lstg.ResAnimation
-function ResAnimation:setInterval(v)
-end
-
---------------------------------
-
---- 
----@param index number
----@return cc.Sprite
-function ResAnimation:getSprite(index)
-end
-
---------------------------------
-
---- 
----@param i number
----@return cc.V3F_C4B_T2F_Quad
-function ResAnimation:getVertex(i)
-end
-
---------------------------------
-
---- 
----@return number
-function ResAnimation:getCount()
-end
-
 --------------------------------
 
 --- 
@@ -89,9 +28,65 @@ end
 --------------------------------
 
 --- 
----@param v cc.V3F_C4B_T2F_Quad
----@return lstg.ResAnimation
-function ResAnimation:setVertex(v)
+---@return number
+function ResAnimation:getCount()
+end
+
+--------------------------------
+
+--- 
+---@return table<string,string>
+function ResAnimation:getInfo()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResAnimation:getInterval()
+end
+
+--------------------------------
+
+--- 
+---@param index number
+---@return cc.Sprite
+function ResAnimation:getSprite(index)
+end
+
+--------------------------------
+
+--- 
+---@param i number
+---@return cc.V3F_C4B_T2F_Quad
+function ResAnimation:getVertex(i)
+end
+
+--------------------------------
+
+--- 
+---@return cc.V3F_C4B_T2F_Quad
+function ResAnimation:getVertex()
+end
+
+--------------------------------
+
+--- 
+---@return cc.Animation
+function ResAnimation:newCocosAnimation()
+end
+
+--------------------------------
+
+--- 
+---@param ani_timer number
+---@param x number
+---@param y number
+---@param rot number
+---@param hscale number
+---@param vscale number
+---@return boolean
+function ResAnimation:render(ani_timer, x, y, rot, hscale, vscale)
 end
 
 --------------------------------
@@ -115,16 +110,28 @@ end
 --------------------------------
 
 --- 
----@return map_table
-function ResAnimation:getInfo()
+---@param v number
+---@return lstg.ResAnimation
+function ResAnimation:setInterval(v)
 end
 
 --------------------------------
 
 --- 
----@return cc.V3F_C4B_T2F_Quad
-function ResAnimation:getVertex()
+---@param v cc.V3F_C4B_T2F_Quad
+---@param i number
+---@return lstg.ResAnimation
+function ResAnimation:setVertex(v, i)
 end
+
+--------------------------------
+
+--- 
+---@param v cc.V3F_C4B_T2F_Quad
+---@return lstg.ResAnimation
+function ResAnimation:setVertex(v)
+end
+
 
 
 return nil

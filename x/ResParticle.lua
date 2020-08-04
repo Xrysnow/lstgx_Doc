@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResParticle
 -- @extend ResourceColliable
@@ -7,20 +6,6 @@
 ---@class lstg.ResParticle:lstg.ResourceColliable
 local ResParticle = {}
 lstg.ResParticle = ResParticle
---------------------------------
-
---- 
----@return lstg.RenderMode
-function ResParticle:getRenderMode()
-end
-
---------------------------------
-
---- 
----@return cc.Sprite
-function ResParticle:getBindSprite()
-end
-
 --------------------------------
 
 --- 
@@ -37,8 +22,29 @@ end
 --------------------------------
 
 --- 
----@return map_table
+---@return cc.Sprite
+function ResParticle:getBindSprite()
+end
+
+--------------------------------
+
+--- 
+---@return table<string,string>
 function ResParticle:getInfo()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.RenderMode
+function ResParticle:getRenderMode()
+end
+
+--------------------------------
+
+--- 
+---@return cc.ParticleSystemQuad
+function ResParticle:newCocosParticle()
 end
 
 
