@@ -1,8 +1,8 @@
 --
 
 ---
----@class lstg.Color
 --- 颜色类 有如下元方法: __eq | __add | __sub | __mul | __tostring
+---@class lstg.Color
 ---@field a number
 ---@field r number
 ---@field g number

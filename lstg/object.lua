@@ -26,28 +26,48 @@ end
 ]]
 
 
----更新对象列表中所有对象，并更新属性
----禁止在协程上调用该方法
----> 细节
---->   按照下列顺序更新这些属性：
+---@~chinese 更新所有游戏对象。
+---@~chinese **禁止在协程上调用该方法。**
+---
+---@~english Update all game objects.
+---@~english **Do not invoke in coroutine.**
+---
+---@~chinese 细节
+---@~chinese >   按照下列顺序更新这些属性：
+---
+---@~english Detail
+---@~english >   Update properties in the following order:
+---
 ---> vx += ax
 ---> vy += ay
 ---> x += vx
 ---> y += vy
 ---> rot += omiga
----> 更新绑定的粒子系统（若有）
+---
+---@~chinese > 更新绑定的粒子系统（若有）
+---@~english > Update paritle system if there is
 function ObjFrame()
 end
 
----渲染所有对象。此时将所有对象排序。
----禁止在协程上调用该方法。
----排序规则：layer小的先渲染，若layer相同则按照uid
----> 细节
---->   渲染列表总是保持有序的，将不会每次排序
+---@~chinese 渲染所有对象。会依次调用每个对象的`render()`回调。
+---
+---@~chinese `layer`属性较小对象会先被渲染。
+---
+---@~chinese **禁止在协程上调用该方法。**
+---
+---@~english Render all game objects. Will invoke `rander()` callback one by one.
+---
+---@~english Object with smaller `layer` property will be rendered first.
+---
+---@~english **Do not invoke in coroutine.**
+---
 function ObjRender()
 end
 
----设置舞台边界
+---@~chinese 设置版面边界。
+---
+---@~english Set boundary of stage.
+---
 ---@param left number
 ---@param right number
 ---@param bottom number
@@ -55,14 +75,29 @@ end
 function SetBound(left, right, bottom, top)
 end
 
----执行边界检查。注意BoundCheck只保证对象中心还在范围内，不进行碰撞盒检查
----禁止在协程上调用该方法
----将bound==true并且x,y在SetBound设置范围外的所有对象状态置为'del'
+---@~chinese 执行边界检查并将边界外的对象标记为'del'。注意只检查对象中心，不进行碰撞盒检查。
+---
+---@~chinese `bound`属性为`false`的对象不会被标记。
+---
+---@~chinese **禁止在协程上调用该方法。**
+---
+---@~english Do boundary check and mark objects outside boundary as 'del' status.
+---
+---@~english An object will not be marked if `bound` property is `false`.
+---
+---@~english **Do not invoke in coroutine.**
+---
 function BoundCheck()
 end
 
----对组A和B进行碰撞检测。如果组A中对象与组B中对象发生碰撞，将执行A中对象的碰撞回调函数。
----禁止在协程上调用该方法。
+---@~chinese 对A和B进行碰撞检测。如果A（组）对象与B（组）对象发生碰撞，将执行前者的`colli()`回调函数。A和B可以是组ID或游戏对象。
+---
+---@~chinese **禁止在协程上调用该方法。**
+---
+---@~english If an object (in group) A collides another object (in group) B, its `colli()` callback will be invoked and the other object will be passed as parameter. A and B can be either group ID or object.
+---
+---@~english **Do not invoke in coroutine.**
+---
 ---@param A number|object
 ---@param B number|object
 function CollisionCheck(A, B)
@@ -73,101 +108,129 @@ end
 function CollisionCheck3D(A, B)
 end
 
----刷新对象的dx,dy,lastx,lasty,rot（若navi==true）属性值
----禁止在协程上调用该方法。
+---@~chinese 刷新对象的dx,dy,lastx,lasty,rot（若navi为true）属性值。
+---@~chinese **禁止在协程上调用该方法。**
+---
+---@~english Update following properties of all objects: dx, dy, lastx, lasty, rot (when navi is `true`).
+---
+---@~english **Do not invoke in coroutine.**
+---
 function UpdateXY()
 end
 
----刷新对象的timer和ani_timer，若对象被标记为del或kill将删除对象并回收资源。
----禁止在协程上调用该方法。
----> 细节
---->　 对象只有在AfterFrame调用后才会被清理，在此之前可以通过设置对象的status字段取消删除标记。
+---@~chinese 刷新对象的timer和ani_timer，若对象被标记为'del'或'kill'将删除对象。
+---
+---@~chinese **禁止在协程上调用该方法。**
+---
+---@~chinese 细节
+---@~chinese > 对象只有在AfterFrame调用后才会被清理，在此之前可以通过将对象的`status`属性设置为"normal"来保留。
+---
+---@~english Update following properties of all objects: timer, ani_timer. Trim objects marked as `del` or `kill`.
+---
+---@~english **Do not invoke in coroutine.**
+---
+---@~english Detail
+---@~english > You can set `status` property of an object to "normal" to preserve it.
+---
 function AfterFrame()
 end
 
+---@~chinese 创建一个游戏对象。
 ---
----创建新对象，将累加uid值
----> 细节
---->   该方法使用class创建一个对象，并在构造对象后调用class的构造方法(init)构造对象。
+---@~chinese 细节
+---@~chinese > 该方法使用class创建一个对象，并调用class定义的构造方法`init()`。
 ---
----被创建的对象具有如下属性：
+---@~chinese 被创建对象的索引1和2被用于存放类和id。**请勿修改。**
 ---
----| 属性 | 描述 |
----| ------ | ------ |
----| x, y | 坐标 |
----| dx, dy | (只读)距离上一次更新的坐标增量 |
----| rot | 角度 |
----| omiga | 角度增量 |
----| timer | 计数器 |
----| vx, vy | 速度 |
----| ax, ay | 加速度 |
----| layer | 渲染层级 |
----| group | 碰撞组 |
----| hide | 是否隐藏 |
----| bound | 是否越界销毁 |
----| navi | 是否自动更新朝向 |
----| colli | 是否允许碰撞 |
----| status | 对象状态，返回del kill normal |
----| hscale, vscale | 横向、纵向的缩放 |
----| class | 对象的父类 |
----| a, b | 碰撞盒大小 |
----| rect | 是否为矩形碰撞盒 |
----| img | 绑定的图像/动画资源(名称) |
----| ani | (只读)动画计数器 |
+---@~chinese `class`需满足如下形式：
 ---
----被创建对象的索引1和2被用于存放类和id【请勿修改】
----其中父类class需满足如下形式：
+---@~english Create a game object.
+---
+---@~english Detail
+---@~english > Create a game object based on `class` and invoke `init()` callback.
+---
+---@~english Index `1` and `2` of the object will be `class` and internal ID, **do not modify them**.
+---
+---@~english `class` should have following properties:
 ---
 ---> is_class = true
----> [1] = 初始化函数 (object, ...)
----> [2] = 删除函数(DEL) (object, ...)
----> [3] = 帧函数 (object)
----> [4] = 渲染函数 (object)
----> [5] = 碰撞函数 (object, object)
----> [6] = 消亡函数(KILL) (object, ...)
+---> [1] = `init(object, ...)`
+---> [2] = `del(object, ...)`
+---> [3] = `frame(object)`
+---> [4] = `render(object)`
+---> [5] = `colli(object, object)`
+---> [6] = `kill(object, ...)`
 ---
----上述回调函数将在对象触发相应事件时被调用
----引擎提供了至多32768个空间共object使用。超过这个大小后将报错。
+---@~chinese 上述回调函数将在对象触发相应事件时被调用。
+---
+---@~chinese 引擎提供了至多32768个空间共object使用。超过这个大小后将报错。
+---
+---@~english Callbacks will be invoked when corresponding event happens.
+---
+---@~english The upper limit of object count is 32768. An error will be thrown if it exceeds.
+---
+---@see object
 ---@return object
 function New(class, ...)
 end
 
----通知删除一个对象。将设置标志并调用回调函数。
----若在object后传递多个参数，将被传递给回调函数。
+---@~chinese 设置对象状态为'del'并调用`del()`回调函数。
+---
+---@~chinese 若在object后传递多个参数，将被传递给回调函数。
+---
+---@~english Mark object as 'del' status and invoke `del()` callback.
+---
+---@~english Parameters passed after `object` will be passed to `del()` callback.
+---
 ---@param obj object
 function Del(obj, ...)
 end
 
----通知杀死一个对象。将设置标志并调用回调函数。
----若在object后传递多个参数，将被传递给回调函数。
+---@~chinese 设置对象状态为'kill'并调用`kill()`回调函数。
+---
+---@~chinese 若在object后传递多个参数，将被传递给回调函数。
+---
+---@~english Mark object as 'kill' status and invoke `kill()` callback.
+---
+---@~english Parameters passed after `object` will be passed to `kill()` callback.
+---
 ---@param obj object
 function Kill(obj, ...)
 end
 
----IsValid(obj)
----检查对象是否有效
----对象为table，且具有正确的资源池id
+---@~chinese 检查对象是否有效（未从对象池中删除）。
+---
+---@~english Check if object is valid (not trimmed).
+---
 ---@param obj object
 ---@return boolean
 function IsValid(obj)
 end
 
----设置速度方向和大小（C++对象）
+---@~chinese 设置对象速度大小和方向（角度）。若updateRot为`true`，将自动更新`rot`属性。
+---
+---@~english Set magnitude and direction (in degrees) of object velocity. Will update `rot` property if updateRot is `true`.
+---
 ---@param obj object 要设置的对象
----@param v number 速度大小
----@param angle number 速度方向（角度）
+---@param magnitude number 速度大小
+---@param direction number 速度方向（角度）
 ---@param updateRot boolean 是否更新自转，默认为false
-function SetV(obj, v, angle, updateRot)
+function SetV(obj, magnitude, direction, updateRot)
 end
 
----获取速度方向和大小（C++对象）
+---@~chinese 返回对象速度大小和方向（角度）。
+---
+---@~english Returns magnitude and direction (in degrees) of object velocity.
+---
 ---@param obj object
 ---@return number, number 速度大小，速度方向（角度）
 function GetV(obj)
 end
 
----设置资源状态
----该函数将会设置和对象绑定的精灵、动画资源的混合模式，该设置对所有同名资源都有效果
+---@~chinese 设置资源状态。该函数将会设置和对象绑定的精灵、动画资源的混合模式，该设置对所有同名资源都有效果。
+---
+---@~english Set parameters of the renderable resource bind to `object`.
+---
 ---@param object object
 ---@param blend string 混合模式
 ---@param a number
@@ -177,24 +240,40 @@ end
 function SetImgState(object, blend, a, r, g, b)
 end
 
---- 计算两点连线角度
---- 当参数个数为2时，返回2个object连线角度
---- 当参数个数为4时，返回2个坐标连线角度
----@param arg1 object|number object或x1
----@param arg2 object|number object或y1
----@param arg3 number x2
----@param arg4 number y2
-function Angle(arg1, arg2, arg3, arg4)
+---@~chinese 返回2个对象连线角度（角度）。
+---
+---@~english Returns angle of two objects in degrees.
+---
+---@param a object
+---@param b object
+function Angle(a, b)
 end
 
----计算两个object距离
+---@~chinese 返回2个坐标连线角度（角度）。
+---
+---@~english Returns angle of two points in degrees.
+---
+---@param x1 number
+---@param x2 number
+---@param y1 number
+---@param y2 number
+function Angle(x1, x2, y1, y2)
+end
+
+---@~chinese 计算两个object距离。
+---
+---@~english Returns distance between two objects.
+---
 ---@param objA object
 ---@param objB object
 ---@return number
 function Dist(objA, objB)
 end
 
----检查对象中心是否在所给范围内
+---@~chinese 检查对象中心是否在所给范围内。
+---
+---@~english Check if position of `object` is in the given range.
+---
 ---@param object object
 ---@param left number
 ---@param right number
@@ -204,40 +283,63 @@ end
 function BoxCheck(object, left, right, bottom, top)
 end
 
----清空并回收所有对象
+---@~chinese 立即回收所有游戏对象。
+---
+---@~english Trim all game objects immediately.
+---
 function ResetPool()
 end
 
----在对象上调用默认渲染方法
+---@~chinese 游戏对象的默认渲染方法。
+---
+---@~english Default render function for a game object.
+---
 ---@param obj object
 function DefaultRenderFunc(obj)
 end
 
----获取组中的下一个元素。若groupid为无效的碰撞组则返回所有对象。
----返回的第一个参数为id，第二个参数为对象
+---@~chinese 依次遍历组中的元素。若`groupid`为无效的碰撞组则在所有对象中遍历。
+---
+---@~chinese `ObjList()`的手动迭代版本。
+---
+---@~english Iterates objects in a group if `groupid` is valid, otherwise iterates all objects.
+---
+---@~english This is manual version of `ObjList()`.
+---
 ---@param groupid number
 ---@param id number
 ---@return object
 function NextObject(groupid, id)
 end
 
----产生组遍历迭代器
----> for id, obj in ObjList(GROUP_PLAYER) do
----> ...
----> end
+---@~chinese 返回组遍历迭代器。
+---
+---@~english Returns an iterator that go through objects in a group.
+---
+---```lua
+--- for id, obj in ObjList(GROUP_PLAYER) do
+---   ...
+--- end
+---```
 ---@param groupid number
 ---@return function
 function ObjList(groupid)
 end
 
----获取对象属性
+---@~chinese 获取对象属性。
+---
+---@~english Get property of object.
+---
 ---@param obj object
 ---@param key string
 ---@return any
 function GetAttr(obj, key)
 end
 
----设置对象属性（C++或lua对象的属性）
+---@~chinese 设置对象属性。
+---
+---@~english Set property of object.
+---
 ---@param obj object
 ---@param key string
 ---@param v any

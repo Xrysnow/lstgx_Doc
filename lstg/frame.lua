@@ -61,6 +61,21 @@ end
 function ShowSplashWindow(path)
 end
 
+---@~chinese 进行屏幕截图并以PNG格式保存到`path`。
+---
+---@~english Take a snapshot of screen and save to `path` in PNG format.
+---
+---@param path string
+function Snapshot(path)
+end
+
+---@~chinese 返回对象池table。
+---
+---@~english Returns the table where game objects are stored.
+---
+function ObjTable()
+end
+
 ---
 ---@param n number
 function SetThreadPoolSize(n)

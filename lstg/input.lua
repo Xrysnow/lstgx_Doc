@@ -4,25 +4,26 @@
 --- Copyright (C) 2018-2020 Xrysnow. All rights reserved.
 ---
 
----返回最后一次输入的按键的虚拟键代码
 ---@return number
 --function GetLastKey()
 --end
 
----返回上一次输入的字符
 ---@return string
+---@deprecated
 function GetLastChar()
 end
 
 --
 
----获取鼠标的位置，以窗口左下角为原点
 ---@return number,number
 --function GetMousePosition()
 --end
 
----检查鼠标按键是否按下
----@param button number 可取0、1、2，分别对应鼠标左键、中键、右键
+---@~chinese 检查鼠标按键是否按下。
+---
+---@~english Check if mouse button is pressed.
+---
+---@param button number 可取0/1/2，分别对应鼠标左键/中键/右键 | specifies button to check. 0/1/2 correspond to left/middle/right.
 ---@return boolean
 function GetMouseState(button)
 end
