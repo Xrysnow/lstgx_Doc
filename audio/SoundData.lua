@@ -16,9 +16,9 @@ end
 --------------------------------
 
 --- \brief Gets the value of a sample using an explicit sample index instead of interleaving them in the sample position parameter.<br>
--- \param i An integer value specifying the position of the sample (starting at 0).<br>
--- \param channel The index of the channel to get within the given sample.<br>
--- \return The normalized samplepoint (range -1.0 to 1.0).
+--- \param i An integer value specifying the position of the sample (starting at 0).<br>
+--- \param channel The index of the channel to get within the given sample.<br>
+--- \return The normalized samplepoint (range -1.0 to 1.0).
 ---@param i number
 ---@param channel number
 ---@return number
