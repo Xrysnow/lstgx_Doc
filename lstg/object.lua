@@ -240,18 +240,18 @@ end
 function SetImgState(object, blend, a, r, g, b)
 end
 
----@~chinese 返回2个对象连线角度（角度）。
+---@~chinese 返回两个游戏对象连线与X轴正方向的夹角（角度）。
 ---
----@~english Returns angle of two objects in degrees.
+---@~english Returns angle between the line connecting two objects and X axis in degrees.
 ---
 ---@param a object
 ---@param b object
 function Angle(a, b)
 end
 
----@~chinese 返回2个坐标连线角度（角度）。
+---@~chinese 返回两点连线与X轴正方向的夹角（角度）。
 ---
----@~english Returns angle of two points in degrees.
+---@~english Returns angle between the line connecting two points and X axis in degrees.
 ---
 ---@param x1 number
 ---@param x2 number
@@ -260,7 +260,7 @@ end
 function Angle(x1, x2, y1, y2)
 end
 
----@~chinese 计算两个object距离。
+---@~chinese 返回两个游戏对象的距离。
 ---
 ---@~english Returns distance between two objects.
 ---
@@ -270,7 +270,7 @@ end
 function Dist(objA, objB)
 end
 
----@~chinese 检查对象中心是否在所给范围内。
+---@~chinese 检查对象的位置是否在给定范围内。
 ---
 ---@~english Check if position of `object` is in the given range.
 ---
@@ -290,7 +290,7 @@ end
 function ResetPool()
 end
 
----@~chinese 游戏对象的默认渲染方法。
+---@~chinese 游戏对象的默认渲染函数。
 ---
 ---@~english Default render function for a game object.
 ---
@@ -312,7 +312,7 @@ end
 function NextObject(groupid, id)
 end
 
----@~chinese 返回组遍历迭代器。
+---@~chinese 返回一个能够遍历组中游戏对象的迭代器。
 ---
 ---@~english Returns an iterator that go through objects in a group.
 ---
