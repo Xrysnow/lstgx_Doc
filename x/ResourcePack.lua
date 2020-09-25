@@ -55,7 +55,7 @@ end
 --------------------------------
 
 --- 
----@return array_table
+---@return string[]
 function ResourcePack:listFiles()
 end
 
