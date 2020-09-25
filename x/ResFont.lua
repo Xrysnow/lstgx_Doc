@@ -356,5 +356,26 @@ end
 function ResFont:getInfo()
 end
 
+--------------------------------
+
+---
+---@param str string
+---@param x number
+---@param y number
+---@param width number
+---@param height number
+---@param scaleX number
+---@param scaleY number
+---@return boolean
+function ResFont:render(str, x, y, width, height, scaleX, scaleY)
+end
+
+--------------------------------
+
+---
+---@return cc.Label
+function ResFont:getLabel()
+end
+
 
 return nil
