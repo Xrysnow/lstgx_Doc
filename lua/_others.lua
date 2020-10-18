@@ -19,8 +19,6 @@ end
 function json.null()
 end
 
---rebounding = {}
-
 --- array of commandline arguments
 ---@type string[]
 _ARGS = {}
