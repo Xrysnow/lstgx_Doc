@@ -35,21 +35,6 @@ end
 --------------------------------
 
 --- 
----@param v number
----@return lstg.ResourceMgr
-function ResourceMgr:setGlobalImageScaleFactor(v)
-end
-
---------------------------------
-
---- 
----@return number
-function ResourceMgr:getGlobalImageScaleFactor()
-end
-
---------------------------------
-
---- 
 ---@param fpath string
 ---@return lstg.Buffer
 function ResourceMgr:loadLocalFileAndCache(fpath)
@@ -162,7 +147,7 @@ end
 
 --------------------------------
 
----  Unload all ResourcePacks, clear local file caches, reset globalImageScaleFactor. 
+---  Unload all ResourcePacks, clear local file caches.
 ---@return lstg.ResourceMgr
 function ResourceMgr:clear()
 end

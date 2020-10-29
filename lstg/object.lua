@@ -346,6 +346,26 @@ end
 function SetAttr(obj, key, v)
 end
 
+--- 设置全局图像渲染缩放
+---@param scale number
+function SetGlobalImageScale(scale)
+end
+
+--- 获取全局图像渲染缩放
+---@return number
+function GetGlobalImageScale()
+end
+
+--- 设置全局碰撞盒缩放
+---@param scale number
+function SetGlobalColliderScale(scale)
+end
+
+--- 获取全局碰撞盒缩放
+---@return number
+function GetGlobalColliderScale()
+end
+
 ---@param object object
 ---@return lstg.ParticlePool
 function GetParticlePool(object)
