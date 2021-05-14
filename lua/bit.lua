@@ -51,3 +51,5 @@ end
 ---Swaps the bytes of its argument and returns it. This can be used to convert little-endian 32 bit numbers to big-endian 32 bit numbers or vice versa.
 function bit.bswap(x)
 end
+
+return bit
