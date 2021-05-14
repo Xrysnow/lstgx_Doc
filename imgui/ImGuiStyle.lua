@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ImGuiStyle
 -- @parent_module imgui
@@ -112,6 +111,12 @@ ImGuiStyle.ItemInnerSpacing = nil
 
 --------------------------------
 
+---  Padding within a table cell 
+---@type ImVec2
+ImGuiStyle.CellPadding = nil
+
+--------------------------------
+
 ---  Expand reactive bounding box for touch-based system where touch position is not accurate enough. Unfortunately we don't sort widgets so priority on overlap will always be given to the first widget. So don't grow this too much! 
 ---@type ImVec2
 ImGuiStyle.TouchExtraPadding = nil
@@ -154,6 +159,12 @@ ImGuiStyle.GrabRounding = nil
 
 --------------------------------
 
+---  The size in pixels of the dead-zone around zero on logarithmic sliders that cross zero. 
+---@type number
+ImGuiStyle.LogSliderDeadzone = nil
+
+--------------------------------
+
 ---  Radius of upper corners of a tab. Set to 0.0f to have rectangular tabs. 
 ---@type number
 ImGuiStyle.TabRounding = nil
@@ -168,7 +179,7 @@ ImGuiStyle.TabBorderSize = nil
 
 ---  Minimum width for close button to appears on an unselected tab when hovered. Set to 0.0f to always show when hovering, set to FLT_MAX to never show close button unless selected. 
 ---@type number
-ImGuiStyle.TabMinWidthForUnselectedCloseButton = nil
+ImGuiStyle.TabMinWidthForCloseButton = nil
 
 --------------------------------
 
@@ -208,13 +219,19 @@ ImGuiStyle.MouseCursorScale = nil
 
 --------------------------------
 
----  Enable anti-aliasing on lines/borders. Disable if you are really tight on CPU/GPU. 
+---  Enable anti-aliased lines/borders. Disable if you are really tight on CPU/GPU. Latched at the beginning of the frame (copied to ImDrawList). 
 ---@type boolean
 ImGuiStyle.AntiAliasedLines = nil
 
 --------------------------------
 
----  Enable anti-aliasing on filled shapes (rounded rectangles, circles, etc.) 
+---  Enable anti-aliased lines/borders using textures where possible. Require backend to render with bilinear filtering. Latched at the beginning of the frame (copied to ImDrawList). 
+---@type boolean
+ImGuiStyle.AntiAliasedLinesUseTex = nil
+
+--------------------------------
+
+---  Enable anti-aliased edges around filled shapes (rounded rectangles, circles, etc.). Disable if you are really tight on CPU/GPU. Latched at the beginning of the frame (copied to ImDrawList). 
 ---@type boolean
 ImGuiStyle.AntiAliasedFill = nil
 
@@ -228,7 +245,7 @@ ImGuiStyle.CurveTessellationTol = nil
 
 --- Maximum error (in pixels) allowed when using AddCircle()/AddCircleFilled() or drawing rounded corner rectangles with no explicit segment count specified. Decrease for higher quality but more geometry.
 ---@type number
-ImGuiStyle.CircleSegmentMaxError = nil
+ImGuiStyle.CircleTessellationMaxError = nil
 
 
 

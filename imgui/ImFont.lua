@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ImFont
 -- @parent_module imgui
@@ -67,15 +66,6 @@ ImFont.FontSize = nil
 --- 4-8
 ---@type imgui.ImFontGlyph
 ImFont.FallbackGlyph = nil
-
---------------------------------
-
---- Offset font rendering by xx pixels
---- = (0,0)    
---- in
---- 8
----@type ImVec2
-ImFont.DisplayOffset = nil
 
 --------------------------------
 

@@ -45,14 +45,14 @@ ImGuiIO.ConfigFlags = nil
 
 --------------------------------
 
----  See ImGuiBackendFlags_ enum. Set by back-end (imgui_impl_xxx files or custom back-end) to communicate features supported by the back-end.
+---  See ImGuiBackendFlags_ enum. Set by backend (imgui_impl_xxx files or custom backend) to communicate features supported by the backend.
 --- = 0 
 ---@type number
 ImGuiIO.BackendFlags = nil
 
 --------------------------------
 
----  Main display size, in pixels.
+---  Main display size, in pixels (generally == GetMainViewport()->Size)
 --- <unset>         
 ---@type ImVec2
 ImGuiIO.DisplaySize = nil
@@ -164,13 +164,6 @@ ImGuiIO.ConfigDockingNoSplit = nil
 
 --------------------------------
 
----  Enable docking with holding Shift key (reduce visual noise, allows dropping in wider space)
---- = false 
----@type boolean
-ImGuiIO.ConfigDockingWithShift = nil
-
---------------------------------
-
 --- [BETA] [FIXME: This currently creates regression with auto-sizing and general overhead] Make every single floating window display within a docking node.
 --- = false
 ---@type boolean
@@ -199,38 +192,45 @@ ImGuiIO.ConfigViewportsNoTaskBarIcon = nil
 
 --------------------------------
 
----  [BETA] Disable default OS window decoration flag for secondary viewports. When a viewport doesn't want window decorations, ImGuiViewportFlags_NoDecoration will be set on it. Enabling decoration can create subsequent issues at OS levels (e.g. minimum window size).
+---  Disable default OS window decoration flag for secondary viewports. When a viewport doesn't want window decorations, ImGuiViewportFlags_NoDecoration will be set on it. Enabling decoration can create subsequent issues at OS levels (e.g. minimum window size).
 --- = true 
 ---@type boolean
 ImGuiIO.ConfigViewportsNoDecoration = nil
 
 --------------------------------
 
----  Disable default OS parenting to main viewport for secondary viewports. By default, viewports are marked with ParentViewportId = <main_viewport>, expecting the platform back-end to setup a parent/child relationship between the OS windows (some back-end may ignore this). Set to true if you want the default to be 0, then all viewports will be top-level OS windows.
+---  Disable default OS parenting to main viewport for secondary viewports. By default, viewports are marked with ParentViewportId = <main_viewport>, expecting the platform backend to setup a parent/child relationship between the OS windows (some backend may ignore this). Set to true if you want the default to be 0, then all viewports will be top-level OS windows.
 --- = false 
 ---@type boolean
 ImGuiIO.ConfigViewportsNoDefaultParent = nil
 
 --------------------------------
 
----  Request ImGui to draw a mouse cursor for you (if you are on a platform without a mouse cursor). Cannot be easily renamed to 'io.ConfigXXX' because this is frequently used by back-end implementations.
+---  Request ImGui to draw a mouse cursor for you (if you are on a platform without a mouse cursor). Cannot be easily renamed to 'io.ConfigXXX' because this is frequently used by backend implementations.
 --- = false         
 ---@type boolean
 ImGuiIO.MouseDrawCursor = nil
 
 --------------------------------
 
----  OS X style: Text editing cursor movement using Alt instead of Ctrl, Shortcuts using Cmd/Super instead of Ctrl, Line/Text Start and End using Cmd+Arrows instead of Home/End, Double click selects by word instead of selecting whole text, Multi-selection in lists uses Cmd/Super instead of Ctrl (was called io.OptMacOSXBehaviors prior to 1.63)
+---  OS X style: Text editing cursor movement using Alt instead of Ctrl, Shortcuts using Cmd/Super instead of Ctrl, Line/Text Start and End using Cmd+Arrows instead of Home/End, Double click selects by word instead of selecting whole text, Multi-selection in lists uses Cmd/Super instead of Ctrl
 --- = defined(__APPLE__) 
 ---@type boolean
 ImGuiIO.ConfigMacOSXBehaviors = nil
 
 --------------------------------
 
----  Set to false to disable blinking cursor, for users who consider it distracting. (was called: io.OptCursorBlink prior to 1.63)
+---  Enable blinking cursor (optional as some users consider it to be distracting).
 --- = true          
 ---@type boolean
 ImGuiIO.ConfigInputTextCursorBlink = nil
+
+--------------------------------
+
+---  [BETA] Enable turning DragXXX widgets into text input with a simple mouse click-release (without moving). Not desirable on devices without a keyboard.
+--- = false          
+---@type boolean
+ImGuiIO.ConfigDragClickToInputText = nil
 
 --------------------------------
 
@@ -241,17 +241,17 @@ ImGuiIO.ConfigWindowsResizeFromEdges = nil
 
 --------------------------------
 
----  [BETA] Set to true to only allow moving windows when clicked+dragged from the title bar. Windows without a title bar are not affected.
+---  Enable allowing to move windows only when clicking on their title bar. Does not apply to windows without a title bar.
 --- = false      
 ---@type boolean
 ImGuiIO.ConfigWindowsMoveFromTitleBarOnly = nil
 
 --------------------------------
 
---- [BETA] Compact window memory usage when unused. Set to -1.0f to disable.
+--- Timer (in seconds) to free transient windows/tables memory buffers when unused. Set to -1.0f to disable.
 --- = 60.0f
 ---@type number
-ImGuiIO.ConfigWindowsMemoryCompactTimer = nil
+ImGuiIO.ConfigMemoryCompactTimer = nil
 
 --------------------------------
 
@@ -279,7 +279,7 @@ ImGuiIO.MouseWheel = nil
 
 --------------------------------
 
----  Mouse wheel Horizontal. Most users don't have a mouse with an horizontal wheel, may not be filled by all back-ends. 
+---  Mouse wheel Horizontal. Most users don't have a mouse with an horizontal wheel, may not be filled by all backends. 
 ---@type number
 ImGuiIO.MouseWheelH = nil
 
@@ -333,7 +333,7 @@ ImGuiIO.WantTextInput = nil
 
 --------------------------------
 
----  MousePos has been altered, back-end should reposition mouse on next frame. Rarely used! Set only when ImGuiConfigFlags_NavEnableSetMousePos flag is enabled. 
+---  MousePos has been altered, backend should reposition mouse on next frame. Rarely used! Set only when ImGuiConfigFlags_NavEnableSetMousePos flag is enabled. 
 ---@type boolean
 ImGuiIO.WantSetMousePos = nil
 

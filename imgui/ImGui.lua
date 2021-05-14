@@ -41,7 +41,7 @@ end
 
 --------------------------------
 
----   call when the current item is active. If this return true, you can call SetDragDropPayload() + EndDragDropSource() 
+---   call after submitting an item which may be dragged. when this return true, you can call SetDragDropPayload() + EndDragDropSource() 
 ---@return boolean
 function imgui.beginDragDropSource()
 end
@@ -57,6 +57,15 @@ end
 
 ---   lock horizontal starting position 
 function imgui.beginGroup()
+end
+
+--------------------------------
+
+---  open a framed scrolling region 
+---@param label string
+---@param size ImVec2
+---@return boolean
+function imgui.beginListBox(label, size)
 end
 
 --------------------------------
@@ -93,7 +102,7 @@ end
 
 --------------------------------
 
----   open+begin popup when clicked on last item. if you can pass a NULL str_id only if the previous item had an id. If you want to use that on a non-interactive item such as Text() you need to pass in an explicit ID here. read comments in .cpp! 
+---   open+begin popup when clicked on last item. Use str_id==NULL to associate the popup to previous item. If you want to use that on a non-interactive item such as Text() you need to pass in an explicit ID here. read comments in .cpp! 
 ---@return boolean
 function imgui.beginPopupContextItem()
 end
@@ -123,13 +132,25 @@ end
 
 --------------------------------
 
+--- 
+---@param str_id string
+---@param column number
+---@param flags number
+---@param outer_size ImVec2
+---@param inner_width number
+---@return boolean
+function imgui.beginTable(str_id, column, flags, outer_size, inner_width)
+end
+
+--------------------------------
+
 ---   begin/append a tooltip window. to create full-featured tooltip (with any kind of items). 
 function imgui.beginTooltip()
 end
 
 --------------------------------
 
----   draw a small circle and keep the cursor on the same line. advance cursor x position by GetTreeNodeToLabelSpacing(), same distance that TreeNode() uses 
+---   draw a small circle + keep the cursor on the same line. advance cursor x position by GetTreeNodeToLabelSpacing(), same distance that TreeNode() uses 
 function imgui.bullet()
 end
 
@@ -187,7 +208,7 @@ end
 
 --------------------------------
 
----   display a colored square/button, hover for details, return true when pressed. 
+---   display a color square/button, hover for details, return true when pressed. 
 ---@param desc_id string
 ---@param col ImVec4
 ---@param flags number
@@ -198,7 +219,7 @@ end
 
 --------------------------------
 
----   Inputs Utilities 
+--- 
 ---@param in_ ImVec4
 ---@return number
 function imgui.colorConvertFloat4ToU32(in_)
@@ -234,7 +255,7 @@ end
 
 --------------------------------
 
----  call DestroyWindow platform functions for all viewports. call from back-end Shutdown() if you need to close platform windows before imgui shutdown. otherwise will be called by DestroyContext(). 
+---  call DestroyWindow platform functions for all viewports. call from backend Shutdown() if you need to close platform windows before imgui shutdown. otherwise will be called by DestroyContext(). 
 function imgui.destroyPlatformWindows()
 end
 
@@ -244,6 +265,7 @@ end
 ---@param id number
 ---@param size ImVec2
 ---@param flags number
+---@return number
 function imgui.dockSpace(id, size, flags)
 end
 
@@ -299,6 +321,12 @@ end
 
 --------------------------------
 
+---  only call EndListBox() if BeginListBox() returned true! 
+function imgui.endListBox()
+end
+
+--------------------------------
+
 ---   only call EndMainMenuBar() if BeginMainMenuBar() returns true! 
 function imgui.endMainMenuBar()
 end
@@ -335,13 +363,19 @@ end
 
 --------------------------------
 
+---  only call EndTable() if BeginTable() returns true! 
+function imgui.endTable()
+end
+
+--------------------------------
+
 --- 
 function imgui.endTooltip()
 end
 
 --------------------------------
 
----  this is a helper for back-ends. 
+---  this is a helper for backends. 
 ---@param id number
 ---@return imgui.ImGuiViewport
 function imgui.findViewportByID(id)
@@ -428,7 +462,7 @@ end
 
 --------------------------------
 
----   cursor position in absolute screen coordinates [0..io.DisplaySize] (useful to work with ImDrawList API) 
+---   cursor position in absolute coordinates (useful to work with ImDrawList API). generally top-left == GetMainViewport()->Pos == (0,0) in single viewport mode, and bottom-right == GetMainViewport()->Pos+Size == io.DisplaySize in single-viewport mode. 
 ---@return ImVec2
 function imgui.getCursorScreenPos()
 end
@@ -535,7 +569,7 @@ end
 
 --------------------------------
 
----  main viewport. same as GetPlatformIO().MainViewport == GetPlatformIO().Viewports[0]. 
+---  return primary/default viewport. This can never be NULL. 
 ---@return imgui.ImGuiViewport
 function imgui.getMainViewport()
 end
@@ -570,14 +604,14 @@ end
 
 --------------------------------
 
----   get maximum scrolling amount ~~ ContentSize.X - WindowSize.X 
+---   get maximum scrolling amount ~~ ContentSize.x - WindowSize.x 
 ---@return number
 function imgui.getScrollMaxX()
 end
 
 --------------------------------
 
----   get maximum scrolling amount ~~ ContentSize.Y - WindowSize.Y 
+---   get maximum scrolling amount ~~ ContentSize.y - WindowSize.y 
 ---@return number
 function imgui.getScrollMaxY()
 end
@@ -642,7 +676,7 @@ end
 
 --------------------------------
 
----   get the compiled version string e.g. "1.23" (essentially the compiled value for IMGUI_VERSION) 
+---   get the compiled version string e.g. "1.80 WIP" (essentially the value for IMGUI_VERSION from the compiled version of imgui.cpp) 
 ---@return string
 function imgui.getVersion()
 end
@@ -691,7 +725,7 @@ end
 
 --------------------------------
 
----   get current window height (shortcut for GetWindowSize().y)   Prefer using SetNextXXX functions (before Begin) rather that SetXXX functions (after Begin). 
+---   get current window height (shortcut for GetWindowSize().y) 
 ---@return number
 function imgui.getWindowHeight()
 end
@@ -726,17 +760,18 @@ end
 
 --------------------------------
 
----   move content position toward the right, by style.IndentSpacing or indent_w if != 0 
+---   move content position toward the right, by indent_w, or style.IndentSpacing if indent_w <= 0 
 function imgui.indent()
 end
 
 --------------------------------
 
----   button behavior without the visuals, frequently useful to build custom behaviors using the public api (along with IsItemActive, IsItemHovered, etc.) 
+---   flexible button behavior without the visuals, frequently useful to build custom behaviors using the public api (along with IsItemActive, IsItemHovered, etc.) 
 ---@param str_id string
 ---@param size ImVec2
+---@param flags number
 ---@return boolean
-function imgui.invisibleButton(str_id, size)
+function imgui.invisibleButton(str_id, size, flags)
 end
 
 --------------------------------
@@ -783,7 +818,7 @@ end
 
 --------------------------------
 
----   is the last item clicked? (e.g. button/node just clicked on) == IsMouseClicked(mouse_button) && IsItemHovered() 
+---   is the last item hovered and mouse clicked on? (**)  == IsMouseClicked(mouse_button) && IsItemHovered()Important. (**) this it NOT equivalent to the behavior of e.g. Button(). Read comments in function definition. 
 ---@return boolean
 function imgui.isItemClicked()
 end
@@ -873,7 +908,7 @@ end
 
 --------------------------------
 
----   did mouse button double-clicked. a double-click returns false in IsMouseClicked(). uses io.MouseDoubleClickTime. 
+---   did mouse button double-clicked? (note that a double-click will also report IsMouseClicked() == true) 
 ---@param button number
 ---@return boolean
 function imgui.isMouseDoubleClicked(button)
@@ -978,12 +1013,6 @@ end
 
 --------------------------------
 
----   terminate the scrolling region. only call ListBoxFooter() if ListBoxHeader() returned true! 
-function imgui.listBoxFooter()
-end
-
---------------------------------
-
 ---   call after CreateContext() and before the first call to NewFrame(). NewFrame() automatically calls LoadIniSettingsFromDisk(io.IniFilename). 
 ---@param ini_filename string
 function imgui.loadIniSettingsFromDisk(ini_filename)
@@ -1062,9 +1091,8 @@ end
 
 --------------------------------
 
----   helper to open popup when clicked on last item. return true when just opened. (note: actually triggers on the mouse _released_ event to be consistent with popup behaviors) 
----@return boolean
-function imgui.openPopupContextItem()
+---   helper to open popup when clicked on last item. Default to ImGuiPopupFlags_MouseButtonRight == 1. (note: actually triggers on the mouse _released_ event to be consistent with popup behaviors) 
+function imgui.openPopupOnItemClick()
 end
 
 --------------------------------
@@ -1075,7 +1103,7 @@ end
 
 --------------------------------
 
----   Cursor / Layout 
+--- 
 function imgui.popButtonRepeat()
 end
 
@@ -1134,7 +1162,7 @@ end
 
 --------------------------------
 
----   allow focusing using TAB/Shift-TAB, enabled by default but you can disable it for certain widgets 
+---   == tab stop enable. Allow focusing using TAB/Shift-TAB, enabled by default but you can disable it for certain widgets 
 ---@param allow_keyboard_focus boolean
 function imgui.pushAllowKeyboardFocus(allow_keyboard_focus)
 end
@@ -1157,7 +1185,7 @@ end
 
 --------------------------------
 
----   push width of items for common large "item+label" widgets. >0.0f: width in pixels, <0.0f align xx pixels to the right of window (so -1.0f always align width to the right side). 0.0f = default to ~2/3 of windows width,  
+---   push width of items for common large "item+label" widgets. >0.0f: width in pixels, <0.0f align xx pixels to the right of window (so -FLT_MIN always align width to the right side). 
 ---@param item_width number
 function imgui.pushItemWidth(item_width)
 end
@@ -1179,7 +1207,7 @@ end
 
 --------------------------------
 
----   ends the Dear ImGui frame, finalize the draw data. You can get call GetDrawData() to obtain it and run your rendering function (up to v1.60, this used to call io.RenderDrawListsFn(). Nowadays, we allow and prefer calling your render function yourself.) 
+---   ends the Dear ImGui frame, finalize the draw data. You can then get call GetDrawData(). 
 function imgui.render()
 end
 
@@ -1267,7 +1295,7 @@ end
 
 --------------------------------
 
----   cursor position in absolute screen coordinates [0..io.DisplaySize] 
+---   cursor position in absolute coordinates 
 ---@param pos ImVec2
 function imgui.setCursorScreenPos(pos)
 end
@@ -1307,7 +1335,7 @@ end
 
 --------------------------------
 
----   set width of the _next_ common large "item+label" widget. >0.0f: width in pixels, <0.0f align xx pixels to the right of window (so -1.0f always align width to the right side) 
+---   set width of the _next_ common large "item+label" widget. >0.0f: width in pixels, <0.0f align xx pixels to the right of window (so -FLT_MIN always align width to the right side) 
 ---@param item_width number
 function imgui.setNextItemWidth(item_width)
 end
@@ -1514,6 +1542,119 @@ end
 
 --------------------------------
 
+---   create a Tab behaving like a button. return true when clicked. cannot be selected in the tab bar. 
+---@param label string
+---@param flags number
+---@return boolean
+function imgui.tabItemButton(label, flags)
+end
+
+--------------------------------
+
+---  return number of columns (value passed to BeginTable) 
+---@return number
+function imgui.tableGetColumnCount()
+end
+
+--------------------------------
+
+---  return column flags so you can query their Enabled/Visible/Sorted/Hovered status flags. Pass -1 to use current column. 
+---@return number
+function imgui.tableGetColumnFlags()
+end
+
+--------------------------------
+
+---  return current column index. 
+---@return number
+function imgui.tableGetColumnIndex()
+end
+
+--------------------------------
+
+---  return "" if column didn't have a name declared by TableSetupColumn(). Pass -1 to use current column. 
+---@return string
+function imgui.tableGetColumnName()
+end
+
+--------------------------------
+
+---  return current row index. 
+---@return number
+function imgui.tableGetRowIndex()
+end
+
+--------------------------------
+
+---  submit one header cell manually (rarely used) 
+---@param label string
+function imgui.tableHeader(label)
+end
+
+--------------------------------
+
+---  submit all headers cells based on data provided to TableSetupColumn() + submit context menu 
+function imgui.tableHeadersRow()
+end
+
+--------------------------------
+
+---  append into the next column (or first column of next row if currently in last column). Return true when column is visible. 
+---@return boolean
+function imgui.tableNextColumn()
+end
+
+--------------------------------
+
+---  append into the first cell of a new row. 
+function imgui.tableNextRow()
+end
+
+--------------------------------
+
+---  change the color of a cell, row, or column. See ImGuiTableBgTarget_ flags for details. 
+---@param target number
+---@param color number
+---@param column_n number
+function imgui.tableSetBgColor(target, color, column_n)
+end
+
+--------------------------------
+
+---  change enabled/disabled state of a column, set to false to hide the column. Note that end-user can use the context menu to change this themselves (right-click in headers, or right-click in columns body with ImGuiTableFlags_ContextMenuInBody) 
+---@param column_n number
+---@param v boolean
+function imgui.tableSetColumnEnabled(column_n, v)
+end
+
+--------------------------------
+
+---  append into the specified column. Return true when column is visible. 
+---@param column_n number
+---@return boolean
+function imgui.tableSetColumnIndex(column_n)
+end
+
+--------------------------------
+
+--- 
+---@param label string
+---@param flags number
+---@param init_width_or_weight number
+---@param user_id number
+function imgui.tableSetupColumn(label, flags, init_width_or_weight, user_id)
+end
+
+--------------------------------
+
+---  lock columns/rows so they stay visible when scrolled. 
+---@param cols number
+---@param rows number
+function imgui.tableSetupScrollFreeze(cols, rows)
+end
+
+--------------------------------
+
 ---   simple formatted text 
 ---@param fmt string
 function imgui.text(fmt)
@@ -1578,7 +1719,7 @@ end
 
 --------------------------------
 
----   " 
+---   ~ Indent()+PushId(). Already called by TreeNode() when returning true, but you can call TreePush/TreePop yourself if desired. 
 ---@param str_id string
 ---@overload fun()
 function imgui.treePush(str_id)
@@ -1586,7 +1727,7 @@ end
 
 --------------------------------
 
----   move content position back to the left, by style.IndentSpacing or indent_w if != 0 
+---   move content position back to the left, by indent_w, or style.IndentSpacing if indent_w <= 0 
 function imgui.unindent()
 end
 
