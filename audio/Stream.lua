@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module Stream
 -- @extend Ref
@@ -7,43 +6,6 @@
 ---@class audio.Stream:cc.Ref
 local Stream = {}
 audio.Stream = Stream
---------------------------------
-
---- 
----@return audio.Stream
-function Stream:lock()
-end
-
---------------------------------
-
---- 
----@return audio.Stream
-function Stream:unlock()
-end
-
---------------------------------
-
---- 
----@param origin number
----@param offset number
----@return boolean
-function Stream:seek(origin, offset)
-end
-
---------------------------------
-
---- 
----@return number
-function Stream:tell()
-end
-
---------------------------------
-
---- 
----@return number
-function Stream:size()
-end
-
 --------------------------------
 
 --- 
@@ -76,5 +38,54 @@ end
 function Stream:createFromStringData(str)
 end
 
+--------------------------------
+
+--- 
+---@return audio.Stream
+function Stream:lock()
+end
+
+--------------------------------
+
+--- 
+---@param origin number
+---@param offset number
+---@return boolean
+function Stream:seek(origin, offset)
+end
+
+--------------------------------
+
+--- 
+---@return number
+function Stream:size()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function Stream:tell()
+end
+
+--------------------------------
+
+--- 
+---@return audio.Stream
+function Stream:unlock()
+end
+
+
+--------------------------------
+
+local SeekOrigin = {}
+--- 
+Stream.SeekOrigin = SeekOrigin
+---  Seek from the beginning.
+SeekOrigin.BEGINNING = 0
+---  Seek from current position.
+SeekOrigin.CURRENT = 1
+---  Seek from the end.
+SeekOrigin.END = 2
 
 return nil

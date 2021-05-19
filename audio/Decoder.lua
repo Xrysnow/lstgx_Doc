@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module Decoder
 -- @extend Ref
@@ -9,38 +8,61 @@ local Decoder = {}
 audio.Decoder = Decoder
 --------------------------------
 
---- Gets the size of the buffer (NOT the size of the entire stream).
---- return The size of the buffer.
----@return number
-function Decoder:getBufferSize()
-end
-
---------------------------------
-
---- Seeks to the specified position, if possible.
---- param seconds The position in the stream in seconds.
---- return True if success, false on fail/unsupported.
----@param seconds number
----@return boolean
-function Decoder:seekTime(seconds)
-end
-
---------------------------------
-
---- Checks whether a stream has more data to decode or not. Use
---- rewind to start the stream again.
---- return False if there is more data, true on EOF.
----@return boolean
-function Decoder:isFinished()
-end
-
---------------------------------
-
 --- Creates a deep of itself. The sound stream can (and should) be
 --- rewound, and does not have to be at the same place.
 --- return A new Decoder object.
 ---@return audio.Decoder
 function Decoder:clone()
+end
+
+--------------------------------
+
+--- 
+---@param path string
+---@param bufferSize number
+---@param type number
+---@return audio.Decoder
+function Decoder:createFromFile(path, bufferSize, type)
+end
+
+--------------------------------
+
+--- 
+---@param path string
+---@param bufferSize number
+---@param type number
+---@return audio.Decoder
+function Decoder:createFromLocalFile(path, bufferSize, type)
+end
+
+--------------------------------
+
+--- 
+---@param soundData audio.SoundData
+---@param bufferSize number
+---@param type number
+---@return audio.Decoder
+function Decoder:createFromSoundData(soundData, bufferSize, type)
+end
+
+--------------------------------
+
+--- 
+---@param s audio.Stream
+---@param bufferSize number
+---@param type number
+---@return audio.Decoder
+function Decoder:createFromStream(s, bufferSize, type)
+end
+
+--------------------------------
+
+--- 
+---@param str string
+---@param bufferSize number
+---@param type number
+---@return audio.Decoder
+function Decoder:createFromStringData(str, bufferSize, type)
 end
 
 --------------------------------
@@ -53,9 +75,17 @@ end
 
 --------------------------------
 
+--- Gets the size of the buffer (NOT the size of the entire stream).
+--- return The size of the buffer.
+---@return number
+function Decoder:getBufferSize()
+end
+
+--------------------------------
+
 --- 
 ---@return number
-function Decoder:getTotalFrames()
+function Decoder:getBytesPerFrame()
 end
 
 --------------------------------
@@ -68,18 +98,18 @@ end
 
 --------------------------------
 
---- Gets the sample rate for the Decoder, that is, samples per second.
---- return The sample rate, eg. 44100.
+--- 
+---@param path string
 ---@return number
-function Decoder:getSampleRate()
+function Decoder:getDecoderTypeFromPath(path)
 end
 
 --------------------------------
 
---- Checks whether a stream is seekable.
---- return True if seekable, false otherwise.
----@return boolean
-function Decoder:isSeekable()
+--- Gets the estimated total duration of the stream. in seconds. May return
+--- -1 if the duration cannot be determined.
+---@return number
+function Decoder:getDuration()
 end
 
 --------------------------------
@@ -93,7 +123,39 @@ end
 
 --- 
 ---@return number
-function Decoder:getBytesPerFrame()
+function Decoder:getLoopingStart()
+end
+
+--------------------------------
+
+--- Gets the sample rate for the Decoder, that is, samples per second.
+--- return The sample rate, eg. 44100.
+---@return number
+function Decoder:getSampleRate()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function Decoder:getTotalFrames()
+end
+
+--------------------------------
+
+--- Checks whether a stream has more data to decode or not. Use
+--- rewind to start the stream again.
+--- return False if there is more data, true on EOF.
+---@return boolean
+function Decoder:isFinished()
+end
+
+--------------------------------
+
+--- Checks whether a stream is seekable.
+--- return True if seekable, false otherwise.
+---@return boolean
+function Decoder:isSeekable()
 end
 
 --------------------------------
@@ -116,84 +178,37 @@ end
 
 --------------------------------
 
+--- Seeks to the specified position, if possible.
+--- param seconds The position in the stream in seconds.
+--- return True if success, false on fail/unsupported.
+---@param seconds number
+---@return boolean
+function Decoder:seekTime(seconds)
+end
+
+--------------------------------
+
 --- brief Tells the current frame offset.
 --- return The current frame offset.
 ---@return number
 function Decoder:tell()
 end
 
---------------------------------
-
---- Gets the estimated total duration of the stream. in seconds. May return
---- -1 if the duration cannot be determined.
----@return number
-function Decoder:getDuration()
-end
 
 --------------------------------
 
+local DecoderType = {}
 --- 
----@return number
-function Decoder:getLoopingStart()
-end
-
---------------------------------
-
+Decoder.DecoderType = DecoderType
 --- 
----@param path string
----@param bufferSize number
----@param type number
----@return audio.Decoder
-function Decoder:createFromFile(path, bufferSize, type)
-end
-
---------------------------------
-
+DecoderType.UNKNOWN = 0
 --- 
----@param soundData audio.SoundData
----@param bufferSize number
----@param type number
----@return audio.Decoder
-function Decoder:createFromSoundData(soundData, bufferSize, type)
-end
-
---------------------------------
-
+DecoderType.WAV = 1
 --- 
----@param str string
----@param bufferSize number
----@param type number
----@return audio.Decoder
-function Decoder:createFromStringData(str, bufferSize, type)
-end
-
---------------------------------
-
+DecoderType.VORBIS = 2
 --- 
----@param path string
----@return number
-function Decoder:getDecoderTypeFromPath(path)
-end
-
---------------------------------
-
+DecoderType.FLAC = 3
 --- 
----@param path string
----@param bufferSize number
----@param type number
----@return audio.Decoder
-function Decoder:createFromLocalFile(path, bufferSize, type)
-end
-
---------------------------------
-
---- 
----@param s audio.Stream
----@param bufferSize number
----@param type number
----@return audio.Decoder
-function Decoder:createFromStream(s, bufferSize, type)
-end
-
+DecoderType.MP3 = 4
 
 return nil
