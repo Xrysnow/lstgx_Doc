@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResSprite
 -- @extend ResourceQuad
@@ -10,81 +9,9 @@ lstg.ResSprite = ResSprite
 --------------------------------
 
 --- 
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
----@param x3 number
----@param y3 number
----@param z3 number
----@param x4 number
----@param y4 number
----@param z4 number
----@return boolean
-function ResSprite:render4v(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4)
-end
-
---------------------------------
-
---- 
----@param x number
----@param y number
----@param rot number
----@param hscale number
----@param vscale number
----@param z number
----@return boolean
-function ResSprite:render(x, y, rot, hscale, vscale, z)
-end
-
---------------------------------
-
---- 
----@return cc.Texture2D
-function ResSprite:getTexture()
-end
-
---------------------------------
-
---- 
----@return cc.Texture2D
-function ResSprite:getNormalMap()
-end
-
---------------------------------
-
---- 
 ---@param newName string
 ---@return lstg.ResSprite
 function ResSprite:clone(newName)
-end
-
---------------------------------
-
---- 
----@return cc.Sprite
-function ResSprite:getSprite()
-end
-
---------------------------------
-
---- 
----@param x1 number
----@param y1 number
----@param x2 number
----@param y2 number
----@return boolean
-function ResSprite:renderRect(x1, y1, x2, y2)
-end
-
---------------------------------
-
---- 
----@param texture cc.Texture2D
----@return lstg.ResSprite
-function ResSprite:setNormalMap(texture)
 end
 
 --------------------------------
@@ -118,9 +45,82 @@ end
 --------------------------------
 
 --- 
----@return map_table
+---@return table<string,string>
 function ResSprite:getInfo()
 end
+
+--------------------------------
+
+--- 
+---@return cc.Texture2D
+function ResSprite:getNormalMap()
+end
+
+--------------------------------
+
+--- 
+---@return cc.Sprite
+function ResSprite:getSprite()
+end
+
+--------------------------------
+
+--- 
+---@return cc.Texture2D
+function ResSprite:getTexture()
+end
+
+--------------------------------
+
+--- 
+---@param x number
+---@param y number
+---@param rot number
+---@param hscale number
+---@param vscale number
+---@param z number
+---@return boolean
+function ResSprite:render(x, y, rot, hscale, vscale, z)
+end
+
+--------------------------------
+
+--- 
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param x3 number
+---@param y3 number
+---@param z3 number
+---@param x4 number
+---@param y4 number
+---@param z4 number
+---@return boolean
+function ResSprite:render4v(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4)
+end
+
+--------------------------------
+
+--- 
+---@param x1 number
+---@param y1 number
+---@param x2 number
+---@param y2 number
+---@return boolean
+function ResSprite:renderRect(x1, y1, x2, y2)
+end
+
+--------------------------------
+
+--- 
+---@param texture cc.Texture2D
+---@return lstg.ResSprite
+function ResSprite:setNormalMap(texture)
+end
+
 
 
 return nil

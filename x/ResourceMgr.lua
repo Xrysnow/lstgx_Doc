@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResourceMgr
 -- @parent_module lstg
@@ -20,70 +19,23 @@ end
 --- 
 ---@param fpath string
 ---@return boolean
-function ResourceMgr:isLocalFileCached(fpath)
-end
-
---------------------------------
-
---- 
----@param fullPath string
----@param password string
----@return lstg.ResourcePack
-function ResourceMgr:loadResourcePack(fullPath, password)
-end
-
---------------------------------
-
---- 
----@param fpath string
----@return lstg.Buffer
-function ResourceMgr:loadLocalFileAndCache(fpath)
-end
-
---------------------------------
-
---- 
----@param filePath string
----@return string
-function ResourceMgr:getStringFromFile(filePath)
-end
-
---------------------------------
-
----  Gives a vector of all ResourcePacks in priority order (higher in front). 
----@return lstg.ResourcePack[]
-function ResourceMgr:getResourcePacks()
-end
-
---------------------------------
-
---- 
----@param fpath string
----@return boolean
 function ResourceMgr:cacheLocalFile(fpath)
 end
 
 --------------------------------
 
 --- 
----@return string[]
-function ResourceMgr:listCachedLocalFiles()
-end
-
---------------------------------
-
---- 
 ---@param fpath string
----@return boolean
-function ResourceMgr:removeLocalFileCache(fpath)
+---@param callback fun()
+---@return lstg.ResourceMgr
+function ResourceMgr:cacheLocalFileAsync(fpath, callback)
 end
 
 --------------------------------
 
---- 
----@param path string
----@return boolean
-function ResourceMgr:unloadResourcePack(path)
+---  Unload all ResourcePacks, clear local file caches, reset globalImageScaleFactor. 
+---@return lstg.ResourceMgr
+function ResourceMgr:clear()
 end
 
 --------------------------------
@@ -91,14 +43,6 @@ end
 --- 
 ---@return lstg.ResourceMgr
 function ResourceMgr:clearLocalFileCache()
-end
-
---------------------------------
-
---- 
----@param packPath string
----@return lstg.ResourcePack
-function ResourceMgr:getResourcePack(packPath)
 end
 
 --------------------------------
@@ -115,14 +59,6 @@ end
 
 --------------------------------
 
----  Returns if the file path exists in any ResourcePack. 
----@param fpath string
----@return boolean
-function ResourceMgr:isFileOrDirectoryExist(fpath)
-end
-
---------------------------------
-
 --- 
 ---@param filePath string
 ---@return lstg.Buffer
@@ -132,24 +68,55 @@ end
 --------------------------------
 
 --- 
----@param fpath string
----@param callback fun()
 ---@return lstg.ResourceMgr
-function ResourceMgr:cacheLocalFileAsync(fpath, callback)
+function ResourceMgr:getInstance()
 end
 
 --------------------------------
 
 --- 
----@return lstg.ResourceMgr
-function ResourceMgr:unloadAllResourcePacks()
+---@param packPath string
+---@return lstg.ResourcePack
+function ResourceMgr:getResourcePack(packPath)
 end
 
 --------------------------------
 
----  Unload all ResourcePacks, clear local file caches.
----@return lstg.ResourceMgr
-function ResourceMgr:clear()
+---  Gives a vector of all ResourcePacks in priority order (higher in front). 
+---@return lstg.ResourcePack[]
+function ResourceMgr:getResourcePacks()
+end
+
+--------------------------------
+
+--- 
+---@param filePath string
+---@return string
+function ResourceMgr:getStringFromFile(filePath)
+end
+
+--------------------------------
+
+--- 
+---@param fpath string
+---@return string
+function ResourceMgr:getStringFromLocalFile(fpath)
+end
+
+--------------------------------
+
+---  Returns if the file path exists in any ResourcePack. 
+---@param fpath string
+---@return boolean
+function ResourceMgr:isFileOrDirectoryExist(fpath)
+end
+
+--------------------------------
+
+--- 
+---@param fpath string
+---@return boolean
+function ResourceMgr:isLocalFileCached(fpath)
 end
 
 --------------------------------
@@ -163,17 +130,50 @@ end
 --------------------------------
 
 --- 
+---@return string[]
+function ResourceMgr:listCachedLocalFiles()
+end
+
+--------------------------------
+
+--- 
 ---@param fpath string
----@return string
-function ResourceMgr:getStringFromLocalFile(fpath)
+---@return lstg.Buffer
+function ResourceMgr:loadLocalFileAndCache(fpath)
+end
+
+--------------------------------
+
+--- 
+---@param fullPath string
+---@param password string
+---@return lstg.ResourcePack
+function ResourceMgr:loadResourcePack(fullPath, password)
+end
+
+--------------------------------
+
+--- 
+---@param fpath string
+---@return boolean
+function ResourceMgr:removeLocalFileCache(fpath)
 end
 
 --------------------------------
 
 --- 
 ---@return lstg.ResourceMgr
-function ResourceMgr:getInstance()
+function ResourceMgr:unloadAllResourcePacks()
 end
+
+--------------------------------
+
+--- 
+---@param path string
+---@return boolean
+function ResourceMgr:unloadResourcePack(path)
+end
+
 
 
 return nil

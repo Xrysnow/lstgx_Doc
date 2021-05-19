@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module StreamFile
 -- @extend Stream
@@ -19,19 +18,20 @@ end
 --------------------------------
 
 --- 
+---@param length number
+---@return boolean
+function StreamFile:resize(length)
+end
+
+--------------------------------
+
+--- 
 ---@param origin number
 ---@param offset number
 ---@return boolean
 function StreamFile:seek(origin, offset)
 end
 
---------------------------------
-
---- 
----@param length number
----@return boolean
-function StreamFile:resize(length)
-end
 
 
 return nil

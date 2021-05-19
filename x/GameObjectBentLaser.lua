@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module GameObjectBentLaser
 -- @extend Ref
@@ -10,33 +9,25 @@ lstg.GameObjectBentLaser = GameObjectBentLaser
 --------------------------------
 
 --- 
----@param texture lstg.ResTexture
----@param blend lstg.RenderMode
----@param color lstg.Color
----@param tex_left number
----@param tex_top number
----@param tex_width number
----@param tex_height number
----@return lstg.GameObjectBentLaser
----@overload fun(self:lstg.GameObjectBentLaser, sprite:lstg.ResSprite):lstg.GameObjectBentLaser
-function GameObjectBentLaser:render(texture, blend, color, tex_left, tex_top, tex_width, tex_height)
+---@return boolean
+function GameObjectBentLaser:boundCheck()
 end
 
 --------------------------------
 
 --- 
----@param v number
 ---@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:setLengthLimit(v)
+function GameObjectBentLaser:clear()
 end
 
 --------------------------------
 
 --- 
----@param mode number
----@param mixMode number
----@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:setColorMode(mode, mixMode)
+---@param x number
+---@param y number
+---@return boolean
+---@overload fun(self:lstg.GameObjectBentLaser, p:lstg.GameObject):boolean
+function GameObjectBentLaser:collisionCheck(x, y)
 end
 
 --------------------------------
@@ -53,9 +44,73 @@ end
 --------------------------------
 
 --- 
+---@return lstg.GameObjectBentLaser
+function GameObjectBentLaser:create()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function GameObjectBentLaser:getColorMixMode()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function GameObjectBentLaser:getColorMode()
+end
+
+--------------------------------
+
+--- 
+---@return color4b_table
+function GameObjectBentLaser:getDefaultColor()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function GameObjectBentLaser:getDefaultWidth()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function GameObjectBentLaser:getLength()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function GameObjectBentLaser:getLengthLimit()
+end
+
+--------------------------------
+
+--- 
+---@param i number
+---@return color4b_table
+function GameObjectBentLaser:getNodeColor(i)
+end
+
+--------------------------------
+
+--- 
+---@return number
+function GameObjectBentLaser:getNodeCount()
+end
+
+--------------------------------
+
+--- 
 ---@param i number
 ---@return number
-function GameObjectBentLaser:getNodeWidth(i)
+function GameObjectBentLaser:getNodeLength(i)
 end
 
 --------------------------------
@@ -76,21 +131,16 @@ end
 --------------------------------
 
 --- 
----@param x number
----@param y number
----@param width number
----@param color lstg.Color
----@return lstg.GameObjectBentLaser
----@overload fun(self:lstg.GameObjectBentLaser, x:number, y:number, width:number):lstg.GameObjectBentLaser
----@overload fun(self:lstg.GameObjectBentLaser, x:number, y:number):lstg.GameObjectBentLaser
-function GameObjectBentLaser:pushHead(x, y, width, color)
+---@param i number
+---@return number
+function GameObjectBentLaser:getNodeWidth(i)
 end
 
 --------------------------------
 
 --- 
 ---@return number
-function GameObjectBentLaser:getColorMixMode()
+function GameObjectBentLaser:getRenderScale()
 end
 
 --------------------------------
@@ -105,44 +155,10 @@ end
 --------------------------------
 
 --- 
----@param x number
----@param y number
----@return boolean
----@overload fun(self:lstg.GameObjectBentLaser, p:lstg.GameObject):boolean
-function GameObjectBentLaser:strictCollisionCheck(x, y)
-end
-
---------------------------------
-
---- 
----@param i number
----@return number
-function GameObjectBentLaser:getNodeLength(i)
-end
-
---------------------------------
-
---- 
----@param scale number
+---@param n number
 ---@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:setRenderScale(scale)
-end
-
---------------------------------
-
---- 
----@return number
-function GameObjectBentLaser:getLength()
-end
-
---------------------------------
-
---- 
----@param x number
----@param y number
----@return boolean
----@overload fun(self:lstg.GameObjectBentLaser, p:lstg.GameObject):boolean
-function GameObjectBentLaser:collisionCheck(x, y)
+---@overload fun(self:lstg.GameObjectBentLaser):lstg.GameObjectBentLaser
+function GameObjectBentLaser:popTail(n)
 end
 
 --------------------------------
@@ -151,7 +167,20 @@ end
 ---@param x number
 ---@param y number
 ---@param width number
----@param color lstg.Color
+---@param color color4b_table
+---@return lstg.GameObjectBentLaser
+---@overload fun(self:lstg.GameObjectBentLaser, x:number, y:number, width:number):lstg.GameObjectBentLaser
+---@overload fun(self:lstg.GameObjectBentLaser, x:number, y:number):lstg.GameObjectBentLaser
+function GameObjectBentLaser:pushHead(x, y, width, color)
+end
+
+--------------------------------
+
+--- 
+---@param x number
+---@param y number
+---@param width number
+---@param color color4b_table
 ---@return lstg.GameObjectBentLaser
 ---@overload fun(self:lstg.GameObjectBentLaser, x:number, y:number, width:number):lstg.GameObjectBentLaser
 ---@overload fun(self:lstg.GameObjectBentLaser, x:number, y:number):lstg.GameObjectBentLaser
@@ -161,37 +190,54 @@ end
 --------------------------------
 
 --- 
----@param i number
+---@param texture lstg.ResTexture
+---@param blend lstg.RenderMode
+---@param color color4b_table
+---@param tex_left number
+---@param tex_top number
+---@param tex_width number
+---@param tex_height number
+---@return lstg.GameObjectBentLaser
+---@overload fun(self:lstg.GameObjectBentLaser, sprite:lstg.ResSprite):lstg.GameObjectBentLaser
+function GameObjectBentLaser:render(texture, blend, color, tex_left, tex_top, tex_width, tex_height)
+end
+
+--------------------------------
+
+--- 
+---@return lstg.GameObjectBentLaser
+function GameObjectBentLaser:reset()
+end
+
+--------------------------------
+
+---  set color of all nodes 
+---@param color color4b_table
+---@return lstg.GameObjectBentLaser
+function GameObjectBentLaser:setAllColor(color)
+end
+
+--------------------------------
+
+---  set width of all nodes 
 ---@param width number
 ---@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:setNodeWidth(i, width)
+function GameObjectBentLaser:setAllWidth(width)
 end
 
 --------------------------------
 
 --- 
----@return number
-function GameObjectBentLaser:getLengthLimit()
+---@param mode number
+---@param mixMode number
+---@return lstg.GameObjectBentLaser
+function GameObjectBentLaser:setColorMode(mode, mixMode)
 end
 
 --------------------------------
 
 --- 
----@return number
-function GameObjectBentLaser:getNodeCount()
-end
-
---------------------------------
-
---- 
----@return number
-function GameObjectBentLaser:getDefaultWidth()
-end
-
---------------------------------
-
---- 
----@param color lstg.Color
+---@param color color4b_table
 ---@return lstg.GameObjectBentLaser
 function GameObjectBentLaser:setDefaultColor(color)
 end
@@ -202,6 +248,23 @@ end
 ---@param width number
 ---@return lstg.GameObjectBentLaser
 function GameObjectBentLaser:setDefaultWidth(width)
+end
+
+--------------------------------
+
+--- 
+---@param v number
+---@return lstg.GameObjectBentLaser
+function GameObjectBentLaser:setLengthLimit(v)
+end
+
+--------------------------------
+
+--- 
+---@param i number
+---@param color color4b_table
+---@return lstg.GameObjectBentLaser
+function GameObjectBentLaser:setNodeColor(i, color)
 end
 
 --------------------------------
@@ -225,93 +288,56 @@ end
 --------------------------------
 
 --- 
----@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:reset()
-end
-
---------------------------------
-
---- 
----@param n number
----@return lstg.GameObjectBentLaser
----@overload fun(self:lstg.GameObjectBentLaser):lstg.GameObjectBentLaser
-function GameObjectBentLaser:popTail(n)
-end
-
---------------------------------
-
---- 
----@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:clear()
-end
-
---------------------------------
-
----  set width of all nodes 
+---@param i number
 ---@param width number
 ---@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:setAllWidth(width)
+function GameObjectBentLaser:setNodeWidth(i, width)
 end
 
 --------------------------------
 
 --- 
----@param i number
----@param color lstg.Color
+---@param scale number
 ---@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:setNodeColor(i, color)
+function GameObjectBentLaser:setRenderScale(scale)
 end
 
 --------------------------------
 
 --- 
----@return number
-function GameObjectBentLaser:getColorMode()
-end
-
---------------------------------
-
---- 
----@return lstg.Color
-function GameObjectBentLaser:getDefaultColor()
-end
-
---------------------------------
-
---- 
----@param i number
----@return lstg.Color
-function GameObjectBentLaser:getNodeColor(i)
-end
-
---------------------------------
-
---- 
+---@param x number
+---@param y number
 ---@return boolean
-function GameObjectBentLaser:boundCheck()
+---@overload fun(self:lstg.GameObjectBentLaser, p:lstg.GameObject):boolean
+function GameObjectBentLaser:strictCollisionCheck(x, y)
 end
+
 
 --------------------------------
 
+local ColorMode = {}
 --- 
----@return number
-function GameObjectBentLaser:getRenderScale()
-end
-
---------------------------------
-
----  set color of all nodes 
----@param color lstg.Color
----@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:setAllColor(color)
-end
-
---------------------------------
-
+GameObjectBentLaser.ColorMode = ColorMode
 --- 
----@return lstg.GameObjectBentLaser
-function GameObjectBentLaser:create()
-end
+ColorMode.Normal = 0
+--- 
+ColorMode.Node = 1
+--- 
+ColorMode.NodeSmooth = 2
+--- 
+ColorMode.ColorModeNum = 3
+--------------------------------
 
+local ColorMixMode = {}
+--- 
+GameObjectBentLaser.ColorMixMode = ColorMixMode
+--- 
+ColorMixMode.None = 0
+--- 
+ColorMixMode.Multi = 1
+--- 
+ColorMixMode.Add = 2
+--- 
+ColorMixMode.ColorMixModeNum = 3
 
 return nil

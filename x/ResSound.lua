@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResSound
 -- @extend ResAudio
@@ -15,6 +14,7 @@ lstg.ResSound = ResSound
 ---@return lstg.ResSound
 function ResSound:create(name, path)
 end
+
 
 
 return nil

@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResourcePack
 -- @extend Ref
@@ -10,9 +9,8 @@ lstg.ResourcePack = ResourcePack
 --------------------------------
 
 --- 
----@param fpath string
----@return number
-function ResourcePack:getCRC32(fpath)
+---@return lstg.ResourcePack
+function ResourcePack:cacheAllFiles()
 end
 
 --------------------------------
@@ -27,7 +25,16 @@ end
 --- 
 ---@param fpath string
 ---@return boolean
-function ResourcePack:removeFileCache(fpath)
+function ResourcePack:cacheFile(fpath)
+end
+
+--------------------------------
+
+--- 
+---@param fpath string
+---@param callback fun()
+---@return lstg.ResourcePack
+function ResourcePack:cacheFileAsync(fpath, callback)
 end
 
 --------------------------------
@@ -35,6 +42,45 @@ end
 --- 
 ---@return lstg.ResourcePack
 function ResourcePack:clearFileCache()
+end
+
+--------------------------------
+
+--- 
+---@param fullPath string
+---@param password string
+---@return lstg.ResourcePack
+function ResourcePack:create(fullPath, password)
+end
+
+--------------------------------
+
+--- 
+---@param fpath string
+---@return number
+function ResourcePack:getCRC32(fpath)
+end
+
+--------------------------------
+
+--- 
+---@param fpath string
+---@return number
+function ResourcePack:getCompressedSize(fpath)
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResourcePack:getFileCount()
+end
+
+--------------------------------
+
+--- 
+---@return string
+function ResourcePack:getPath()
 end
 
 --------------------------------
@@ -55,8 +101,9 @@ end
 --------------------------------
 
 --- 
----@return string[]
-function ResourcePack:listFiles()
+---@param fpath string
+---@return number
+function ResourcePack:getUncompressedSize(fpath)
 end
 
 --------------------------------
@@ -64,30 +111,29 @@ end
 --- 
 ---@param fpath string
 ---@return boolean
-function ResourcePack:cacheFile(fpath)
-end
-
---------------------------------
-
---- 
----@return string
-function ResourcePack:getPath()
+function ResourcePack:isFileCached(fpath)
 end
 
 --------------------------------
 
 --- 
 ---@param fpath string
----@return number
-function ResourcePack:getCompressedSize(fpath)
+---@return boolean
+function ResourcePack:isFileOrDirectoryExist(fpath)
 end
 
 --------------------------------
 
 --- 
----@param fpath string
----@return number
-function ResourcePack:getUncompressedSize(fpath)
+---@return string[]
+function ResourcePack:listCachedFiles()
+end
+
+--------------------------------
+
+--- 
+---@return string[]
+function ResourcePack:listFiles()
 end
 
 --------------------------------
@@ -103,16 +149,7 @@ end
 --- 
 ---@param fpath string
 ---@return boolean
-function ResourcePack:isFileCached(fpath)
-end
-
---------------------------------
-
---- 
----@param fpath string
----@param callback fun()
----@return lstg.ResourcePack
-function ResourcePack:cacheFileAsync(fpath, callback)
+function ResourcePack:removeFileCache(fpath)
 end
 
 --------------------------------
@@ -123,43 +160,6 @@ end
 function ResourcePack:setPriority(v)
 end
 
---------------------------------
-
---- 
----@return number
-function ResourcePack:getFileCount()
-end
-
---------------------------------
-
---- 
----@param fpath string
----@return boolean
-function ResourcePack:isFileOrDirectoryExist(fpath)
-end
-
---------------------------------
-
---- 
----@return lstg.ResourcePack
-function ResourcePack:cacheAllFiles()
-end
-
---------------------------------
-
---- 
----@return array_table
-function ResourcePack:listCachedFiles()
-end
-
---------------------------------
-
---- 
----@param fullPath string
----@param password string
----@return lstg.ResourcePack
-function ResourcePack:create(fullPath, password)
-end
 
 
 return nil

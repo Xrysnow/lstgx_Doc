@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module FileDialog
 -- @parent_module lstg
@@ -9,9 +8,25 @@ lstg.FileDialog = FileDialog
 --------------------------------
 
 --- 
+---@return string
+function FileDialog:getLastError()
+end
+
+--------------------------------
+
+--- 
 ---@param filterList string
 ---@param defaultPath string
----@return array_table
+---@return string
+function FileDialog:open(filterList, defaultPath)
+end
+
+--------------------------------
+
+--- 
+---@param filterList string
+---@param defaultPath string
+---@return string[]
 function FileDialog:openMultiple(filterList, defaultPath)
 end
 
@@ -26,27 +41,12 @@ end
 --------------------------------
 
 --- 
----@return string
-function FileDialog:getLastError()
-end
-
---------------------------------
-
---- 
 ---@param filterList string
 ---@param defaultPath string
 ---@return string
 function FileDialog:save(filterList, defaultPath)
 end
 
---------------------------------
-
---- 
----@param filterList string
----@param defaultPath string
----@return string
-function FileDialog:open(filterList, defaultPath)
-end
 
 
 return nil

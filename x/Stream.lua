@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module Stream
 -- @extend Ref
@@ -7,6 +6,16 @@
 ---@class lstg.Stream:cc.Ref
 local Stream = {}
 lstg.Stream = Stream
+--------------------------------
+
+---  Read from this and write to dst. 
+---@param dst lstg.Stream
+---@param length number
+---@param buffer lstg.Buffer
+---@return boolean
+function Stream:fill(dst, length, buffer)
+end
+
 --------------------------------
 
 ---  If the stream is resizable. 
@@ -23,21 +32,6 @@ end
 
 --------------------------------
 
---- Unlock the stream.
----@return lstg.Stream
-function Stream:unlock()
-end
-
---------------------------------
-
---- Try to lock the stream, will return false when already locked.
---- This function will not block.
----@return boolean
-function Stream:tryLock()
-end
-
---------------------------------
-
 --- Lock the stream. It is necessary when used in multi-thread.
 --- note May cause block.
 ---@return lstg.Stream
@@ -46,12 +40,10 @@ end
 
 --------------------------------
 
----  Read from this and write to dst. 
----@param dst lstg.Stream
----@param length number
----@param buffer lstg.Buffer
+---  Resize the stream. 
+---@param size number
 ---@return boolean
-function Stream:fill(dst, length, buffer)
+function Stream:resize(size)
 end
 
 --------------------------------
@@ -65,6 +57,13 @@ end
 
 --------------------------------
 
+---  Size of the stream. 
+---@return number
+function Stream:size()
+end
+
+--------------------------------
+
 ---  Get the position to read or write. 
 ---@return number
 function Stream:tell()
@@ -72,18 +71,30 @@ end
 
 --------------------------------
 
----  Resize the stream. 
----@param size number
+--- Try to lock the stream, will return false when already locked.
+--- This function will not block.
 ---@return boolean
-function Stream:resize(size)
+function Stream:tryLock()
 end
 
 --------------------------------
 
----  Size of the stream. 
----@return number
-function Stream:size()
+--- Unlock the stream.
+---@return lstg.Stream
+function Stream:unlock()
 end
 
+
+--------------------------------
+
+local SeekOrigin = {}
+--- 
+Stream.SeekOrigin = SeekOrigin
+---  Seek from the beginning.
+SeekOrigin.BEG = 0
+---  Seek from current position.
+SeekOrigin.CUR = 1
+---  Seek from the end.
+SeekOrigin.END = 2
 
 return nil

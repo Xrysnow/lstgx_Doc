@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResMusic
 -- @extend ResAudio
@@ -17,6 +16,7 @@ lstg.ResMusic = ResMusic
 ---@return lstg.ResMusic
 function ResMusic:create(name, path, loopStart, loopEnd)
 end
+
 
 
 return nil

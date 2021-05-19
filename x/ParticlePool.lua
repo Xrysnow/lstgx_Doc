@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ParticlePool
 -- @extend Ref
@@ -11,220 +10,7 @@ lstg.ParticlePool = ParticlePool
 
 --- 
 ---@return number
-function ParticlePool:getSpread()
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getSpeedMin()
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getSeed()
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getSizeStart()
-end
-
---------------------------------
-
---- 
----@return lstg.ResParticle
-function ParticlePool:getResource()
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getLifeMin()
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getSpeedMax()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setColorVar(val)
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getEmissionFreq()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setGravityMin(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSpinEnd(val)
-end
-
---------------------------------
-
---- 
----@param color lstg.Color
----@return lstg.ParticlePool
-function ParticlePool:setColorEnd(color)
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getGravityMax()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setTangentialAccelMin(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSpread(val)
-end
-
---------------------------------
-
---- 
----@return boolean
-function ParticlePool:getRelative()
-end
-
---------------------------------
-
---- 
----@param seed number
----@return lstg.ParticlePool
-function ParticlePool:setSeed(seed)
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getLifeMax()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setTangentialAccelMax(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setLifeMax(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setDirection(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setAlphaVar(val)
-end
-
---------------------------------
-
---- 
----@param color lstg.Color
----@return lstg.ParticlePool
-function ParticlePool:setColorStart(color)
-end
-
---------------------------------
-
---- 
----@param val boolean
----@return lstg.ParticlePool
-function ParticlePool:setRelative(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSpeedMin(val)
-end
-
---------------------------------
-
---- 
----@param b boolean
----@return lstg.ParticlePool
-function ParticlePool:setActive(b)
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getRadialAccelMin()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setRadialAccelMin(val)
-end
-
---------------------------------
-
---- 
----@param pos vec2_table
----@return lstg.ParticlePool
-function ParticlePool:setCenter(pos)
+function ParticlePool:getAliveCount()
 end
 
 --------------------------------
@@ -237,29 +23,6 @@ end
 --------------------------------
 
 --- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setEmissionFreq(val)
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getRadialAccelMax()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSpeedMax(val)
-end
-
---------------------------------
-
---- 
 ---@return vec2_table
 function ParticlePool:getCenter()
 end
@@ -267,91 +30,15 @@ end
 --------------------------------
 
 --- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSizeVar(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSpinStart(val)
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getSpinEnd()
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getTangentialAccelMin()
-end
-
---------------------------------
-
---- 
----@param r number
----@return lstg.ParticlePool
-function ParticlePool:setRotation(r)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setLifeMin(val)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setRadialAccelMax(val)
-end
-
---------------------------------
-
---- 
----@return lstg.Color
+---@return color4b_table
 function ParticlePool:getColorEnd()
 end
 
 --------------------------------
 
 --- 
----@return number
-function ParticlePool:getRotation()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSizeStart(val)
-end
-
---------------------------------
-
---- 
----@return boolean
-function ParticlePool:isActive()
-end
-
---------------------------------
-
---- 
----@return number
-function ParticlePool:getTangentialAccelMax()
+---@return color4b_table
+function ParticlePool:getColorStart()
 end
 
 --------------------------------
@@ -365,14 +52,21 @@ end
 
 --- 
 ---@return number
-function ParticlePool:getSizeEnd()
+function ParticlePool:getDirection()
 end
 
 --------------------------------
 
 --- 
----@return lstg.Color
-function ParticlePool:getColorStart()
+---@return number
+function ParticlePool:getEmissionFreq()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getGravityMax()
 end
 
 --------------------------------
@@ -385,23 +79,15 @@ end
 --------------------------------
 
 --- 
----@return lstg.RenderMode
-function ParticlePool:getRenderMode()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSpinVar(val)
+---@return number
+function ParticlePool:getLifeMax()
 end
 
 --------------------------------
 
 --- 
 ---@return number
-function ParticlePool:getSpinStart()
+function ParticlePool:getLifeMin()
 end
 
 --------------------------------
@@ -415,6 +101,69 @@ end
 
 --- 
 ---@return number
+function ParticlePool:getRadialAccelMax()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getRadialAccelMin()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ParticlePool:getRelative()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.RenderMode
+function ParticlePool:getRenderMode()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResParticle
+function ParticlePool:getResource()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getRotation()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getSeed()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getSizeEnd()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getSizeStart()
+end
+
+--------------------------------
+
+--- 
+---@return number
 function ParticlePool:getSizeVar()
 end
 
@@ -422,46 +171,28 @@ end
 
 --- 
 ---@return number
-function ParticlePool:getDirection()
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setSizeEnd(val)
+function ParticlePool:getSpeedMax()
 end
 
 --------------------------------
 
 --- 
 ---@return number
-function ParticlePool:getAliveCount()
+function ParticlePool:getSpeedMin()
 end
 
 --------------------------------
 
 --- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setLifetime(val)
+---@return number
+function ParticlePool:getSpinEnd()
 end
 
 --------------------------------
 
 --- 
----@param m lstg.RenderMode
----@return lstg.ParticlePool
-function ParticlePool:setRenderMode(m)
-end
-
---------------------------------
-
---- 
----@param val number
----@return lstg.ParticlePool
-function ParticlePool:setGravityMax(val)
+---@return number
+function ParticlePool:getSpinStart()
 end
 
 --------------------------------
@@ -471,5 +202,283 @@ end
 function ParticlePool:getSpinVar()
 end
 
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getSpread()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getTangentialAccelMax()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ParticlePool:getTangentialAccelMin()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ParticlePool:isActive()
+end
+
+--------------------------------
+
+--- 
+---@param b boolean
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setActive(b)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setAlphaVar(val)
+end
+
+--------------------------------
+
+--- 
+---@param pos vec2_table
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setCenter(pos)
+end
+
+--------------------------------
+
+--- 
+---@param color color4b_table
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setColorEnd(color)
+end
+
+--------------------------------
+
+--- 
+---@param color color4b_table
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setColorStart(color)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setColorVar(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setDirection(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setEmissionFreq(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setGravityMax(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setGravityMin(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setLifeMax(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setLifeMin(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setLifetime(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setRadialAccelMax(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setRadialAccelMin(val)
+end
+
+--------------------------------
+
+--- 
+---@param val boolean
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setRelative(val)
+end
+
+--------------------------------
+
+--- 
+---@param m lstg.RenderMode
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setRenderMode(m)
+end
+
+--------------------------------
+
+--- 
+---@param r number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setRotation(r)
+end
+
+--------------------------------
+
+--- 
+---@param seed number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSeed(seed)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSizeEnd(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSizeStart(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSizeVar(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSpeedMax(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSpeedMin(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSpinEnd(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSpinStart(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSpinVar(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setSpread(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setTangentialAccelMax(val)
+end
+
+--------------------------------
+
+--- 
+---@param val number
+---@return lstg.ResParticle::ParticlePool
+function ParticlePool:setTangentialAccelMin(val)
+end
+
+
+--------------------------------
+
+local Status = {}
+--- 
+ParticlePool.Status = Status
+--- 
+Status.Alive = 0
+--- 
+Status.Sleep = 1
 
 return nil

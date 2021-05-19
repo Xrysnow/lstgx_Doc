@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module RenderMode
 -- @extend Ref
@@ -18,10 +17,21 @@ end
 --------------------------------
 
 --- 
----@param uniform string
----@param value mat4_table
+---@param name string
+---@param blendOp number
+---@param blendFactorSrc number
+---@param blendFactorDst number
+---@param program ccb.Program
 ---@return lstg.RenderMode
-function RenderMode:setMat4(uniform, value)
+---@overload fun(self:lstg.RenderMode, name:string, program:ccb.Program):lstg.RenderMode
+function RenderMode:create(name, blendOp, blendFactorSrc, blendFactorDst, program)
+end
+
+--------------------------------
+
+--- 
+---@return ccb.BlendDescriptor
+function RenderMode:getBlendDescriptor()
 end
 
 --------------------------------
@@ -29,6 +39,86 @@ end
 --- 
 ---@return cc.BlendFunc
 function RenderMode:getBlendFunc()
+end
+
+--------------------------------
+
+--- 
+---@param idx number
+---@return lstg.RenderMode
+function RenderMode:getByID(idx)
+end
+
+--------------------------------
+
+--- 
+---@param name string
+---@return lstg.RenderMode
+function RenderMode:getByName(name)
+end
+
+--------------------------------
+
+--- 
+---@return ccb.ProgramState
+function RenderMode:getDefaultProgramState()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function RenderMode:getID()
+end
+
+--------------------------------
+
+--- 
+---@param name string
+---@return number
+function RenderMode:getIDByName(name)
+end
+
+--------------------------------
+
+--- 
+---@return string
+function RenderMode:getName()
+end
+
+--------------------------------
+
+--- 
+---@return ccb.Program
+function RenderMode:getProgram()
+end
+
+--------------------------------
+
+--- 
+---@return string
+function RenderMode:getUniformBuffer()
+end
+
+--------------------------------
+
+--- 
+---@return string[]
+function RenderMode:getUniformNames()
+end
+
+--------------------------------
+
+--- 
+---@return array_table
+function RenderMode:listRenderModes()
+end
+
+--------------------------------
+
+--- 
+---@return ccb.ProgramState
+function RenderMode:newProgramState()
 end
 
 --------------------------------
@@ -53,51 +143,17 @@ end
 
 --- 
 ---@param uniform string
----@param value vec4_table
+---@param value mat4_table
 ---@return lstg.RenderMode
-function RenderMode:setVec4(uniform, value)
+function RenderMode:setMat4(uniform, value)
 end
 
 --------------------------------
 
 --- 
----@return ccb.BlendDescriptor
-function RenderMode:getBlendDescriptor()
-end
-
---------------------------------
-
---- 
----@return string
-function RenderMode:getName()
-end
-
---------------------------------
-
---- 
----@return number
-function RenderMode:getID()
-end
-
---------------------------------
-
---- 
----@return ccb.ProgramState
-function RenderMode:newProgramState()
-end
-
---------------------------------
-
---- 
----@return ccb.Program
-function RenderMode:getProgram()
-end
-
---------------------------------
-
---- 
----@return array_table
-function RenderMode:getUniformNames()
+---@param program ccb.Program
+---@return lstg.RenderMode
+function RenderMode:setProgram(program)
 end
 
 --------------------------------
@@ -112,8 +168,18 @@ end
 --------------------------------
 
 --- 
----@return ccb.ProgramState
-function RenderMode:getDefaultProgramState()
+---@param buffer string
+---@return lstg.RenderMode
+function RenderMode:setUniformBuffer(buffer)
+end
+
+--------------------------------
+
+--- 
+---@param uniform string
+---@param value vec2_table
+---@return lstg.RenderMode
+function RenderMode:setVec2(uniform, value)
 end
 
 --------------------------------
@@ -129,77 +195,11 @@ end
 
 --- 
 ---@param uniform string
----@param value vec2_table
+---@param value vec4_table
 ---@return lstg.RenderMode
-function RenderMode:setVec2(uniform, value)
+function RenderMode:setVec4(uniform, value)
 end
 
---------------------------------
-
---- 
----@param buffer string
----@return lstg.RenderMode
-function RenderMode:setUniformBuffer(buffer)
-end
-
---------------------------------
-
---- 
----@return string
-function RenderMode:getUniformBuffer()
-end
-
---------------------------------
-
---- 
----@param program ccb.Program
----@return lstg.RenderMode
-function RenderMode:setProgram(program)
-end
-
---------------------------------
-
---- 
----@return array_table
-function RenderMode:listRenderModes()
-end
-
---------------------------------
-
---- 
----@param name string
----@param blendOp number
----@param blendFactorSrc number
----@param blendFactorDst number
----@param program ccb.Program
----@return lstg.RenderMode
----@overload fun(self:lstg.RenderMode, name:string, program:ccb.Program):lstg.RenderMode
-function RenderMode:create(name, blendOp, blendFactorSrc, blendFactorDst, program)
-end
-
---------------------------------
-
---- 
----@param idx number
----@return lstg.RenderMode
-function RenderMode:getByID(idx)
-end
-
---------------------------------
-
---- 
----@param name string
----@return number
-function RenderMode:getIDByName(name)
-end
-
---------------------------------
-
---- 
----@param name string
----@return lstg.RenderMode
-function RenderMode:getByName(name)
-end
 
 
 return nil

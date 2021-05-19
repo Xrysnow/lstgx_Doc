@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module StreamMemory
 -- @extend Stream
@@ -9,23 +8,16 @@ local StreamMemory = {}
 lstg.StreamMemory = StreamMemory
 --------------------------------
 
---- 
----@return lstg.Buffer
-function StreamMemory:getBuffer()
-end
-
---------------------------------
-
---- 
----@return unsigned char
-function StreamMemory:data()
-end
-
---------------------------------
-
 ---  src can be NULL 
 ---@return lstg.StreamMemory
 function StreamMemory:create()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.Buffer
+function StreamMemory:getBuffer()
 end
 
 --------------------------------
@@ -45,6 +37,14 @@ end
 --------------------------------
 
 --- 
+---@param length number
+---@return boolean
+function StreamMemory:resize(length)
+end
+
+--------------------------------
+
+--- 
 ---@param origin number
 ---@param offset number
 ---@return boolean
@@ -55,23 +55,16 @@ end
 
 --- 
 ---@return number
-function StreamMemory:tell()
-end
-
---------------------------------
-
---- 
----@param length number
----@return boolean
-function StreamMemory:resize(length)
+function StreamMemory:size()
 end
 
 --------------------------------
 
 --- 
 ---@return number
-function StreamMemory:size()
+function StreamMemory:tell()
 end
+
 
 
 return nil

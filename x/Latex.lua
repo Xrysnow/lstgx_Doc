@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module Latex
 -- @extend Node
@@ -10,8 +9,13 @@ lstg.Latex = Latex
 --------------------------------
 
 --- 
----@return number
-function Latex:getDepth()
+---@param str string
+---@param width number
+---@param textSize number
+---@param lineSpace number
+---@param color color4b_table
+---@return lstg.Latex
+function Latex:create(str, width, textSize, lineSpace, color)
 end
 
 --------------------------------
@@ -25,21 +29,14 @@ end
 
 --- 
 ---@return number
+function Latex:getDepth()
+end
+
+--------------------------------
+
+--- 
+---@return number
 function Latex:getHeight()
-end
-
---------------------------------
-
---- 
----@return number
-function Latex:getWidth()
-end
-
---------------------------------
-
---- 
----@return number
-function Latex:getTextSize()
 end
 
 --------------------------------
@@ -52,13 +49,15 @@ end
 --------------------------------
 
 --- 
----@param str string
----@param width number
----@param textSize number
----@param lineSpace number
----@param color lstg.Color
----@return lstg.Latex
-function Latex:create(str, width, textSize, lineSpace, color)
+---@return number
+function Latex:getTextSize()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function Latex:getWidth()
 end
 
 --------------------------------
@@ -68,6 +67,7 @@ end
 ---@return lstg.Latex
 function Latex:setDebug(b)
 end
+
 
 
 return nil

@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module Resource
 -- @extend Ref
@@ -10,7 +9,7 @@ lstg.Resource = Resource
 --------------------------------
 
 --- 
----@return map_table
+---@return table<string,string>
 function Resource:getInfo()
 end
 
@@ -24,16 +23,17 @@ end
 --------------------------------
 
 --- 
----@return number
-function Resource:getType()
+---@return string
+function Resource:getPath()
 end
 
 --------------------------------
 
 --- 
----@return string
-function Resource:getPath()
+---@return number
+function Resource:getType()
 end
+
 
 
 return nil

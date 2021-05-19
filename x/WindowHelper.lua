@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module WindowHelper
 -- @extend Ref
@@ -10,24 +9,22 @@ lstg.WindowHelper = WindowHelper
 --------------------------------
 
 --- 
----@param op number
----@return lstg.WindowHelper
-function WindowHelper:operate(op)
-end
-
---------------------------------
-
---- 
----@return char
+---@return string
 function WindowHelper:getClipboardString()
 end
 
 --------------------------------
 
 --- 
----@param s char
+---@return number
+function WindowHelper:getGamma()
+end
+
+--------------------------------
+
+--- 
 ---@return lstg.WindowHelper
-function WindowHelper:setClipboardString(s)
+function WindowHelper:getInstance()
 end
 
 --------------------------------
@@ -49,9 +46,9 @@ end
 --------------------------------
 
 --- 
----@param v number
+---@param op number
 ---@return lstg.WindowHelper
-function WindowHelper:setGamma(v)
+function WindowHelper:operate(op)
 end
 
 --------------------------------
@@ -64,8 +61,17 @@ end
 --------------------------------
 
 --- 
----@return number
-function WindowHelper:getGamma()
+---@param s string
+---@return lstg.WindowHelper
+function WindowHelper:setClipboardString(s)
+end
+
+--------------------------------
+
+--- 
+---@param v number
+---@return lstg.WindowHelper
+function WindowHelper:setGamma(v)
 end
 
 --------------------------------
@@ -76,12 +82,42 @@ end
 function WindowHelper:setVsync(b)
 end
 
+
 --------------------------------
 
+local Operation = {}
 --- 
----@return lstg.WindowHelper
-function WindowHelper:getInstance()
-end
+WindowHelper.Operation = Operation
+--- 
+Operation.SHOW = 0
+--- 
+Operation.HIDE = 1
+--- 
+Operation.FOCUS = 2
+--- 
+Operation.ICONIFY = 3
+--- 
+Operation.RESTORE = 4
+--- 
+Operation.MAXIMIZE = 5
+--------------------------------
 
+local CursorType = {}
+--- 
+WindowHelper.CursorType = CursorType
+--- 
+CursorType.ARROW = 0
+--- 
+CursorType.IBEAM = 1
+--- 
+CursorType.CROSSHAIR = 2
+--- 
+CursorType.HAND = 3
+--- 
+CursorType.HRESIZE = 4
+--- 
+CursorType.VRESIZE = 5
+--- 
+CursorType.CUSTOM = 6
 
 return nil

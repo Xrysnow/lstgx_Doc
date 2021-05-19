@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResFont
 -- @extend Resource
@@ -10,210 +9,10 @@ lstg.ResFont = ResFont
 --------------------------------
 
 --- 
----@return lstg.ResFont
-function ResFont:disableOutline()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:enableShadow()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ResFont:isBold()
-end
-
---------------------------------
-
---- 
----@param conf cc._ttfConfig
----@return lstg.ResFont
-function ResFont:setTTFConfig(conf)
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:disableGlow()
-end
-
---------------------------------
-
---- 
----@return number
-function ResFont:getHAlign()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ResFont:isItalics()
-end
-
---------------------------------
-
---- 
----@return size_table
-function ResFont:getShadowOffset()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ResFont:isGlowed()
-end
-
---------------------------------
-
---- 
----@return cc._ttfConfig
-function ResFont:getTTFConfig()
-end
-
---------------------------------
-
---- 
----@return color4b_table
-function ResFont:getGlowColor()
-end
-
---------------------------------
-
---- 
----@return number
-function ResFont:getOutlineSize()
-end
-
---------------------------------
-
---- 
----@return color4b_table
-function ResFont:getOutlineColor()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:disableItalics()
-end
-
---------------------------------
-
---- 
----@return number
-function ResFont:getShadowBlurRadius()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:enableStrikethrough()
-end
-
---------------------------------
-
---- 
----@param ha number
----@return lstg.ResFont
-function ResFont:setHAlign(ha)
-end
-
---------------------------------
-
---- 
----@return boolean
-function ResFont:isShadowed()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ResFont:isOutlined()
-end
-
---------------------------------
-
---- 
----@return cc.Label
-function ResFont:createLabel()
-end
-
---------------------------------
-
---- 
----@param size number
----@return lstg.ResFont
-function ResFont:setOutlineSize(size)
-end
-
---------------------------------
-
---- 
----@param color color4b_table
----@param size number
----@return lstg.ResFont
-function ResFont:enableOutline(color, size)
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:disableUnderline()
-end
-
---------------------------------
-
---- 
----@return color4b_table
-function ResFont:getColor()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ResFont:isUnderlined()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:disableBold()
-end
-
---------------------------------
-
---- 
----@return color4b_table
-function ResFont:getShadowColor()
-end
-
---------------------------------
-
---- 
----@param color color4b_table
----@return lstg.ResFont
-function ResFont:setOutlineColor(color)
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:enableItalics()
+---@param data string
+---@param outTexName string
+---@return string
+function ResFont:HGE2BMF(data, outTexName)
 end
 
 --------------------------------
@@ -227,89 +26,26 @@ end
 --------------------------------
 
 --- 
+---@param name string
+---@param path string
 ---@return lstg.ResFont
-function ResFont:disableAllEffects()
+function ResFont:createBMF(name, path)
 end
 
 --------------------------------
 
 --- 
----@param color color4b_table
+---@param name string
+---@param path string
 ---@return lstg.ResFont
-function ResFont:enableGlow(color)
+function ResFont:createHGE(name, path)
 end
 
 --------------------------------
 
 --- 
----@param c color4b_table
----@return lstg.ResFont
-function ResFont:setColor(c)
-end
-
---------------------------------
-
---- 
----@return boolean
-function ResFont:isStrikethrough()
-end
-
---------------------------------
-
---- 
----@return lstg.RenderMode
-function ResFont:getRenderMode()
-end
-
---------------------------------
-
---- 
----@return number
-function ResFont:getVAlign()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:enableBold()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:enableUnderline()
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:disableShadow()
-end
-
---------------------------------
-
---- 
----@param va number
----@return lstg.ResFont
-function ResFont:setVAlign(va)
-end
-
---------------------------------
-
---- 
----@return lstg.ResFont
-function ResFont:disableStrikethrough()
-end
-
---------------------------------
-
---- 
----@param m lstg.RenderMode
----@return lstg.ResFont
-function ResFont:setRenderMode(m)
+---@return cc.Label
+function ResFont:createLabel()
 end
 
 --------------------------------
@@ -325,40 +61,268 @@ end
 --------------------------------
 
 --- 
----@param name string
----@param path string
 ---@return lstg.ResFont
-function ResFont:createHGE(name, path)
+function ResFont:disableAllEffects()
 end
 
 --------------------------------
 
 --- 
----@param name string
----@param path string
 ---@return lstg.ResFont
-function ResFont:createBMF(name, path)
+function ResFont:disableBold()
 end
 
 --------------------------------
 
 --- 
----@param data string
----@param outTexName string
----@return string
-function ResFont:HGE2BMF(data, outTexName)
+---@return lstg.ResFont
+function ResFont:disableGlow()
 end
 
 --------------------------------
 
 --- 
----@return map_table
+---@return lstg.ResFont
+function ResFont:disableItalics()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:disableOutline()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:disableShadow()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:disableStrikethrough()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:disableUnderline()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:enableBold()
+end
+
+--------------------------------
+
+--- 
+---@param color color4b_table
+---@return lstg.ResFont
+function ResFont:enableGlow(color)
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:enableItalics()
+end
+
+--------------------------------
+
+--- 
+---@param color color4b_table
+---@param size number
+---@return lstg.ResFont
+function ResFont:enableOutline(color, size)
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:enableShadow()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:enableStrikethrough()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.ResFont
+function ResFont:enableUnderline()
+end
+
+--------------------------------
+
+--- 
+---@return color4b_table
+function ResFont:getColor()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResFont:getFontAscender()
+end
+
+--------------------------------
+
+--- 
+---@return color4b_table
+function ResFont:getGlowColor()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResFont:getHAlign()
+end
+
+--------------------------------
+
+--- 
+---@return table<string,string>
 function ResFont:getInfo()
 end
 
 --------------------------------
 
----
+--- 
+---@return XLabel
+function ResFont:getLabel()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResFont:getLabelType()
+end
+
+--------------------------------
+
+--- 
+---@return color4b_table
+function ResFont:getOutlineColor()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResFont:getOutlineSize()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.RenderMode
+function ResFont:getRenderMode()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResFont:getShadowBlurRadius()
+end
+
+--------------------------------
+
+--- 
+---@return color4b_table
+function ResFont:getShadowColor()
+end
+
+--------------------------------
+
+--- 
+---@return size_table
+function ResFont:getShadowOffset()
+end
+
+--------------------------------
+
+--- 
+---@return cc._ttfConfig
+function ResFont:getTTFConfig()
+end
+
+--------------------------------
+
+--- 
+---@return number
+function ResFont:getVAlign()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResFont:isBold()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResFont:isGlowed()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResFont:isItalics()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResFont:isOutlined()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResFont:isShadowed()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResFont:isStrikethrough()
+end
+
+--------------------------------
+
+--- 
+---@return boolean
+function ResFont:isUnderlined()
+end
+
+--------------------------------
+
+--- 
 ---@param str string
 ---@param x number
 ---@param y number
@@ -372,10 +336,73 @@ end
 
 --------------------------------
 
----
----@return cc.Label
-function ResFont:getLabel()
+--- 
+---@param c color4b_table
+---@return lstg.ResFont
+function ResFont:setColor(c)
 end
 
+--------------------------------
+
+--- 
+---@param ha number
+---@return lstg.ResFont
+function ResFont:setHAlign(ha)
+end
+
+--------------------------------
+
+--- 
+---@param color color4b_table
+---@return lstg.ResFont
+function ResFont:setOutlineColor(color)
+end
+
+--------------------------------
+
+--- 
+---@param size number
+---@return lstg.ResFont
+function ResFont:setOutlineSize(size)
+end
+
+--------------------------------
+
+--- 
+---@param m lstg.RenderMode
+---@return lstg.ResFont
+function ResFont:setRenderMode(m)
+end
+
+--------------------------------
+
+--- 
+---@param conf cc._ttfConfig
+---@return lstg.ResFont
+function ResFont:setTTFConfig(conf)
+end
+
+--------------------------------
+
+--- 
+---@param va number
+---@return lstg.ResFont
+function ResFont:setVAlign(va)
+end
+
+
+--------------------------------
+
+local LabelType = {}
+--- 
+ResFont.LabelType = LabelType
+--- 
+LabelType.TTF = 0
+--- 
+LabelType.BMFONT = 1
+--- 
+LabelType.CHARMAP = 2
+--- 
+LabelType.SYSTEM = 3
 
 return nil

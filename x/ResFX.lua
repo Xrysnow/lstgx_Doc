@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResFX
 -- @extend Resource
@@ -10,16 +9,64 @@ lstg.ResFX = ResFX
 --------------------------------
 
 --- 
----@param uniform string
----@param value mat4_table
+---@param name string
+---@param vsPath string
+---@param fsPath string
 ---@return lstg.ResFX
-function ResFX:setMat4(uniform, value)
+function ResFX:create(name, vsPath, fsPath)
 end
 
 --------------------------------
 
 --- 
----@return array_table
+---@param name string
+---@param program ccb.Program
+---@return lstg.ResFX
+function ResFX:createWithProgram(name, program)
+end
+
+--------------------------------
+
+--- 
+---@param name string
+---@param vShader string
+---@param fShader string
+---@return lstg.ResFX
+function ResFX:createWithString(name, vShader, fShader)
+end
+
+--------------------------------
+
+--- 
+---@return table<string,string>
+function ResFX:getInfo()
+end
+
+--------------------------------
+
+--- 
+---@return ccb.Program
+function ResFX:getProgram()
+end
+
+--------------------------------
+
+--- 
+---@return ccb.ProgramState
+function ResFX:getProgramState()
+end
+
+--------------------------------
+
+--- 
+---@return lstg.RenderMode
+function ResFX:getRenderMode()
+end
+
+--------------------------------
+
+--- 
+---@return string[]
 function ResFX:getUniformNames()
 end
 
@@ -44,8 +91,10 @@ end
 --------------------------------
 
 --- 
----@return lstg.RenderMode
-function ResFX:getRenderMode()
+---@param uniform string
+---@param value mat4_table
+---@return lstg.ResFX
+function ResFX:setMat4(uniform, value)
 end
 
 --------------------------------
@@ -54,29 +103,6 @@ end
 ---@param size vec2_table
 ---@return lstg.ResFX
 function ResFX:setScreenSize(size)
-end
-
---------------------------------
-
---- 
----@return ccb.ProgramState
-function ResFX:getProgramState()
-end
-
---------------------------------
-
---- 
----@param uniform string
----@param value vec4_table
----@return lstg.ResFX
-function ResFX:setVec4(uniform, value)
-end
-
---------------------------------
-
---- 
----@return ccb.Program
-function ResFX:getProgram()
 end
 
 --------------------------------
@@ -92,6 +118,15 @@ end
 
 --- 
 ---@param uniform string
+---@param value vec2_table
+---@return lstg.ResFX
+function ResFX:setVec2(uniform, value)
+end
+
+--------------------------------
+
+--- 
+---@param uniform string
 ---@param value vec3_table
 ---@return lstg.ResFX
 function ResFX:setVec3(uniform, value)
@@ -101,9 +136,9 @@ end
 
 --- 
 ---@param uniform string
----@param value vec2_table
+---@param value vec4_table
 ---@return lstg.ResFX
-function ResFX:setVec2(uniform, value)
+function ResFX:setVec4(uniform, value)
 end
 
 --------------------------------
@@ -114,41 +149,6 @@ end
 function ResFX:setViewport(vp)
 end
 
---------------------------------
-
---- 
----@param name string
----@param program ccb.Program
----@return lstg.ResFX
-function ResFX:createWithProgram(name, program)
-end
-
---------------------------------
-
---- 
----@param name string
----@param vsPath string
----@param fsPath string
----@return lstg.ResFX
-function ResFX:create(name, vsPath, fsPath)
-end
-
---------------------------------
-
---- 
----@param name string
----@param vShader string
----@param fShader string
----@return lstg.ResFX
-function ResFX:createWithString(name, vShader, fShader)
-end
-
---------------------------------
-
---- 
----@return map_table
-function ResFX:getInfo()
-end
 
 
 return nil

@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module Triangles
 -- @extend Ref
@@ -10,83 +9,8 @@ lstg.Triangles = Triangles
 --------------------------------
 
 --- 
----@param index number
----@param x number
----@param y number
----@param z number
----@param u number
----@param v number
----@param color lstg.Color
----@return lstg.Triangles
-function Triangles:setVertex(index, x, y, z, u, v, color)
-end
-
---------------------------------
-
---- 
----@param index number
----@param value number
----@return lstg.Triangles
-function Triangles:setIndex(index, value)
-end
-
---------------------------------
-
---- 
 ---@return lstg.Triangles
 function Triangles:clone()
-end
-
---------------------------------
-
---- 
----@param index number
----@param u number
----@param v number
----@return lstg.Triangles
-function Triangles:setVertexCoords(index, u, v)
-end
-
---------------------------------
-
---- 
----@return number
-function Triangles:getIndexCount()
-end
-
---------------------------------
-
---- 
----@param index number
----@param x number
----@param y number
----@param z number
----@return lstg.Triangles
-function Triangles:setVertexPosition(index, x, y, z)
-end
-
---------------------------------
-
---- 
----@return number
-function Triangles:getVertexCount()
-end
-
---------------------------------
-
---- 
----@param color lstg.Color
----@return lstg.Triangles
-function Triangles:setAllVertexColor(color)
-end
-
---------------------------------
-
---- 
----@param index number
----@param color lstg.Color
----@return lstg.Triangles
-function Triangles:setVertexColor(index, color)
 end
 
 --------------------------------
@@ -96,15 +20,6 @@ end
 ---@param nIndex number
 ---@return lstg.Triangles
 function Triangles:create(nVertex, nIndex)
-end
-
---------------------------------
-
---- 
----@param scale vec2_table
----@param texRect rect_table
----@return lstg.Triangles
-function Triangles:createQuad(scale, texRect)
 end
 
 --------------------------------
@@ -123,6 +38,26 @@ end
 --- 
 ---@param nCol number
 ---@param nRow number
+---@param scale vec2_table
+---@param texRect rect_table
+---@return lstg.Triangles
+function Triangles:createGrid(nCol, nRow, scale, texRect)
+end
+
+--------------------------------
+
+--- 
+---@param scale vec2_table
+---@param texRect rect_table
+---@return lstg.Triangles
+function Triangles:createQuad(scale, texRect)
+end
+
+--------------------------------
+
+--- 
+---@param nCol number
+---@param nRow number
 ---@param rOuter number
 ---@param rInner number
 ---@param angle number
@@ -134,13 +69,78 @@ end
 --------------------------------
 
 --- 
----@param nCol number
----@param nRow number
----@param scale vec2_table
----@param texRect rect_table
----@return lstg.Triangles
-function Triangles:createGrid(nCol, nRow, scale, texRect)
+---@return number
+function Triangles:getIndexCount()
 end
+
+--------------------------------
+
+--- 
+---@return number
+function Triangles:getVertexCount()
+end
+
+--------------------------------
+
+--- 
+---@param color color4b_table
+---@return lstg.Triangles
+function Triangles:setAllVertexColor(color)
+end
+
+--------------------------------
+
+--- 
+---@param index number
+---@param value number
+---@return lstg.Triangles
+function Triangles:setIndex(index, value)
+end
+
+--------------------------------
+
+--- 
+---@param index number
+---@param x number
+---@param y number
+---@param z number
+---@param u number
+---@param v number
+---@param color color4b_table
+---@return lstg.Triangles
+function Triangles:setVertex(index, x, y, z, u, v, color)
+end
+
+--------------------------------
+
+--- 
+---@param index number
+---@param color color4b_table
+---@return lstg.Triangles
+function Triangles:setVertexColor(index, color)
+end
+
+--------------------------------
+
+--- 
+---@param index number
+---@param u number
+---@param v number
+---@return lstg.Triangles
+function Triangles:setVertexCoords(index, u, v)
+end
+
+--------------------------------
+
+--- 
+---@param index number
+---@param x number
+---@param y number
+---@param z number
+---@return lstg.Triangles
+function Triangles:setVertexPosition(index, x, y, z)
+end
+
 
 
 return nil

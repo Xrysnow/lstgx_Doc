@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module ResourceColliable
 -- @extend Resource
@@ -7,6 +6,13 @@
 ---@class lstg.ResourceColliable:lstg.Resource
 local ResourceColliable = {}
 lstg.ResourceColliable = ResourceColliable
+--------------------------------
+
+--- 
+---@return number
+function ResourceColliable:getColliderType()
+end
+
 --------------------------------
 
 --- 
@@ -24,16 +30,10 @@ end
 --------------------------------
 
 --- 
----@return number
-function ResourceColliable:getColliderType()
-end
-
---------------------------------
-
---- 
----@return map_table
+---@return table<string,string>
 function ResourceColliable:getInfo()
 end
+
 
 
 return nil

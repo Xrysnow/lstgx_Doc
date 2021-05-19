@@ -1,4 +1,3 @@
-
 --------------------------------
 -- @module StopWatch
 -- @parent_module lstg
@@ -9,8 +8,8 @@ lstg.StopWatch = StopWatch
 --------------------------------
 
 --- 
----@return lstg.StopWatch
-function StopWatch:reset()
+---@return number
+function StopWatch:get()
 end
 
 --------------------------------
@@ -23,8 +22,8 @@ end
 --------------------------------
 
 --- 
----@return number
-function StopWatch:get()
+---@return lstg.StopWatch
+function StopWatch:reset()
 end
 
 --------------------------------
@@ -40,6 +39,7 @@ end
 ---@return lstg.StopWatch
 function StopWatch:StopWatch()
 end
+
 
 
 return nil
