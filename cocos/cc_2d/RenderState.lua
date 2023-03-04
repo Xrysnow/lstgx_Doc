@@ -19,9 +19,9 @@ end
 --- Binds the render state for this RenderState and any of its parents, top-down,
 --- for the given pass.
 ---@param pass cc.Pass
----@param  cc.MeshCommand
+---@param _ cc.MeshCommand
 ---@return cc.RenderState
-function RenderState:bindPass(pass, )
+function RenderState:bindPass(pass,_ )
 end
 
 

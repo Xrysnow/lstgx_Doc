@@ -11,10 +11,10 @@ cc.Timer = Timer
 
 --- 
 ---@param seconds number
----@param repeat number
+---@param repeat_ number
 ---@param delay number
 ---@return cc.Timer
-function Timer:setupTimerWithInterval(seconds, repeat, delay)
+function Timer:setupTimerWithInterval(seconds, repeat_, delay)
 end
 
 --------------------------------
