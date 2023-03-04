@@ -17,7 +17,7 @@ local vec3 = { x = 0, y = 0, z = 0 }
 local vec4 = { x = 0, y = 0, z = 0, w = 0 }
 
 ---@class size_table
-local size = { width = 0, height = 0 }
+local size = { x = 0, y = 0 }
 
 ---@class rect_table
 local rect = { x = 0, y = 0, width = 0, height = 0 }
