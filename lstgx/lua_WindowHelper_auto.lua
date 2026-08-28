@@ -1,15 +1,23 @@
 ------------------------------
 --- Tag: WindowHelper
---- Date: 2023-02-09
+--- Date: 2026-08-26
 ------------------------------
 
 
----@class lstg.WindowHelper:cc.Ref
+---@class lstg.WindowHelper
 local WindowHelper = {}
 lstg.WindowHelper = WindowHelper
 
+---@return vec2_table[] @(std::vector<cocos2d::Vec2>)
+function WindowHelper:enumDisplayResolution()
+end
+
 ---@return string @(std::string)
 function WindowHelper:getClipboardString()
+end
+
+---@return vec2_table @(cocos2d::Vec2)
+function WindowHelper:getDisplayResolution()
 end
 
 ---@return number @(float)
@@ -40,6 +48,10 @@ end
 
 ---@return boolean @(bool)
 function WindowHelper:isFullscreen()
+end
+
+---@return boolean @(bool)
+function WindowHelper:isImeEnabled()
 end
 
 ---@return boolean @(bool)
@@ -83,8 +95,18 @@ end
 function WindowHelper:setDefaultCursor()
 end
 
+---@param exclusive boolean @(bool)
+---@return nil @(void)
+function WindowHelper:setFullscreen(exclusive)
+end
+
 ---@return nil @(void)
 function WindowHelper:setFullscreen()
+end
+
+---@param enable boolean @(bool)
+---@return nil @(void)
+function WindowHelper:setImeEnabled(enable)
 end
 
 ---@param p vec2_table @(cocos2d::Vec2)

@@ -367,7 +367,7 @@ function GetGlobalColliderScale()
 end
 
 ---@param object object
----@return lstg.ParticlePool
+---@return lstg.ResParticle.ParticlePool
 function GetParticlePool(object)
 end
 

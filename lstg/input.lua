@@ -4,13 +4,20 @@
 --- Copyright (C) 2018-2020 Xrysnow. All rights reserved.
 ---
 
+---@return boolean
+--function GetKeyState(code)
+--end
+
 ---@return number
 --function GetLastKey()
 --end
 
----@return string
----@deprecated
-function GetLastChar()
+---
+--- (windows only) enable/disable keyboard hook
+---
+--- Enable keyboard hook will reduce input latency, but will affect the whole system. It is recommended to disable it when the game is paused.
+---@param enable boolean
+function SetKeyboardHookEnabled(enable)
 end
 
 --
