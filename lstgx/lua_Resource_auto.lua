@@ -984,7 +984,7 @@ lstg.ResAudio = ResAudio
 function ResAudio:getFFTSize()
 end
 
----@return audio.Source @(audio::Source*)
+---@return cc.AudioSource @(cocos2d::AudioSource*)
 function ResAudio:getSource()
 end
 

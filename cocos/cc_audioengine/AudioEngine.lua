@@ -1,4 +1,6 @@
-
+--- LuaSTG project binding for cocos2d::AudioEngine.
+--- audio.Engine is the same Lua type table as cc.AudioEngine.
+--- API reference only; do not execute this stub as a runtime module.
 --------------------------------
 -- @module AudioEngine
 -- @parent_module cc
@@ -8,256 +10,283 @@ local AudioEngine = {}
 cc.AudioEngine = AudioEngine
 --------------------------------
 
---- 
----@return boolean
-function AudioEngine:lazyInit()
+--- Gets a list of the names of the currently enabled effects.
+--- return The list of the names of the currently enabled effects.
+---@return string[]
+function AudioEngine:getActiveEffects()
 end
 
 --------------------------------
 
---- Sets the current playback position of an audio instance.
---- param audioID   An audioID returned by the play2d function.
---- param sec       The offset in seconds from the start to seek to.
---- return 
----@param audioID number
----@param sec number
----@return boolean
-function AudioEngine:setCurrentTime(audioID, sec)
-end
-
---------------------------------
-
---- Gets the volume value of an audio instance.
---- param audioID An audioID returned by the play2d function.
---- return Volume value (range from 0.0 to 1.0).
----@param audioID number
+--- Gets the current number of simultaneous playing sources.
+--- return The current number of simultaneous playing sources.
 ---@return number
-function AudioEngine:getVolume(audioID)
+function AudioEngine:getActiveSourceCount()
 end
 
 --------------------------------
 
---- Uncache the audio data from internal buffer.
---- AudioEngine cache audio data on ios,mac, and win32 platform.
---- warning This can lead to stop related audio first.
---- param filePath Audio file path.
----@param filePath string
----@return cc.AudioEngine
-function AudioEngine:uncache(filePath)
-end
-
---------------------------------
-
----  Resume all suspended audio instances. 
----@return cc.AudioEngine
-function AudioEngine:resumeAll()
-end
-
---------------------------------
-
----  Stop all audio instances. 
----@return cc.AudioEngine
-function AudioEngine:stopAll()
-end
-
---------------------------------
-
---- Pause an audio instance.
---- param audioID An audioID returned by the play2d function.
----@param audioID number
----@return cc.AudioEngine
-function AudioEngine:pause(audioID)
-end
-
---------------------------------
-
---- Gets the maximum number of simultaneous audio instance of AudioEngine.
+--- Gets the distance attenuation model. The default is 'INVERSE_CLAMPED'.
+--- return The current distance model.
 ---@return number
-function AudioEngine:getMaxAudioInstance()
+function AudioEngine:getDistanceModel()
 end
 
 --------------------------------
 
---- Check whether AudioEngine is enabled.
----@return boolean
-function AudioEngine:isEnabled()
-end
-
---------------------------------
-
---- Gets the current playback position of an audio instance.
---- param audioID An audioID returned by the play2d function.
---- return The current playback position of an audio instance.
----@param audioID number
+--- Gets the current global scale factor for velocity-based doppler effects.
+--- return The current doppler scale factor.
 ---@return number
-function AudioEngine:getCurrentTime(audioID)
+function AudioEngine:getDopplerScale()
 end
 
 --------------------------------
 
---- Sets the maximum number of simultaneous audio instance for AudioEngine.
---- param maxInstances The maximum number of simultaneous audio instance.
----@param maxInstances number
+--- Gets parameters of the specific effect.
+--- param name Name of the effect.
+--- return Effect parameters.
+---@param name string
+---@return map_table
+function AudioEngine:getEffect(name)
+end
+
+--------------------------------
+
+---
+---@param name string
+---@param id number
 ---@return boolean
-function AudioEngine:setMaxAudioInstance(maxInstances)
+function AudioEngine:getEffectID(name, id)
 end
 
 --------------------------------
 
---- Checks whether an audio instance is loop.
---- param audioID An audioID returned by the play2d function.
---- return Whether or not an audio instance is loop.
----@param audioID number
+--- Gets the OpenAL format identifier based on number of
+--- channels and bits.
+--- param channels Number of channels
+--- param bitDepth Either 8-bit samples, or 16-bit samples.
+--- return One of AL_FORMAT_*, or AL_NONE if unsupported format.
+---@param bitDepth number
+---@param channels number
+---@return number
+function AudioEngine:getFormat(bitDepth, channels)
+end
+
+--------------------------------
+
+---
+---@return string
+function AudioEngine:getLastError()
+end
+
+--------------------------------
+
+--- Gets maximum number of active effects supported by the system.
+--- return The maximum number of active effects.
+---@return number
+function AudioEngine:getMaxEffectCount()
+end
+
+--------------------------------
+
+--- Gets the maximum supported number of simultaneous playing sources.
+--- return The maximum supported number of simultaneous playing sources.
+---@return number
+function AudioEngine:getMaxSourceCount()
+end
+
+--------------------------------
+
+--- Gets maximum number of active Effects in a single Source.
+--- note This function return 0 for system that doesn't support audio effects.
+--- return The maximum number of active Effects per Source.
+---@return number
+function AudioEngine:getMaxSourceEffectCount()
+end
+
+--------------------------------
+
+--- Gets the orientation of the listener.
+--- return A vector array of size 2 containing the forward
+--- vector and the up vector of the listener orientation.
+---@return vec3_table[]
+function AudioEngine:getOrientation()
+end
+
+--------------------------------
+
+--- Gets the position of the listener.
+--- note Positional audio only works for mono (i.e. non-stereo) sources.
+--- return The position of the listener.
+---@return vec3_table
+function AudioEngine:getPosition()
+end
+
+--------------------------------
+
+--- Gets a list of RecordingDevices on the system.
+--- The first device in the list is the user's default recording device. The list may be empty
+--- if there are no microphones connected to the system.
+--- return The list of connected recording devices.
+---@return cc.AudioRecordingDevice[]
+function AudioEngine:getRecordingDevices()
+end
+
+--------------------------------
+
+--- Gets the velocity of the listener.
+--- return The velocity of the listener.
+---@return vec3_table
+function AudioEngine:getVelocity()
+end
+
+--------------------------------
+
+--- Gets the master volume.
+--- return The current master volume.
+---@return number
+function AudioEngine:getVolume()
+end
+
+--------------------------------
+
+--- Gets whether audio effects are supported in the system.
+--- note Older Linux distributions that ship with older OpenAL library may not support audio effects.
+--- Furthermore, iOS doesn't support audio effects.
+--- return True if effects are supported, false otherwise.
 ---@return boolean
-function AudioEngine:isLoop(audioID)
+function AudioEngine:isEffectSupported()
 end
 
 --------------------------------
 
----  Pause all playing audio instances. 
+---
+---@return boolean
+function AudioEngine:isValid()
+end
+
+--------------------------------
+
+---
 ---@return cc.AudioEngine
-function AudioEngine:pauseAll()
+function AudioEngine:onEnterBackground()
 end
 
 --------------------------------
 
---- Uncache all audio data from internal buffer.
---- warning All audio will be stopped first.
+---
 ---@return cc.AudioEngine
-function AudioEngine:uncacheAll()
+function AudioEngine:onEnterForeground()
 end
 
 --------------------------------
 
---- Sets volume for an audio instance.
---- param audioID An audioID returned by the play2d function.
---- param volume Volume value (range from 0.0 to 1.0).
----@param audioID number
+--- Pauses all currently active Sources and returns them.<br>
+-- return A list containing Sources that were paused by this call.
+---@param sources cc.AudioSource[]
+---@return cc.AudioEngine
+---@overload fun(self:cc.AudioEngine):cc.AudioSource[]
+function AudioEngine:pause(sources)
+end
+
+--------------------------------
+
+--- Simultaneously plays all given Sources.
+--- param sources A list containing Sources to play.
+---@param sources cc.AudioSource[]
+---@return boolean
+function AudioEngine:play(sources)
+end
+
+--------------------------------
+
+--- Removes the specific effect.
+--- param name Name of the effect.
+--- return Whether the effect was successfully removed.
+---@param name string
+---@return boolean
+function AudioEngine:removeEffect(name)
+end
+
+--------------------------------
+
+--- Sets the distance attenuation model.
+--- param distanceModel The new distance model.
+---@param distanceModel number
+---@return cc.AudioEngine
+function AudioEngine:setDistanceModel(distanceModel)
+end
+
+--------------------------------
+
+--- Sets a global scale factor for velocity-based doppler effects. The default scale value is 1.
+--- param scale The new doppler scale factor. The scale must be greater than 0.
+---@param scale number
+---@return cc.AudioEngine
+function AudioEngine:setDopplerScale(scale)
+end
+
+--------------------------------
+
+--- Defines an effect that can be applied to a Source.
+--- note Not all system supports audio effects. Use isEffectsSupported to check.
+--- param name Name of the effect.
+--- param params The parameters to use for the effect.
+--- return Whether the effect was successfully created.
+---@param name string
+---@param params map_table
+---@return boolean
+function AudioEngine:setEffect(name, params)
+end
+
+--------------------------------
+
+--- Sets the orientation of the listener.
+--- param forward Forward vector of the listener orientation.
+--- param up Up vector of the listener orientation.
+---@param forward vec3_table
+---@param up vec3_table
+---@return cc.AudioEngine
+function AudioEngine:setOrientation(forward, up)
+end
+
+--------------------------------
+
+--- Sets the position of the listener.
+--- param v The position of the listener.
+---@param v vec3_table
+---@return cc.AudioEngine
+function AudioEngine:setPosition(v)
+end
+
+--------------------------------
+
+--- Sets the velocity of the listener.
+--- param v The velocity of the listener.
+---@param v vec3_table
+---@return cc.AudioEngine
+function AudioEngine:setVelocity(v)
+end
+
+--------------------------------
+
+--- Sets the master volume, where 0.0f is min (off) and 1.0f is max.
+--- param volume The new master volume.
 ---@param volume number
 ---@return cc.AudioEngine
-function AudioEngine:setVolume(audioID, volume)
+function AudioEngine:setVolume(volume)
 end
 
 --------------------------------
 
---- Preload audio file.<br>
--- param filePath The file path of an audio.<br>
--- param callback A callback which will be called after loading is finished.
----@param filePath string
----@param callback fun(arg0:boolean)
+--- Stops all currently active sources.
+---@param sources cc.AudioSource[]
 ---@return cc.AudioEngine
----@overload fun(self:cc.AudioEngine, filePath:string):cc.AudioEngine
-function AudioEngine:preload(filePath, callback)
+---@overload fun(self:cc.AudioEngine):cc.AudioEngine
+function AudioEngine:stop(sources)
 end
+
 
 --------------------------------
-
---- Whether to enable playing audios
---- note If it's disabled, current playing audios will be stopped and the later 'preload', 'play2d' methods will take no effects.
----@param isEnabled boolean
----@return cc.AudioEngine
-function AudioEngine:setEnabled(isEnabled)
-end
-
---------------------------------
-
---- Play 2d sound.
---- param filePath The path of an audio file.
---- param loop Whether audio instance loop or not.
---- param volume Volume value (range from 0.0 to 1.0).
---- param profile A profile for audio instance. When profile is not specified, default profile will be used.
---- return An audio ID. It allows you to dynamically change the behavior of an audio instance on the fly.
---- see `AudioProfile`
----@param filePath string
----@param loop boolean
----@param volume number
----@param profile cc.AudioProfile
----@return number
-function AudioEngine:play2d(filePath, loop, volume, profile)
-end
-
---------------------------------
-
---- Returns the state of an audio instance.
---- param audioID An audioID returned by the play2d function.
---- return The status of an audio instance.
----@param audioID number
----@return number
-function AudioEngine:getState(audioID)
-end
-
---------------------------------
-
---- Resume an audio instance.
---- param audioID An audioID returned by the play2d function.
----@param audioID number
----@return cc.AudioEngine
-function AudioEngine:resume(audioID)
-end
-
---------------------------------
-
---- Stop an audio instance.
---- param audioID An audioID returned by the play2d function.
----@param audioID number
----@return cc.AudioEngine
-function AudioEngine:stop(audioID)
-end
-
---------------------------------
-
---- Release objects relating to AudioEngine.
---- warning It must be called before the application exit.
---- lua endToLua
----@return cc.AudioEngine
-function AudioEngine:endToLua()
-end
-
---------------------------------
-
---- Gets the duration of an audio instance.
---- param audioID An audioID returned by the play2d function.
---- return The duration of an audio instance.
----@param audioID number
----@return number
-function AudioEngine:getDuration(audioID)
-end
-
---------------------------------
-
---- Sets whether an audio instance loop or not.
---- param audioID An audioID returned by the play2d function.
---- param loop Whether audio instance loop or not.
----@param audioID number
----@param loop boolean
----@return cc.AudioEngine
-function AudioEngine:setLoop(audioID, loop)
-end
-
---------------------------------
-
---- Gets the default profile of audio instances.
---- return The default profile of audio instances.
----@return cc.AudioProfile
-function AudioEngine:getDefaultProfile()
-end
-
---------------------------------
-
---- Gets an audio profile by name.<br>
--- param profileName A name of audio profile.<br>
--- return The audio profile.
----@param audioID number
----@return cc.AudioProfile
-function AudioEngine:getProfile(audioID)
-end
-
---------------------------------
-
---- Gets playing audio count.
----@return number
-function AudioEngine:getPlayingAudioCount()
-end
-
 
 return nil

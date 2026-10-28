@@ -1,18 +1,4 @@
-
---------------------------------
--- @module AudioProfile
--- @parent_module cc
-
----@class cc.AudioProfile
-local AudioProfile = {}
-cc.AudioProfile = AudioProfile
---------------------------------
-
---- Default constructor
---- lua new
----@return cc.AudioProfile
-function AudioProfile:AudioProfile()
-end
-
-
+--- Retired API: cc.AudioProfile is no longer registered.
+--- The previous play2d/playback-ID API is not part of the current cc.AudioEngine.
+--- This historical filename intentionally declares no class or methods.
 return nil
