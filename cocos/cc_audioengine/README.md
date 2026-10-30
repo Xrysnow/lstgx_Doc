@@ -3,7 +3,7 @@
 These EmmyLua stubs describe the LuaSTG project bindings in
 `frameworks/LuaBindings/lua_audio_auto.cpp` and `lua_audio_manual.cpp`.
 They are editor reference files and must not be loaded as runtime scripts.
-The C++ implementation belongs to `frameworks/cocos2d-x/cocos/audio` and does
+The C++ implementation belongs to `frameworks/cocos-x/cocos/audio` and does
 not depend on LuaSTG or register Lua types itself.
 
 | Formal Lua type | Project compatibility alias | Ownership |
