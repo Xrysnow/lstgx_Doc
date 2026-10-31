@@ -163,9 +163,17 @@ end
 
 --- Add an event click callback to ListView, then one item of Listview is clicked, the callback will be called.
 --- param callback A callback function with type of `ccListViewCallback`.
+--- Uses only the ListView item event channel; independent of addScrollViewEventListener.
 ---@param callback fun(arg0:cc.Ref,arg1:ccui.ListView::EventType)
 ---@return ccui.ListView
 function ListView:addEventListener(callback)
+end
+
+--- Register the inherited ScrollView callback independently of item/page events.
+--- Re-registering replaces only this scroll callback. Also inherited by PageView.
+---@param callback fun(sender:cc.Ref,eventType:integer) @Native ccui.ScrollView.EventType number.
+---@return ccui.ListView
+function ListView:addScrollViewEventListener(callback)
 end
 
 --------------------------------

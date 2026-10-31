@@ -91,6 +91,8 @@ end
 
 --- brief Add a page turn callback to PageView, then when one page is turning, the callback will be called.
 --- param callback A page turning callback.
+--- Independent of the inherited ListView:addScrollViewEventListener scroll channel.
+--- TURNING (0) is delivered before the scroll AUTOSCROLL_ENDED (12) event.
 ---@param callback fun(arg0:cc.Ref,arg1:ccui.PageView::EventType)
 ---@return ccui.PageView
 function PageView:addEventListener(callback)
