@@ -2,6 +2,19 @@
 --- Tag: cc_video
 ------------------------------
 
+--- Video uses shared lua_conversion calls; only AVRational fields are declared locally.
+--- All Video Size results are independent {x,y} tables.
+--- Rational results are independent {num,den} tables; {0,0} denotes missing data.
+--- Void methods return the original Lua self, including .c_instance wrapper tables.
+--- Scalar checks follow CC_LUA_BINDING_CHECKS; errors use shared diagnostics.
+--- End callbacks accept function() or nil to clear; replacement, cancellation
+--- and destruction release references; callback errors are protected.
+--- Player is an autoreleased cc.Sprite; getDecoder returns its existing Decoder.
+---@class video.Rational
+---@field num number
+---@field den number
+
+
 
 ---@class video.Decoder:cc.Ref
 local Decoder = {}
@@ -58,6 +71,15 @@ end
 
 ---@return number @(size_t)
 function Decoder:getAudioStreamCount()
+end
+
+---@param index number @(int)
+---@return video.Rational @(AVRational)
+function Decoder:getAudioTimeBase(index)
+end
+
+---@return video.Rational @(AVRational)
+function Decoder:getAudioTimeBase()
 end
 
 ---@return number @(int64_t)
@@ -121,11 +143,20 @@ function Decoder:getVideoFrameCount()
 end
 
 ---@param index number @(int)
----@return video.Size @(cocos2d::Size)
+---@return video.Rational @(AVRational)
+function Decoder:getVideoFrameRate(index)
+end
+
+---@return video.Rational @(AVRational)
+function Decoder:getVideoFrameRate()
+end
+
+---@param index number @(int)
+---@return vec2_table @(cocos2d::Size)
 function Decoder:getVideoSize(index)
 end
 
----@return video.Size @(cocos2d::Size)
+---@return vec2_table @(cocos2d::Size)
 function Decoder:getVideoSize()
 end
 
@@ -134,8 +165,17 @@ function Decoder:getVideoStreamCount()
 end
 
 --- video size after convert
----@return video.Size @(cocos2d::Size)
+---@return vec2_table @(cocos2d::Size)
 function Decoder:getVideoTargetSize()
+end
+
+---@param index number @(int)
+---@return video.Rational @(AVRational)
+function Decoder:getVideoTimeBase(index)
+end
+
+---@return video.Rational @(AVRational)
+function Decoder:getVideoTimeBase()
 end
 
 ---@return boolean @(bool)
@@ -180,27 +220,3 @@ end
 ---@return string @(std::string)
 function Decoder:queryDecoderType(name)
 end
-
--- Retained adapters: independent {num, den} table snapshots; default index is -1.
----@class video.Rational
----@field num number
----@field den number
-
----@param index? number @Default -1; numeric strings retain legacy conversion.
----@return video.Rational
-function Decoder:getAudioTimeBase(index)
-end
-
----@param index? number @Default -1; numeric strings retain legacy conversion.
----@return video.Rational
-function Decoder:getVideoTimeBase(index)
-end
-
----@param index? number @Default -1; numeric strings retain legacy conversion.
----@return video.Rational
-function Decoder:getVideoFrameRate(index)
-end
-
----@class video.Size
----@field width number
----@field height number
