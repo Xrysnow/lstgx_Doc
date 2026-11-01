@@ -6,6 +6,10 @@
 local EventListenerController = {}
 cc.EventListenerController = EventListenerController
 
+---@return cc.EventListenerController @(cocos2d::EventListenerController*)
+function EventListenerController:clone()
+end
+
 --- Create a controller event listener.
 ---
 --- (static)
@@ -13,15 +17,15 @@ cc.EventListenerController = EventListenerController
 function EventListenerController:create()
 end
 
---- Retained ScriptHandlerMgr clone: duplicates handler references and keeps
---- the historical empty callback bodies. Re-register handlers on the clone.
----@return cc.EventListenerController
-function EventListenerController:clone() end
-
---- Retained channels: connected=58, disconnected=59, keyDown=60, keyUp=61,
---- keyRepeat=62, axis=63. Same-channel registration replaces the handler.
+--- Owned channels: connected=58, disconnected=59, keyDown=60, keyUp=61,
+--- keyRepeat=62, axis=63. Function installs/replaces; nil clears only that channel.
 --- Connections receive (controller,event); key/axis receive (controller,keyCode,event).
---- Removal cancels dispatch. nil is not a cancellation API. Returns no values.
----@param handler function
+--- Native clone copies callable slots; clearing one copy leaves other copies valid.
+--- Removal stops dispatch; slots retain Lua references until cleared/replaced/destroyed.
+--- ScriptHandlerMgr cancellation does not control these owned callbacks.
+--- Unknown channels are rejected before creating a function reference.
+--- Shared default conversion, checks, diagnostics and original self return apply.
+---@param handler function|nil
 ---@param type number
+---@return cc.EventListenerController
 function EventListenerController:registerScriptHandler(handler, type) end
