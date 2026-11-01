@@ -2,6 +2,19 @@
 --- Tag: Live2D
 ------------------------------
 
+--- Live2D uses shared lua_conversion calls and conversions without module adapters.
+--- All Vec2/Size results, including getCanvasSize, are independent {x,y} tables.
+--- Vec2 inputs require both components (x/y or width/height); Color4B requires rgba.
+--- Void methods return the original Lua self, including .c_instance wrapper tables.
+--- Scalar checks follow CC_LUA_BINDING_CHECKS; errors use shared diagnostics.
+--- Sound handlers accept function(filename, event) or nil to clear the handler.
+--- Replacement, cancellation and destruction release callback references; calls
+--- protect Lua errors and keep executing callbacks alive through replacement/reentry.
+--- Load=0, Unload=1, Play=2. Initial Load precedes the public Lua setter.
+--- Unload runs during native destruction: do not access or retain that Model.
+--- Model is an autoreleased ccui.Widget, without a Lua constructor or owning GC.
+
+
 
 ---@class l2d.Model:ccui.Widget
 local Model = {}
@@ -10,13 +23,13 @@ l2d.Model = Model
 ---@param name string @(std::string)
 ---@param value number @(float)
 ---@param weight number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:addParameter(name, value, weight)
 end
 
 ---@param name string @(std::string)
 ---@param value number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:addParameter(name, value)
 end
 
@@ -31,7 +44,7 @@ end
 function Model:getCanvasOrigin()
 end
 
----@return size_table @(cocos2d::Size)
+---@return vec2_table @(cocos2d::Size)
 function Model:getCanvasSize()
 end
 
@@ -170,52 +183,52 @@ end
 ---@param name string @(std::string)
 ---@param value number @(float)
 ---@param weight number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:multiplyParameter(name, value, weight)
 end
 
 ---@param name string @(std::string)
 ---@param value number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:multiplyParameter(name, value)
 end
 
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:resetDragging()
 end
 
 ---@param x number @(float)
 ---@param y number @(float)
 ---@param z number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setAcceleration(x, y, z)
 end
 
 ---@param b boolean @(bool)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setAutoDragging(b)
 end
 
 ---@param seconds number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setBlinkingInterval(seconds)
 end
 
 ---@param closing number @(float)
 ---@param closed number @(float)
 ---@param opening number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setBlinkingSettings(closing, closed, opening)
 end
 
 ---@param b boolean @(bool)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setDebugRectEnable(b)
 end
 
 ---@param x number @(float)
 ---@param y number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setDragging(x, y)
 end
 
@@ -225,46 +238,46 @@ function Model:setExpression(expressionName)
 end
 
 ---@param gravity vec2_table @(cocos2d::Vec2)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setGravity(gravity)
 end
 
 ---@param value boolean @(bool)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setLipSync(value)
 end
 
 ---@param value number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setLipValue(value)
 end
 
 ---@param color color4b_table @(cocos2d::Color4B)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setModelColor(color)
 end
 
 ---@param opacity number @(uint8_t)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setModelOpacity(opacity)
 end
 
 ---@param name string @(std::string)
 ---@param value number @(float)
 ---@param weight number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setParameter(name, value, weight)
 end
 
 ---@param name string @(std::string)
 ---@param value number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setParameter(name, value)
 end
 
 ---@param name string @(std::string)
 ---@param opacity number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setPartOpacity(name, opacity)
 end
 
@@ -272,19 +285,19 @@ end
 function Model:setRandomExpression()
 end
 
----@param f function @(LAppModel::SoundEventHandler)
----@return l2d.Model @(void) self
+---@param f function|nil @(LAppModel::SoundEventHandler)
+---@return l2d.Model|table @(void) original self
 function Model:setSoundEventHandler(f)
 end
 
 ---@param x number @(float)
 ---@param y number @(float)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setTouchDragging(x, y)
 end
 
 ---@param wind vec2_table @(cocos2d::Vec2)
----@return l2d.Model @(void) self
+---@return l2d.Model|table @(void) original self
 function Model:setWind(wind)
 end
 
@@ -310,20 +323,3 @@ end
 ---@return l2d.Model @(l2d::Model*)
 function Model:create(dir, fileName)
 end
-
-
--- Live2D module compatibility and ownership contract
--- Model is an autoreleased ccui.Widget. No public constructor or owning Lua GC.
--- Static create keeps its class receiver: l2d.Model:create(directory, filename).
--- set/add/multiplyParameter omit weight to use the native default 1.0.
--- getCanvasSize returns {width, height}. Other Vec2 returns retain the legacy
--- numeric [1]/[2] representation and x/y metatable access. Arrays are snapshots.
--- Vec2 and Color4B inputs keep legacy partial table defaults, and number/string
--- coercion and all checked argument errors are retained in Debug and Release.
--- setSoundEventHandler accepts function(filename: string, event: integer) only.
--- Sound event values: Load=0, Unload=1, Play=2. nil is not cancellation.
--- Replacement and native destruction release the callback. An in-flight callback
--- survives its own replacement and nested callbacks. Lua errors are reported by
--- the shared protected callback bridge and the Lua stack is restored.
--- Unload callbacks execute while the native model is being destroyed; do not
--- access that model through a saved userdata or retain it in its own callback.
