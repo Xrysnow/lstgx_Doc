@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module ImageView
--- @extend Widget,BlendProtocol
+-- @extend ccui.Widget
 -- @parent_module ccui
 
----@class ccui.ImageView:ccui.Widget,ccui.BlendProtocol
+---@class ccui.ImageView:ccui.Widget
 local ImageView = {}
 ccui.ImageView = ImageView
 --------------------------------

@@ -75,5 +75,11 @@ end
 function NodeGrid:NodeGrid()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.NodeGrid
+function NodeGrid:new() end
+
 
 return nil

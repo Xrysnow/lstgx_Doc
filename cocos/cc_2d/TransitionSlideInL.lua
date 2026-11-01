@@ -4,7 +4,7 @@
 -- @extend TransitionScene,TransitionEaseScene
 -- @parent_module cc
 
----@class cc.TransitionSlideInL:cc.TransitionScene,cc.TransitionEaseScene
+---@class cc.TransitionSlideInL:cc.TransitionScene
 local TransitionSlideInL = {}
 cc.TransitionSlideInL = TransitionSlideInL
 --------------------------------
@@ -41,6 +41,12 @@ end
 ---@return cc.TransitionSlideInL
 function TransitionSlideInL:TransitionSlideInL()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TransitionSlideInL
+function TransitionSlideInL:new() end
 
 
 return nil

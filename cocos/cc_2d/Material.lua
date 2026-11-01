@@ -139,5 +139,47 @@ end
 function Material:createWithProgramState(programState)
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+---
+--- Is material transparent?
+---@return boolean @(bool)
+function Material:isTransparent()
+end
+
+---
+--- Is material in 2D render queue?
+---@return boolean @(bool)
+function Material:isForce2DQueue()
+end
+
+---
+--- Enable material 2D queue rendering.
+---@param value boolean @(bool)
+---@return self @(void)
+function Material:setForce2DQueue(value)
+end
+
+---
+--- Set material primitive draw type
+---@param primitive cc.backend.PrimitiveType @(cocos2d::backend::PrimitiveType) Primitive draw type
+---@return self @(void)
+function Material:setPrimitiveType(primitive)
+end
+
+---
+--- Enable material transparent rendering.
+--- WARNING: depth testing will not work.
+---@param value boolean @(bool)
+---@return self @(void)
+function Material:setTransparent(value)
+end
+
+---
+--- Get material primitive draw type
+---@return cc.backend.PrimitiveType @(cocos2d::backend::PrimitiveType) Primitive draw type
+function Material:getPrimitiveType()
+end
+
 
 return nil

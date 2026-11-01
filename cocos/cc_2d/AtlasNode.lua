@@ -4,7 +4,7 @@
 -- @extend Node,TextureProtocol
 -- @parent_module cc
 
----@class cc.AtlasNode:cc.Node,cc.TextureProtocol
+---@class cc.AtlasNode:cc.Node
 local AtlasNode = {}
 cc.AtlasNode = AtlasNode
 --------------------------------
@@ -171,6 +171,12 @@ end
 ---@return cc.AtlasNode
 function AtlasNode:AtlasNode()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.AtlasNode
+function AtlasNode:new() end
 
 
 return nil

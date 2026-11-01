@@ -82,5 +82,11 @@ end
 function Grid3D:Grid3D()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Grid3D
+function Grid3D:new() end
+
 
 return nil

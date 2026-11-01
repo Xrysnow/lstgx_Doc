@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module ccb
 
----@class ccb.TextureBackend:ccb.Ref
+---@class ccb.TextureBackend:cc.Ref
 local TextureBackend = {}
 ccb.TextureBackend = TextureBackend
 --------------------------------
@@ -79,6 +79,24 @@ end
 ---@param callback fun(arg0:unsigned char,arg1:number,arg2:number)
 ---@return ccb.TextureBackend
 function TextureBackend:getBytes(x, y, width, height, flipImage, callback)
+end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+---@return number @(uint32_t)
+function TextureBackend:getHeight()
+end
+
+---@return number @(uint32_t)
+function TextureBackend:getWidth()
+end
+
+---@return number @(int)
+function TextureBackend:getCount()
+end
+
+---@return number @(uintptr_t)
+function TextureBackend:getHandler()
 end
 
 

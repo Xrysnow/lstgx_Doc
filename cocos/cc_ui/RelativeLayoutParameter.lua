@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module RelativeLayoutParameter
--- @extend LayoutParameter
+-- @extend ccui.LayoutParameter
 -- @parent_module ccui
 
 ---@class ccui.RelativeLayoutParameter:ccui.LayoutParameter

@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module LinearLayoutParameter
--- @extend LayoutParameter
+-- @extend ccui.LayoutParameter
 -- @parent_module ccui
 
 ---@class ccui.LinearLayoutParameter:ccui.LayoutParameter

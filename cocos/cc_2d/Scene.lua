@@ -133,5 +133,15 @@ end
 function Scene:Scene()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Scene
+function Scene:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return boolean
+function Scene:initPhysicsWorld() end
+
 
 return nil

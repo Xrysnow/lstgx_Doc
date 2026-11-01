@@ -307,5 +307,21 @@ end
 function RenderTexture:RenderTexture()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.RenderTexture
+function RenderTexture:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return ccb.RenderTarget|nil
+function RenderTexture:getRenderTarget() end
+
+--- Check if the render target is shared
+---
+---@return boolean @(bool) Returns true if this using a shared render target.
+function RenderTexture:isSharedRenderTarget()
+end
+
 
 return nil

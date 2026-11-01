@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module RichElementText
--- @extend RichElement
+-- @extend ccui.RichElement
 -- @parent_module ccui
 
 ---@class ccui.RichElementText:ccui.RichElement

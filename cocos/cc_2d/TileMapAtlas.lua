@@ -64,5 +64,11 @@ end
 function TileMapAtlas:TileMapAtlas()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TileMapAtlas
+function TileMapAtlas:new() end
+
 
 return nil

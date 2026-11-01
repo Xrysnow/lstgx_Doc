@@ -38,5 +38,12 @@ end
 function ComponentLua:ComponentLua(scriptFileName)
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@param arg0 string|number
+---@return cc.ComponentLua
+function ComponentLua:new(arg0) end
+
 
 return nil

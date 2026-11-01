@@ -1396,5 +1396,55 @@ end
 function Node:Node()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Node
+function Node:new() end
+
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@return self @(void)
+function Node:updateProgramStateTexture(texture)
+end
+
+---@return boolean @(bool)
+function Node:initLayer()
+end
+
+---@param programType number @(uint32_t)
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@return self @(void)
+function Node:setProgramStateWithRegistry(programType, texture)
+end
+
+---
+--- Should addChild() make the child follow it's parent's mask?
+--- If applyChildren is true, then it will modify the camera mask of its children recursively when a child is added.
+---@param applyChildren boolean @(bool) A boolean value to determine whether the mask bit should apply to its children or not.
+---@return self @(void)
+function Node:applyMaskOnEnter(applyChildren)
+end
+
+---@param child cc.Node @(cocos2d::Node*)
+---@param cleanup boolean @(bool)
+---@return self @(void)
+function Node:resetChild(child, cleanup)
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param worldPoint vec2_table
+---@return boolean
+function Node:hitTest(worldPoint) end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return vec2_table
+function Node:getWorldPosition() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param cleanup boolean|nil
+---@return cc.Node
+---@overload fun(self:cc.Node):cc.Node
+function Node:removeFromParent(cleanup) end
+
 
 return nil

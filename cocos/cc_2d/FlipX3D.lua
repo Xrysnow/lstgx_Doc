@@ -61,5 +61,11 @@ end
 function FlipX3D:FlipX3D()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.FlipX3D
+function FlipX3D:new() end
+
 
 return nil

@@ -459,5 +459,62 @@ end
 function Renderer:Renderer()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Renderer
+function Renderer:new() end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param dsDesc any
+---@return cc.Renderer
+function Renderer:setDepthStencilDesc(dsDesc) end
+
+--- Retained legacy callback stub; the Lua bridge does not implement the native callback signature.
+---@param func any
+---@param globalZOrder number|string
+---@return cc.Renderer
+---@overload fun(self:cc.Renderer, func:any):cc.Renderer
+function Renderer:addCallbackCommand(func, globalZOrder) end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return ccb.RenderTarget|nil
+function Renderer:getRenderTarget() end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@return any
+function Renderer:getDepthStencilDesc() end
+
+--- Begin a render pass.
+---@return self @(void)
+function Renderer:endRenderPass()
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return cc.CallbackCommand|nil
+function Renderer:nextCallbackCommand() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return cc.GroupCommand|nil
+function Renderer:getNextGroupCommand() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return ccb.RenderTarget|nil
+function Renderer:getOffscreenRenderTarget() end
+
+--- Retained legacy callback stub; the Lua bridge does not implement the native callback signature.
+---@param rt ccb.RenderTarget|nil
+---@param callback any
+---@return cc.Renderer
+function Renderer:readPixels(rt, callback) end
+
+---@return self @(void)
+function Renderer:beginRenderPass()
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return ccb.RenderTarget|nil
+function Renderer:getDefaultRenderTarget() end
+
 
 return nil

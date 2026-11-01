@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module RichElementCustomNode
--- @extend RichElement
+-- @extend ccui.RichElement
 -- @parent_module ccui
 
 ---@class ccui.RichElementCustomNode:ccui.RichElement

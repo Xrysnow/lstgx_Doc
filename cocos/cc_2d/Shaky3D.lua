@@ -61,5 +61,11 @@ end
 function Shaky3D:Shaky3D()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Shaky3D
+function Shaky3D:new() end
+
 
 return nil

@@ -4,7 +4,7 @@
 -- @extend Layer
 -- @parent_module cc
 
----@class cc.Menu:cc.Layer
+---@class cc.Menu:cc.Node
 local Menu = {}
 cc.Menu = Menu
 --------------------------------
@@ -123,6 +123,12 @@ end
 ---@return cc.Menu
 function Menu:Menu()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Menu
+function Menu:new() end
 
 
 return nil

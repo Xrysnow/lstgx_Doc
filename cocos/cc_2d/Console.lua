@@ -70,5 +70,13 @@ end
 function Console:isIpv6Server()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- print something in the console
+---@param buf string @(const char*)
+---@return self @(void)
+function Console:print(buf)
+end
+
 
 return nil

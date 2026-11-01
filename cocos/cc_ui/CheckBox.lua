@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module CheckBox
--- @extend AbstractCheckButton
+-- @extend ccui.AbstractCheckButton
 -- @parent_module ccui
 
 ---@class ccui.CheckBox:ccui.AbstractCheckButton

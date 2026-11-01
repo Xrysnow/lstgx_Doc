@@ -28,5 +28,11 @@ end
 function EventListenerCustom:EventListenerCustom()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.EventListenerCustom
+function EventListenerCustom:new() end
+
 
 return nil

@@ -92,11 +92,11 @@ end
 -- js init<br>
 -- lua init
 ---@param start color4b_table
----@param end color4b_table
+---@param end_ color4b_table
 ---@param v vec2_table
 ---@return boolean
 ---@overload fun(self:cc.LayerGradient, start:color4b_table, end:color4b_table):boolean
-function LayerGradient:initWithColor(start, end, v)
+function LayerGradient:initWithColor(start, end_, v)
 end
 
 --------------------------------
@@ -131,12 +131,12 @@ end
 -- param end The end color.<br>
 -- return An autoreleased LayerGradient object.
 ---@param start color4b_table
----@param end color4b_table
+---@param end_ color4b_table
 ---@param v vec2_table
 ---@return cc.LayerGradient
 ---@overload fun(self:cc.LayerGradient, start:color4b_table, end:color4b_table):cc.LayerGradient
 ---@overload fun(self:cc.LayerGradient):cc.LayerGradient
-function LayerGradient:create(start, end, v)
+function LayerGradient:create(start, end_, v)
 end
 
 --------------------------------
@@ -159,6 +159,12 @@ end
 ---@return cc.LayerGradient
 function LayerGradient:LayerGradient()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.LayerGradient
+function LayerGradient:new() end
 
 
 return nil

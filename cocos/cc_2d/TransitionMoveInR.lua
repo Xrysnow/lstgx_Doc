@@ -26,5 +26,11 @@ end
 function TransitionMoveInR:TransitionMoveInR()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TransitionMoveInR
+function TransitionMoveInR:new() end
+
 
 return nil

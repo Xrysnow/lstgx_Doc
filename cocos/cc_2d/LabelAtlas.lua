@@ -4,7 +4,7 @@
 -- @extend AtlasNode,LabelProtocol
 -- @parent_module cc
 
----@class cc.LabelAtlas:cc.AtlasNode,cc.LabelProtocol
+---@class cc.LabelAtlas:cc.AtlasNode
 local LabelAtlas = {}
 cc.LabelAtlas = LabelAtlas
 --------------------------------
@@ -70,6 +70,22 @@ end
 ---@return cc.LabelAtlas
 function LabelAtlas:LabelAtlas()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.LabelAtlas
+function LabelAtlas:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param string string|number
+---@param charMapFile cc.Texture2D|nil
+---@param itemWidth number|string
+---@param itemHeight number|string
+---@param startCharMap number|string
+---@return cc.LabelAtlas|nil
+---@overload fun(self:cc.LabelAtlas, string:string|number, charMapFile:cc.Texture2D|nil):cc.LabelAtlas|nil
+function LabelAtlas:_create(string, charMapFile, itemWidth, itemHeight, startCharMap) end
 
 
 return nil

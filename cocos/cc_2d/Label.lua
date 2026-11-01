@@ -4,7 +4,7 @@
 -- @extend Node,LabelProtocol,BlendProtocol
 -- @parent_module cc
 
----@class cc.Label:cc.Node,cc.LabelProtocol,cc.BlendProtocol
+---@class cc.Label:cc.Node
 local Label = {}
 cc.Label = Label
 --------------------------------

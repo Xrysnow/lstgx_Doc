@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module RichElement
--- @extend Ref
+-- @extend cc.Ref
 -- @parent_module ccui
 
----@class ccui.RichElement:ccui.Ref
+---@class ccui.RichElement:cc.Ref
 local RichElement = {}
 ccui.RichElement = RichElement
 --------------------------------

@@ -45,5 +45,11 @@ end
 function EaseElasticInOut:EaseElasticInOut()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.EaseElasticInOut
+function EaseElasticInOut:new() end
+
 
 return nil

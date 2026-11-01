@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module ccb
 
----@class ccb.ProgramState:ccb.Ref
+---@class ccb.ProgramState:cc.Ref
 local ProgramState = {}
 ccb.ProgramState = ProgramState
 --------------------------------
@@ -65,6 +65,52 @@ end
 ---@param program ccb.Program
 ---@return ccb.ProgramState
 function ProgramState:ProgramState(program)
+end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@param arg0 ccb.Program|nil
+---@return ccb.ProgramState
+function ProgramState:new(arg0) end
+
+---
+--- Updates uniformID, it's part of materialID for batch draw
+--- this function after any unstable uniforms set
+--- @remark If your custom shader uniform not stable, you needs call this function to update uniformID for
+--- render to generate a different materialID
+---@return self @(void)
+function ProgramState:updateUniformID()
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param vertexLayout table
+---@return ccb.ProgramState
+function ProgramState:setVertexLayout(vertexLayout) end
+
+---@param stride number @(uint32_t)
+---@return self @(void)
+function ProgramState:setVertexStride(stride)
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param name string|number
+---@param index number|string
+---@param format number|string
+---@param offset number|string
+---@param needToBeNormallized boolean|nil
+---@return ccb.ProgramState
+function ProgramState:setVertexAttrib(name, index, format, offset, needToBeNormallized) end
+
+--- Retained legacy callback stub; the Lua bridge does not implement the native callback signature.
+---@param fnValidate any
+---@return ccb.ProgramState
+function ProgramState:validateSharedVertexLayout(fnValidate) end
+
+---
+--- Gets uniformID, it's part of materialID for batch draw
+---@return number @(uint32_t)
+function ProgramState:getUniformID()
 end
 
 

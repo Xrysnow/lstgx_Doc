@@ -1,97 +1,69 @@
-
---------------------------------
--- @module Controller
--- @parent_module cc
-
+-- Windows formal Controller module (P6); other platform bindings remain legacy.
+--- @class Controller
+--- @brief A Controller object represents a connected physical game controller.
+--- @js NA
 ---@class cc.Controller
 local Controller = {}
 cc.Controller = Controller
---------------------------------
 
---- Activate receives key event from external key. e.g. back,menu.
---- Controller receives only standard key which contained within enum Key by default.
---- warning The API only work on the android platform for support diversified game controller.
---- param externalKeyCode   External key code.
---- param receive   True if external key event on this controller should be receive, false otherwise.
----@param externalKeyCode number
----@param receive boolean
----@return cc.Controller
-function Controller:receiveExternalKeyEvent(externalKeyCode, receive)
-end
-
---------------------------------
-
---- Gets the name of this Controller object.
----@return string
-function Controller:getDeviceName()
-end
-
---------------------------------
-
---- Indicates whether the Controller is connected.
----@return boolean
-function Controller:isConnected()
-end
-
---------------------------------
-
---- Gets the Controller id.
----@return number
-function Controller:getDeviceId()
-end
-
---------------------------------
-
---- Changes the tag that is used to identify the controller easily.
---- param tag   A integer that identifies the controller.
----@param tag number
----@return cc.Controller
-function Controller:setTag(tag)
-end
-
---------------------------------
-
---- Returns a tag that is used to identify the controller easily.
---- return An integer that identifies the controller.
----@return number
-function Controller:getTag()
-end
-
---------------------------------
-
---- Start discovering new controllers.
---- warning The API has an empty implementation on Android.
----@return cc.Controller
-function Controller:startDiscoveryController()
-end
-
---------------------------------
-
---- Stop the discovery process.
---- warning The API has an empty implementation on Android.
----@return cc.Controller
-function Controller:stopDiscoveryController()
-end
-
---------------------------------
-
+---
 --- Gets a Controller object with device ID.
---- param deviceId   A unique identifier to find the controller.
---- return A Controller object.
----@param deviceId number
----@return cc.Controller
+---
+--- (static)
+---@param deviceId number @(int)   A unique identifier to find the controller.
+---@return cc.Controller @(cocos2d::Controller*) A Controller object.
 function Controller:getControllerByDeviceId(deviceId)
 end
 
---------------------------------
-
+---
 --- Gets a Controller object with tag.
---- param tag   An identifier to find the controller.
---- return A Controller object.
----@param tag number
----@return cc.Controller
+---
+--- (static)
+---@param tag number @(int)   An identifier to find the controller.
+---@return cc.Controller @(cocos2d::Controller*) A Controller object.
 function Controller:getControllerByTag(tag)
 end
 
+---
+--- Start discovering new controllers.
+---
+--- @warning The API has an empty implementation on Android.
+--- (static)
+---@return self @(void)
+function Controller:startDiscoveryController()
+end
 
-return nil
+---
+--- Stop the discovery process.
+---
+--- @warning The API has an empty implementation on Android.
+--- (static)
+---@return self @(void)
+function Controller:stopDiscoveryController()
+end
+
+--- Retained Windows adapter: validates both arguments, then returns self without
+--- calling the Android-only native implementation.
+---@param externalKeyCode number
+---@param receive boolean
+---@return cc.Controller
+function Controller:receiveExternalKeyEvent(externalKeyCode, receive) end
+
+--- Retained snapshot. isAnalog intentionally remains numeric 0/1.
+---@param keyCode number
+---@return table @{isPressed:boolean, value:number, isAnalog:number}
+function Controller:getKeyStatus(keyCode) end
+
+--- Retained device-instance APIs pending hardware acceptance; exact old
+--- wrappers and return behavior remain in the Windows manual adapter.
+---@return number
+function Controller:getDeviceId() end
+---@return string
+function Controller:getDeviceName() end
+---@return number
+function Controller:getTag() end
+---@return boolean
+function Controller:isConnected() end
+---@param tag number
+---@return cc.Controller
+function Controller:setTag(tag) end

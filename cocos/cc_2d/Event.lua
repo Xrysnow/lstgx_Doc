@@ -48,5 +48,12 @@ end
 function Event:Event(type)
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@param arg0 number|string
+---@return cc.Event
+function Event:new(arg0) end
+
 
 return nil

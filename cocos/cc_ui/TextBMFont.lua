@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module TextBMFont
--- @extend Widget
+-- @extend ccui.Widget
 -- @parent_module ccui
 
 ---@class ccui.TextBMFont:ccui.Widget

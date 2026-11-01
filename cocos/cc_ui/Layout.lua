@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module Layout
--- @extend Widget,LayoutProtocol
+-- @extend ccui.Widget
 -- @parent_module ccui
 
----@class ccui.Layout:ccui.Widget,ccui.LayoutProtocol
+---@class ccui.Layout:ccui.Widget
 local Layout = {}
 ccui.Layout = Layout
 --------------------------------

@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module TabControl
--- @extend Widget
+-- @extend ccui.Widget
 -- @parent_module ccui
 
 ---@class ccui.TabControl:ccui.Widget

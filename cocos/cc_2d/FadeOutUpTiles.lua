@@ -51,5 +51,11 @@ end
 function FadeOutUpTiles:FadeOutUpTiles()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.FadeOutUpTiles
+function FadeOutUpTiles:new() end
+
 
 return nil

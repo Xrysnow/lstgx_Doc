@@ -283,5 +283,65 @@ end
 function Texture2D:Texture2D()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Texture2D
+function Texture2D:new() end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param mipmaps any
+---@param mipmapsNum number|string
+---@param pixelFormat number|string
+---@param renderFormat number|string
+---@param pixelsWide number|string
+---@param pixelsHigh number|string
+---@param preMultipliedAlpha boolean|nil
+---@param index number|string
+---@return boolean
+---@overload fun(self:cc.Texture2D, mipmaps:any, mipmapsNum:number|string, pixelFormat:number|string, renderFormat:number|string, pixelsWide:number|string, pixelsHigh:number|string):boolean
+---@overload fun(self:cc.Texture2D, mipmaps:any, mipmapsNum:number|string, pixelFormat:number|string, renderFormat:number|string, pixelsWide:number|string, pixelsHigh:number|string, preMultipliedAlpha:boolean|nil):boolean
+function Texture2D:updateWithMipmaps(mipmaps, mipmapsNum, pixelFormat, renderFormat, pixelsWide, pixelsHigh, preMultipliedAlpha, index) end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param descriptor any
+---@param preMultipliedAlpha boolean|nil
+---@return boolean
+---@overload fun(self:cc.Texture2D, descriptor:any):boolean
+function Texture2D:updateTextureDescriptor(descriptor, preMultipliedAlpha) end
+
+---@param premultipliedAlpha boolean @(bool)
+---@return self @(void)
+function Texture2D:setPremultipliedAlpha(premultipliedAlpha)
+end
+
+---@return number @(int)
+function Texture2D:getSamplerFlags()
+end
+
+--- Update with image.
+---
+--- @param data Specifies a pointer to the image data in memory.
+--- @param offsetX Specifies a texel offset in the x direction within the texture array.
+--- @param offsetY Specifies a texel offset in the y direction within the texture array.
+--- @param width Specifies the width of the texture subimage.
+--- @param height Specifies the height of the texture subimage.
+---@param image cc.Image @(cocos2d::Image*)
+---@param format cc.backend.PixelFormat @(cocos2d::backend::PixelFormat)
+---@return boolean @(bool)
+function Texture2D:updateWithImage(image, format)
+end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param data any
+---@param offsetX number|string
+---@param offsetY number|string
+---@param width number|string
+---@param height number|string
+---@param index number|string
+---@return boolean
+---@overload fun(self:cc.Texture2D, data:any, offsetX:number|string, offsetY:number|string, width:number|string, height:number|string):boolean
+function Texture2D:updateWithSubData(data, offsetX, offsetY, width, height, index) end
+
 
 return nil

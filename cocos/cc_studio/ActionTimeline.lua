@@ -323,3 +323,12 @@ end
 
 
 return nil
+
+-- P6 formal Studio migration: retained/manual registrations.
+
+--- Native event frame callback; clearFrameEventCallFunc() cancels it.
+--- Replacement/destruction releases the owned Lua closure; errors and reentry preserve the Lua stack.
+--- Debug requires a function; legacy Release non-functions replace it with a no-op.
+---@param callback fun(frame:ccs.Frame)
+---@return ccs.ActionTimeline
+function ActionTimeline:setFrameEventCallFunc(callback) end

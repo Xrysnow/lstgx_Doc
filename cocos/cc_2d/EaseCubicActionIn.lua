@@ -44,5 +44,11 @@ end
 function EaseCubicActionIn:EaseCubicActionIn()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.EaseCubicActionIn
+function EaseCubicActionIn:new() end
+
 
 return nil

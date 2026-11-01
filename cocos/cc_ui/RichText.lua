@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module RichText
--- @extend Widget
+-- @extend ccui.Widget
 -- @parent_module ccui
 
 ---@class ccui.RichText:ccui.Widget

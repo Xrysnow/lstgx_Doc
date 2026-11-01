@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module Text
--- @extend Widget,BlendProtocol
+-- @extend ccui.Widget
 -- @parent_module ccui
 
----@class ccui.Text:ccui.Widget,ccui.BlendProtocol
+---@class ccui.Text:ccui.Widget
 local Text = {}
 ccui.Text = Text
 --------------------------------

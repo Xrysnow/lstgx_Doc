@@ -180,5 +180,11 @@ end
 function EventDispatcher:EventDispatcher()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.EventDispatcher
+function EventDispatcher:new() end
+
 
 return nil

@@ -139,5 +139,32 @@ end
 function Image:Image()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Image
+function Image:new() end
+
+--- (static)
+---@param target number @(uint32_t)
+---@return boolean @(bool)
+function Image:isCompressedImageHavePMA(target)
+end
+
+--- The new APIs to treats (or not) compressed image files as if they have alpha premultiplied.
+---
+--- By default, ETC1 + ETC1_ALPHA is enabled, because we do PMA at shader etc1.frag
+--- !!!IMPORTANT:
+--- The spine-runtimes official always regard texture has PMA, so you needs
+--- do compressed images PMA at texture convert tools or GPU fragment shader, such as
+--- positionTexture.frag, positionTextureColor.frag and others which have texture sampler,
+--- otherwise, the spine animations can't be render properly
+--- (static)
+---@param targets number @(uint32_t)
+---@param havePMA boolean @(bool)
+---@return self @(void)
+function Image:setCompressedImagesHavePMA(targets, havePMA)
+end
+
 
 return nil

@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module Scale9Sprite
--- @extend Sprite
+-- @extend cc.Sprite
 -- @parent_module ccui
 
----@class ccui.Scale9Sprite:ccui.Sprite
+---@class ccui.Scale9Sprite:cc.Sprite
 local Scale9Sprite = {}
 ccui.Scale9Sprite = Scale9Sprite
 --------------------------------

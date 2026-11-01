@@ -53,5 +53,11 @@ end
 function RemoveSelf:RemoveSelf()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.RemoveSelf
+function RemoveSelf:new() end
+
 
 return nil

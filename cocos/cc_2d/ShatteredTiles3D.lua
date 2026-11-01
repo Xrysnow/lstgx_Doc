@@ -61,5 +61,11 @@ end
 function ShatteredTiles3D:ShatteredTiles3D()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.ShatteredTiles3D
+function ShatteredTiles3D:new() end
+
 
 return nil

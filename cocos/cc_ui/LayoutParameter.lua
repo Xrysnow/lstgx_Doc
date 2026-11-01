@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module LayoutParameter
--- @extend Ref
+-- @extend cc.Ref
 -- @parent_module ccui
 
----@class ccui.LayoutParameter:ccui.Ref
+---@class ccui.LayoutParameter:cc.Ref
 local LayoutParameter = {}
 ccui.LayoutParameter = LayoutParameter
 --------------------------------

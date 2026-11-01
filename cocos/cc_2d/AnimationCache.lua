@@ -95,5 +95,16 @@ end
 function AnimationCache:AnimationCache()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.AnimationCache
+function AnimationCache:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param plist string|number
+---@return cc.AnimationCache
+function AnimationCache:addAnimations(plist) end
+
 
 return nil

@@ -68,5 +68,11 @@ end
 function SkewTo:SkewTo()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.SkewTo
+function SkewTo:new() end
+
 
 return nil

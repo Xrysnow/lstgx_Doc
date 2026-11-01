@@ -565,5 +565,55 @@ end
 function FileUtils:getInstance()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+---
+--- Gets the writable path in the native file-system format
+--- @return  The path that can be writeread a file in
+---@return string @(std::string)
+function FileUtils:getNativeWritableAbsolutePath()
+end
+
+---
+--- Checks whether a file exists without considering search paths and resolution orders.
+--- @param filename The file (with absolute path) to look up for
+--- @return Returns true if the file found at the given absolute path, otherwise returns false
+---@param filename string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:isFileExistInternal(filename)
+end
+
+---
+--- Checks whether a directory exists without considering search paths and resolution orders.
+--- @param dirPath The directory (with absolute path) to look up for
+--- @return Returns true if the directory found at the given absolute path, otherwise returns false
+---@param dirPath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:isDirectoryExistInternal(dirPath)
+end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param data any
+---@param dataSize number|string
+---@param fullPath string|number
+---@return boolean
+function FileUtils:writeBinaryToFile(data, dataSize, fullPath) end
+
+--- (static)
+---@param path string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:isAbsolutePathInternal(path)
+end
+
+---
+--- Gets filename shotName
+--- @param filePath The path of the file, it could be a relative or absolute path.
+--- @return fileName.Extension without path
+--- (static)
+---@param filePath string @(std::string_view)
+---@return string @(std::string)
+function FileUtils:getFileShortName(filePath)
+end
+
 
 return nil

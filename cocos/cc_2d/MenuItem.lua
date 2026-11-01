@@ -71,5 +71,11 @@ end
 function MenuItem:MenuItem()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.MenuItem
+function MenuItem:new() end
+
 
 return nil

@@ -4,7 +4,7 @@
 -- @extend TransitionScene,TransitionEaseScene
 -- @parent_module cc
 
----@class cc.TransitionSplitCols:cc.TransitionScene,cc.TransitionEaseScene
+---@class cc.TransitionSplitCols:cc.TransitionScene
 local TransitionSplitCols = {}
 cc.TransitionSplitCols = TransitionSplitCols
 --------------------------------
@@ -51,6 +51,12 @@ end
 ---@return cc.TransitionSplitCols
 function TransitionSplitCols:TransitionSplitCols()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TransitionSplitCols
+function TransitionSplitCols:new() end
 
 
 return nil

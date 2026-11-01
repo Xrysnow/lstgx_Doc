@@ -572,5 +572,41 @@ end
 function Director:getInstance()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return any
+function Director:getAxmolThreadId() end
+
+--- Display the FPS on the bottom-left corner of the screen.
+---@param displayStats boolean @(bool)
+---@return self @(void)
+function Director:setStatsDisplay(displayStats)
+end
+
+---
+--- returns whether or not node tree children indexer map enabled
+---@return boolean @(bool)
+function Director:isChildrenIndexerEnabled()
+end
+
+--- Whether the FPS on the bottom-left corner of the screen is displayed or not.
+---@return boolean @(bool)
+function Director:isStatsDisplay()
+end
+
+--- Enable node tree children indexer map, the concept is like database INDEX
+--- Notes:
+--- If enable is true: will cost more memory to speed up getChildByTag & getChildByName
+---@param enable boolean @(bool)
+---@return self @(void)
+function Director:setChildrenIndexerEnabled(enable)
+end
+
+--- Sets the stats corner displayed on screen if display stats is enabled.
+---@return self @(void)
+function Director:setStatsAnchor()
+end
+
 
 return nil

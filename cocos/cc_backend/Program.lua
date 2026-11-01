@@ -4,7 +4,7 @@
 -- @extend Ref
 -- @parent_module ccb
 
----@class ccb.Program:ccb.Ref
+---@class ccb.Program:cc.Ref
 local Program = {}
 ccb.Program = Program
 --------------------------------
@@ -92,6 +92,19 @@ end
 ---@param type number
 ---@return ccb.Program
 function Program:getBuiltinProgram(type)
+end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return ccb.VertexLayout|nil
+function Program:getVertexLayout() end
+
+---
+--- Set engin built-in program type.
+---@param type number @(uint32_t) Specifies the program type.
+---@return self @(void)
+function Program:setProgramType(type)
 end
 
 

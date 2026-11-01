@@ -4,7 +4,7 @@
 -- @extend Node,TextureProtocol
 -- @parent_module cc
 
----@class cc.Sprite:cc.Node,cc.TextureProtocol
+---@class cc.Sprite:cc.Node
 local Sprite = {}
 cc.Sprite = Sprite
 --------------------------------
@@ -630,6 +630,12 @@ end
 ---@return cc.Sprite
 function Sprite:Sprite()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Sprite
+function Sprite:new() end
 
 
 return nil

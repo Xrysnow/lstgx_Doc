@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module RelativeBox
--- @extend Layout
+-- @extend ccui.Layout
 -- @parent_module ccui
 
 ---@class ccui.RelativeBox:ccui.Layout

@@ -47,5 +47,26 @@ end
 function Scheduler:Scheduler()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Scheduler
+function Scheduler:new() end
+
+--- Retained legacy callback stub; the Lua bridge does not implement the native callback signature.
+---@param action any
+---@return cc.Scheduler
+function Scheduler:performFunctionInCocosThread(action) end
+
+---
+--- Remove all pending functions queued to be performed with Scheduler::performFunctionInCocosThread
+--- Functions unscheduled in this manner will not be executed
+--- This function is thread safe
+--- @since v3.14
+--- @js NA
+---@return self @(void)
+function Scheduler:removeAllPendingActions()
+end
+
 
 return nil

@@ -153,5 +153,12 @@ end
 function EventMouse:EventMouse(mouseEventCode)
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@param arg0 number|string
+---@return cc.EventMouse
+function EventMouse:new(arg0) end
+
 
 return nil

@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module EditBox
--- @extend Widget,IMEDelegate
+-- @extend ccui.Widget
 -- @parent_module ccui
 
----@class ccui.EditBox:ccui.Widget,ccui.IMEDelegate
+---@class ccui.EditBox:ccui.Widget
 local EditBox = {}
 ccui.EditBox = EditBox
 --------------------------------

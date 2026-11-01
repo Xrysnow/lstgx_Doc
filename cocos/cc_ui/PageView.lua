@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module PageView
--- @extend ListView
+-- @extend ccui.ListView
 -- @parent_module ccui
 
 ---@class ccui.PageView:ccui.ListView

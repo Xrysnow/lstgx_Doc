@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module ListView
--- @extend ScrollView
+-- @extend ccui.ScrollView
 -- @parent_module ccui
 
 ---@class ccui.ListView:ccui.ScrollView

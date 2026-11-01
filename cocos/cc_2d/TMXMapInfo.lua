@@ -325,5 +325,11 @@ end
 function TMXMapInfo:TMXMapInfo()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TMXMapInfo
+function TMXMapInfo:new() end
+
 
 return nil

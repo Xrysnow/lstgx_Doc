@@ -95,5 +95,11 @@ end
 function WavesTiles3D:WavesTiles3D()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.WavesTiles3D
+function WavesTiles3D:new() end
+
 
 return nil

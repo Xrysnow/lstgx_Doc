@@ -44,5 +44,11 @@ end
 function Show:Show()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Show
+function Show:new() end
+
 
 return nil

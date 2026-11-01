@@ -44,5 +44,11 @@ end
 function EaseSineIn:EaseSineIn()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.EaseSineIn
+function EaseSineIn:new() end
+
 
 return nil

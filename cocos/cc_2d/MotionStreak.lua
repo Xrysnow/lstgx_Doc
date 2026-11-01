@@ -4,7 +4,7 @@
 -- @extend Node,TextureProtocol
 -- @parent_module cc
 
----@class cc.MotionStreak:cc.Node,cc.TextureProtocol
+---@class cc.MotionStreak:cc.Node
 local MotionStreak = {}
 cc.MotionStreak = MotionStreak
 --------------------------------
@@ -229,6 +229,12 @@ end
 ---@return cc.MotionStreak
 function MotionStreak:MotionStreak()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.MotionStreak
+function MotionStreak:new() end
 
 
 return nil

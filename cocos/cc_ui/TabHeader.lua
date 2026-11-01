@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module TabHeader
--- @extend AbstractCheckButton
+-- @extend ccui.AbstractCheckButton
 -- @parent_module ccui
 
 ---@class ccui.TabHeader:ccui.AbstractCheckButton

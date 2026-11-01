@@ -235,5 +235,30 @@ end
 function FastTMXLayer:FastTMXLayer()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.FastTMXLayer
+function FastTMXLayer:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return std::unordered_map<unsigned int, std::vector<cocos2d::Vec2>>*|nil
+function FastTMXLayer:getAnimTileCoord() end
+
+---@param tilesetInfo cc.TMXTilesetInfo @(cocos2d::TMXTilesetInfo*)
+---@param layerInfo cc.TMXLayerInfo @(cocos2d::TMXLayerInfo*)
+---@param mapInfo cc.TMXMapInfo @(cocos2d::TMXMapInfo*)
+---@return boolean @(bool)
+function FastTMXLayer:initWithTilesetInfo(tilesetInfo, layerInfo, mapInfo)
+end
+
+---@return boolean @(bool)
+function FastTMXLayer:hasTileAnimation()
+end
+
+---@return cc.TMXTileAnimManager @(cocos2d::TMXTileAnimManager*)
+function FastTMXLayer:getTileAnimManager()
+end
+
 
 return nil

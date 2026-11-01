@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module Slider
--- @extend Widget
+-- @extend ccui.Widget
 -- @parent_module ccui
 
 ---@class ccui.Slider:ccui.Widget

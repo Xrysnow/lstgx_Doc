@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module VBox
--- @extend Layout
+-- @extend ccui.Layout
 -- @parent_module ccui
 
 ---@class ccui.VBox:ccui.Layout

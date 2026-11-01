@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module Widget
--- @extend ProtectedNode,LayoutParameterProtocol
+-- @extend cc.ProtectedNode
 -- @parent_module ccui
 
----@class ccui.Widget:ccui.ProtectedNode,ccui.LayoutParameterProtocol
+---@class ccui.Widget:cc.ProtectedNode
 local Widget = {}
 ccui.Widget = Widget
 --------------------------------
@@ -426,11 +426,14 @@ end
 --- This function is used for determining touch area of widget.
 --- param pt        The point in `Vec2`.
 --- param camera    The camera look at widget, used to convert GL screen point to near/far plane.
---- param p         Point to a Vec3 for store the intersect point, if don't need them set to nullptr.
+--- The application binding accepts (pt, camera) or (pt, camera, outPoint).
+--- If outPoint is supplied it must be a table; x/y/z are written into that same table.
+--- Omit outPoint when the intersection coordinates are not needed.
 --- return true if the point is in widget's content space, false otherwise.
 ---@param pt vec2_table
 ---@param camera cc.Camera
----@param p vec3_table
+---@param p vec3_table @Writable output table for the three-argument form.
+---@overload fun(self:ccui.Widget, pt:vec2_table, camera:cc.Camera):boolean
 ---@return boolean
 function Widget:hitTest(pt, camera, p)
 end

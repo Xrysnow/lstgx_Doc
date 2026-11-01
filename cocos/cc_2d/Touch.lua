@@ -115,5 +115,15 @@ end
 function Touch:Touch()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Touch
+function Touch:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return number
+function Touch:getId() end
+
 
 return nil

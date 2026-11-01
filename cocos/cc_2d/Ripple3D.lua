@@ -120,5 +120,11 @@ end
 function Ripple3D:Ripple3D()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Ripple3D
+function Ripple3D:new() end
+
 
 return nil

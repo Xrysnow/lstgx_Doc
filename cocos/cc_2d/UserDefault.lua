@@ -177,5 +177,27 @@ end
 function UserDefault:isXMLFileExist()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param key string|number
+---@param value table
+---@return cc.UserDefault
+function UserDefault:setLargeIntForKey(key, value) end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param arg0 string|number
+---@param arg1 table
+---@return number
+---@overload fun(self:cc.UserDefault, arg0:string|number):number
+function UserDefault:getLargeIntForKey(arg0, arg1) end
+
+---@param enabled boolean @(bool)
+---@param key string @(std::string_view)
+---@param iv string @(std::string_view)
+---@return self @(void)
+function UserDefault:setEncryptEnabled(enabled, key, iv)
+end
+
 
 return nil

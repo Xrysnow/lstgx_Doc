@@ -332,3 +332,13 @@ end
 
 
 return nil
+
+-- P6 formal Studio migration: retained/manual registrations.
+
+--- Legacy manual setter (retained Debug/Release conversion); returns no values.
+---@param ignore boolean
+function Bone:setIgnoreMovementBoneData(ignore) end
+
+--- Legacy alias; isIgnoreMovementBoneData() remains available as before.
+---@return boolean
+function Bone:getIgnoreMovementBoneData() end

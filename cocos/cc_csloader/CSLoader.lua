@@ -127,3 +127,16 @@ end
 
 
 return nil
+
+--- Retained script bridge. The callback form loads a CSB file and is invoked
+--- for each loaded child after attachment, with the legacy cc.Ref userdata.
+--- Its handler remains attached to the returned root until native destruction.
+---@param filename string
+---@param callback? fun(child:cc.Ref)
+---@return cc.Node|nil
+function CSLoader:createNode(filename,callback) end
+
+--- Retained timeline factory; no additional native Data overload is exposed.
+---@param filename string
+---@return ccs.ActionTimeline|nil
+function CSLoader:createTimeline(filename) end

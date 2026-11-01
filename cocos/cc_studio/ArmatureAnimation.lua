@@ -179,3 +179,17 @@ end
 
 
 return nil
+
+-- P6 formal Studio migration: retained/manual registrations.
+
+--- Script callback; movement START/COMPLETE/LOOP_COMPLETE uses the native event number.
+--- Replacement/destruction releases the owned Lua closure; callback errors restore the Lua stack.
+--- Debug requires a function; legacy Release non-functions replace it with a no-op.
+---@param callback fun(armature:ccs.Armature, eventType:number, movementID:string)
+---@return ccs.ArmatureAnimation
+function ArmatureAnimation:setMovementEventCallFunc(callback) end
+
+--- Script callback from a native bone frame event.
+---@param callback fun(bone:ccs.Bone, eventName:string, originFrameIndex:number, currentFrameIndex:number)
+---@return ccs.ArmatureAnimation
+function ArmatureAnimation:setFrameEventCallFunc(callback) end

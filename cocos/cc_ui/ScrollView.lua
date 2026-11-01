@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module ScrollView
--- @extend Layout
+-- @extend ccui.Layout
 -- @parent_module ccui
 
 ---@class ccui.ScrollView:ccui.Layout

@@ -4,7 +4,7 @@
 -- @extend Layer,BlendProtocol
 -- @parent_module cc
 
----@class cc.LayerColor:cc.Layer,cc.BlendProtocol
+---@class cc.LayerColor:cc.Sprite
 local LayerColor = {}
 cc.LayerColor = LayerColor
 --------------------------------
@@ -115,6 +115,12 @@ end
 ---@return cc.LayerColor
 function LayerColor:LayerColor()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.LayerColor
+function LayerColor:new() end
 
 
 return nil

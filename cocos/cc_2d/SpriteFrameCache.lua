@@ -171,5 +171,49 @@ end
 function SpriteFrameCache:getInstance()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param spriteSheetFormat number|string
+---@return cc.ISpriteSheetLoader|nil
+function SpriteFrameCache:getSpriteSheetLoader(spriteSheetFormat) end
+
+---@param frame string @(std::string_view)
+---@return cc.SpriteFrame @(cocos2d::SpriteFrame*)
+function SpriteFrameCache:findFrame(frame)
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param spriteSheetFileName string|number
+---@param textureFileName cc.Texture2D|nil
+---@param spriteSheetFormat number|string
+---@return cc.SpriteFrameCache
+---@overload fun(self:cc.SpriteFrameCache, spriteSheetFileName:string|number):cc.SpriteFrameCache
+---@overload fun(self:cc.SpriteFrameCache, spriteSheetFileName:string|number, textureFileName:cc.Texture2D|nil):cc.SpriteFrameCache
+function SpriteFrameCache:addSpriteFrames(spriteSheetFileName, textureFileName, spriteSheetFormat) end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param name string|number
+---@return cc.SpriteFrame|nil
+function SpriteFrameCache:getSpriteFrame(name) end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param spriteFrame cc.SpriteFrame|nil
+---@param capInsets rect_table
+---@param texture cc.Texture2D|nil
+---@return cc.SpriteFrameCache
+function SpriteFrameCache:addSpriteFrameCapInset(spriteFrame, capInsets, texture) end
+
+---@param spriteSheetFormat number @(uint32_t)
+---@return self @(void)
+function SpriteFrameCache:deregisterSpriteSheetLoader(spriteSheetFormat)
+end
+
+--- Delete frame from cache, rebuild index
+---@param frameName string @(std::string_view)
+---@return boolean @(bool)
+function SpriteFrameCache:eraseFrame(frameName)
+end
+
 
 return nil

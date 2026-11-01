@@ -4,7 +4,7 @@
 -- @extend Layer
 -- @parent_module cc
 
----@class cc.LayerRadialGradient:cc.Layer
+---@class cc.LayerRadialGradient:cc.Node
 local LayerRadialGradient = {}
 cc.LayerRadialGradient = LayerRadialGradient
 --------------------------------
@@ -190,6 +190,12 @@ end
 ---@return cc.LayerRadialGradient
 function LayerRadialGradient:LayerRadialGradient()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.LayerRadialGradient
+function LayerRadialGradient:new() end
 
 
 return nil

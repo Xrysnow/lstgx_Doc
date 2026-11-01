@@ -4,7 +4,7 @@
 -- @extend Node,TextureProtocol,PlayableProtocol
 -- @parent_module cc
 
----@class cc.ParticleSystem:cc.Node,cc.TextureProtocol,cc.PlayableProtocol
+---@class cc.ParticleSystem:cc.Node
 local ParticleSystem = {}
 cc.ParticleSystem = ParticleSystem
 --------------------------------
@@ -999,6 +999,412 @@ end
 ---@return cc.ParticleSystem
 function ParticleSystem:ParticleSystem()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.ParticleSystem
+function ParticleSystem:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param indexOfDescriptor table
+---@param time boolean|nil
+---@param timeVariance number|string
+---@param indices table
+---@param reverse boolean|nil
+---@return cc.ParticleSystem
+---@overload fun(self:cc.ParticleSystem, indexOfDescriptor:table):cc.ParticleSystem
+---@overload fun(self:cc.ParticleSystem, indexOfDescriptor:table, time:boolean|nil):cc.ParticleSystem
+---@overload fun(self:cc.ParticleSystem, indexOfDescriptor:table, time:boolean|nil, timeVariance:number|string, indices:table):cc.ParticleSystem
+function ParticleSystem:setAnimationDescriptor(indexOfDescriptor, time, timeVariance, indices, reverse) end
+
+--- Gets the spawn angle of each particle
+---
+---@return number @(float) The angle in degrees of each particle.
+function ParticleSystem:getSpawnAngle()
+end
+
+--- Gets the spawn scale fade in time variance of each particle.
+--- Particles have the ability to spawn while having 0.0 size and gradually start going to 1.0 size with a specified
+--- time.
+---
+---@return number @(float) The spawn opacity fade in time variance in seconds.
+function ParticleSystem:getSpawnScaleInVar()
+end
+
+--- Resets the count of indices to 0 and empties the animation index array
+---@return self @(void)
+function ParticleSystem:resetAnimationIndices()
+end
+
+--- Gets the total number of indices.
+---
+---@return number @(int) The size of the list holding animation indices.
+function ParticleSystem:getTotalAnimationIndices()
+end
+
+--- Gets the hue of each particle.
+---
+---@return number @(float) The hue of each particle.
+function ParticleSystem:getHue()
+end
+
+---@return boolean @(bool)
+function ParticleSystem:isAnimationSpeedTimescaleIndependent()
+end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param hsv any
+---@return cc.ParticleSystem
+function ParticleSystem:setHSVVar(hsv) end
+
+---@return boolean @(bool)
+function ParticleSystem:isLoopAnimated()
+end
+
+--- Enables or disables tex coord animations that are set based on particle life.
+---@param enabled boolean @(bool)
+---@return self @(void)
+function ParticleSystem:setLifeAnimation(enabled)
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param index cc.SpriteFrame|nil
+---@param rect cc.SpriteFrame|nil
+---@param rotated boolean|nil
+---@return boolean
+---@overload fun(self:cc.ParticleSystem, index:cc.SpriteFrame|nil):boolean
+---@overload fun(self:cc.ParticleSystem, index:cc.SpriteFrame|nil, rect:cc.SpriteFrame|nil):boolean
+function ParticleSystem:addAnimationIndex(index, rect, rotated) end
+
+--- Sets the spawn opacity fade in time variance of each particle when it's created.
+--- Particles have the ability to spawn while having 0 opacity and gradually start going to 255 opacity with a
+--- specified time.
+---
+---@param time number @(float) The spawn opacity fade in time variance in seconds.
+---@return self @(void)
+function ParticleSystem:setSpawnFadeInVar(time)
+end
+
+--- Sets the hue of each particle.
+---
+---@param hue number @(float)
+---@return self @(void)
+function ParticleSystem:setHue(hue)
+end
+
+--- Sets wether to use HSV color system.
+--- WARNING: becareful when using HSV with too many particles because it's expensive.
+---
+---@param hsv boolean @(bool) Use HSV color system.
+---@return self @(void)
+function ParticleSystem:useHSV(hsv)
+end
+
+--- Enables or disables tex coord animations that are set by the emitter randomly when a particle is emitted.
+---@param enabled boolean @(bool)
+---@return self @(void)
+function ParticleSystem:setEmitterAnimation(enabled)
+end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param index number|string
+---@param shape any
+---@return cc.ParticleSystem
+function ParticleSystem:setEmissionShape(index, shape) end
+
+--- Gets the hue variance of each particle.
+---
+---@return number @(float) The hue variance of each particle.
+function ParticleSystem:getHueVar()
+end
+
+--- Sets the spawn angle of each particle
+---
+---@param angle number @(float) The angle in degrees of each particle.
+---@return self @(void)
+function ParticleSystem:setSpawnAngle(angle)
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param rect rect_table
+---@return cc.ParticleSystem
+function ParticleSystem:setRectForUndefinedIndices(rect) end
+
+--- Gets the time scale of the particle system.
+--- @return Time scale of the particle system.
+---@return number @(float)
+function ParticleSystem:getTimeScale()
+end
+
+--- Sets the spawn angle variance of each particle.
+---
+---@param angle number @(float) The angle variance in degrees of each particle.
+---@return self @(void)
+function ParticleSystem:setSpawnAngleVar(angle)
+end
+
+--- Sets wether the animation descriptors should follow the time scale of the system or not.
+---
+---@param independent boolean @(bool) Should the animation descriptor speeds be played independently? (default: false)
+---@return self @(void)
+function ParticleSystem:setAnimationSpeedTimescaleIndependent(independent)
+end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@return any
+function ParticleSystem:getHSVVar() end
+
+--- Resets the count of emission shapes to 0 and empties the emission shapes array
+---@return self @(void)
+function ParticleSystem:resetEmissionShapes()
+end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@return any
+function ParticleSystem:getHSV() end
+
+---@return boolean @(bool)
+function ParticleSystem:isEmitterAnimated()
+end
+
+--- Sets the time scale of the particle system.
+--- @param Time scale of the particle system. (default: 1.0)
+---@return self @(void)
+function ParticleSystem:setTimeScale()
+end
+
+--- Empties the container of animation descriptors
+---@return self @(void)
+function ParticleSystem:resetAnimationDescriptors()
+end
+
+--- Add all particle animation indices based on cells size and direction spicified using a texture atlas.
+--- will erase the array and add new indices from the atlas.
+--- This function will automatically figure out your atlas cell size and direction for you! thank her later :)
+---@return self @(void)
+function ParticleSystem:setAnimationIndicesAtlas()
+end
+
+--- Sets the spawn opacity fade in time of each particle when it's created.
+--- Particles have the ability to spawn while having 0 opacity and gradually start going to 255 opacity with a
+--- specified time.
+---
+---@param time number @(float) The spawn opacity fade in time in seconds.
+---@return self @(void)
+function ParticleSystem:setSpawnFadeIn(time)
+end
+
+---@return boolean @(bool)
+function ParticleSystem:isLifeAnimated()
+end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param shape any
+---@return cc.ParticleSystem
+function ParticleSystem:addEmissionShape(shape) end
+
+--- Gets the spawn opacity fade in time of each particle.
+--- Particles have the ability to spawn while having 0 opacity and gradually start going to 255 opacity with a
+--- specified time.
+---
+---@return number @(float) The spawn opacity fade in time in seconds.
+function ParticleSystem:getSpawnFadeIn()
+end
+
+--- Gets the spawn opacity fade in time variance of each particle.
+--- Particles have the ability to spawn while having 0 opacity and gradually start going to 255 opacity with a
+--- specified time.
+---
+---@return number @(float) The spawn opacity fade in time variance in seconds.
+function ParticleSystem:getSpawnFadeInVar()
+end
+
+--- Advance the particle system and make it seem like it ran for this many seconds.
+---
+--- accurate the simulation will be at the cost of performance. value of -1 means
+--- (SIMULATION_USE_GAME_ANIMATION_INTERVAL)
+---@return self @(void)
+function ParticleSystem:simulate()
+end
+
+--- Sets the hue variance of each particle.
+---
+---@param hue number @(float)
+---@return self @(void)
+function ParticleSystem:setHueVar(hue)
+end
+
+---@return boolean @(bool)
+function ParticleSystem:isAnimationReversed()
+end
+
+--- Gets the spawn scale fade in time of each particle.
+--- Particles have the ability to spawn while having 0.0 size and gradually start going to 1.0 size with a specified
+--- time.
+---
+---@return number @(float) The spawn opacity fade in time in seconds.
+function ParticleSystem:getSpawnScaleIn()
+end
+
+--- Sets the fixed frame rate count of the particle system.
+--- i.e. if the framerate is set to 30.0 while the refresh rate is greater than 30.0 then the particle system will
+--- wait until it hits the 30.0 FPS mark.
+--- This is usefull for increasing performance or for creating old-school effects with it.
+--- @param Fixed frame rate count of the particle system. (default: 0.0)
+---@return self @(void)
+function ParticleSystem:setFixedFPS()
+end
+
+---@return boolean @(bool)
+function ParticleSystem:isHSV()
+end
+
+---@return boolean @(bool)
+function ParticleSystem:isEmissionShapes()
+end
+
+--- Enables or disables tex coord animations that are used to make particles play a sequence forever until they die
+---@param enabled boolean @(bool)
+---@return self @(void)
+function ParticleSystem:setLoopAnimation(enabled)
+end
+
+--- Sets the spawn scale fade in time of each particle when it's created.
+--- Particles have the ability to spawn while having 0.0 size and gradually start going to 1.0 size with a specified
+--- time.
+---
+---@param time number @(float) The spawn opacity fade in time in seconds.
+---@return self @(void)
+function ParticleSystem:setSpawnScaleIn(time)
+end
+
+--- Sets the spawn scale fade in time variance of each particle when it's created.
+--- Particles have the ability to spawn while having 0.0 size and gradually start going to 1.0 size with a specified
+--- time.
+---
+---@param time number @(float) The spawn opacity fade in time variance in seconds.
+---@return self @(void)
+function ParticleSystem:setSpawnScaleInVar(time)
+end
+
+--- Sets wether to use emission shapes for this particle system or not
+---@param enabled boolean @(bool)
+---@return self @(void)
+function ParticleSystem:setEmissionShapes(enabled)
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param animations table
+---@return cc.ParticleSystem
+function ParticleSystem:setMultiAnimationRandomSpecific(animations) end
+
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param hsv any
+---@return cc.ParticleSystem
+function ParticleSystem:setHSV(hsv) end
+
+--- Resets the particle system and then advances the particle system and make it seem like it ran for this many
+--- seconds. The frame rate used for simulation accuracy is the director's animation interval.
+---
+--- accurate the simulation will be at the cost of performance. value of -1 means
+--- (SIMULATION_USE_GAME_ANIMATION_INTERVAL)
+---@return self @(void)
+function ParticleSystem:resimulate()
+end
+
+--- Choose ALL animation descriptors to be selected at random for particles.
+--- This function should be called after you've insertedoverwritten any animation descriptors.
+---@return self @(void)
+function ParticleSystem:setMultiAnimationRandom()
+end
+
+--- Sets wether to start from first cell and go forwards (normal) or last cell and go backwards (reversed)
+---@param reverse boolean @(bool)
+---@return self @(void)
+function ParticleSystem:setAnimationReverse(reverse)
+end
+
+--- Sets the spawn angle variance of each particle.
+---
+---@return number @(float) The angle variance in degrees of each particle.
+function ParticleSystem:getSpawnAngleVar()
+end
+
+--- Gets the fixed frame rate count of the particle system.
+--- @return Fixed frame rate count of the particle system.
+---@return number @(float)
+function ParticleSystem:getFixedFPS()
+end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param pos vec2_table
+---@param innerSize size_table
+---@param outerSize size_table
+---@return any
+function ParticleSystem:createRectTorusShape(pos, innerSize, outerSize) end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param pos vec2_table
+---@param innerRadius number|string
+---@param outerRadius number|string
+---@param edgeBias number|string
+---@return any
+---@overload fun(self:cc.ParticleSystem, pos:vec2_table, innerRadius:number|string, outerRadius:number|string):any
+function ParticleSystem:createTorusShape(pos, innerRadius, outerRadius, edgeBias) end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param pos vec2_table
+---@param radius number|string
+---@param offset number|string
+---@param angle number|string
+---@param edgeBias number|string
+---@return any
+---@overload fun(self:cc.ParticleSystem, pos:vec2_table, radius:number|string, offset:number|string, angle:number|string):any
+function ParticleSystem:createConeShape(pos, radius, offset, angle, edgeBias) end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param pos vec2_table
+---@return any
+function ParticleSystem:createPointShape(pos) end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param pos vec2_table
+---@param radius number|string
+---@param edgeBias number|string
+---@return any
+---@overload fun(self:cc.ParticleSystem, pos:vec2_table, radius:number|string):any
+function ParticleSystem:createCircleShape(pos, radius, edgeBias) end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param maskId string|number
+---@param pos vec2_table
+---@param overrideSize vec2_table
+---@param scale vec2_table
+---@param angle number|string
+---@return any
+---@overload fun(self:cc.ParticleSystem, maskId:string|number):any
+---@overload fun(self:cc.ParticleSystem, maskId:string|number, pos:vec2_table):any
+---@overload fun(self:cc.ParticleSystem, maskId:string|number, pos:vec2_table, overrideSize:vec2_table):any
+---@overload fun(self:cc.ParticleSystem, maskId:string|number, pos:vec2_table, overrideSize:vec2_table, scale:vec2_table):any
+function ParticleSystem:createMaskShape(maskId, pos, overrideSize, scale, angle) end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param pos vec2_table
+---@param size size_table
+---@return any
+function ParticleSystem:createRectShape(pos, size) end
+
+--- Retained legacy return-conversion stub; no usable native result is pushed.
+---@param pos vec2_table
+---@param innerRadius number|string
+---@param outerRadius number|string
+---@param offset number|string
+---@param angle number|string
+---@param edgeBias number|string
+---@return any
+---@overload fun(self:cc.ParticleSystem, pos:vec2_table, innerRadius:number|string, outerRadius:number|string, offset:number|string, angle:number|string):any
+function ParticleSystem:createConeTorusShape(pos, innerRadius, outerRadius, offset, angle, edgeBias) end
 
 
 return nil

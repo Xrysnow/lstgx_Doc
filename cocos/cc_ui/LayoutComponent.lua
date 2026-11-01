@@ -1,10 +1,10 @@
 
 --------------------------------
 -- @module LayoutComponent
--- @extend Component
+-- @extend cc.Component
 -- @parent_module ccui
 
----@class ccui.LayoutComponent:ccui.Component
+---@class ccui.LayoutComponent:cc.Component
 local LayoutComponent = {}
 ccui.LayoutComponent = LayoutComponent
 --------------------------------

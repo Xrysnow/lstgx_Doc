@@ -48,5 +48,11 @@ end
 function ParticleSnow:ParticleSnow()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.ParticleSnow
+function ParticleSnow:new() end
+
 
 return nil

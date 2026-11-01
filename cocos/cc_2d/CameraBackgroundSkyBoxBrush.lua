@@ -90,5 +90,15 @@ end
 function CameraBackgroundSkyBoxBrush:CameraBackgroundSkyBoxBrush()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.CameraBackgroundSkyBoxBrush
+function CameraBackgroundSkyBoxBrush:new() end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return cc.TextureCube|nil
+function CameraBackgroundSkyBoxBrush:getTexture() end
+
 
 return nil

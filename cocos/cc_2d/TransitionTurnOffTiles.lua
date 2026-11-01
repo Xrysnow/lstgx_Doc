@@ -4,7 +4,7 @@
 -- @extend TransitionScene,TransitionEaseScene
 -- @parent_module cc
 
----@class cc.TransitionTurnOffTiles:cc.TransitionScene,cc.TransitionEaseScene
+---@class cc.TransitionTurnOffTiles:cc.TransitionScene
 local TransitionTurnOffTiles = {}
 cc.TransitionTurnOffTiles = TransitionTurnOffTiles
 --------------------------------
@@ -43,6 +43,12 @@ end
 ---@return cc.TransitionTurnOffTiles
 function TransitionTurnOffTiles:TransitionTurnOffTiles()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TransitionTurnOffTiles
+function TransitionTurnOffTiles:new() end
 
 
 return nil

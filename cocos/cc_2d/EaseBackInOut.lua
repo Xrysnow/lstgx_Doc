@@ -44,5 +44,11 @@ end
 function EaseBackInOut:EaseBackInOut()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.EaseBackInOut
+function EaseBackInOut:new() end
+
 
 return nil

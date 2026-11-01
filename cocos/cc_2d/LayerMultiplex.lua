@@ -4,7 +4,7 @@
 -- @extend Layer
 -- @parent_module cc
 
----@class cc.LayerMultiplex:cc.Layer
+---@class cc.LayerMultiplex:cc.Node
 local LayerMultiplex = {}
 cc.LayerMultiplex = LayerMultiplex
 --------------------------------
@@ -65,6 +65,12 @@ end
 ---@return cc.LayerMultiplex
 function LayerMultiplex:LayerMultiplex()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.LayerMultiplex
+function LayerMultiplex:new() end
 
 
 return nil

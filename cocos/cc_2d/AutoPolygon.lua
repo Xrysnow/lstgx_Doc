@@ -17,5 +17,12 @@ cc.AutoPolygon = AutoPolygon
 function AutoPolygon:AutoPolygon(filename)
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@param arg0 string|number
+---@return cc.AutoPolygon
+function AutoPolygon:new(arg0) end
+
 
 return nil

@@ -4,7 +4,7 @@
 -- @extend TransitionScene,TransitionEaseScene
 -- @parent_module cc
 
----@class cc.TransitionFadeTR:cc.TransitionScene,cc.TransitionEaseScene
+---@class cc.TransitionFadeTR:cc.TransitionScene
 local TransitionFadeTR = {}
 cc.TransitionFadeTR = TransitionFadeTR
 --------------------------------
@@ -53,6 +53,12 @@ end
 ---@return cc.TransitionFadeTR
 function TransitionFadeTR:TransitionFadeTR()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TransitionFadeTR
+function TransitionFadeTR:new() end
 
 
 return nil

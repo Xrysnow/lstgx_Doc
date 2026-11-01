@@ -103,3 +103,9 @@ end
 
 
 return nil
+
+-- P6 formal Studio migration: retained/manual registrations.
+
+--- Borrowed singleton; Lua does not own or delete the returned native cache.
+---@return ccs.ActionTimelineCache
+function ActionTimelineCache:getInstance() end

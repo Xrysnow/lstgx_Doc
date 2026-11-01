@@ -10,19 +10,21 @@ cc.Pass = Pass
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformPointLightPosition(, )
+function Pass:setUniformPointLightPosition(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformDirLightDir(, )
+function Pass:setUniformDirLightDir(arg0, arg1)
 end
 
 --------------------------------
@@ -44,28 +46,31 @@ end
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformSpotLightOuterAngleCos(, )
+function Pass:setUniformSpotLightOuterAngleCos(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformSpotLightDir(, )
+function Pass:setUniformSpotLightDir(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformMatrixPalette(, )
+function Pass:setUniformMatrixPalette(arg0, arg1)
 end
 
 --------------------------------
@@ -86,10 +91,11 @@ end
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformSpotLightRangeInverse(, )
+function Pass:setUniformSpotLightRangeInverse(arg0, arg1)
 end
 
 --------------------------------
@@ -117,19 +123,20 @@ end
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformPointLightRangeInverse(, )
+function Pass:setUniformPointLightRangeInverse(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
 ---@param slot number
----@param  ccb.TextureBackend
+---@param arg1 ccb.TextureBackend
 ---@return cc.Pass
-function Pass:setUniformNormTexture(slot, )
+function Pass:setUniformNormTexture(slot, arg1)
 end
 
 --------------------------------
@@ -150,37 +157,41 @@ end
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformSpotLightColor(, )
+function Pass:setUniformSpotLightColor(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformAmbientLigthColor(, )
+function Pass:setUniformAmbientLigthColor(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformDirLightColor(, )
+function Pass:setUniformDirLightColor(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformSpotLightPosition(, )
+function Pass:setUniformSpotLightPosition(arg0, arg1)
 end
 
 --------------------------------
@@ -198,36 +209,39 @@ end
 
 --- 
 ---@param slot number
----@param  ccb.TextureBackend
+---@param arg1 ccb.TextureBackend
 ---@return cc.Pass
-function Pass:setUniformTexture(slot, )
+function Pass:setUniformTexture(slot, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformSpotLightInnerAngleCos(, )
+function Pass:setUniformSpotLightInnerAngleCos(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformColor(, )
+function Pass:setUniformColor(arg0, arg1)
 end
 
 --------------------------------
 
 --- 
----@param  void
----@param  number
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:setUniformPointLightColor(, )
+function Pass:setUniformPointLightColor(arg0, arg1)
 end
 
 --------------------------------

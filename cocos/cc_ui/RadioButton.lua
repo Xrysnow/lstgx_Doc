@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module RadioButton
--- @extend AbstractCheckButton
+-- @extend ccui.AbstractCheckButton
 -- @parent_module ccui
 
 ---@class ccui.RadioButton:ccui.AbstractCheckButton

@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module HBox
--- @extend Layout
+-- @extend ccui.Layout
 -- @parent_module ccui
 
 ---@class ccui.HBox:ccui.Layout

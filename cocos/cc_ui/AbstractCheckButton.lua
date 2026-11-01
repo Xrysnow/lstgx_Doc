@@ -1,7 +1,7 @@
 
 --------------------------------
 -- @module AbstractCheckButton
--- @extend Widget
+-- @extend ccui.Widget
 -- @parent_module ccui
 
 ---@class ccui.AbstractCheckButton:ccui.Widget

@@ -292,5 +292,13 @@ end
 function DrawNode:DrawNode()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@param arg0 number|string
+---@return cc.DrawNode
+---@overload fun(self:cc.DrawNode):cc.DrawNode
+function DrawNode:new(arg0) end
+
 
 return nil

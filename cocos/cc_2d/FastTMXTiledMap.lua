@@ -155,5 +155,39 @@ end
 function FastTMXTiledMap:getDescription()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.FastTMXTiledMap
+function FastTMXTiledMap:new() end
+
+---@return string @(std::string_view)
+function FastTMXTiledMap:getResourceFile()
+end
+
+---@return number @(int)
+function FastTMXTiledMap:getLayerCount()
+end
+
+--- initializes a TMX Tiled Map with a TMX file
+---@param tmxFile string @(std::string_view)
+---@return boolean @(bool)
+function FastTMXTiledMap:initWithTMXFile(tmxFile)
+end
+
+--- Set all tile animations enabled or not.
+--- animations are not enabled by default
+---@param enabled boolean @(bool)
+---@return self @(void)
+function FastTMXTiledMap:setTileAnimEnabled(enabled)
+end
+
+--- initializes a TMX Tiled Map with a TMX formatted XML string and a path to TMX resources
+---@param tmxString string @(std::string_view)
+---@param resourcePath string @(std::string_view)
+---@return boolean @(bool)
+function FastTMXTiledMap:initWithXML(tmxString, resourcePath)
+end
+
 
 return nil

@@ -4,7 +4,7 @@
 -- @extend Node,TextureProtocol
 -- @parent_module cc
 
----@class cc.SpriteBatchNode:cc.Node,cc.TextureProtocol
+---@class cc.SpriteBatchNode:cc.Node
 local SpriteBatchNode = {}
 cc.SpriteBatchNode = SpriteBatchNode
 --------------------------------
@@ -319,6 +319,12 @@ end
 ---@return cc.SpriteBatchNode
 function SpriteBatchNode:SpriteBatchNode()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.SpriteBatchNode
+function SpriteBatchNode:new() end
 
 
 return nil

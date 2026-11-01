@@ -48,5 +48,11 @@ end
 function ParticleFire:ParticleFire()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.ParticleFire
+function ParticleFire:new() end
+
 
 return nil

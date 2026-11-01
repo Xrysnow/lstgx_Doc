@@ -180,3 +180,11 @@ end
 
 
 return nil
+
+-- P6 formal Studio migration: retained/manual registrations.
+
+--- Retained native Ref/selector progress bridge; optional image/plist paths use the four-argument form.
+---@param configFilePath string
+---@param callback fun(percent:number)
+---@overload fun(self:ccs.ArmatureDataManager,imagePath:string,plistPath:string,configFilePath:string,callback:fun(percent:number))
+function ArmatureDataManager:addArmatureFileInfoAsync(configFilePath,callback) end

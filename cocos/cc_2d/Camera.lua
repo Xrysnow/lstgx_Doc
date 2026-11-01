@@ -312,5 +312,73 @@ end
 function Camera:Camera()
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Camera
+function Camera:new() end
+
+---
+--- Gets the zoom multiplier of the camera.
+---
+--- @since axmol-1.0.0b8
+---@return number @(float)
+function Camera:getZoom()
+end
+
+---
+--- Sets the frustum's far plane.
+---
+--- @since axmol-1.0.0b8
+---@param farPlane number @(float)
+---@return self @(void)
+function Camera:setFarPlane(farPlane)
+end
+
+---
+--- Gets the frustum's near plane.
+---
+--- @since axmol-1.0.0b8
+---@param nearPlane number @(float)
+---@return self @(void)
+function Camera:setNearPlane(nearPlane)
+end
+
+---
+--- Apply the zoom factor.
+---
+--- @since axmol-1.0.0b8
+---@return self @(void)
+function Camera:applyZoom()
+end
+
+---
+--- Sets the field of view of the camera if the projection mode is 3D.
+---
+--- @since axmol-1.0.0b8
+---@param fov number @(float)
+---@return self @(void)
+function Camera:setFOV(fov)
+end
+
+---
+--- Sets the zoom multiplier of the camera.
+--- This is designed to be used with 2D views only.
+---
+---
+--- @since axmol-1.0.0b8
+---@param factor number @(float) The zoom factor of the camera.
+---@return self @(void)
+function Camera:setZoom(factor)
+end
+
+---
+--- Gets the field of view of the camera if the projection mode is 3D.
+---
+--- @since axmol-1.0.0b8
+---@return number @(float)
+function Camera:getFOV()
+end
+
 
 return nil

@@ -69,5 +69,15 @@ end
 function EventController:EventController(type, controller, keyCode)
 end
 
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+--- Available through this Core legacy definition only on non-Windows platforms.
+---@param arg0 number|string
+---@param arg1 cc.Controller|nil
+---@param arg2 boolean|nil
+---@return cc.EventController
+function EventController:new(arg0, arg1, arg2) end
+
 
 return nil

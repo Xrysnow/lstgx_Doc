@@ -4,7 +4,7 @@
 -- @extend TransitionScene,TransitionEaseScene
 -- @parent_module cc
 
----@class cc.TransitionShrinkGrow:cc.TransitionScene,cc.TransitionEaseScene
+---@class cc.TransitionShrinkGrow:cc.TransitionScene
 local TransitionShrinkGrow = {}
 cc.TransitionShrinkGrow = TransitionShrinkGrow
 --------------------------------
@@ -33,6 +33,12 @@ end
 ---@return cc.TransitionShrinkGrow
 function TransitionShrinkGrow:TransitionShrinkGrow()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.TransitionShrinkGrow
+function TransitionShrinkGrow:new() end
 
 
 return nil

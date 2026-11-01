@@ -4,7 +4,7 @@
 -- @extend Node,TextureProtocol
 -- @parent_module cc
 
----@class cc.ParticleBatchNode:cc.Node,cc.TextureProtocol
+---@class cc.ParticleBatchNode:cc.Node
 local ParticleBatchNode = {}
 cc.ParticleBatchNode = ParticleBatchNode
 --------------------------------
@@ -195,6 +195,12 @@ end
 ---@return cc.ParticleBatchNode
 function ParticleBatchNode:ParticleBatchNode()
 end
+
+-- P6 Core: existing registered entries omitted from the earlier documentation.
+
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.ParticleBatchNode
+function ParticleBatchNode:new() end
 
 
 return nil
