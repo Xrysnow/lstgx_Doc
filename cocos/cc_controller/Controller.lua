@@ -1,10 +1,49 @@
--- Windows formal Controller module (P6); other platform bindings remain legacy.
+-- Windows Controller convergence; non-Windows bindings remain legacy.
 --- @class Controller
 --- @brief A Controller object represents a connected physical game controller.
 --- @js NA
 ---@class cc.Controller
 local Controller = {}
 cc.Controller = Controller
+
+---
+--- Gets the Controller id.
+---@return number @(int)
+function Controller:getDeviceId()
+end
+
+---
+--- Gets the name of this Controller object.
+---@return string @(std::string_view)
+function Controller:getDeviceName()
+end
+
+---
+---
+---@param keyCode number @(int)
+---@return table @{isPressed:boolean, value:number, isAnalog:number (0/1)} snapshot
+function Controller:getKeyStatus(keyCode)
+end
+
+---
+--- Returns a tag that is used to identify the controller easily.
+---
+---@return number @(int) An integer that identifies the controller.
+function Controller:getTag()
+end
+
+---
+--- Indicates whether the Controller is connected.
+---@return boolean @(bool)
+function Controller:isConnected()
+end
+
+---
+--- Changes the tag that is used to identify the controller easily.
+---@param tag number @(int)   A integer that identifies the controller.
+---@return self @(void)
+function Controller:setTag(tag)
+end
 
 ---
 --- Gets a Controller object with device ID.
@@ -48,22 +87,3 @@ end
 ---@param receive boolean
 ---@return cc.Controller
 function Controller:receiveExternalKeyEvent(externalKeyCode, receive) end
-
---- Retained snapshot. isAnalog intentionally remains numeric 0/1.
----@param keyCode number
----@return table @{isPressed:boolean, value:number, isAnalog:number}
-function Controller:getKeyStatus(keyCode) end
-
---- Retained device-instance APIs pending hardware acceptance; exact old
---- wrappers and return behavior remain in the Windows manual adapter.
----@return number
-function Controller:getDeviceId() end
----@return string
-function Controller:getDeviceName() end
----@return number
-function Controller:getTag() end
----@return boolean
-function Controller:isConnected() end
----@param tag number
----@return cc.Controller
-function Controller:setTag(tag) end

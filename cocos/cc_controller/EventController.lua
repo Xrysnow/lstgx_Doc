@@ -1,4 +1,4 @@
--- Windows formal Controller module (P6); other platform bindings remain legacy.
+-- Windows Controller convergence; non-Windows bindings remain legacy.
 --- @class EventController
 --- @brief Controller event.
 ---@class cc.EventController:cc.Event
@@ -11,7 +11,7 @@ end
 
 --- Gets the event type of the controller.
 ---
----@return cc.EventController.ControllerEventType @(cocos2d::EventController::ControllerEventType) The event type of the controller.
+---@return number @(cocos2d::EventController::ControllerEventType) The event type of the controller.
 function EventController:getControllerEventType()
 end
 
@@ -39,11 +39,12 @@ end
 function EventController:setKeyCode(keyCode)
 end
 
---- Retained new+autorelease constructor; checked same-arity bool/int overloads.
---- The controller may be nil; callers must not dispatch a button event with nil.
+--- Factory adapter: new + autorelease, shared checked bool/int overload selection.
+--- The controller may be nil; do not dispatch button events with nil controller.
+--- Numeric strings are not accepted by either overload, in Debug or Release.
 ---@overload fun(self:table, type:number, controller:cc.Controller|nil, keyCode:number):cc.EventController
 ---@param type number
 ---@param controller cc.Controller|nil
----@param isConnected boolean
+---@param isConnected boolean|nil
 ---@return cc.EventController
 function EventController:new(type, controller, isConnected) end

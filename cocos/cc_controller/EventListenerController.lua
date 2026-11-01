@@ -1,4 +1,4 @@
--- Windows formal Controller module (P6); other platform bindings remain legacy.
+-- Windows Controller convergence; non-Windows bindings remain legacy.
 --- @class EventListenerController
 --- @param Controller event listener.
 --- @js NA
@@ -13,17 +13,15 @@ cc.EventListenerController = EventListenerController
 function EventListenerController:create()
 end
 
---- Retained ScriptHandlerMgr clone: duplicates handler references and keeps the
---- historical empty native callback bodies. Register new handlers on the clone
---- to receive events; this migration does not silently change clone semantics.
+--- Retained ScriptHandlerMgr clone: duplicates handler references and keeps
+--- the historical empty callback bodies. Re-register handlers on the clone.
 ---@return cc.EventListenerController
 function EventListenerController:clone() end
 
---- Retained handler channels: connected=58, disconnected=59, keyDown=60,
---- keyUp=61, keyRepeat=62, axis=63. Re-registration replaces the same channel.
---- Connections receive (controller,event); key/axis receive
---- (controller,keyCode,event). removeEventListener provides dispatch cancellation.
---- Bad function/channel arguments raise the existing Lua diagnostic.
+--- Retained channels: connected=58, disconnected=59, keyDown=60, keyUp=61,
+--- keyRepeat=62, axis=63. Same-channel registration replaces the handler.
+--- Connections receive (controller,event); key/axis receive (controller,keyCode,event).
+--- Removal cancels dispatch. nil is not a cancellation API. Returns no values.
 ---@param handler function
 ---@param type number
 function EventListenerController:registerScriptHandler(handler, type) end
