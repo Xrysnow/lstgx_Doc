@@ -1,514 +1,323 @@
-
---------------------------------
--- @module Physics3DSliderConstraint
--- @extend Physics3DConstraint
--- @parent_module cc
-
+-- Formal Physics3D module: generated methods plus exact retained adapters.
 ---@class cc.Physics3DSliderConstraint:cc.Physics3DConstraint
 local Physics3DSliderConstraint = {}
 cc.Physics3DSliderConstraint = Physics3DSliderConstraint
---------------------------------
 
---- 
----@param onOff boolean
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setPoweredAngMotor(onOff)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getDampingLimAng()
-end
-
---------------------------------
-
---- 
----@param restitutionOrthoLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setRestitutionOrthoLin(restitutionOrthoLin)
-end
-
---------------------------------
-
---- 
----@param restitutionDirLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setRestitutionDirLin(restitutionDirLin)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getLinearPos()
-end
-
---------------------------------
-
---- get A's frame offset
----@return mat4_table
-function Physics3DSliderConstraint:getFrameOffsetA()
-end
-
---------------------------------
-
---- get B's frame offset
----@return mat4_table
-function Physics3DSliderConstraint:getFrameOffsetB()
-end
-
---------------------------------
-
---- 
----@param onOff boolean
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setPoweredLinMotor(onOff)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getDampingDirAng()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getRestitutionLimLin()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getSoftnessOrthoAng()
-end
-
---------------------------------
-
---- 
----@param softnessOrthoLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setSoftnessOrthoLin(softnessOrthoLin)
-end
-
---------------------------------
-
---- 
----@param softnessLimLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setSoftnessLimLin(softnessLimLin)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function Physics3DSliderConstraint:getAngularPos()
 end
 
---------------------------------
-
---- 
----@param restitutionLimAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setRestitutionLimAng(restitutionLimAng)
+---@return number @(float)
+function Physics3DSliderConstraint:getDampingDirAng()
 end
 
---------------------------------
-
---- set upper linear limit
----@param upperLimit number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setUpperLinLimit(upperLimit)
-end
-
---------------------------------
-
---- 
----@param dampingDirLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setDampingDirLin(dampingDirLin)
-end
-
---------------------------------
-
---- get upper angular limit
----@return number
-function Physics3DSliderConstraint:getUpperAngLimit()
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function Physics3DSliderConstraint:getDampingDirLin()
 end
 
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getSoftnessDirAng()
+---@return number @(float)
+function Physics3DSliderConstraint:getDampingLimAng()
 end
 
---------------------------------
-
---- 
----@return boolean
-function Physics3DSliderConstraint:getPoweredAngMotor()
-end
-
---------------------------------
-
---- set lower angular limit
----@param lowerLimit number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setLowerAngLimit(lowerLimit)
-end
-
---------------------------------
-
---- set upper angular limit
----@param upperLimit number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setUpperAngLimit(upperLimit)
-end
-
---------------------------------
-
---- 
----@param targetLinMotorVelocity number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setTargetLinMotorVelocity(targetLinMotorVelocity)
-end
-
---------------------------------
-
---- 
----@param dampingLimAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setDampingLimAng(dampingLimAng)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getRestitutionLimAng()
-end
-
---------------------------------
-
----  access for UseFrameOffset
----@return boolean
-function Physics3DSliderConstraint:getUseFrameOffset()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getSoftnessOrthoLin()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getDampingOrthoAng()
-end
-
---------------------------------
-
---- set use frame offset
----@param frameOffsetOnOff boolean
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setUseFrameOffset(frameOffsetOnOff)
-end
-
---------------------------------
-
---- set lower linear limit
----@param lowerLimit number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setLowerLinLimit(lowerLimit)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getRestitutionDirLin()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getTargetLinMotorVelocity()
-end
-
---------------------------------
-
---- get lower linear limit
----@return number
-function Physics3DSliderConstraint:getLowerLinLimit()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getSoftnessLimLin()
-end
-
---------------------------------
-
---- 
----@param dampingOrthoAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setDampingOrthoAng(dampingOrthoAng)
-end
-
---------------------------------
-
---- 
----@param softnessDirAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setSoftnessDirAng(softnessDirAng)
-end
-
---------------------------------
-
---- 
----@return boolean
-function Physics3DSliderConstraint:getPoweredLinMotor()
-end
-
---------------------------------
-
---- 
----@param restitutionOrthoAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setRestitutionOrthoAng(restitutionOrthoAng)
-end
-
---------------------------------
-
---- 
----@param dampingDirAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setDampingDirAng(dampingDirAng)
-end
-
---------------------------------
-
---- set frames for rigid body A and B
----@param frameA mat4_table
----@param frameB mat4_table
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setFrames(frameA, frameB)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getRestitutionOrthoAng()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getMaxAngMotorForce()
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getDampingOrthoLin()
-end
-
---------------------------------
-
---- get upper linear limit
----@return number
-function Physics3DSliderConstraint:getUpperLinLimit()
-end
-
---------------------------------
-
---- 
----@param maxLinMotorForce number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setMaxLinMotorForce(maxLinMotorForce)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getRestitutionOrthoLin()
-end
-
---------------------------------
-
---- 
----@param targetAngMotorVelocity number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setTargetAngMotorVelocity(targetAngMotorVelocity)
-end
-
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getSoftnessLimAng()
-end
-
---------------------------------
-
---- 
----@param restitutionDirAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setRestitutionDirAng(restitutionDirAng)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function Physics3DSliderConstraint:getDampingLimLin()
 end
 
---------------------------------
+---@return number @(float)
+function Physics3DSliderConstraint:getDampingOrthoAng()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getDampingOrthoLin()
+end
+
+--- get A's frame offset
+---@return mat4_table @(cocos2d::Mat4)
+function Physics3DSliderConstraint:getFrameOffsetA()
+end
+
+--- get B's frame offset
+---@return mat4_table @(cocos2d::Mat4)
+function Physics3DSliderConstraint:getFrameOffsetB()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getLinearPos()
+end
 
 --- get lower angular limit
----@return number
+---@return number @(float)
 function Physics3DSliderConstraint:getLowerAngLimit()
 end
 
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getRestitutionDirAng()
+--- get lower linear limit
+---@return number @(float)
+function Physics3DSliderConstraint:getLowerLinLimit()
 end
 
---------------------------------
-
---- 
----@return number
-function Physics3DSliderConstraint:getTargetAngMotorVelocity()
+---@return number @(float)
+function Physics3DSliderConstraint:getMaxAngMotorForce()
 end
 
---------------------------------
-
---- 
----@param restitutionLimLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setRestitutionLimLin(restitutionLimLin)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function Physics3DSliderConstraint:getMaxLinMotorForce()
 end
 
---------------------------------
-
---- 
----@param dampingOrthoLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setDampingOrthoLin(dampingOrthoLin)
+---@return boolean @(bool)
+function Physics3DSliderConstraint:getPoweredAngMotor()
 end
 
---------------------------------
-
---- 
----@param softnessOrthoAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setSoftnessOrthoAng(softnessOrthoAng)
+---@return boolean @(bool)
+function Physics3DSliderConstraint:getPoweredLinMotor()
 end
 
---------------------------------
-
---- 
----@param dampingLimLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setDampingLimLin(dampingLimLin)
+---@return number @(float)
+function Physics3DSliderConstraint:getRestitutionDirAng()
 end
 
---------------------------------
-
---- 
----@param softnessDirLin number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setSoftnessDirLin(softnessDirLin)
+---@return number @(float)
+function Physics3DSliderConstraint:getRestitutionDirLin()
 end
 
---------------------------------
-
---- 
----@param maxAngMotorForce number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setMaxAngMotorForce(maxAngMotorForce)
+---@return number @(float)
+function Physics3DSliderConstraint:getRestitutionLimAng()
 end
 
---------------------------------
+---@return number @(float)
+function Physics3DSliderConstraint:getRestitutionLimLin()
+end
 
---- 
----@return number
+---@return number @(float)
+function Physics3DSliderConstraint:getRestitutionOrthoAng()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getRestitutionOrthoLin()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getSoftnessDirAng()
+end
+
+---@return number @(float)
 function Physics3DSliderConstraint:getSoftnessDirLin()
 end
 
---------------------------------
-
---- 
----@param softnessLimAng number
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:setSoftnessLimAng(softnessLimAng)
+---@return number @(float)
+function Physics3DSliderConstraint:getSoftnessLimAng()
 end
 
---------------------------------
+---@return number @(float)
+function Physics3DSliderConstraint:getSoftnessLimLin()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getSoftnessOrthoAng()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getSoftnessOrthoLin()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getTargetAngMotorVelocity()
+end
+
+---@return number @(float)
+function Physics3DSliderConstraint:getTargetLinMotorVelocity()
+end
+
+--- get upper angular limit
+---@return number @(float)
+function Physics3DSliderConstraint:getUpperAngLimit()
+end
+
+--- get upper linear limit
+---@return number @(float)
+function Physics3DSliderConstraint:getUpperLinLimit()
+end
+
+--- access for UseFrameOffset
+---@return boolean @(bool)
+function Physics3DSliderConstraint:getUseFrameOffset()
+end
 
 --- use A's frame as linear reference
----@return boolean
+---@return boolean @(bool)
 function Physics3DSliderConstraint:getUseLinearReferenceFrameA()
 end
 
---------------------------------
+---@param dampingDirAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setDampingDirAng(dampingDirAng)
+end
 
---- create slider constraint
---- param rbA rigid body A
---- param rbB rigid body B
---- param frameInA frame in A's local space
---- param frameInB frame in B's local space
---- param useLinearReferenceFrameA use fixed frame A for linear limits
----@param rbA cc.Physics3DRigidBody
----@param rbB cc.Physics3DRigidBody
----@param frameInA mat4_table
----@param frameInB mat4_table
+---@param dampingDirLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setDampingDirLin(dampingDirLin)
+end
+
+---@param dampingLimAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setDampingLimAng(dampingLimAng)
+end
+
+---@param dampingLimLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setDampingLimLin(dampingLimLin)
+end
+
+---@param dampingOrthoAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setDampingOrthoAng(dampingOrthoAng)
+end
+
+---@param dampingOrthoLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setDampingOrthoLin(dampingOrthoLin)
+end
+
+--- set frames for rigid body A and B
+---@param frameA mat4_table @(cocos2d::Mat4)
+---@param frameB mat4_table @(cocos2d::Mat4)
+---@return self @(void)
+function Physics3DSliderConstraint:setFrames(frameA, frameB)
+end
+
+--- set lower angular limit
+---@param lowerLimit number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setLowerAngLimit(lowerLimit)
+end
+
+--- set lower linear limit
+---@param lowerLimit number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setLowerLinLimit(lowerLimit)
+end
+
+---@param maxAngMotorForce number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setMaxAngMotorForce(maxAngMotorForce)
+end
+
+---@param maxLinMotorForce number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setMaxLinMotorForce(maxLinMotorForce)
+end
+
+---@param onOff boolean @(bool)
+---@return self @(void)
+function Physics3DSliderConstraint:setPoweredAngMotor(onOff)
+end
+
+---@param onOff boolean @(bool)
+---@return self @(void)
+function Physics3DSliderConstraint:setPoweredLinMotor(onOff)
+end
+
+---@param restitutionDirAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setRestitutionDirAng(restitutionDirAng)
+end
+
+---@param restitutionDirLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setRestitutionDirLin(restitutionDirLin)
+end
+
+---@param restitutionLimAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setRestitutionLimAng(restitutionLimAng)
+end
+
+---@param restitutionLimLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setRestitutionLimLin(restitutionLimLin)
+end
+
+---@param restitutionOrthoAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setRestitutionOrthoAng(restitutionOrthoAng)
+end
+
+---@param restitutionOrthoLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setRestitutionOrthoLin(restitutionOrthoLin)
+end
+
+---@param softnessDirAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setSoftnessDirAng(softnessDirAng)
+end
+
+---@param softnessDirLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setSoftnessDirLin(softnessDirLin)
+end
+
+---@param softnessLimAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setSoftnessLimAng(softnessLimAng)
+end
+
+---@param softnessLimLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setSoftnessLimLin(softnessLimLin)
+end
+
+---@param softnessOrthoAng number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setSoftnessOrthoAng(softnessOrthoAng)
+end
+
+---@param softnessOrthoLin number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setSoftnessOrthoLin(softnessOrthoLin)
+end
+
+---@param targetAngMotorVelocity number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setTargetAngMotorVelocity(targetAngMotorVelocity)
+end
+
+---@param targetLinMotorVelocity number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setTargetLinMotorVelocity(targetLinMotorVelocity)
+end
+
+--- set upper angular limit
+---@param upperLimit number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setUpperAngLimit(upperLimit)
+end
+
+--- set upper linear limit
+---@param upperLimit number @(float)
+---@return self @(void)
+function Physics3DSliderConstraint:setUpperLinLimit(upperLimit)
+end
+
+--- set use frame offset
+---@param frameOffsetOnOff boolean @(bool)
+---@return self @(void)
+function Physics3DSliderConstraint:setUseFrameOffset(frameOffsetOnOff)
+end
+
+---
+--- It is a special point to point constraint that adds cone and twist axis limits. The x-axis serves as twist axis.
+
+--- Legacy constructor; native autorelease and tolua identity are unchanged.
+---@return cc.Physics3DSliderConstraint
+function Physics3DSliderConstraint:new() end
+
+--- Only this five-argument native overload was exposed by the old Lua module.
+---@param bodyA cc.Physics3DRigidBody
+---@param bodyB cc.Physics3DRigidBody
+---@param frameA mat4_table
+---@param frameB mat4_table
 ---@param useLinearReferenceFrameA boolean
 ---@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:create(rbA, rbB, frameInA, frameInB, useLinearReferenceFrameA)
-end
-
---------------------------------
-
---- 
----@return cc.Physics3DSliderConstraint
-function Physics3DSliderConstraint:Physics3DSliderConstraint()
-end
-
+function Physics3DSliderConstraint:create(bodyA,bodyB,frameA,frameB,useLinearReferenceFrameA) end
 
 return nil

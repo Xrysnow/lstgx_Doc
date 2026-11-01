@@ -1,71 +1,51 @@
-
---------------------------------
--- @module BillBoard
--- @extend Sprite
--- @parent_module cc
-
 ---@class cc.BillBoard:cc.Sprite
-local BillBoard = {}
-cc.BillBoard = BillBoard
---------------------------------
+local BillBoard={}
+cc.BillBoard=BillBoard
 
----  Get the billboard rotation mode. 
----@return number
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.BillBoard
+function BillBoard:new() end
+
+--- Get the billboard rotation mode.
+---@return number @(cocos2d::BillBoard::Mode)
 function BillBoard:getMode()
 end
 
---------------------------------
-
----  Set the billboard rotation mode. 
----@param mode number
----@return cc.BillBoard
+--- Set the billboard rotation mode.
+---@param mode number @(cocos2d::BillBoard::Mode)
+---@return self @(void)
 function BillBoard:setMode(mode)
 end
 
---------------------------------
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param filename string|number
+---@param rect number|string
+---@param mode number|string
+---@return cc.BillBoard|nil
+---@overload fun(self:cc.BillBoard):cc.BillBoard|nil
+---@overload fun(self:cc.BillBoard, filename:string|number):cc.BillBoard|nil
+---@overload fun(self:cc.BillBoard, filename:string|number, rect:number|string):cc.BillBoard|nil
+function BillBoard:create(filename, rect, mode) end
 
---- Creates a BillBoard with an image filename.<br>
--- After creation, the rect of BillBoard will be the size of the image,<br>
--- and the offset will be (0,0).<br>
--- param   filename A path to image file, e.g., "scene1/monster.png"<br>
--- return  An autoreleased BillBoard object.
----@param filename string
----@param rect rect_table
----@param mode number
----@return cc.BillBoard
----@overload fun(self:cc.BillBoard, filename:string, mode:number):cc.BillBoard
----@overload fun(self:cc.BillBoard, mode:number):cc.BillBoard
-function BillBoard:create(filename, rect, mode)
-end
-
---------------------------------
-
+---
 --- Creates a BillBoard with a Texture2D object.
+---
 --- After creation, the rect will be the size of the texture, and the offset will be (0,0).
---- param   texture    A pointer to a Texture2D object.
---- return  An autoreleased BillBoard object
----@param texture cc.Texture2D
----@param mode number
----@return cc.BillBoard
+---
+--- (static)
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@param mode number @(cocos2d::BillBoard::Mode)
+---@return cc.BillBoard @(cocos2d::BillBoard*)  An autoreleased BillBoard object
 function BillBoard:createWithTexture(texture, mode)
 end
 
---------------------------------
-
----  update billboard's transform and turn it towards camera 
----@param renderer cc.Renderer
----@param parentTransform mat4_table
----@param parentFlags number
----@return cc.BillBoard
-function BillBoard:visit(renderer, parentTransform, parentFlags)
+---
+--- Creates a BillBoard with a Texture2D object.
+---
+--- After creation, the rect will be the size of the texture, and the offset will be (0,0).
+---
+--- (static)
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@return cc.BillBoard @(cocos2d::BillBoard*)  An autoreleased BillBoard object
+function BillBoard:createWithTexture(texture)
 end
-
---------------------------------
-
---- 
----@return cc.BillBoard
-function BillBoard:BillBoard()
-end
-
-
-return nil

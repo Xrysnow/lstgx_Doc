@@ -1,163 +1,113 @@
-
---------------------------------
--- @module Mesh
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.Mesh:cc.Ref
-local Mesh = {}
-cc.Mesh = Mesh
---------------------------------
+local Mesh={}
+cc.Mesh=Mesh
 
----  Returns the Material being used by the Mesh 
----@return cc.Material
-function Mesh:getMaterial()
-end
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Mesh
+function Mesh:new() end
 
---------------------------------
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return cc.Material|nil
+function Mesh:getMaterial() end
 
 --- get per vertex size in bytes
----@return number
+---@return number @(int)
 function Mesh:getVertexSizeInBytes()
 end
 
---------------------------------
-
----   Sets a new ProgramState for the Mesh
+--- Sets a new ProgramState for the Mesh
 --- A new Material will be created for it
----@param programState ccb.ProgramState
----@return cc.Mesh
+---@param programState cc.backend.ProgramState @(cocos2d::backend::ProgramState*)
+---@return self @(void)
 function Mesh:setProgramState(programState)
 end
 
---------------------------------
-
----  Sets a new Material to the Mesh 
----@param material cc.Material
----@return cc.Mesh
-function Mesh:setMaterial(material)
+---
+--- set index format
+---
+--- @lua NA
+---@param indexFormat cc.backend.IndexFormat @(cocos2d::CustomCommand::IndexFormat)
+---@return self @(void)
+function Mesh:setIndexFormat(indexFormat)
 end
 
---------------------------------
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param material cc.Material|nil
+---@return cc.Mesh
+function Mesh:setMaterial(material) end
 
---- name getter 
----@return string
+--- name getter
+---@return string @(std::string_view)
 function Mesh:getName()
 end
 
---------------------------------
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param idx number|string
+---@return any
+function Mesh:getMeshVertexAttribute(idx) end
 
---- get MeshVertexAttribute by index
----@param idx number
----@return cc.MeshVertexAttrib
-function Mesh:getMeshVertexAttribute(idx)
-end
-
---------------------------------
-
+---
 --- calculate the AABB of the mesh
---- note the AABB is in the local space, not the world space
----@return cc.Mesh
+--- @note the AABB is in the local space, not the world space
+---@return self @(void)
 function Mesh:calculateAABB()
 end
 
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param globalZ number
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param renderer cc.Renderer|nil
+---@param globalZ number|string
 ---@param transform mat4_table
----@param flags number
----@param lightMask number
+---@param flags number|string
+---@param lightMask number|string
 ---@param color vec4_table
----@param forceDepthWrite boolean
+---@param forceDepthWrite boolean|nil
+---@param wireframe boolean|nil
 ---@return cc.Mesh
-function Mesh:draw(renderer, globalZ, transform, flags, lightMask, color, forceDepthWrite)
-end
+function Mesh:draw(renderer, globalZ, transform, flags, lightMask, color, forceDepthWrite, wireframe) end
 
---------------------------------
-
---- 
----@return cc.BlendFunc
-function Mesh:getBlendFunc()
-end
-
---------------------------------
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return table
+function Mesh:getBlendFunc() end
 
 --- name setter
----@param name string
----@return cc.Mesh
+---@param name string @(std::string_view)
+---@return self @(void)
 function Mesh:setName(name)
 end
 
---------------------------------
-
---- Mesh index data setter
----@param indexdata cc.MeshIndexData
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param indexdata cc.MeshIndexData|nil
 ---@return cc.Mesh
-function Mesh:setMeshIndexData(indexdata)
-end
+function Mesh:setMeshIndexData(indexdata) end
 
---------------------------------
-
---- get ProgramState
---- lua NA
----@return ccb.ProgramState
-function Mesh:getProgramState()
-end
-
---------------------------------
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return ccb.ProgramState|nil
+function Mesh:getProgramState() end
 
 --- get mesh vertex attribute count
----@return number
+---@return number @(ssize_t)
 function Mesh:getMeshVertexAttribCount()
 end
 
---------------------------------
-
---- 
----@param blendFunc cc.BlendFunc
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param blendFunc table
 ---@return cc.Mesh
-function Mesh:setBlendFunc(blendFunc)
-end
+function Mesh:setBlendFunc(blendFunc) end
 
---------------------------------
-
---- force set this Sprite3D to 2D render queue
----@param force2D boolean
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@param skin cc.MeshSkin|nil
 ---@return cc.Mesh
-function Mesh:setForce2DQueue(force2D)
-end
+function Mesh:setSkin(skin) end
 
---------------------------------
-
---- skin setter
----@param skin cc.MeshSkin
----@return cc.Mesh
-function Mesh:setSkin(skin)
-end
-
---------------------------------
-
---- 
----@return boolean
+---@return boolean @(bool)
 function Mesh:isVisible()
 end
 
---------------------------------
-
 --- visible getter and setter
----@param visible boolean
----@return cc.Mesh
+---@param visible boolean @(bool)
+---@return self @(void)
 function Mesh:setVisible(visible)
 end
 
---------------------------------
 
---- 
----@return cc.Mesh
-function Mesh:Mesh()
-end
-
-
-return nil
+--- Vertex/index queries require initialized MeshIndexData; bare new() does not allocate it.

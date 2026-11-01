@@ -42,18 +42,18 @@
 
 
 --------------------------------------------------------
--- the cc Sprite3D
--- @field [parent=#cc] Sprite3D#Sprite3D Sprite3D preloaded module
+-- the cc MeshRenderer
+-- @field [parent=#cc] MeshRenderer#MeshRenderer MeshRenderer preloaded module
 
 
 --------------------------------------------------------
--- the cc Sprite3DCache
--- @field [parent=#cc] Sprite3DCache#Sprite3DCache Sprite3DCache preloaded module
+-- the cc MeshRendererCache
+-- @field [parent=#cc] MeshRendererCache#MeshRendererCache MeshRendererCache preloaded module
 
 
 --------------------------------------------------------
--- the cc Sprite3DMaterial
--- @field [parent=#cc] Sprite3DMaterial#Sprite3DMaterial Sprite3DMaterial preloaded module
+-- the cc MeshMaterial
+-- @field [parent=#cc] MeshMaterial#MeshMaterial MeshMaterial preloaded module
 
 
 --------------------------------------------------------
@@ -66,4 +66,5 @@
 -- @field [parent=#cc] Bundle3D#Bundle3D Bundle3D preloaded module
 
 
+-- cc.Sprite3D is the existing init.lua alias of cc.MeshRenderer.
 return nil

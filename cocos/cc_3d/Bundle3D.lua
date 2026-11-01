@@ -1,104 +1,74 @@
-
---------------------------------
--- @module Bundle3D
--- @parent_module cc
-
 ---@class cc.Bundle3D
-local Bundle3D = {}
-cc.Bundle3D = Bundle3D
---------------------------------
+local Bundle3D={}
+cc.Bundle3D=Bundle3D
 
+--- Legacy constructor; initialize the native object before operations that require init().
+---@return cc.Bundle3D
+function Bundle3D:new() end
+
+---
 --- load a file. You must load a file first, then call loadMeshData, loadSkinData, and so on
---- param path File to be loaded
---- return result of load
----@param path string
----@return boolean
+---@param path string @(std::string_view) File to be loaded
+---@return boolean @(bool) result of load
 function Bundle3D:load(path)
 end
 
---------------------------------
-
---- load skin data from bundle
---- param id The ID of the skin, load the first Skin in the bundle if it is empty
----@param id string
----@param skindata cc.SkinData
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param id string|number
+---@param skindata any
 ---@return boolean
-function Bundle3D:loadSkinData(id, skindata)
-end
+function Bundle3D:loadSkinData(id, skindata) end
 
---------------------------------
-
---- 
----@return cc.Bundle3D
+---@return self @(void)
 function Bundle3D:clear()
 end
 
---------------------------------
-
---- 
----@param materialdatas cc.MaterialDatas
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param materialdatas any
 ---@return boolean
-function Bundle3D:loadMaterials(materialdatas)
-end
+function Bundle3D:loadMaterials(materialdatas) end
 
---------------------------------
-
---- 
----@param nodedatas cc.NodeDatas
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param nodedatas any
 ---@return boolean
-function Bundle3D:loadNodes(nodedatas)
-end
+function Bundle3D:loadNodes(nodedatas) end
 
---------------------------------
-
---- load material data from bundle
---- param id The ID of the animation, load the first animation in the bundle if it is empty
----@param id string
----@param animationdata cc.Animation3DData
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param id string|number
+---@param animationdata any
 ---@return boolean
-function Bundle3D:loadAnimationData(id, animationdata)
-end
+function Bundle3D:loadAnimationData(id, animationdata) end
 
---------------------------------
-
+---
 --- get define data type
---- param str The type in string
----@param str string
----@return number
+--- (static)
+---@param str string @(std::string_view) The type in string
+---@return number @(cocos2d::backend::SamplerAddressMode)
 function Bundle3D:parseSamplerAddressMode(str)
 end
 
---------------------------------
-
---- 
----@param bundle cc.Bundle3D
----@return cc.Bundle3D
+--- (static)
+---@param bundle cc.Bundle3D @(cocos2d::Bundle3D*)
+---@return self @(void)
 function Bundle3D:destroyBundle(bundle)
 end
 
---------------------------------
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return cc.Bundle3D|nil
+function Bundle3D:createBundle() end
 
---- create a new bundle, destroy it when finish using it
----@return cc.Bundle3D
-function Bundle3D:createBundle()
-end
-
---------------------------------
-
+---
 --- get define data type
---- param str The type in string
----@param str string
----@param size number
----@return number
+--- (static)
+---@param str string @(std::string_view) The type in string
+---@param size number @(int)
+---@return number @(cocos2d::backend::VertexFormat)
 function Bundle3D:parseGLDataType(str, size)
 end
 
---------------------------------
+--- Retained output adapter; static class receiver, Vec3 table list.
+---@param modelFile string
+---@return vec3_table[]
+function Bundle3D:getTrianglesList(modelFile) end
 
---- 
----@return cc.Bundle3D
-function Bundle3D:Bundle3D()
-end
-
-
-return nil
+--- Bundle3D is a legacy non-Ref handle. The old null GC destructor is preserved; new() does not add a new deletion policy.
