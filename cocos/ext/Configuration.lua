@@ -2,6 +2,15 @@
 --- Tag: cc_configuration
 ------------------------------
 
+--- Configuration Value contract: nil/boolean/number/binary string, dense arrays,
+--- and string-key dictionaries (empty table = dictionary), recursively copied.
+--- Mixed/sparse/invalid-key tables, unsupported values, cycles and nesting beyond
+--- 64 tables are rejected. Raw entries are read without invoking metamethods.
+--- Missing keys use the default (nil when omitted); a stored Null returns nil.
+--- Table defaults and returned tables are independent snapshots.
+--- Keys and ordinary string arguments also accept numbers.
+
+
 --- @class Configuration
 --- @brief Configuration contains some openGL variables
 --- @since v0.99.0
@@ -77,18 +86,42 @@ end
 function Configuration:getMaxTextureUnits()
 end
 
+--- Returns a stored Value snapshot, or the default only when the key is absent.
+---
+--- @return
+---@param key string|number @(std::string_view) A given key.
+---@param defaultValue any @(cocos2d::Value) if not find the value, return the defaultValue.
+---@return any @(const cocos2d::Value&)
+function Configuration:getValue(key, defaultValue)
+end
+
+--- Returns a stored Value snapshot, or the default only when the key is absent.
+---
+--- @return
+---@param key string|number @(std::string_view) A given key.
+---@return any @(const cocos2d::Value&)
+function Configuration:getValue(key)
+end
+
 --- Initialize method.
 ---
 ---@return boolean @(bool) Is true if initialize success.
 function Configuration:init()
 end
 
---- Loads a config file. If the keys are already present, then they are going to be replaced. Otherwise the new keys
---- are added.
+--- Loads a config file. Existing keys, including Null values, are kept; new keys are added.
 ---
 ---@param filename string @(std::string_view) Config file name.
 ---@return cc.Configuration @(void) self
 function Configuration:loadConfigFile(filename)
+end
+
+--- Sets a new keyvalue pair  in the configuration dictionary.
+---
+---@param key string|number @(std::string_view) A given key.
+---@param value any @(cocos2d::Value) A given value.
+---@return cc.Configuration @(void) self
+function Configuration:setValue(key, value)
 end
 
 --- Whether or not ATITC Texture Compressed is supported.
@@ -173,26 +206,6 @@ end
 --- (static)
 ---@return cc.Configuration @(cocos2d::Configuration*) The engine-owned singleton; no Lua constructor or owning GC.
 function Configuration:getInstance()
-end
-
-
---- Legacy Value adapter. Missing/Null without a default returns the input key.
---- With an explicit unsupported/nil default, the original default slot is returned.
---- Supported values produce scalar or independent table snapshots. Value strings
---- retain the legacy truncation at the first NUL byte.
----@overload fun(self:cc.Configuration, key:string):any
----@param key string Numbers are also accepted, as in the legacy string converter.
----@param defaultValue any Optional; omitted native default is Value::Null.
----@return any
-function Configuration:getValue(key, defaultValue)
-end
-
---- Legacy Value adapter. Top-level nil/function/thread/userdata are accepted as
---- Null. Tables use the legacy array/map conversion; this is not a new Value API.
----@param key string Numbers are also accepted; nil and other types are rejected.
----@param value any
----@return cc.Configuration self (underlying userdata for a .c_instance wrapper)
-function Configuration:setValue(key, value)
 end
 
 return nil
