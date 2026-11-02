@@ -51,6 +51,8 @@ function WindowHelper:isFullscreen()
 end
 
 ---@return boolean @(bool)
+--- Android: latest observed soft-keyboard visibility; API21-29 use window occlusion
+--- and cannot reliably detect a floating keyboard. Show/hide requests are asynchronous.
 function WindowHelper:isImeEnabled()
 end
 
@@ -106,6 +108,7 @@ end
 
 ---@param enable boolean @(bool)
 ---@return nil @(void)
+--- Android: uses the existing GLView IME channel; an attached text delegate is required.
 function WindowHelper:setImeEnabled(enable)
 end
 
@@ -137,6 +140,18 @@ end
 ---@param b boolean @(bool)
 ---@return nil @(void)
 function WindowHelper:setVsync(b)
+end
+
+--- Check a case-sensitive operation name. Unknown names return false.
+--- setDesignResolution denotes GLView design-size control, not a WindowHelper method.
+--- Android supports getSize (physical Surface pixels; zero while detached),
+--- getDisplayResolution (current display pixels), getDpiScale (densityDpi / 160),
+--- isVisible (foreground with a visible Surface), text clipboard and IME operations.
+--- Physical resize, fullscreen control, vsync control, desktop window/cursor operations
+--- and display-mode enumeration are unsupported on Android.
+---@param operation string @(std::string)
+---@return boolean @(bool)
+function WindowHelper:supportsOperation(operation)
 end
 
 --- (static)
