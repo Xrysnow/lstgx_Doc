@@ -1,5 +1,5 @@
 ------------------------------
---- Tag: cc_video
+--- Tag: cc_video_texture
 ------------------------------
 
 --- Video uses shared lua_conversion calls; only AVRational fields are declared locally.
@@ -11,9 +11,26 @@
 --- and destruction release references; callback errors are protected.
 --- Player is an autoreleased cc.Sprite; getDecoder returns its existing Decoder.
 
+--- Automatic playback advances on scene updates, including for hidden players.
+--- Detaching without cleanup pauses automatic playback until reattached.
+--- Reattachment after cleanup requires vplay() to start automatic playback again.
+--- In MANUAL, inherited update(dt) forwards to advance(dt), or advanceFrame()
+--- when dt is negative. In automatic modes it only performs the Node update.
+
 ---@class video.Player:cc.Sprite
 local Player = {}
 video.Player = Player
+
+--- In MANUAL mode, advance by a finite nonnegative number of seconds.
+---@param dt number @(double)
+---@return video.Player|table @(void) original self
+function Player:advance(dt)
+end
+
+--- In MANUAL mode, try to publish the next decoded frame.
+---@return video.Player|table @(void) original self
+function Player:advanceFrame()
+end
 
 ---@return video.Decoder @(video::Decoder*)
 function Player:getDecoder()
@@ -25,7 +42,7 @@ end
 function Player:saveCurrentFrame(path)
 end
 
---- can only seek key frame, not recommended to set a non-0 value
+--- Seek to a frame using the decoder's frame-rate estimate.
 ---@param frame number @(uint32_t)
 ---@return video.Player|table @(void) original self
 function Player:seek(frame)
@@ -84,7 +101,7 @@ local PlayMode = {
 	REALTIME = 1,
 	--- game frame -> video frame
 	FRAME = 2,
-	--- invoke update manually
+	--- advance explicitly
 	MANUAL = 3,
 }
 ---
