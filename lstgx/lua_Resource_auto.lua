@@ -988,10 +988,6 @@ end
 function ResAudio:getSource()
 end
 
----@return lstg.StreamMemory @(lstg::StreamMemory*)
-function ResAudio:getStream()
-end
-
 ---@return boolean @(bool)
 function ResAudio:isPlaying()
 end
