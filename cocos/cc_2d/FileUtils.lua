@@ -6,6 +6,15 @@
 ---@class cc.FileUtils
 local FileUtils = {}
 cc.FileUtils = FileUtils
+
+--- Application directories use the built-in application identity and platform defaults;
+--- no configuration call is needed. Native hosts may configure overrides before the
+--- first valid query or ensure begins; configureAppDirectories is unavailable to Lua.
+--- PersistentData holds data that must survive normal restarts and upgrades.
+--- TransientData holds disposable data: handle missing files by rebuilding or continuing.
+--- TransientData is not guaranteed to survive a restart and is not automatically cleared
+--- at exit. Neither category promises backup, cloud sync, or survival after uninstall.
+--- These roots are independent of getWritablePath()/setWritablePath(); no data is moved.
 --------------------------------
 
 ---  Returns the fullpath for a given filename.
@@ -620,6 +629,56 @@ end
 ---@param filePath string @(std::string_view)
 ---@return string @(std::string)
 function FileUtils:getFileShortName(filePath)
+end
+
+--------------------------------
+
+--- Resolves an application directory without creating it or checking its current
+--- existence or writability. Platform APIs may prepare directories internally.
+--- On success, path is an absolute physical UTF-8 path using '/' and a trailing '/'.
+--- On failure, path is empty; inspect status/nativeDomain/nativeCode for diagnostics.
+--- The result never uses resource search paths or falls back to the working directory.
+---@param kind cc.AppDirectory
+---@return cc.DirectoryResult
+function FileUtils:queryAppDirectory(kind)
+end
+
+--------------------------------
+
+--- Resolves, recursively creates, and verifies the selected application directory.
+--- An omitted or empty relativeSubdirectory selects the root. Nonempty children must
+--- contain '/'-separated relative components only: no absolute path, drive, backslash,
+--- '.', '..', empty component, embedded NUL, or invalid UTF-8. These naming rules do
+--- not provide a symlink sandbox.
+--- Check status == cc.DirectoryStatus.Ok before appending a filename; later file opens
+--- can still fail, and disposable directories may disappear. Existing files occupying
+--- a directory path return NotDirectory. Failure does not select another location.
+--- Example: local r = cc.FileUtils:getInstance():ensureAppDirectory(cc.AppDirectory.TransientData, "logs")
+--- Use PersistentData for logs or state that must remain available after restart.
+---@param kind cc.AppDirectory
+---@param relativeSubdirectory string
+---@return cc.DirectoryResult
+---@overload fun(self:cc.FileUtils, kind:cc.AppDirectory):cc.DirectoryResult
+function FileUtils:ensureAppDirectory(kind, relativeSubdirectory)
+end
+
+--------------------------------
+
+--- Convenience query for PersistentData. Does not create or verify the directory.
+--- Returns an absolute physical UTF-8 path with trailing '/', or an empty string on
+--- failure. Use queryAppDirectory/ensureAppDirectory when error details are needed;
+--- never append a filename to an unchecked empty result.
+---@return string
+function FileUtils:getPersistentDataPath()
+end
+
+--------------------------------
+
+--- Convenience query for TransientData. Does not create or verify the directory.
+--- Returns an absolute physical UTF-8 path with trailing '/', or an empty string on
+--- failure. Data may be lost; callers must recover from missing directories and files.
+---@return string
+function FileUtils:getTransientDataPath()
 end
 
 
