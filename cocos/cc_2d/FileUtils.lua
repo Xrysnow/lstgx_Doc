@@ -512,14 +512,16 @@ end
 
 --------------------------------
 
---- Create a directory, async off the main cocos thread.<br>
--- param dirPath the path of the directory, it must be an absolute path<br>
--- param callback The function that will be called when the operation is complete. Will have one boolean<br>
--- argument, true if the directory was successfully, false otherwise.
+--- Creates a physical directory and missing parents without resource-path lookup.
+--- The synchronous overload returns true only if the final target is a directory,
+--- whether it already existed or was created. Empty paths and embedded NUL return false.
+--- Relative paths use the process CWD when the operation executes; for the async
+--- overload this is the worker execution time. Its callback receives the same boolean
+--- result on the cocos thread after completion.
 ---@param dirPath string
 ---@param callback fun(arg0:boolean)
 ---@return cc.FileUtils
----@overload fun(self:cc.FileUtils, dirPath:string):cc.FileUtils
+---@overload fun(self:cc.FileUtils, dirPath:string):boolean
 function FileUtils:createDirectory(dirPath, callback)
 end
 
