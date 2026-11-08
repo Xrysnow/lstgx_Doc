@@ -461,9 +461,13 @@ end
 
 --------------------------------
 
---- Sets writable path.
+--- Configures a physical writable path without checking or creating the target.
+--- Relative paths resolve against the CWD captured during this call; an empty string
+--- resets to the platform default. Success stores a normalized absolute UTF-8 path
+--- with a trailing slash. Failure returns false and preserves the previous setting.
+--- Success does not guarantee that the target exists, is a directory, or is writable.
 ---@param writablePath string
----@return cc.FileUtils
+---@return boolean
 function FileUtils:setWritablePath(writablePath)
 end
 
@@ -534,8 +538,9 @@ end
 
 --------------------------------
 
---- Gets the writable path.
---- return  The path that can be write/read a file in
+--- Returns the configured absolute physical path as UTF-8 with a trailing slash.
+--- The result is empty if no default or override is available. This query does not
+--- check or create directories and is identical to getNativeWritableAbsolutePath().
 ---@return string
 function FileUtils:getWritablePath()
 end
@@ -568,8 +573,8 @@ end
 -- P6 Core: existing registered entries omitted from the earlier documentation.
 
 ---
---- Gets the writable path in the native file-system format
---- @return  The path that can be writeread a file in
+--- Returns the same absolute physical UTF-8 path as getWritablePath(), using '/'.
+--- An empty result means unavailable; this query does not check or create directories.
 ---@return string @(std::string)
 function FileUtils:getNativeWritableAbsolutePath()
 end
