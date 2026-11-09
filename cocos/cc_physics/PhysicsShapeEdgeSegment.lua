@@ -1,51 +1,54 @@
-
---------------------------------
--- @module PhysicsShapeEdgeSegment
--- @extend PhysicsShape
--- @parent_module cc
-
+--- Physics2D (CC_USE_PHYSICS); shared calls plus documented thin bridges.
+--- Ref objects keep their native factories; Lua new is unavailable.
 ---@class cc.PhysicsShapeEdgeSegment:cc.PhysicsShape
 local PhysicsShapeEdgeSegment = {}
 cc.PhysicsShapeEdgeSegment = PhysicsShapeEdgeSegment
---------------------------------
 
---- Get this edge's end position.
---- return A Vec2 object.
----@return vec2_table
-function PhysicsShapeEdgeSegment:getPointB()
-end
-
---------------------------------
-
+---
 --- Get this edge's begin position.
---- return A Vec2 object.
----@return vec2_table
+---
+---@return vec2_table @(cocos2d::Vec2) A Vec2 object.
 function PhysicsShapeEdgeSegment:getPointA()
 end
 
---------------------------------
+---
+--- Get this edge's end position.
+---
+---@return vec2_table @(cocos2d::Vec2) A Vec2 object.
+function PhysicsShapeEdgeSegment:getPointB()
+end
 
+---
 --- Creates a PhysicsShapeEdgeSegment with specified value.
---- param   a It's the edge's begin position.
---- param   b It's the edge's end position.
---- param   material A PhysicsMaterial object, the default value is PHYSICSSHAPE_MATERIAL_DEFAULT.
---- param   border It's a edge's border width.
---- return  An autoreleased PhysicsShapeEdgeSegment object pointer.
----@param a vec2_table
----@param b vec2_table
----@param material cc.PhysicsMaterial
----@param border number
----@return cc.PhysicsShapeEdgeSegment
+---
+--- (static)
+---@param a vec2_table @(cocos2d::Vec2)
+---@param b vec2_table @(cocos2d::Vec2)
+---@param material cc.PhysicsMaterial @(cocos2d::PhysicsMaterial)
+---@param border number @(float)
+---@return cc.PhysicsShapeEdgeSegment @(cocos2d::PhysicsShapeEdgeSegment*)  An autoreleased PhysicsShapeEdgeSegment object pointer.
 function PhysicsShapeEdgeSegment:create(a, b, material, border)
 end
 
---------------------------------
-
---- Get this edge's center position.
---- return A Vec2 object.
----@return vec2_table
-function PhysicsShapeEdgeSegment:getCenter()
+---
+--- Creates a PhysicsShapeEdgeSegment with specified value.
+---
+--- (static)
+---@param a vec2_table @(cocos2d::Vec2)
+---@param b vec2_table @(cocos2d::Vec2)
+---@param material cc.PhysicsMaterial @(cocos2d::PhysicsMaterial)
+---@return cc.PhysicsShapeEdgeSegment @(cocos2d::PhysicsShapeEdgeSegment*)  An autoreleased PhysicsShapeEdgeSegment object pointer.
+function PhysicsShapeEdgeSegment:create(a, b, material)
 end
 
+---
+--- Creates a PhysicsShapeEdgeSegment with specified value.
+---
+--- (static)
+---@param a vec2_table @(cocos2d::Vec2)
+---@param b vec2_table @(cocos2d::Vec2)
+---@return cc.PhysicsShapeEdgeSegment @(cocos2d::PhysicsShapeEdgeSegment*)  An autoreleased PhysicsShapeEdgeSegment object pointer.
+function PhysicsShapeEdgeSegment:create(a, b)
+end
 
 return nil

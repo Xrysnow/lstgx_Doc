@@ -1,46 +1,31 @@
-
---------------------------------
--- @module PhysicsContact
--- @extend EventCustom
--- @parent_module cc
-
+--- Physics2D (CC_USE_PHYSICS); shared calls plus documented thin bridges.
+--- Callback-scoped native contact. The backend directly deletes it after separation.
+--- Ref inheritance does not make it safe to retain this contact beyond the callback.
 ---@class cc.PhysicsContact:cc.EventCustom
 local PhysicsContact = {}
 cc.PhysicsContact = PhysicsContact
---------------------------------
 
----  Get contact data. 
----@return cc.PhysicsContactData
-function PhysicsContact:getContactData()
-end
-
---------------------------------
-
----  Get the event code 
----@return number
+--- Get the event code
+---@return cc.PhysicsContact.EventCode @(cocos2d::PhysicsContact::EventCode)
 function PhysicsContact:getEventCode()
 end
 
---------------------------------
-
----  Get previous contact data 
----@return cc.PhysicsContactData
-function PhysicsContact:getPreContactData()
-end
-
---------------------------------
-
----  Get contact shape A. 
----@return cc.PhysicsShape
+--- Get contact shape A.
+---@return cc.PhysicsShape @(cocos2d::PhysicsShape*)
 function PhysicsContact:getShapeA()
 end
 
---------------------------------
-
----  Get contact shape B. 
----@return cc.PhysicsShape
+--- Get contact shape B.
+---@return cc.PhysicsShape @(cocos2d::PhysicsShape*)
 function PhysicsContact:getShapeB()
 end
 
+--- Independent numeric snapshot, or nil when the native contact has no current data.
+---@return cc.PhysicsContactData|nil
+function PhysicsContact:getContactData() end
+
+--- Independent numeric snapshot, or nil before previous data exists.
+---@return cc.PhysicsContactData|nil
+function PhysicsContact:getPreContactData() end
 
 return nil

@@ -1,42 +1,60 @@
-
---------------------------------
--- @module PhysicsShapeBox
--- @extend PhysicsShapePolygon
--- @parent_module cc
-
+--- Physics2D (CC_USE_PHYSICS); shared calls plus documented thin bridges.
+--- Ref objects keep their native factories; Lua new is unavailable.
 ---@class cc.PhysicsShapeBox:cc.PhysicsShapePolygon
 local PhysicsShapeBox = {}
 cc.PhysicsShapeBox = PhysicsShapeBox
---------------------------------
 
+---
 --- Get this box's width and height.
---- return An Size object.
----@return size_table
+---
+---@return vec2_table @(cocos2d::Vec2) An Vec2 object.
 function PhysicsShapeBox:getSize()
 end
 
---------------------------------
-
+---
 --- Creates a PhysicsShapeBox with specified value.
---- param   size Size contains this box's width and height.
---- param   material A PhysicsMaterial object, the default value is PHYSICSSHAPE_MATERIAL_DEFAULT.
---- param   offset A Vec2 object, it is the offset from the body's center of gravity in body local coordinates.
---- return  An autoreleased PhysicsShapeBox object pointer.
----@param size size_table
----@param material cc.PhysicsMaterial
----@param offset vec2_table
----@param radius number
----@return cc.PhysicsShapeBox
+---
+--- (static)
+---@param size vec2_table @(cocos2d::Vec2)
+---@param material cc.PhysicsMaterial @(cocos2d::PhysicsMaterial)
+---@param offset vec2_table @(cocos2d::Vec2)
+---@param radius number @(float)
+---@return cc.PhysicsShapeBox @(cocos2d::PhysicsShapeBox*)  An autoreleased PhysicsShapeBox object pointer.
 function PhysicsShapeBox:create(size, material, offset, radius)
 end
 
---------------------------------
-
---- Get this box's position offset.
---- return A Vec2 object.
----@return vec2_table
-function PhysicsShapeBox:getOffset()
+---
+--- Creates a PhysicsShapeBox with specified value.
+---
+--- (static)
+---@param size vec2_table @(cocos2d::Vec2)
+---@param material cc.PhysicsMaterial @(cocos2d::PhysicsMaterial)
+---@param offset vec2_table @(cocos2d::Vec2)
+---@return cc.PhysicsShapeBox @(cocos2d::PhysicsShapeBox*)  An autoreleased PhysicsShapeBox object pointer.
+function PhysicsShapeBox:create(size, material, offset)
 end
 
+---
+--- Creates a PhysicsShapeBox with specified value.
+---
+--- (static)
+---@param size vec2_table @(cocos2d::Vec2)
+---@param material cc.PhysicsMaterial @(cocos2d::PhysicsMaterial)
+---@return cc.PhysicsShapeBox @(cocos2d::PhysicsShapeBox*)  An autoreleased PhysicsShapeBox object pointer.
+function PhysicsShapeBox:create(size, material)
+end
+
+---
+--- Creates a PhysicsShapeBox with specified value.
+---
+--- (static)
+---@param size vec2_table @(cocos2d::Vec2)
+---@return cc.PhysicsShapeBox @(cocos2d::PhysicsShapeBox*)  An autoreleased PhysicsShapeBox object pointer.
+function PhysicsShapeBox:create(size)
+end
+
+--- Independent numeric snapshot; changing the returned points does not change this shape.
+---@return vec2_table[]
+function PhysicsShapeBox:getPoints() end
 
 return nil
