@@ -1,85 +1,17 @@
-
---------------------------------
--- @module Sequence
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.Sequence:cc.ActionInterval
 local Sequence = {}
 cc.Sequence = Sequence
---------------------------------
 
---- 
----@param arrayOfActions array_table
----@return boolean
+---@param arrayOfActions cc.FiniteTimeAction [] @(cocos2d::Vector<cocos2d::FiniteTimeAction *>)
+---@return boolean @(bool)
 function Sequence:init(arrayOfActions)
 end
 
---------------------------------
-
----  initializes the action 
----@param pActionOne cc.FiniteTimeAction
----@param pActionTwo cc.FiniteTimeAction
----@return boolean
+--- initializes the action
+---@param pActionOne cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*)
+---@param pActionTwo cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*)
+---@return boolean @(bool)
 function Sequence:initWithTwoActions(pActionOne, pActionTwo)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.Sequence
-function Sequence:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.Sequence
-function Sequence:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.Sequence
-function Sequence:clone()
-end
-
---------------------------------
-
---- 
----@return cc.Sequence
-function Sequence:stop()
-end
-
---------------------------------
-
---- param t In seconds.
----@param t number
----@return cc.Sequence
-function Sequence:update(t)
-end
-
---------------------------------
-
---- 
----@return boolean
-function Sequence:isDone()
-end
-
---------------------------------
-
---- 
----@return cc.Sequence
-function Sequence:Sequence()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Sequence
-function Sequence:new() end
-
 
 return nil

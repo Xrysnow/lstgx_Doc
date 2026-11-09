@@ -1,58 +1,30 @@
-
---------------------------------
--- @module ParticleFlower
--- @extend ParticleSystemQuad
--- @parent_module cc
-
 ---@class cc.ParticleFlower:cc.ParticleSystemQuad
 local ParticleFlower = {}
 cc.ParticleFlower = ParticleFlower
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function ParticleFlower:init()
 end
 
---------------------------------
-
---- 
----@param numberOfParticles number
----@return boolean
+---@param numberOfParticles number @(int)
+---@return boolean @(bool)
 function ParticleFlower:initWithTotalParticles(numberOfParticles)
 end
 
---------------------------------
-
----  Create a flower particle system.
---- return An autoreleased ParticleFlower object.
----@return cc.ParticleFlower
+--- Create a flower particle system.
+---
+--- (static)
+---@return cc.ParticleFlower @(cocos2d::ParticleFlower*) An autoreleased ParticleFlower object.
 function ParticleFlower:create()
 end
 
---------------------------------
-
----  Create a flower particle system withe a fixed number of particles.
---- param numberOfParticles A given number of particles.
---- return An autoreleased ParticleFlower object.
---- js NA
----@param numberOfParticles number
----@return cc.ParticleFlower
+--- Create a flower particle system withe a fixed number of particles.
+---
+--- @js NA
+--- (static)
+---@param numberOfParticles number @(int) A given number of particles.
+---@return cc.ParticleFlower @(cocos2d::ParticleFlower*) An autoreleased ParticleFlower object.
 function ParticleFlower:createWithTotalParticles(numberOfParticles)
 end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleFlower
-function ParticleFlower:ParticleFlower()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleFlower
-function ParticleFlower:new() end
-
 
 return nil

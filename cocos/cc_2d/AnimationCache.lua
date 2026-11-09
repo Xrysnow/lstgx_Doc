@@ -1,110 +1,60 @@
-
---------------------------------
--- @module AnimationCache
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.AnimationCache:cc.Ref
 local AnimationCache = {}
 cc.AnimationCache = AnimationCache
---------------------------------
 
----  Returns a Animation that was previously added.
---- If the name is not found it will return nil.
---- You should retain the returned copy if you are going to use it.
---- return A Animation that was previously added. If the name is not found it will return nil.
----@param name string
----@return cc.Animation
-function AnimationCache:getAnimation(name)
-end
-
---------------------------------
-
----  Adds a Animation with a name.
---- param animation An animation.
---- param name The name of animation.
----@param animation cc.Animation
----@param name string
----@return cc.AnimationCache
+--- Adds a Animation with a name.
+---
+---@param animation cc.Animation @(cocos2d::Animation*) An animation.
+---@param name string @(std::string_view) The name of animation.
+---@return self @(void)
 function AnimationCache:addAnimation(animation, name)
 end
 
---------------------------------
-
---- 
----@return boolean
-function AnimationCache:init()
+--- Adds an animation from a plist file.
+--- Make sure that the frames were previously loaded in the SpriteFrameCache.
+--- @since v1.1
+--- @js addAnimations
+--- @lua addAnimations
+---@param plist string @(std::string_view) An animation from a plist file.
+---@return self @(void)
+function AnimationCache:addAnimations(plist)
 end
 
---------------------------------
-
----  Adds an animation from an NSDictionary.
+--- Adds an animation from an NSDictionary.
 --- Make sure that the frames were previously loaded in the SpriteFrameCache.
---- param dictionary An NSDictionary.
---- param plist The path of the relative file,it use to find the plist path for load SpriteFrames.
---- since v1.1
---- js NA
----@param dictionary map_table
----@param plist string
----@return cc.AnimationCache
+--- @since v1.1
+--- @js NA
+---@param dictionary tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap) An NSDictionary.
+---@param plist string @(std::string_view) The path of the relative file,it use to find the plist path for load SpriteFrames.
+---@return self @(void)
 function AnimationCache:addAnimationsWithDictionary(dictionary, plist)
 end
 
---------------------------------
+--- Returns a Animation that was previously added.
+--- If the name is not found it will return nil.
+--- You should retain the returned copy if you are going to use it.
+---
+---@param name string @(std::string_view)
+---@return cc.Animation @(cocos2d::Animation*) A Animation that was previously added. If the name is not found it will return nil.
+function AnimationCache:getAnimation(name)
+end
 
----  Deletes a Animation from the cache.
---- param name The name of animation.
----@param name string
----@return cc.AnimationCache
+---@return boolean @(bool)
+function AnimationCache:init()
+end
+
+--- Deletes a Animation from the cache.
+---
+---@param name string @(std::string_view) The name of animation.
+---@return self @(void)
 function AnimationCache:removeAnimation(name)
 end
 
---------------------------------
-
----  Adds an animation from a plist file.
---- Make sure that the frames were previously loaded in the SpriteFrameCache.
---- since v1.1
---- js addAnimations
---- lua addAnimations
---- param plist An animation from a plist file.
----@param plist string
----@return cc.AnimationCache
-function AnimationCache:addAnimationsWithFile(plist)
-end
-
---------------------------------
-
----  Purges the cache. It releases all the Animation objects and the shared instance.
---- js NA
----@return cc.AnimationCache
-function AnimationCache:destroyInstance()
-end
-
---------------------------------
-
----  Returns the shared instance of the Animation cache 
---- js NA
----@return cc.AnimationCache
+--- Returns the shared instance of the Animation cache
+--- @js NA
+--- (static)
+---@return cc.AnimationCache @(cocos2d::AnimationCache*)
 function AnimationCache:getInstance()
 end
-
---------------------------------
-
---- js ctor
----@return cc.AnimationCache
-function AnimationCache:AnimationCache()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.AnimationCache
-function AnimationCache:new() end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param plist string|number
----@return cc.AnimationCache
-function AnimationCache:addAnimations(plist) end
-
 
 return nil

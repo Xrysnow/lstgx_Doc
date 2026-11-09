@@ -1,206 +1,126 @@
-
---------------------------------
--- @module ParticleBatchNode
--- @extend Node,TextureProtocol
--- @parent_module cc
-
 ---@class cc.ParticleBatchNode:cc.Node
 local ParticleBatchNode = {}
 cc.ParticleBatchNode = ParticleBatchNode
---------------------------------
 
---- 
----@param texture cc.Texture2D
----@return cc.ParticleBatchNode
-function ParticleBatchNode:setTexture(texture)
-end
-
---------------------------------
-
----  initializes the particle system with Texture2D, a capacity of particles 
----@param tex cc.Texture2D
----@param capacity number
----@return boolean
-function ParticleBatchNode:initWithTexture(tex, capacity)
-end
-
---------------------------------
-
----  Disables a particle by inserting a 0'd quad into the texture atlas.
---- param particleIndex The index of the particle.
----@param particleIndex number
----@return cc.ParticleBatchNode
+--- Disables a particle by inserting a 0'd quad into the texture atlas.
+---
+---@param particleIndex number @(int) The index of the particle.
+---@return self @(void)
 function ParticleBatchNode:disableParticle(particleIndex)
 end
 
---------------------------------
-
---- 
----@return cc.Texture2D
-function ParticleBatchNode:getTexture()
-end
-
---------------------------------
-
----  Sets the texture atlas used for drawing the quads.
---- param atlas The texture atlas used for drawing the quads.
----@param atlas cc.TextureAtlas
----@return cc.ParticleBatchNode
-function ParticleBatchNode:setTextureAtlas(atlas)
-end
-
---------------------------------
-
----  initializes the particle system with the name of a file on disk (for a list of supported formats look at the Texture2D class), a capacity of particles 
----@param fileImage string
----@param capacity number
----@return boolean
-function ParticleBatchNode:initWithFile(fileImage, capacity)
-end
-
---------------------------------
-
---- code
---- When this function bound into js or lua,the parameter will be changed
---- In js: var setBlendFunc(var src, var dst)
---- endcode
---- lua NA
----@param blendFunc cc.BlendFunc
----@return cc.ParticleBatchNode
-function ParticleBatchNode:setBlendFunc(blendFunc)
-end
-
---------------------------------
-
---- 
----@param doCleanup boolean
----@return cc.ParticleBatchNode
-function ParticleBatchNode:removeAllChildrenWithCleanup(doCleanup)
-end
-
---------------------------------
-
----  Gets the texture atlas used for drawing the quads.
---- return The texture atlas used for drawing the quads.
----@return cc.TextureAtlas
-function ParticleBatchNode:getTextureAtlas()
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return cc.BlendFunc
+---
+--- @js NA
+--- @lua NA
+---@return cc.BlendFunc @(const cocos2d::BlendFunc&)
 function ParticleBatchNode:getBlendFunc()
 end
 
---------------------------------
+---@return cc.Texture2D @(cocos2d::Texture2D*)
+function ParticleBatchNode:getTexture()
+end
 
----  Inserts a child into the ParticleBatchNode.
---- param system A given particle system.
---- param index The insert index.
----@param system cc.ParticleSystem
----@param index number
----@return cc.ParticleBatchNode
+--- Gets the texture atlas used for drawing the quads.
+---
+---@return cc.TextureAtlas @(cocos2d::TextureAtlas*) The texture atlas used for drawing the quads.
+function ParticleBatchNode:getTextureAtlas()
+end
+
+--- initializes the particle system with the name of a file on disk (for a list of supported formats look at the
+--- Texture2D class), a capacity of particles
+---@param fileImage string @(std::string_view)
+---@param capacity number @(int)
+---@return boolean @(bool)
+function ParticleBatchNode:initWithFile(fileImage, capacity)
+end
+
+--- initializes the particle system with Texture2D, a capacity of particles
+---@param tex cc.Texture2D @(cocos2d::Texture2D*)
+---@param capacity number @(int)
+---@return boolean @(bool)
+function ParticleBatchNode:initWithTexture(tex, capacity)
+end
+
+--- Inserts a child into the ParticleBatchNode.
+---
+---@param system cc.ParticleSystem @(cocos2d::ParticleSystem*) A given particle system.
+---@param index number @(int) The insert index.
+---@return self @(void)
 function ParticleBatchNode:insertChild(system, index)
 end
 
---------------------------------
+---@param doCleanup boolean @(bool)
+---@return self @(void)
+function ParticleBatchNode:removeAllChildrenWithCleanup(doCleanup)
+end
 
----  Remove a child of the ParticleBatchNode.
---- param index The index of the child.
---- param doCleanup True if all actions and callbacks on this node should be removed, false otherwise.
----@param index number
----@param doCleanup boolean
----@return cc.ParticleBatchNode
+--- Remove a child of the ParticleBatchNode.
+---
+---@param index number @(int) The index of the child.
+---@param doCleanup boolean @(bool) True if all actions and callbacks on this node should be removed, false otherwise.
+---@return self @(void)
 function ParticleBatchNode:removeChildAtIndex(index, doCleanup)
 end
 
---------------------------------
+---
+--- @code
+--- When this function bound into js or lua,the parameter will be changed
+--- In js: var setBlendFunc(var src, var dst)
+--- @endcode
+--- @lua NA
+---@param blendFunc cc.BlendFunc @(cocos2d::BlendFunc)
+---@return self @(void)
+function ParticleBatchNode:setBlendFunc(blendFunc)
+end
 
----  Create the particle system with the name of a file on disk (for a list of supported formats look at the Texture2D class), a capacity of particles.
---- param fileImage A given file name.
---- param capacity A capacity of particles.
---- return An autoreleased ParticleBatchNode object.
----@param fileImage string
----@param capacity number
----@return cc.ParticleBatchNode
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@return self @(void)
+function ParticleBatchNode:setTexture(texture)
+end
+
+--- Sets the texture atlas used for drawing the quads.
+---
+---@param atlas cc.TextureAtlas @(cocos2d::TextureAtlas*) The texture atlas used for drawing the quads.
+---@return self @(void)
+function ParticleBatchNode:setTextureAtlas(atlas)
+end
+
+--- Create the particle system with the name of a file on disk (for a list of supported formats look at the
+--- Texture2D class), a capacity of particles.
+---
+--- (static)
+---@param fileImage string @(std::string_view) A given file name.
+---@param capacity number @(int) A capacity of particles.
+---@return cc.ParticleBatchNode @(cocos2d::ParticleBatchNode*) An autoreleased ParticleBatchNode object.
 function ParticleBatchNode:create(fileImage, capacity)
 end
 
---------------------------------
+--- Create the particle system with the name of a file on disk (for a list of supported formats look at the
+--- Texture2D class), a capacity of particles.
+---
+--- (static)
+---@param fileImage string @(std::string_view) A given file name.
+---@return cc.ParticleBatchNode @(cocos2d::ParticleBatchNode*) An autoreleased ParticleBatchNode object.
+function ParticleBatchNode:create(fileImage)
+end
 
----  Create the particle system with Texture2D, a capacity of particles, which particle system to use.
---- param tex A given texture.
---- param capacity A capacity of particles.
---- return An autoreleased ParticleBatchNode object.
---- js NA
----@param tex cc.Texture2D
----@param capacity number
----@return cc.ParticleBatchNode
+--- Create the particle system with Texture2D, a capacity of particles, which particle system to use.
+---
+--- @js NA
+--- (static)
+---@param tex cc.Texture2D @(cocos2d::Texture2D*) A given texture.
+---@param capacity number @(int) A capacity of particles.
+---@return cc.ParticleBatchNode @(cocos2d::ParticleBatchNode*) An autoreleased ParticleBatchNode object.
 function ParticleBatchNode:createWithTexture(tex, capacity)
 end
 
---------------------------------
-
---- 
----@param child cc.Node
----@param zOrder number
----@param tag number
----@return cc.ParticleBatchNode
-function ParticleBatchNode:addChild(child, zOrder, tag)
+--- Create the particle system with Texture2D, a capacity of particles, which particle system to use.
+---
+--- @js NA
+--- (static)
+---@param tex cc.Texture2D @(cocos2d::Texture2D*) A given texture.
+---@return cc.ParticleBatchNode @(cocos2d::ParticleBatchNode*) An autoreleased ParticleBatchNode object.
+function ParticleBatchNode:createWithTexture(tex)
 end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return cc.ParticleBatchNode
-function ParticleBatchNode:draw(renderer, transform, flags)
-end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param parentTransform mat4_table
----@param parentFlags number
----@return cc.ParticleBatchNode
-function ParticleBatchNode:visit(renderer, parentTransform, parentFlags)
-end
-
---------------------------------
-
---- 
----@param child cc.Node
----@param zOrder number
----@return cc.ParticleBatchNode
-function ParticleBatchNode:reorderChild(child, zOrder)
-end
-
---------------------------------
-
---- 
----@param child cc.Node
----@param cleanup boolean
----@return cc.ParticleBatchNode
-function ParticleBatchNode:removeChild(child, cleanup)
-end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleBatchNode
-function ParticleBatchNode:ParticleBatchNode()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleBatchNode
-function ParticleBatchNode:new() end
-
 
 return nil

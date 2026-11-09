@@ -1,335 +1,231 @@
-
---------------------------------
--- @module TMXMapInfo
--- @parent_module cc
-
 ---@class cc.TMXMapInfo
 local TMXMapInfo = {}
 cc.TMXMapInfo = TMXMapInfo
---------------------------------
 
---- 
----@param currentString string
----@return cc.TMXMapInfo
-function TMXMapInfo:setCurrentString(currentString)
-end
-
---------------------------------
-
---- / map hexsidelength
----@return number
-function TMXMapInfo:getHexSideLength()
-end
-
---------------------------------
-
---- 
----@param tileSize size_table
----@return cc.TMXMapInfo
-function TMXMapInfo:setTileSize(tileSize)
-end
-
---------------------------------
-
---- / map orientation
----@return number
-function TMXMapInfo:getOrientation()
-end
-
---------------------------------
-
---- 
----@param groups array_table
----@return cc.TMXMapInfo
-function TMXMapInfo:setObjectGroups(groups)
-end
-
---------------------------------
-
---- 
----@param layers array_table
----@return cc.TMXMapInfo
-function TMXMapInfo:setLayers(layers)
-end
-
---------------------------------
-
----  initializes parsing of an XML file, either a tmx (Map) file or tsx (Tileset) file 
----@param xmlFilename string
----@return boolean
-function TMXMapInfo:parseXMLFile(xmlFilename)
-end
-
---------------------------------
-
---- / parent element
----@return number
-function TMXMapInfo:getParentElement()
-end
-
---------------------------------
-
---- 
----@param fileName string
----@return cc.TMXMapInfo
-function TMXMapInfo:setTMXFileName(fileName)
-end
-
---------------------------------
-
---- 
----@param xmlString string
----@return boolean
-function TMXMapInfo:parseXMLString(xmlString)
-end
-
---------------------------------
-
---- 
----@return array_table
-function TMXMapInfo:getLayers()
-end
-
---------------------------------
-
---- / map staggeraxis
----@return number
-function TMXMapInfo:getStaggerAxis()
-end
-
---------------------------------
-
---- 
----@param hexSideLength number
----@return cc.TMXMapInfo
-function TMXMapInfo:setHexSideLength(hexSideLength)
-end
-
---------------------------------
-
----  initializes a TMX format with a  tmx file 
----@param tmxFile string
----@return boolean
-function TMXMapInfo:initWithTMXFile(tmxFile)
-end
-
---------------------------------
-
---- / parent GID
----@return number
-function TMXMapInfo:getParentGID()
-end
-
---------------------------------
-
---- 
----@return array_table
-function TMXMapInfo:getTilesets()
-end
-
---------------------------------
-
---- 
----@param element number
----@return cc.TMXMapInfo
-function TMXMapInfo:setParentElement(element)
-end
-
---------------------------------
-
----  initializes a TMX format with an XML string and a TMX resource path 
----@param tmxString string
----@param resourcePath string
----@return boolean
-function TMXMapInfo:initWithXML(tmxString, resourcePath)
-end
-
---------------------------------
-
---- 
----@param gid number
----@return cc.TMXMapInfo
-function TMXMapInfo:setParentGID(gid)
-end
-
---------------------------------
-
---- / layer attribs
----@return number
-function TMXMapInfo:getLayerAttribs()
-end
-
---------------------------------
-
---- / tiles width & height
----@return size_table
-function TMXMapInfo:getTileSize()
-end
-
---------------------------------
-
---- 
----@return map_table
-function TMXMapInfo:getTileProperties()
-end
-
---------------------------------
-
---- / is storing characters?
----@return boolean
-function TMXMapInfo:isStoringCharacters()
-end
-
---------------------------------
-
---- 
----@return string
-function TMXMapInfo:getExternalTilesetFileName()
-end
-
---------------------------------
-
---- 
----@return array_table
-function TMXMapInfo:getObjectGroups()
-end
-
---------------------------------
-
---- 
----@return string
-function TMXMapInfo:getTMXFileName()
-end
-
---------------------------------
-
---- 
----@param staggerIndex number
----@return cc.TMXMapInfo
-function TMXMapInfo:setStaggerIndex(staggerIndex)
-end
-
---------------------------------
-
---- 
----@param properties map_table
----@return cc.TMXMapInfo
-function TMXMapInfo:setProperties(properties)
-end
-
---------------------------------
-
---- 
----@param orientation number
----@return cc.TMXMapInfo
-function TMXMapInfo:setOrientation(orientation)
-end
-
---------------------------------
-
---- 
----@param tileProperties map_table
----@return cc.TMXMapInfo
-function TMXMapInfo:setTileProperties(tileProperties)
-end
-
---------------------------------
-
---- 
----@param mapSize size_table
----@return cc.TMXMapInfo
-function TMXMapInfo:setMapSize(mapSize)
-end
-
---------------------------------
-
---- 
----@return string
+---@return string @(std::string_view)
 function TMXMapInfo:getCurrentString()
 end
 
---------------------------------
-
---- 
----@param storingCharacters boolean
----@return cc.TMXMapInfo
-function TMXMapInfo:setStoringCharacters(storingCharacters)
+---@return string @(std::string_view)
+function TMXMapInfo:getExternalTilesetFileName()
 end
 
---------------------------------
-
---- 
----@param staggerAxis number
----@return cc.TMXMapInfo
-function TMXMapInfo:setStaggerAxis(staggerAxis)
+--- map hexsidelength
+---@return number @(int)
+function TMXMapInfo:getHexSideLength()
 end
 
---------------------------------
+--- layer attribs
+---@return number @(int)
+function TMXMapInfo:getLayerAttribs()
+end
 
---- / map width & height
----@return size_table
+---@return cc.TMXLayerInfo [] @(cocos2d::Vector<cocos2d::TMXLayerInfo *>&)
+function TMXMapInfo:getLayers()
+end
+
+--- Layers
+---@return cc.TMXLayerInfo [] @(const cocos2d::Vector<cocos2d::TMXLayerInfo *>&)
+function TMXMapInfo:getLayers()
+end
+
+--- map width & height
+---@return vec2_table @(const cocos2d::Vec2&)
 function TMXMapInfo:getMapSize()
 end
 
---------------------------------
-
---- 
----@param tilesets array_table
----@return cc.TMXMapInfo
-function TMXMapInfo:setTilesets(tilesets)
+---@return cc.TMXObjectGroup [] @(cocos2d::Vector<cocos2d::TMXObjectGroup *>&)
+function TMXMapInfo:getObjectGroups()
 end
 
---------------------------------
+--- ObjectGroups
+---@return cc.TMXObjectGroup [] @(const cocos2d::Vector<cocos2d::TMXObjectGroup *>&)
+function TMXMapInfo:getObjectGroups()
+end
 
---- 
----@return map_table
+--- map orientation
+---@return number @(int)
+function TMXMapInfo:getOrientation()
+end
+
+--- parent element
+---@return number @(int)
+function TMXMapInfo:getParentElement()
+end
+
+--- parent GID
+---@return number @(int)
+function TMXMapInfo:getParentGID()
+end
+
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap&)
 function TMXMapInfo:getProperties()
 end
 
---------------------------------
+--- properties
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(const cocos2d::ValueMap&)
+function TMXMapInfo:getProperties()
+end
 
---- / map stagger index
----@return number
+--- map staggeraxis
+---@return number @(int)
+function TMXMapInfo:getStaggerAxis()
+end
+
+--- map stagger index
+---@return number @(int)
 function TMXMapInfo:getStaggerIndex()
 end
 
---------------------------------
+---@return string @(std::string_view)
+function TMXMapInfo:getTMXFileName()
+end
 
---- 
----@param layerAttribs number
----@return cc.TMXMapInfo
+---@return table<number, cc.Value> @(cocos2d::ValueMapIntKey&)
+function TMXMapInfo:getTileProperties()
+end
+
+--- tiles width & height
+---@return vec2_table @(const cocos2d::Vec2&)
+function TMXMapInfo:getTileSize()
+end
+
+---@return cc.TMXTilesetInfo [] @(cocos2d::Vector<cocos2d::TMXTilesetInfo *>&)
+function TMXMapInfo:getTilesets()
+end
+
+--- tilesets
+---@return cc.TMXTilesetInfo [] @(const cocos2d::Vector<cocos2d::TMXTilesetInfo *>&)
+function TMXMapInfo:getTilesets()
+end
+
+--- initializes a TMX format with a  tmx file
+---@param tmxFile string @(std::string_view)
+---@return boolean @(bool)
+function TMXMapInfo:initWithTMXFile(tmxFile)
+end
+
+--- initializes a TMX format with an XML string and a TMX resource path
+---@param tmxString string @(std::string_view)
+---@param resourcePath string @(std::string_view)
+---@return boolean @(bool)
+function TMXMapInfo:initWithXML(tmxString, resourcePath)
+end
+
+--- is storing characters?
+---@return boolean @(bool)
+function TMXMapInfo:isStoringCharacters()
+end
+
+--- initializes parsing of an XML file, either a tmx (Map) file or tsx (Tileset) file
+---@param xmlFilename string @(std::string_view)
+---@return boolean @(bool)
+function TMXMapInfo:parseXMLFile(xmlFilename)
+end
+
+---@param xmlString string @(std::string_view)
+---@return boolean @(bool)
+function TMXMapInfo:parseXMLString(xmlString)
+end
+
+---@param currentString string @(std::string_view)
+---@return self @(void)
+function TMXMapInfo:setCurrentString(currentString)
+end
+
+---@param hexSideLength number @(int)
+---@return self @(void)
+function TMXMapInfo:setHexSideLength(hexSideLength)
+end
+
+---@param layerAttribs number @(int)
+---@return self @(void)
 function TMXMapInfo:setLayerAttribs(layerAttribs)
 end
 
---------------------------------
+---@param layers cc.TMXLayerInfo [] @(cocos2d::Vector<cocos2d::TMXLayerInfo *>)
+---@return self @(void)
+function TMXMapInfo:setLayers(layers)
+end
 
----  creates a TMX Format with a tmx file 
----@param tmxFile string
----@return cc.TMXMapInfo
+---@param mapSize vec2_table @(cocos2d::Vec2)
+---@return self @(void)
+function TMXMapInfo:setMapSize(mapSize)
+end
+
+---@param groups cc.TMXObjectGroup [] @(cocos2d::Vector<cocos2d::TMXObjectGroup *>)
+---@return self @(void)
+function TMXMapInfo:setObjectGroups(groups)
+end
+
+---@param orientation number @(int)
+---@return self @(void)
+function TMXMapInfo:setOrientation(orientation)
+end
+
+---@param element number @(int)
+---@return self @(void)
+function TMXMapInfo:setParentElement(element)
+end
+
+---@param gid number @(int)
+---@return self @(void)
+function TMXMapInfo:setParentGID(gid)
+end
+
+---@param properties tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+---@return self @(void)
+function TMXMapInfo:setProperties(properties)
+end
+
+---@param staggerAxis number @(int)
+---@return self @(void)
+function TMXMapInfo:setStaggerAxis(staggerAxis)
+end
+
+---@param staggerIndex number @(int)
+---@return self @(void)
+function TMXMapInfo:setStaggerIndex(staggerIndex)
+end
+
+---@param storingCharacters boolean @(bool)
+---@return self @(void)
+function TMXMapInfo:setStoringCharacters(storingCharacters)
+end
+
+---@param fileName string @(std::string_view)
+---@return self @(void)
+function TMXMapInfo:setTMXFileName(fileName)
+end
+
+---@param tileProperties table<number, cc.Value> @(cocos2d::ValueMapIntKey)
+---@return self @(void)
+function TMXMapInfo:setTileProperties(tileProperties)
+end
+
+---@param tileSize vec2_table @(cocos2d::Vec2)
+---@return self @(void)
+function TMXMapInfo:setTileSize(tileSize)
+end
+
+---@param tilesets cc.TMXTilesetInfo [] @(cocos2d::Vector<cocos2d::TMXTilesetInfo *>)
+---@return self @(void)
+function TMXMapInfo:setTilesets(tilesets)
+end
+
+--- creates a TMX Format with a tmx file
+--- (static)
+---@param tmxFile string @(std::string_view)
+---@return cc.TMXMapInfo @(cocos2d::TMXMapInfo*)
 function TMXMapInfo:create(tmxFile)
 end
 
---------------------------------
-
----  creates a TMX Format with an XML string and a TMX resource path 
----@param tmxString string
----@param resourcePath string
----@return cc.TMXMapInfo
+--- creates a TMX Format with an XML string and a TMX resource path
+--- (static)
+---@param tmxString string @(std::string_view)
+---@param resourcePath string @(std::string_view)
+---@return cc.TMXMapInfo @(cocos2d::TMXMapInfo*)
 function TMXMapInfo:createWithXML(tmxString, resourcePath)
 end
-
---------------------------------
-
---- js ctor
----@return cc.TMXMapInfo
-function TMXMapInfo:TMXMapInfo()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TMXMapInfo
-function TMXMapInfo:new() end
-
 
 return nil

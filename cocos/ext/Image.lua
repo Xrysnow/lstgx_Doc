@@ -19,9 +19,9 @@ end
 
 ---
 ---@param path string
----@param scale number
----@param units string
----@param dpi number
+---@param scale? number|vec2_table @Vec2 input uses shared x/y (width/height input is also accepted).
+---@param units? string
+---@param dpi? number
 ---@return boolean
 function Image:initWithSVGFile(path, scale, units, dpi)
 end
@@ -33,7 +33,7 @@ end
 ---@param width number
 ---@param height number
 ---@param bitsPerComponent number
----@param preMulti boolean
+---@param preMulti? boolean
 ---@return boolean
 function Image:initWithRawData(b, width, height, bitsPerComponent, preMulti)
 end

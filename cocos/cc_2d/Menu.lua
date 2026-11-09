@@ -1,134 +1,51 @@
-
---------------------------------
--- @module Menu
--- @extend Layer
--- @parent_module cc
-
 ---@class cc.Menu:cc.Node
 local Menu = {}
 cc.Menu = Menu
---------------------------------
 
----  initializes a Menu with a NSArray of MenuItem objects 
----@param arrayOfItems array_table
----@return boolean
-function Menu:initWithArray(arrayOfItems)
-end
-
---------------------------------
-
---- Set whether the menu is enabled. If set to false, interacting with the menu
---- will have no effect.
---- The default value is true, a menu is enabled by default.
---- param value true if menu is to be enabled, false if menu is to be disabled.
----@param value boolean
----@return cc.Menu
-function Menu:setEnabled(value)
-end
-
---------------------------------
-
----  Align items vertically. 
----@return cc.Menu
-function Menu:alignItemsVertically()
-end
-
---------------------------------
-
---- Determines if the menu is enabled.
---- see `setEnabled(bool)`.
---- return whether the menu is enabled or not.
----@return boolean
-function Menu:isEnabled()
-end
-
---------------------------------
-
----  Align items horizontally. 
----@return cc.Menu
+--- Align items horizontally.
+---@return self @(void)
 function Menu:alignItemsHorizontally()
 end
 
---------------------------------
-
----  Align items horizontally with padding.
---- since v0.7.2
----@param padding number
----@return cc.Menu
+--- Align items horizontally with padding.
+--- @since v0.7.2
+---@param padding number @(float)
+---@return self @(void)
 function Menu:alignItemsHorizontallyWithPadding(padding)
 end
 
---------------------------------
+--- Align items vertically.
+---@return self @(void)
+function Menu:alignItemsVertically()
+end
 
----  Align items vertically with padding.
---- since v0.7.2
----@param padding number
----@return cc.Menu
+--- Align items vertically with padding.
+--- @since v0.7.2
+---@param padding number @(float)
+---@return self @(void)
 function Menu:alignItemsVerticallyWithPadding(padding)
 end
 
---------------------------------
-
---- 
----@param child cc.Node
----@param zOrder number
----@param name string
----@return cc.Menu
----@overload fun(self:cc.Menu, child:cc.Node, zOrder:number):cc.Menu
----@overload fun(self:cc.Menu, child:cc.Node):cc.Menu
-function Menu:addChild(child, zOrder, name)
+--- initializes a Menu with a NSArray of MenuItem objects
+---@param arrayOfItems cc.MenuItem [] @(cocos2d::Vector<cocos2d::MenuItem *>)
+---@return boolean @(bool)
+function Menu:initWithArray(arrayOfItems)
 end
 
---------------------------------
-
---- 
----@return string
-function Menu:getDescription()
+---
+--- Determines if the menu is enabled.
+--- @see `setEnabled(bool)`.
+---@return boolean @(bool) whether the menu is enabled or not.
+function Menu:isEnabled()
 end
 
---------------------------------
-
---- 
----@param child cc.Node
----@param cleanup boolean
----@return cc.Menu
-function Menu:removeChild(child, cleanup)
+---
+--- Set whether the menu is enabled. If set to false, interacting with the menu
+--- will have no effect.
+--- The default value is true, a menu is enabled by default.
+---@param value boolean @(bool) true if menu is to be enabled, false if menu is to be disabled.
+---@return self @(void)
+function Menu:setEnabled(value)
 end
-
---------------------------------
-
----  initializes an empty Menu 
----@return boolean
-function Menu:init()
-end
-
---------------------------------
-
---- 
----@param value boolean
----@return cc.Menu
-function Menu:setOpacityModifyRGB(value)
-end
-
---------------------------------
-
---- 
----@return boolean
-function Menu:isOpacityModifyRGB()
-end
-
---------------------------------
-
---- js ctor
----@return cc.Menu
-function Menu:Menu()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Menu
-function Menu:new() end
-
 
 return nil

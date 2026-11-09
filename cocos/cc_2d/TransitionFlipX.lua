@@ -1,38 +1,24 @@
-
---------------------------------
--- @module TransitionFlipX
--- @extend TransitionSceneOriented
--- @parent_module cc
-
 ---@class cc.TransitionFlipX:cc.TransitionSceneOriented
 local TransitionFlipX = {}
 cc.TransitionFlipX = TransitionFlipX
---------------------------------
 
----  Creates a transition with duration and incoming scene.<br>
--- param t Duration time, in seconds.<br>
--- param s A given scene.<br>
--- return A autoreleased TransitionFlipX object.
----@param t number
----@param s cc.Scene
----@param o number
----@return cc.TransitionFlipX
----@overload fun(self:cc.TransitionFlipX, t:number, s:cc.Scene):cc.TransitionFlipX
+--- Creates a transition with duration, incoming scene and orientation.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@param o cc.TransitionScene.Orientation @(cocos2d::TransitionScene::Orientation) A given orientation.
+---@return cc.TransitionFlipX @(cocos2d::TransitionFlipX*) A autoreleased TransitionFlipX object.
 function TransitionFlipX:create(t, s, o)
 end
 
---------------------------------
-
---- 
----@return cc.TransitionFlipX
-function TransitionFlipX:TransitionFlipX()
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionFlipX @(cocos2d::TransitionFlipX*) A autoreleased TransitionFlipX object.
+function TransitionFlipX:create(t, s)
 end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionFlipX
-function TransitionFlipX:new() end
-
 
 return nil

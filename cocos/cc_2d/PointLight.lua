@@ -1,60 +1,26 @@
-
---------------------------------
--- @module PointLight
--- @extend BaseLight
--- @parent_module cc
-
 ---@class cc.PointLight:cc.BaseLight
 local PointLight = {}
 cc.PointLight = PointLight
---------------------------------
 
----  get or set range 
----@return number
+--- get or set range
+---@return number @(float)
 function PointLight:getRange()
 end
 
---------------------------------
-
---- 
----@param range number
----@return point_table
+---@param range number @(float)
+---@return self @(void)
 function PointLight:setRange(range)
 end
 
---------------------------------
-
+---
 --- Creates a point light.
---- param position The light's position
---- param color The light's color.
---- param range The light's range.
---- return The new point light.
----@param position vec3_table
----@param color color3b_table
----@param range number
----@return point_table
+---
+--- (static)
+---@param position vec3_table @(cocos2d::Vec3) The light's position
+---@param color color3b_table @(cocos2d::Color3B) The light's color.
+---@param range number @(float) The light's range.
+---@return cc.PointLight @(cocos2d::PointLight*) The new point light.
 function PointLight:create(position, color, range)
 end
-
---------------------------------
-
---- 
----@return number
-function PointLight:getLightType()
-end
-
---------------------------------
-
---- 
----@return point_table
-function PointLight:PointLight()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.PointLight
-function PointLight:new() end
-
 
 return nil

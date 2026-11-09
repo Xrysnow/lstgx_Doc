@@ -1,21 +1,13 @@
-
---------------------------------
--- @module EventController
--- @extend Event
--- @parent_module cc
-
+--- Available through Core only on non-Windows platforms.
 ---@class cc.EventController:cc.Event
 local EventController = {}
 cc.EventController = EventController
---------------------------------
 
 ---  Gets the event type of the controller.
 --- return The event type of the controller.
 ---@return number
 function EventController:getControllerEventType()
 end
-
---------------------------------
 
 ---  Sets the connect status.
 --- param True if it's connected.
@@ -24,60 +16,27 @@ end
 function EventController:setConnectStatus(isConnected)
 end
 
---------------------------------
-
 ---  Gets the connect status.
 --- return True if it's connected.
 ---@return boolean
 function EventController:isConnected()
 end
 
---------------------------------
-
---- 
+---
 ---@param keyCode number
 ---@return cc.EventController
 function EventController:setKeyCode(keyCode)
 end
 
---------------------------------
-
---- 
+---
 ---@return cc.Controller
 function EventController:getController()
 end
-
---------------------------------
 
 ---  Gets the key code of the controller.
 --- return The key code of the controller.
 ---@return number
 function EventController:getKeyCode()
 end
-
---------------------------------
-
----  Create a EventController with controller event type, controller and whether or not is connected.<br>
--- param type A given controller event type.<br>
--- param controller A given controller pointer.<br>
--- param isConnected True if it is connected.<br>
--- return An autoreleased EventController object.
----@param type number
----@param controller cc.Controller
----@param keyCode number
----@return cc.EventController
-function EventController:EventController(type, controller, keyCode)
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
---- Available through this Core legacy definition only on non-Windows platforms.
----@param arg0 number|string
----@param arg1 cc.Controller|nil
----@param arg2 boolean|nil
----@return cc.EventController
-function EventController:new(arg0, arg1, arg2) end
-
 
 return nil

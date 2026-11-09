@@ -1,201 +1,121 @@
-
---------------------------------
--- @module LayerRadialGradient
--- @extend Layer
--- @parent_module cc
-
 ---@class cc.LayerRadialGradient:cc.Node
 local LayerRadialGradient = {}
 cc.LayerRadialGradient = LayerRadialGradient
---------------------------------
 
---- 
----@return color4b_table
-function LayerRadialGradient:getStartColor()
-end
-
---------------------------------
-
---- 
----@return cc.BlendFunc
+---@return cc.BlendFunc @(const cocos2d::BlendFunc&)
 function LayerRadialGradient:getBlendFunc()
 end
 
---------------------------------
-
---- 
----@return color3b_table
-function LayerRadialGradient:getStartColor3B()
-end
-
---------------------------------
-
---- 
----@return number
-function LayerRadialGradient:getStartOpacity()
-end
-
---------------------------------
-
---- 
----@param center vec2_table
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setCenter(center)
-end
-
---------------------------------
-
---- 
----@return color4b_table
-function LayerRadialGradient:getEndColor()
-end
-
---------------------------------
-
---- 
----@param opacity number
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setStartOpacity(opacity)
-end
-
---------------------------------
-
---- 
----@return vec2_table
+---@return vec2_table @(cocos2d::Vec2)
 function LayerRadialGradient:getCenter()
 end
 
---------------------------------
-
---- 
----@param opacity number
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setEndOpacity(opacity)
+---@return color4b_table @(cocos2d::Color4B)
+function LayerRadialGradient:getEndColor()
 end
 
---------------------------------
-
---- 
----@param expand number
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setExpand(expand)
-end
-
---------------------------------
-
---- 
----@return number
-function LayerRadialGradient:getEndOpacity()
-end
-
---------------------------------
-
---- 
----@param startColor color4b_table
----@param endColor color4b_table
----@param radius number
----@param center vec2_table
----@param expand number
----@return boolean
-function LayerRadialGradient:initWithColor(startColor, endColor, radius, center, expand)
-end
-
---------------------------------
-
---- 
----@param color color3b_table
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setEndColor(color)
-end
-
---------------------------------
-
---- 
----@return color3b_table
+---@return color3b_table @(cocos2d::Color3B)
 function LayerRadialGradient:getEndColor3B()
 end
 
---------------------------------
-
---- 
----@param radius number
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setRadius(radius)
+---@return number @(uint8_t)
+function LayerRadialGradient:getEndOpacity()
 end
 
---------------------------------
-
---- 
----@param color color3b_table
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setStartColor(color)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function LayerRadialGradient:getExpand()
 end
 
---------------------------------
-
---- 
----@param blendFunc cc.BlendFunc
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setBlendFunc(blendFunc)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function LayerRadialGradient:getRadius()
 end
 
---------------------------------
+---@return color4b_table @(cocos2d::Color4B)
+function LayerRadialGradient:getStartColor()
+end
 
---- 
----@param startColor color4b_table
----@param endColor color4b_table
----@param radius number
----@param center vec2_table
----@param expand number
----@return cc.LayerRadialGradient
----@overload fun(self:cc.LayerRadialGradient):cc.LayerRadialGradient
+---@return color3b_table @(cocos2d::Color3B)
+function LayerRadialGradient:getStartColor3B()
+end
+
+---@return number @(uint8_t)
+function LayerRadialGradient:getStartOpacity()
+end
+
+---@param startColor color4b_table @(cocos2d::Color4B)
+---@param endColor color4b_table @(cocos2d::Color4B)
+---@param radius number @(float)
+---@param center vec2_table @(cocos2d::Vec2)
+---@param expand number @(float)
+---@return boolean @(bool)
+function LayerRadialGradient:initWithColor(startColor, endColor, radius, center, expand)
+end
+
+---@param blendFunc cc.BlendFunc @(cocos2d::BlendFunc)
+---@return self @(void)
+function LayerRadialGradient:setBlendFunc(blendFunc)
+end
+
+---@param center vec2_table @(cocos2d::Vec2)
+---@return self @(void)
+function LayerRadialGradient:setCenter(center)
+end
+
+---@param color color4b_table @(cocos2d::Color4B)
+---@return self @(void)
+function LayerRadialGradient:setEndColor(color)
+end
+
+---@param color color3b_table @(cocos2d::Color3B)
+---@return self @(void)
+function LayerRadialGradient:setEndColor(color)
+end
+
+---@param opacity number @(uint8_t)
+---@return self @(void)
+function LayerRadialGradient:setEndOpacity(opacity)
+end
+
+---@param expand number @(float)
+---@return self @(void)
+function LayerRadialGradient:setExpand(expand)
+end
+
+---@param radius number @(float)
+---@return self @(void)
+function LayerRadialGradient:setRadius(radius)
+end
+
+---@param color color4b_table @(cocos2d::Color4B)
+---@return self @(void)
+function LayerRadialGradient:setStartColor(color)
+end
+
+---@param color color3b_table @(cocos2d::Color3B)
+---@return self @(void)
+function LayerRadialGradient:setStartColor(color)
+end
+
+---@param opacity number @(uint8_t)
+---@return self @(void)
+function LayerRadialGradient:setStartOpacity(opacity)
+end
+
+--- Create a LayerRadialGradient
+--- starts outside of that amount)
+--- (static)
+---@param startColor color4b_table @(cocos2d::Color4B) the inner color of the gradient
+---@param endColor color4b_table @(cocos2d::Color4B) the out color of the gradient
+---@param radius number @(float) the radius of the gradient(length from center of gradient to outer color)
+---@param center vec2_table @(cocos2d::Vec2) the position of the center of the gradient
+---@param expand number @(float) an alpha value(0.f-1.f) that specifies how much of that radius in only inner color(the gradient
+---@return cc.LayerRadialGradient @(cocos2d::LayerRadialGradient*)
 function LayerRadialGradient:create(startColor, endColor, radius, center, expand)
 end
 
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return cc.LayerRadialGradient
-function LayerRadialGradient:draw(renderer, transform, flags)
+--- (static)
+---@return cc.LayerRadialGradient @(cocos2d::LayerRadialGradient*)
+function LayerRadialGradient:create()
 end
-
---------------------------------
-
---- 
----@param size size_table
----@return cc.LayerRadialGradient
-function LayerRadialGradient:setContentSize(size)
-end
-
---------------------------------
-
---- 
----@return cc.LayerRadialGradient
-function LayerRadialGradient:LayerRadialGradient()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.LayerRadialGradient
-function LayerRadialGradient:new() end
-
 
 return nil

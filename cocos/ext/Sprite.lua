@@ -10,8 +10,9 @@ cc.Sprite = Sprite
 --------------------------------
 
 --- warning only support RGBA8888
----@return cc.Image
-function Sprite:newImage()
+---@param flipImage? boolean
+---@return cc.Image|nil
+function Sprite:newImage(flipImage)
 end
 
 

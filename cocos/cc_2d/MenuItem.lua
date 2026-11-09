@@ -1,81 +1,41 @@
-
---------------------------------
--- @module MenuItem
--- @extend Node
--- @parent_module cc
-
 ---@class cc.MenuItem:cc.Node
 local MenuItem = {}
 cc.MenuItem = MenuItem
---------------------------------
 
----  Enables or disables the item. 
----@param value boolean
----@return cc.MenuItem
-function MenuItem:setEnabled(value)
-end
-
---------------------------------
-
----  Activate the item. 
----@return cc.MenuItem
+--- Activate the item.
+---@return self @(void)
 function MenuItem:activate()
 end
 
---------------------------------
-
----  Returns whether or not the item is enabled. 
----@return boolean
+--- Returns whether or not the item is enabled.
+---@return boolean @(bool)
 function MenuItem:isEnabled()
 end
 
---------------------------------
-
----  The item was selected (not activated), similar to "mouse-over". 
----@return cc.MenuItem
-function MenuItem:selected()
-end
-
---------------------------------
-
----  Returns whether or not the item is selected. 
----@return boolean
+--- Returns whether or not the item is selected.
+---@return boolean @(bool)
 function MenuItem:isSelected()
 end
 
---------------------------------
-
----  The item was unselected. 
----@return cc.MenuItem
-function MenuItem:unselected()
-end
-
---------------------------------
-
----  Returns the outside box. 
----@return rect_table
+--- Returns the outside box.
+---@return rect_table @(cocos2d::Rect)
 function MenuItem:rect()
 end
 
---------------------------------
-
---- js NA
----@return string
-function MenuItem:getDescription()
+--- The item was selected (not activated), similar to "mouse-over".
+---@return self @(void)
+function MenuItem:selected()
 end
 
---------------------------------
-
---- js ctor
----@return cc.MenuItem
-function MenuItem:MenuItem()
+--- Enables or disables the item.
+---@param value boolean @(bool)
+---@return self @(void)
+function MenuItem:setEnabled(value)
 end
 
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.MenuItem
-function MenuItem:new() end
-
+--- The item was unselected.
+---@return self @(void)
+function MenuItem:unselected()
+end
 
 return nil

@@ -1,54 +1,11 @@
-
---------------------------------
--- @module EaseCircleActionOut
--- @extend ActionEase
--- @parent_module cc
-
 ---@class cc.EaseCircleActionOut:cc.ActionEase
 local EaseCircleActionOut = {}
 cc.EaseCircleActionOut = EaseCircleActionOut
---------------------------------
 
---- 
----@param action cc.ActionInterval
----@return cc.EaseCircleActionOut
+--- (static)
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@return cc.EaseCircleActionOut @(cocos2d::EaseCircleActionOut*)
 function EaseCircleActionOut:create(action)
 end
-
---------------------------------
-
---- 
----@return cc.EaseCircleActionOut
-function EaseCircleActionOut:clone()
-end
-
---------------------------------
-
---- 
----@param time number
----@return cc.EaseCircleActionOut
-function EaseCircleActionOut:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.ActionEase
-function EaseCircleActionOut:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.EaseCircleActionOut
-function EaseCircleActionOut:EaseCircleActionOut()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.EaseCircleActionOut
-function EaseCircleActionOut:new() end
-
 
 return nil

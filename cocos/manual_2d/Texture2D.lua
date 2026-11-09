@@ -11,5 +11,6 @@ local M = {}
 ---@param magFilter number
 ---@param wrapS number
 ---@param wrapT number
+---@return cc.Texture2D
 function M:setTexParameters(minFilter, magFilter, wrapS, wrapT)
 end

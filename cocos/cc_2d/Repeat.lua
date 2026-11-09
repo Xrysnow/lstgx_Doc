@@ -1,106 +1,34 @@
-
---------------------------------
--- @module Repeat
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.Repeat:cc.ActionInterval
 local Repeat = {}
 cc.Repeat = Repeat
---------------------------------
 
----  Sets the inner action.
---- param action The inner action.
----@param action cc.FiniteTimeAction
----@return cc.Repeat
-function Repeat:setInnerAction(action)
-end
-
---------------------------------
-
----  initializes a Repeat action. Times is an unsigned integer between 1 and pow(2,30) 
----@param pAction cc.FiniteTimeAction
----@param times number
----@return boolean
-function Repeat:initWithAction(pAction, times)
-end
-
---------------------------------
-
----  Gets the inner action.
---- return The inner action.
----@return cc.FiniteTimeAction
+--- Gets the inner action.
+---
+---@return cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*) The inner action.
 function Repeat:getInnerAction()
 end
 
---------------------------------
+--- initializes a Repeat action. Times is an unsigned integer between 1 and pow(2,30)
+---@param pAction cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*)
+---@param times number @(unsigned int)
+---@return boolean @(bool)
+function Repeat:initWithAction(pAction, times)
+end
 
----  Creates a Repeat action. Times is an unsigned integer between 1 and pow(2,30).
---- param action The action needs to repeat.
---- param times The repeat times.
---- return An autoreleased Repeat object.
----@param action cc.FiniteTimeAction
----@param times number
----@return cc.Repeat
+--- Sets the inner action.
+---
+---@param action cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*) The inner action.
+---@return self @(void)
+function Repeat:setInnerAction(action)
+end
+
+--- Creates a Repeat action. Times is an unsigned integer between 1 and pow(2,30).
+---
+--- (static)
+---@param action cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*) The action needs to repeat.
+---@param times number @(unsigned int) The repeat times.
+---@return cc.Repeat @(cocos2d::Repeat*) An autoreleased Repeat object.
 function Repeat:create(action, times)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.Repeat
-function Repeat:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.Repeat
-function Repeat:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.Repeat
-function Repeat:clone()
-end
-
---------------------------------
-
---- 
----@return cc.Repeat
-function Repeat:stop()
-end
-
---------------------------------
-
---- param dt In seconds.
----@param dt number
----@return cc.Repeat
-function Repeat:update(dt)
-end
-
---------------------------------
-
---- 
----@return boolean
-function Repeat:isDone()
-end
-
---------------------------------
-
---- 
----@return cc.Repeat
-function Repeat:Repeat()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Repeat
-function Repeat:new() end
-
 
 return nil

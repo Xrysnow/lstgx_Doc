@@ -1,44 +1,14 @@
-
---------------------------------
--- @module TransitionFadeUp
--- @extend TransitionFadeTR
--- @parent_module cc
-
 ---@class cc.TransitionFadeUp:cc.TransitionFadeTR
 local TransitionFadeUp = {}
 cc.TransitionFadeUp = TransitionFadeUp
---------------------------------
 
----  Creates a transition with duration and incoming scene.
---- param t Duration time, in seconds.
---- param scene A given scene.
---- return A autoreleased TransitionFadeUp object.
----@param t number
----@param scene cc.Scene
----@return cc.TransitionFadeUp
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param scene cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionFadeUp @(cocos2d::TransitionFadeUp*) A autoreleased TransitionFadeUp object.
 function TransitionFadeUp:create(t, scene)
 end
-
---------------------------------
-
---- 
----@param size size_table
----@return cc.ActionInterval
-function TransitionFadeUp:actionWithSize(size)
-end
-
---------------------------------
-
---- 
----@return cc.TransitionFadeUp
-function TransitionFadeUp:TransitionFadeUp()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionFadeUp
-function TransitionFadeUp:new() end
-
 
 return nil

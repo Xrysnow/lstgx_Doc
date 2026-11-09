@@ -1,144 +1,134 @@
-
---------------------------------
--- @module Follow
--- @extend Action
--- @parent_module cc
-
 ---@class cc.Follow:cc.Action
 local Follow = {}
 cc.Follow = Follow
---------------------------------
 
----  Alter behavior - turn on/off boundary. 
---- param value Turn on/off boundary.
----@param value boolean
----@return cc.Follow
-function Follow:setBoundarySet(value)
-end
-
---------------------------------
-
+---
 --- Initializes the action with a set boundary or with no boundary.
---- param followedNode  The node to be followed.
---- param rect  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---
 --- with no boundary.
----@param followedNode cc.Node
----@param rect rect_table
----@return boolean
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@param rect rect_table @(cocos2d::Rect)  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---@return boolean @(bool)
 function Follow:initWithTarget(followedNode, rect)
 end
 
---------------------------------
-
---- Initializes the action with a set boundary or with no boundary with offsets.
---- param followedNode  The node to be followed.
---- param rect  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---
+--- Initializes the action with a set boundary or with no boundary.
+---
 --- with no boundary.
---- param xOffset The horizontal offset from the center of the screen from which the
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@return boolean @(bool)
+function Follow:initWithTarget(followedNode)
+end
+
+---
+--- Initializes the action with a set boundary or with no boundary with offsets.
+---
+--- with no boundary.
 --- node  is to be followed.It can be positive,negative or zero.If
 --- set to zero the node will be horizontally centered followed.
---- param yOffset The vertical offset from the center of the screen from which the
 --- node is to be followed.It can be positive,negative or zero.
 --- If set to zero the node will be vertically centered followed.
---- If both xOffset and yOffset are set to zero,then the node will be horizontally and vertically centered followed.
----@param followedNode cc.Node
----@param xOffset number
----@param yOffset number
----@param rect rect_table
----@return boolean
+--- If both xOffset and yOffset are set to zero,then the node will be horizontally and vertically centered
+--- followed.
+---
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@param xOffset number @(float) The horizontal offset from the center of the screen from which the
+---@param yOffset number @(float) The vertical offset from the center of the screen from which the
+---@param rect rect_table @(cocos2d::Rect)  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---@return boolean @(bool)
 function Follow:initWithTargetAndOffset(followedNode, xOffset, yOffset, rect)
 end
 
---------------------------------
+---
+--- Initializes the action with a set boundary or with no boundary with offsets.
+---
+--- with no boundary.
+--- node  is to be followed.It can be positive,negative or zero.If
+--- set to zero the node will be horizontally centered followed.
+--- node is to be followed.It can be positive,negative or zero.
+--- If set to zero the node will be vertically centered followed.
+--- If both xOffset and yOffset are set to zero,then the node will be horizontally and vertically centered
+--- followed.
+---
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@param xOffset number @(float) The horizontal offset from the center of the screen from which the
+---@param yOffset number @(float) The vertical offset from the center of the screen from which the
+---@return boolean @(bool)
+function Follow:initWithTargetAndOffset(followedNode, xOffset, yOffset)
+end
 
----  Return boundarySet.
---- return Return boundarySet.
----@return boolean
+--- Return boundarySet.
+---
+---@return boolean @(bool) Return boundarySet.
 function Follow:isBoundarySet()
 end
 
---------------------------------
+--- Alter behavior - turn onoff boundary.
+---
+---@param value boolean @(bool) Turn onoff boundary.
+---@return self @(void)
+function Follow:setBoundarySet(value)
+end
 
+---
 --- Creates the action with a set boundary or with no boundary.
---- param followedNode  The node to be followed.
---- param rect  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---
 --- with no boundary.
----@param followedNode cc.Node
----@param rect rect_table
----@return cc.Follow
+--- (static)
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@param rect rect_table @(cocos2d::Rect)  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---@return cc.Follow @(cocos2d::Follow*)
 function Follow:create(followedNode, rect)
 end
 
---------------------------------
-
---- Creates the action with a set boundary or with no boundary with offsets.
---- param followedNode  The node to be followed.
---- param rect  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---
+--- Creates the action with a set boundary or with no boundary.
+---
 --- with no boundary.
---- param xOffset The horizontal offset from the center of the screen from which the
+--- (static)
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@return cc.Follow @(cocos2d::Follow*)
+function Follow:create(followedNode)
+end
+
+---
+--- Creates the action with a set boundary or with no boundary with offsets.
+---
+--- with no boundary.
 --- node  is to be followed.It can be positive,negative or zero.If
 --- set to zero the node will be horizontally centered followed.
---- param yOffset The vertical offset from the center of the screen from which the
+--- @param yOffset The vertical offset from the center of the screen from which the
 --- node is to be followed.It can be positive,negative or zero.
 --- If set to zero the node will be vertically centered followed.
---- If both xOffset and yOffset are set to zero,then the node will be horizontally and vertically centered followed.
----@param followedNode cc.Node
----@param xOffset number
----@param yOffset number
----@param rect rect_table
----@return cc.Follow
+--- If both xOffset and yOffset are set to zero,then the node will be horizontally and vertically centered
+--- followed.
+--- (static)
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@param xOffset number @(float) The horizontal offset from the center of the screen from which the
+---@param yOffset number @(float)
+---@param rect rect_table @(cocos2d::Rect)  The boundary. If \p rect is equal to Rect::ZERO, it'll work
+---@return cc.Follow @(cocos2d::Follow*)
 function Follow:createWithOffset(followedNode, xOffset, yOffset, rect)
 end
 
---------------------------------
-
---- param dt in seconds.
---- js NA
----@param dt number
----@return cc.Follow
-function Follow:step(dt)
+---
+--- Creates the action with a set boundary or with no boundary with offsets.
+---
+--- with no boundary.
+--- node  is to be followed.It can be positive,negative or zero.If
+--- set to zero the node will be horizontally centered followed.
+--- @param yOffset The vertical offset from the center of the screen from which the
+--- node is to be followed.It can be positive,negative or zero.
+--- If set to zero the node will be vertically centered followed.
+--- If both xOffset and yOffset are set to zero,then the node will be horizontally and vertically centered
+--- followed.
+--- (static)
+---@param followedNode cc.Node @(cocos2d::Node*)  The node to be followed.
+---@param xOffset number @(float) The horizontal offset from the center of the screen from which the
+---@param yOffset number @(float)
+---@return cc.Follow @(cocos2d::Follow*)
+function Follow:createWithOffset(followedNode, xOffset, yOffset)
 end
-
---------------------------------
-
---- 
----@return cc.Follow
-function Follow:clone()
-end
-
---------------------------------
-
---- 
----@return cc.Follow
-function Follow:stop()
-end
-
---------------------------------
-
---- 
----@return cc.Follow
-function Follow:reverse()
-end
-
---------------------------------
-
---- 
----@return boolean
-function Follow:isDone()
-end
-
---------------------------------
-
---- js ctor
----@return cc.Follow
-function Follow:Follow()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Follow
-function Follow:new() end
-
 
 return nil

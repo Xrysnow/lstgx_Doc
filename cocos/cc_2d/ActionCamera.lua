@@ -1,95 +1,44 @@
-
---------------------------------
--- @module ActionCamera
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.ActionCamera:cc.ActionInterval
 local ActionCamera = {}
 cc.ActionCamera = ActionCamera
---------------------------------
 
---- 
----@param x number
----@param y number
----@param z number
----@return cc.ActionCamera
----@overload fun(self:cc.ActionCamera, eye:vec3_table):cc.ActionCamera
-function ActionCamera:setEye(x, y, z)
-end
-
---------------------------------
-
---- 
----@return vec3_table
-function ActionCamera:getEye()
-end
-
---------------------------------
-
---- 
----@param up vec3_table
----@return cc.ActionCamera
-function ActionCamera:setUp(up)
-end
-
---------------------------------
-
---- 
----@return vec3_table
+---@return vec3_table @(const cocos2d::Vec3&)
 function ActionCamera:getCenter()
 end
 
---------------------------------
-
---- 
----@param center vec3_table
----@return cc.ActionCamera
-function ActionCamera:setCenter(center)
+---@return vec3_table @(const cocos2d::Vec3&)
+function ActionCamera:getEye()
 end
 
---------------------------------
-
---- 
----@return vec3_table
+---@return vec3_table @(const cocos2d::Vec3&)
 function ActionCamera:getUp()
 end
 
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.ActionCamera
-function ActionCamera:startWithTarget(target)
+---@param center vec3_table @(cocos2d::Vec3)
+---@return self @(void)
+function ActionCamera:setCenter(center)
 end
 
---------------------------------
-
---- 
----@return cc.ActionCamera
-function ActionCamera:clone()
+---@param x number @(float)
+---@param y number @(float)
+---@param z number @(float)
+---@return self @(void)
+function ActionCamera:setEye(x, y, z)
 end
 
---------------------------------
+---@param eye vec3_table @(cocos2d::Vec3)
+---@return self @(void)
+function ActionCamera:setEye(eye)
+end
 
---- 
+---@param up vec3_table @(cocos2d::Vec3)
+---@return self @(void)
+function ActionCamera:setUp(up)
+end
+
+---
 ---@return cc.ActionCamera
 function ActionCamera:reverse()
 end
-
---------------------------------
-
---- js ctor
---- lua new
----@return cc.ActionCamera
-function ActionCamera:ActionCamera()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ActionCamera
-function ActionCamera:new() end
-
 
 return nil

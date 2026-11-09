@@ -1,70 +1,23 @@
-
---------------------------------
--- @module SkewBy
--- @extend SkewTo
--- @parent_module cc
-
 ---@class cc.SkewBy:cc.SkewTo
 local SkewBy = {}
 cc.SkewBy = SkewBy
---------------------------------
 
---- param t In seconds.
----@param t number
----@param sx number
----@param sy number
----@return boolean
+---
+---@param t number @(float) In seconds.
+---@param sx number @(float)
+---@param sy number @(float)
+---@return boolean @(bool)
 function SkewBy:initWithDuration(t, sx, sy)
 end
 
---------------------------------
-
+---
 --- Creates the action.
---- param t Duration time, in seconds.
---- param deltaSkewX Skew x delta angle.
---- param deltaSkewY Skew y delta angle.
---- return An autoreleased SkewBy object.
----@param t number
----@param deltaSkewX number
----@param deltaSkewY number
----@return cc.SkewBy
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param deltaSkewX number @(float) Skew x delta angle.
+---@param deltaSkewY number @(float) Skew y delta angle.
+---@return cc.SkewBy @(cocos2d::SkewBy*) An autoreleased SkewBy object.
 function SkewBy:create(t, deltaSkewX, deltaSkewY)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.SkewBy
-function SkewBy:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.SkewBy
-function SkewBy:clone()
-end
-
---------------------------------
-
---- 
----@return cc.SkewBy
-function SkewBy:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.SkewBy
-function SkewBy:SkewBy()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.SkewBy
-function SkewBy:new() end
-
 
 return nil

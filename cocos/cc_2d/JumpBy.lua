@@ -1,82 +1,26 @@
-
---------------------------------
--- @module JumpBy
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.JumpBy:cc.ActionInterval
 local JumpBy = {}
 cc.JumpBy = JumpBy
---------------------------------
 
+---
 --- initializes the action
---- param duration in seconds
----@param duration number
----@param position vec2_table
----@param height number
----@param jumps number
----@return boolean
+---@param duration number @(float) in seconds
+---@param position vec2_table @(cocos2d::Vec2)
+---@param height number @(float)
+---@param jumps number @(int)
+---@return boolean @(bool)
 function JumpBy:initWithDuration(duration, position, height, jumps)
 end
 
---------------------------------
-
+---
 --- Creates the action.
---- param duration Duration time, in seconds.
---- param position The jumping distance.
---- param height The jumping height.
---- param jumps The jumping times.
---- return An autoreleased JumpBy object.
----@param duration number
----@param position vec2_table
----@param height number
----@param jumps number
----@return cc.JumpBy
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param position vec2_table @(cocos2d::Vec2) The jumping distance.
+---@param height number @(float) The jumping height.
+---@param jumps number @(int) The jumping times.
+---@return cc.JumpBy @(cocos2d::JumpBy*) An autoreleased JumpBy object.
 function JumpBy:create(duration, position, height, jumps)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.JumpBy
-function JumpBy:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.JumpBy
-function JumpBy:clone()
-end
-
---------------------------------
-
---- 
----@return cc.JumpBy
-function JumpBy:reverse()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.JumpBy
-function JumpBy:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.JumpBy
-function JumpBy:JumpBy()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.JumpBy
-function JumpBy:new() end
-
 
 return nil

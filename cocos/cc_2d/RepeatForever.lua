@@ -1,96 +1,32 @@
-
---------------------------------
--- @module RepeatForever
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.RepeatForever:cc.ActionInterval
 local RepeatForever = {}
 cc.RepeatForever = RepeatForever
---------------------------------
 
----  Sets the inner action.
---- param action The inner action.
----@param action cc.ActionInterval
----@return cc.RepeatForever
-function RepeatForever:setInnerAction(action)
-end
-
---------------------------------
-
----  initializes the action 
----@param action cc.ActionInterval
----@return boolean
-function RepeatForever:initWithAction(action)
-end
-
---------------------------------
-
----  Gets the inner action.
---- return The inner action.
----@return cc.ActionInterval
+--- Gets the inner action.
+---
+---@return cc.ActionInterval @(cocos2d::ActionInterval*) The inner action.
 function RepeatForever:getInnerAction()
 end
 
---------------------------------
+--- initializes the action
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@return boolean @(bool)
+function RepeatForever:initWithAction(action)
+end
 
----  Creates the action.
---- param action The action need to repeat forever.
---- return An autoreleased RepeatForever object.
----@param action cc.ActionInterval
----@return cc.RepeatForever
+--- Sets the inner action.
+---
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*) The inner action.
+---@return self @(void)
+function RepeatForever:setInnerAction(action)
+end
+
+--- Creates the action.
+---
+--- (static)
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*) The action need to repeat forever.
+---@return cc.RepeatForever @(cocos2d::RepeatForever*) An autoreleased RepeatForever object.
 function RepeatForever:create(action)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.RepeatForever
-function RepeatForever:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.RepeatForever
-function RepeatForever:clone()
-end
-
---------------------------------
-
---- 
----@return boolean
-function RepeatForever:isDone()
-end
-
---------------------------------
-
---- 
----@return cc.RepeatForever
-function RepeatForever:reverse()
-end
-
---------------------------------
-
---- param dt In seconds.
----@param dt number
----@return cc.RepeatForever
-function RepeatForever:step(dt)
-end
-
---------------------------------
-
---- 
----@return cc.RepeatForever
-function RepeatForever:RepeatForever()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.RepeatForever
-function RepeatForever:new() end
-
 
 return nil

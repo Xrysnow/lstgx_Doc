@@ -1,64 +1,19 @@
-
---------------------------------
--- @module FlipX
--- @extend ActionInstant
--- @parent_module cc
-
 ---@class cc.FlipX:cc.ActionInstant
 local FlipX = {}
 cc.FlipX = FlipX
---------------------------------
 
----  init the action 
----@param x boolean
----@return boolean
+--- init the action
+---@param x boolean @(bool)
+---@return boolean @(bool)
 function FlipX:initWithFlipX(x)
 end
 
---------------------------------
-
----  Create the action.
---- param x Flips the sprite horizontally if true.
---- return  An autoreleased FlipX object.
----@param x boolean
----@return cc.FlipX
+--- Create the action.
+---
+--- (static)
+---@param x boolean @(bool) Flips the sprite horizontally if true.
+---@return cc.FlipX @(cocos2d::FlipX*)  An autoreleased FlipX object.
 function FlipX:create(x)
 end
-
---------------------------------
-
---- 
----@return cc.FlipX
-function FlipX:clone()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.FlipX
-function FlipX:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.FlipX
-function FlipX:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.FlipX
-function FlipX:FlipX()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.FlipX
-function FlipX:new() end
-
 
 return nil

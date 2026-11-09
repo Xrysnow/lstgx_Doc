@@ -1,75 +1,60 @@
-
---------------------------------
--- @module ProgressTimer
--- @extend Node
--- @parent_module cc
-
 ---@class cc.ProgressTimer:cc.Node
 local ProgressTimer = {}
 cc.ProgressTimer = ProgressTimer
---------------------------------
 
----  Initializes a progress timer with the sprite as the shape the timer goes through 
----@param sp cc.Sprite
----@return boolean
+--- Returns the BarChangeRate.
+---
+---@return vec2_table @(cocos2d::Vec2) A barChangeRate.
+function ProgressTimer:getBarChangeRate()
+end
+
+--- Returns the Midpoint.
+---
+---@return vec2_table @(cocos2d::Vec2) A Vec2.
+function ProgressTimer:getMidpoint()
+end
+
+--- Percentages are from 0 to 100.
+---
+---@return number @(float) Percentages.
+function ProgressTimer:getPercentage()
+end
+
+--- The image to show the progress percentage, retain.
+---
+---@return cc.Sprite @(cocos2d::Sprite*) A sprite.
+function ProgressTimer:getSprite()
+end
+
+--- Change the percentage to change progress.
+---
+---@return cc.ProgressTimer.Type @(cocos2d::ProgressTimer::Type) A Type
+function ProgressTimer:getType()
+end
+
+--- Initializes a progress timer with the sprite as the shape the timer goes through
+---@param sp cc.Sprite @(cocos2d::Sprite*)
+---@return boolean @(bool)
 function ProgressTimer:initWithSprite(sp)
 end
 
---------------------------------
-
----  Return the Reverse direction.
---- return If the direction is Anti-clockwise,it will return true.
----@return boolean
+--- Return the Reverse direction.
+---
+---@return boolean @(bool) If the direction is Anti-clockwise,it will return true.
 function ProgressTimer:isReverseDirection()
 end
 
---------------------------------
-
+---
 --- This allows the bar type to move the component at a specific rate.
 --- Set the component to 0 to make sure it stays at 100%.
 --- For example you want a left to right bar but not have the height stay 100%.
 --- Set the rate to be Vec2(0,1); and set the midpoint to = Vec2(0,.5f).
---- param barChangeRate A Vec2.
----@param barChangeRate vec2_table
----@return cc.ProgressTimer
+---@param barChangeRate vec2_table @(cocos2d::Vec2) A Vec2.
+---@return self @(void)
 function ProgressTimer:setBarChangeRate(barChangeRate)
 end
 
---------------------------------
-
----  Percentages are from 0 to 100.
---- return Percentages.
----@return number
-function ProgressTimer:getPercentage()
-end
-
---------------------------------
-
----  Set the sprite as the shape. 
---- param sprite The sprite as the shape.
----@param sprite cc.Sprite
----@return cc.ProgressTimer
-function ProgressTimer:setSprite(sprite)
-end
-
---------------------------------
-
----  Change the percentage to change progress. 
---- return A Type
----@return number
-function ProgressTimer:getType()
-end
-
---------------------------------
-
----  The image to show the progress percentage, retain. 
---- return A sprite.
----@return cc.Sprite
-function ProgressTimer:getSprite()
-end
-
---------------------------------
-
+---
 --- Midpoint is used to modify the progress start position.
 --- If you're using radials type then the midpoint changes the center point.
 --- If you're using bar type then the midpoint changes the bar growth.
@@ -78,125 +63,45 @@ end
 --- you want a right to left then set the midpoint all the way to Vec2(1,y).
 --- you want a bottom to top then set the midpoint all the way to Vec2(x,0).
 --- you want a top to bottom then set the midpoint all the way to Vec2(x,1).
---- param point A Vec2 point.
----@param point vec2_table
----@return cc.ProgressTimer
+---@param point vec2_table @(cocos2d::Vec2) A Vec2 point.
+---@return self @(void)
 function ProgressTimer:setMidpoint(point)
 end
 
---------------------------------
-
----  Returns the BarChangeRate.
---- return A barChangeRate.
----@return vec2_table
-function ProgressTimer:getBarChangeRate()
-end
-
---------------------------------
-
----  Set the Reverse direction.
---- param value If value is false it will clockwise,if is true it will Anti-clockwise.
----@param value boolean
----@return cc.ProgressTimer
-function ProgressTimer:setReverseDirection(value)
-end
-
---------------------------------
-
----  Returns the Midpoint. 
---- return A Vec2.
----@return vec2_table
-function ProgressTimer:getMidpoint()
-end
-
---------------------------------
-
----  Set the initial percentage values. 
---- param percentage The initial percentage values.
----@param percentage number
----@return cc.ProgressTimer
+--- Set the initial percentage values.
+---
+---@param percentage number @(float) The initial percentage values.
+---@return self @(void)
 function ProgressTimer:setPercentage(percentage)
 end
 
---------------------------------
+--- Set the Reverse direction.
+---
+---@param value boolean @(bool) If value is false it will clockwise,if is true it will Anti-clockwise.
+---@return self @(void)
+function ProgressTimer:setReverseDirection(value)
+end
 
----  Set the ProgressTimer type. 
---- param type Is an Type.
----@param type number
----@return cc.ProgressTimer
+--- Set the sprite as the shape.
+---
+---@param sprite cc.Sprite @(cocos2d::Sprite*) The sprite as the shape.
+---@return self @(void)
+function ProgressTimer:setSprite(sprite)
+end
+
+--- Set the ProgressTimer type.
+---
+---@param type cc.ProgressTimer.Type @(cocos2d::ProgressTimer::Type) Is an Type.
+---@return self @(void)
 function ProgressTimer:setType(type)
 end
 
---------------------------------
-
----  Creates a progress timer with the sprite as the shape the timer goes through.
---- param sp The sprite as the shape the timer goes through.
---- return A ProgressTimer.
----@param sp cc.Sprite
----@return cc.ProgressTimer
+--- Creates a progress timer with the sprite as the shape the timer goes through.
+---
+--- (static)
+---@param sp cc.Sprite @(cocos2d::Sprite*) The sprite as the shape the timer goes through.
+---@return cc.ProgressTimer @(cocos2d::ProgressTimer*) A ProgressTimer.
 function ProgressTimer:create(sp)
 end
-
---------------------------------
-
---- 
----@param anchorPoint vec2_table
----@return cc.ProgressTimer
-function ProgressTimer:setAnchorPoint(anchorPoint)
-end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return cc.ProgressTimer
-function ProgressTimer:draw(renderer, transform, flags)
-end
-
---------------------------------
-
---- 
----@param color color3b_table
----@return cc.ProgressTimer
-function ProgressTimer:setColor(color)
-end
-
---------------------------------
-
---- 
----@return color3b_table
-function ProgressTimer:getColor()
-end
-
---------------------------------
-
---- 
----@param opacity number
----@return cc.ProgressTimer
-function ProgressTimer:setOpacity(opacity)
-end
-
---------------------------------
-
---- 
----@return number
-function ProgressTimer:getOpacity()
-end
-
---------------------------------
-
---- js ctor
----@return cc.ProgressTimer
-function ProgressTimer:ProgressTimer()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ProgressTimer
-function ProgressTimer:new() end
-
 
 return nil

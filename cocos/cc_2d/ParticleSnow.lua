@@ -1,58 +1,30 @@
-
---------------------------------
--- @module ParticleSnow
--- @extend ParticleSystemQuad
--- @parent_module cc
-
 ---@class cc.ParticleSnow:cc.ParticleSystemQuad
 local ParticleSnow = {}
 cc.ParticleSnow = ParticleSnow
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function ParticleSnow:init()
 end
 
---------------------------------
-
---- 
----@param numberOfParticles number
----@return boolean
+---@param numberOfParticles number @(int)
+---@return boolean @(bool)
 function ParticleSnow:initWithTotalParticles(numberOfParticles)
 end
 
---------------------------------
-
----  Create a snow particle system.
---- return An autoreleased ParticleSnow object.
----@return cc.ParticleSnow
+--- Create a snow particle system.
+---
+--- (static)
+---@return cc.ParticleSnow @(cocos2d::ParticleSnow*) An autoreleased ParticleSnow object.
 function ParticleSnow:create()
 end
 
---------------------------------
-
----  Create a snow particle system withe a fixed number of particles.
---- param numberOfParticles A given number of particles.
---- return An autoreleased ParticleSnow object.
---- js NA
----@param numberOfParticles number
----@return cc.ParticleSnow
+--- Create a snow particle system withe a fixed number of particles.
+---
+--- @js NA
+--- (static)
+---@param numberOfParticles number @(int) A given number of particles.
+---@return cc.ParticleSnow @(cocos2d::ParticleSnow*) An autoreleased ParticleSnow object.
 function ParticleSnow:createWithTotalParticles(numberOfParticles)
 end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleSnow
-function ParticleSnow:ParticleSnow()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleSnow
-function ParticleSnow:new() end
-
 
 return nil

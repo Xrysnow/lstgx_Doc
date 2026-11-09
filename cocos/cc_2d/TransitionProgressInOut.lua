@@ -1,36 +1,14 @@
-
---------------------------------
--- @module TransitionProgressInOut
--- @extend TransitionProgress
--- @parent_module cc
-
 ---@class cc.TransitionProgressInOut:cc.TransitionProgress
 local TransitionProgressInOut = {}
 cc.TransitionProgressInOut = TransitionProgressInOut
---------------------------------
 
----  Creates a transition with duration and incoming scene.
---- param t Duration time, in seconds.
---- param scene A given scene.
---- return An autoreleased TransitionProgressInOut object.
----@param t number
----@param scene cc.Scene
----@return cc.TransitionProgressInOut
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param scene cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionProgressInOut @(cocos2d::TransitionProgressInOut*) An autoreleased TransitionProgressInOut object.
 function TransitionProgressInOut:create(t, scene)
 end
-
---------------------------------
-
---- js ctor
----@return cc.TransitionProgressInOut
-function TransitionProgressInOut:TransitionProgressInOut()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionProgressInOut
-function TransitionProgressInOut:new() end
-
 
 return nil

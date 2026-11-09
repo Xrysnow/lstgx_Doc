@@ -1,55 +1,12 @@
-
---------------------------------
--- @module EaseOut
--- @extend EaseRateAction
--- @parent_module cc
-
 ---@class cc.EaseOut:cc.EaseRateAction
 local EaseOut = {}
 cc.EaseOut = EaseOut
---------------------------------
 
---- 
----@param action cc.ActionInterval
----@param rate number
----@return cc.EaseOut
+--- (static)
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@param rate number @(float)
+---@return cc.EaseOut @(cocos2d::EaseOut*)
 function EaseOut:create(action, rate)
 end
-
---------------------------------
-
---- 
----@return cc.EaseOut
-function EaseOut:clone()
-end
-
---------------------------------
-
---- 
----@param time number
----@return cc.EaseOut
-function EaseOut:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.EaseRateAction
-function EaseOut:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.EaseOut
-function EaseOut:EaseOut()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.EaseOut
-function EaseOut:new() end
-
 
 return nil

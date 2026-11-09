@@ -1,85 +1,58 @@
-
---------------------------------
--- @module RotateBy
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.RotateBy:cc.ActionInterval
 local RotateBy = {}
 cc.RotateBy = RotateBy
---------------------------------
 
---- warning The physics body contained in Node doesn't support rotate with different x and y angle.<br>
--- param deltaAngleZ_X in degreesCW<br>
--- param deltaAngleZ_Y in degreesCW
----@param duration number
----@param deltaAngleZ_X number
----@param deltaAngleZ_Y number
----@return boolean
----@overload fun(self:cc.RotateBy, duration:number, deltaAngle:number):boolean
----@overload fun(self:cc.RotateBy, duration:number, deltaAngle3D:vec3_table):boolean
+---
+--- @warning The physics body contained in Node doesn't support rotate with different x and y angle.
+---@param duration number @(float)
+---@param deltaAngleZ_X number @(float) in degreesCW
+---@param deltaAngleZ_Y number @(float) in degreesCW
+---@return boolean @(bool)
 function RotateBy:initWithDuration(duration, deltaAngleZ_X, deltaAngleZ_Y)
 end
 
---------------------------------
+---@param duration number @(float)
+---@param deltaAngle3D vec3_table @(cocos2d::Vec3)
+---@return boolean @(bool)
+function RotateBy:initWithDuration(duration, deltaAngle3D)
+end
 
---- Creates the action with separate rotation angles.<br>
--- param duration Duration time, in seconds.<br>
--- param deltaAngleZ_X In degreesCW.<br>
--- param deltaAngleZ_Y In degreesCW.<br>
--- return An autoreleased RotateBy object.<br>
--- warning The physics body contained in Node doesn't support rotate with different x and y angle.
----@param duration number
----@param deltaAngleZ_X number
----@param deltaAngleZ_Y number
----@return cc.RotateBy
----@overload fun(self:cc.RotateBy, duration:number, deltaAngle:number):cc.RotateBy
----@overload fun(self:cc.RotateBy, duration:number, deltaAngle3D:vec3_table):cc.RotateBy
+--- initializes the action
+---@param duration number @(float)
+---@param deltaAngle number @(float)
+---@return boolean @(bool)
+function RotateBy:initWithDuration(duration, deltaAngle)
+end
+
+---
+--- Creates the action with separate rotation angles.
+---
+--- @warning The physics body contained in Node doesn't support rotate with different x and y angle.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param deltaAngleZ_X number @(float) In degreesCW.
+---@param deltaAngleZ_Y number @(float) In degreesCW.
+---@return cc.RotateBy @(cocos2d::RotateBy*) An autoreleased RotateBy object.
 function RotateBy:create(duration, deltaAngleZ_X, deltaAngleZ_Y)
 end
 
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.RotateBy
-function RotateBy:startWithTarget(target)
+--- Creates the action with 3D rotation angles.
+---
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param deltaAngle3D vec3_table @(cocos2d::Vec3) A Vec3 angle.
+---@return cc.RotateBy @(cocos2d::RotateBy*) An autoreleased RotateBy object.
+function RotateBy:create(duration, deltaAngle3D)
 end
 
---------------------------------
-
---- 
----@return cc.RotateBy
-function RotateBy:clone()
+---
+--- Creates the action.
+---
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param deltaAngle number @(float) In degreesCW.
+---@return cc.RotateBy @(cocos2d::RotateBy*) An autoreleased RotateBy object.
+function RotateBy:create(duration, deltaAngle)
 end
-
---------------------------------
-
---- 
----@return cc.RotateBy
-function RotateBy:reverse()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.RotateBy
-function RotateBy:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.RotateBy
-function RotateBy:RotateBy()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.RotateBy
-function RotateBy:new() end
-
 
 return nil

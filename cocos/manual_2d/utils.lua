@@ -5,7 +5,7 @@ cc.utils = M
 --- Capture the entire screen.
 --- To ensure the snapshot is applied after everything is updated and rendered in the current frame,
 --- we need to wrap the operation with a custom command which is then inserted into the tail of the render queue.
----@param afterCaptured function
+---@param afterCaptured fun(succeed:boolean,filename:string) @Required owned callback; nil is rejected.
 ---@param filename string
 function M:captureScreen(afterCaptured, filename)
 end
@@ -24,6 +24,13 @@ end
 ---@param name string
 ---@return cc.Node
 function M:findChild(node, name)
+end
+
+--- Capture a node using an owned callback; the native delivery controls the Image lifetime.
+---@param node cc.Node
+---@param callback fun(image:cc.Image|nil) @Required; nil is rejected.
+---@param scale? number
+function M:captureNode(node, callback, scale)
 end
 
 return M

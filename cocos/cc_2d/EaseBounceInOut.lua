@@ -1,54 +1,11 @@
-
---------------------------------
--- @module EaseBounceInOut
--- @extend ActionEase
--- @parent_module cc
-
 ---@class cc.EaseBounceInOut:cc.ActionEase
 local EaseBounceInOut = {}
 cc.EaseBounceInOut = EaseBounceInOut
---------------------------------
 
---- 
----@param action cc.ActionInterval
----@return cc.EaseBounceInOut
+--- (static)
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@return cc.EaseBounceInOut @(cocos2d::EaseBounceInOut*)
 function EaseBounceInOut:create(action)
 end
-
---------------------------------
-
---- 
----@return cc.EaseBounceInOut
-function EaseBounceInOut:clone()
-end
-
---------------------------------
-
---- 
----@param time number
----@return cc.EaseBounceInOut
-function EaseBounceInOut:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.ActionEase
-function EaseBounceInOut:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.EaseBounceInOut
-function EaseBounceInOut:EaseBounceInOut()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.EaseBounceInOut
-function EaseBounceInOut:new() end
-
 
 return nil

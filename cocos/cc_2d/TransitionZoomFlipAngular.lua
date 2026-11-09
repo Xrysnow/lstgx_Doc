@@ -1,38 +1,24 @@
-
---------------------------------
--- @module TransitionZoomFlipAngular
--- @extend TransitionSceneOriented
--- @parent_module cc
-
 ---@class cc.TransitionZoomFlipAngular:cc.TransitionSceneOriented
 local TransitionZoomFlipAngular = {}
 cc.TransitionZoomFlipAngular = TransitionZoomFlipAngular
---------------------------------
 
----  Creates a transition with duration and incoming scene.<br>
--- param t Duration time, in seconds.<br>
--- param s A given scene.<br>
--- return A autoreleased TransitionZoomFlipAngular object.
----@param t number
----@param s cc.Scene
----@param o number
----@return cc.TransitionZoomFlipAngular
----@overload fun(self:cc.TransitionZoomFlipAngular, t:number, s:cc.Scene):cc.TransitionZoomFlipAngular
+--- Creates a transition with duration, incoming scene and orientation.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@param o cc.TransitionScene.Orientation @(cocos2d::TransitionScene::Orientation) A given orientation.
+---@return cc.TransitionZoomFlipAngular @(cocos2d::TransitionZoomFlipAngular*) A autoreleased TransitionZoomFlipAngular object.
 function TransitionZoomFlipAngular:create(t, s, o)
 end
 
---------------------------------
-
---- 
----@return cc.TransitionZoomFlipAngular
-function TransitionZoomFlipAngular:TransitionZoomFlipAngular()
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionZoomFlipAngular @(cocos2d::TransitionZoomFlipAngular*) A autoreleased TransitionZoomFlipAngular object.
+function TransitionZoomFlipAngular:create(t, s)
 end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionZoomFlipAngular
-function TransitionZoomFlipAngular:new() end
-
 
 return nil

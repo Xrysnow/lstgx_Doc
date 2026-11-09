@@ -1,123 +1,47 @@
-
---------------------------------
--- @module Speed
--- @extend Action
--- @parent_module cc
-
 ---@class cc.Speed:cc.Action
 local Speed = {}
 cc.Speed = Speed
---------------------------------
 
----  Replace the interior action.
---- param action The new action, it will replace the running action.
----@param action cc.ActionInterval
----@return cc.Speed
-function Speed:setInnerAction(action)
-end
-
---------------------------------
-
----  Return the speed.
---- return The action speed.
----@return number
-function Speed:getSpeed()
-end
-
---------------------------------
-
----  Alter the speed of the inner function in runtime. 
---- param speed Alter the speed of the inner function in runtime.
----@param speed number
----@return cc.Speed
-function Speed:setSpeed(speed)
-end
-
---------------------------------
-
----  Initializes the action. 
----@param action cc.ActionInterval
----@param speed number
----@return boolean
-function Speed:initWithAction(action, speed)
-end
-
---------------------------------
-
----  Return the interior action.
---- return The interior action.
----@return cc.ActionInterval
+--- Return the interior action.
+---
+---@return cc.ActionInterval @(cocos2d::ActionInterval*) The interior action.
 function Speed:getInnerAction()
 end
 
---------------------------------
+--- Return the speed.
+---
+---@return number @(float) The action speed.
+function Speed:getSpeed()
+end
 
----  Create the action and set the speed.
---- param action An action.
---- param speed The action speed.
----@param action cc.ActionInterval
----@param speed number
----@return cc.Speed
+--- Initializes the action.
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@param speed number @(float)
+---@return boolean @(bool)
+function Speed:initWithAction(action, speed)
+end
+
+--- Replace the interior action.
+---
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*) The new action, it will replace the running action.
+---@return self @(void)
+function Speed:setInnerAction(action)
+end
+
+--- Alter the speed of the inner function in runtime.
+---
+---@param speed number @(float) Alter the speed of the inner function in runtime.
+---@return self @(void)
+function Speed:setSpeed(speed)
+end
+
+--- Create the action and set the speed.
+---
+--- (static)
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*) An action.
+---@param speed number @(float) The action speed.
+---@return cc.Speed @(cocos2d::Speed*)
 function Speed:create(action, speed)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.Speed
-function Speed:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.Speed
-function Speed:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.Speed
-function Speed:clone()
-end
-
---------------------------------
-
---- 
----@return cc.Speed
-function Speed:stop()
-end
-
---------------------------------
-
---- param dt in seconds.
----@param dt number
----@return cc.Speed
-function Speed:step(dt)
-end
-
---------------------------------
-
----  Return true if the action has finished.
---- return Is true if the action has finished.
----@return boolean
-function Speed:isDone()
-end
-
---------------------------------
-
---- 
----@return cc.Speed
-function Speed:Speed()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Speed
-function Speed:new() end
-
 
 return nil

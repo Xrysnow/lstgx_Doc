@@ -1,98 +1,38 @@
-
---------------------------------
--- @module TargetedAction
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.TargetedAction:cc.ActionInterval
 local TargetedAction = {}
 cc.TargetedAction = TargetedAction
---------------------------------
 
---- 
----@return cc.Node
+---@return cc.Node @(const cocos2d::Node*)
 function TargetedAction:getForcedTarget()
 end
 
---------------------------------
+--- returns the target that the action is forced to run with.
+---
+---@return cc.Node @(cocos2d::Node*) The target that the action is forced to run with.
+function TargetedAction:getForcedTarget()
+end
 
----  Init an action with the specified action and forced target 
----@param target cc.Node
----@param action cc.FiniteTimeAction
----@return boolean
+--- Init an action with the specified action and forced target
+---@param target cc.Node @(cocos2d::Node*)
+---@param action cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*)
+---@return boolean @(bool)
 function TargetedAction:initWithTarget(target, action)
 end
 
---------------------------------
-
----  Sets the target that the action will be forced to run with.
---- param forcedTarget The target that the action will be forced to run with.
----@param forcedTarget cc.Node
----@return cc.TargetedAction
+--- Sets the target that the action will be forced to run with.
+---
+---@param forcedTarget cc.Node @(cocos2d::Node*) The target that the action will be forced to run with.
+---@return self @(void)
 function TargetedAction:setForcedTarget(forcedTarget)
 end
 
---------------------------------
-
----  Create an action with the specified action and forced target.
---- param target The target needs to override.
---- param action The action needs to override.
---- return An autoreleased TargetedAction object.
----@param target cc.Node
----@param action cc.FiniteTimeAction
----@return cc.TargetedAction
+--- Create an action with the specified action and forced target.
+---
+--- (static)
+---@param target cc.Node @(cocos2d::Node*) The target needs to override.
+---@param action cc.FiniteTimeAction @(cocos2d::FiniteTimeAction*) The action needs to override.
+---@return cc.TargetedAction @(cocos2d::TargetedAction*) An autoreleased TargetedAction object.
 function TargetedAction:create(target, action)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.TargetedAction
-function TargetedAction:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.TargetedAction
-function TargetedAction:clone()
-end
-
---------------------------------
-
---- 
----@return cc.TargetedAction
-function TargetedAction:stop()
-end
-
---------------------------------
-
---- 
----@return cc.TargetedAction
-function TargetedAction:reverse()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.TargetedAction
-function TargetedAction:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.TargetedAction
-function TargetedAction:TargetedAction()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TargetedAction
-function TargetedAction:new() end
-
 
 return nil

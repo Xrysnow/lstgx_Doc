@@ -1,74 +1,26 @@
-
---------------------------------
--- @module JumpTo
--- @extend JumpBy
--- @parent_module cc
-
 ---@class cc.JumpTo:cc.JumpBy
 local JumpTo = {}
 cc.JumpTo = JumpTo
---------------------------------
 
+---
 --- initializes the action
---- param duration In seconds.
----@param duration number
----@param position vec2_table
----@param height number
----@param jumps number
----@return boolean
+---@param duration number @(float) In seconds.
+---@param position vec2_table @(cocos2d::Vec2)
+---@param height number @(float)
+---@param jumps number @(int)
+---@return boolean @(bool)
 function JumpTo:initWithDuration(duration, position, height, jumps)
 end
 
---------------------------------
-
+---
 --- Creates the action.
---- param duration Duration time, in seconds.
---- param position The jumping destination position.
---- param height The jumping height.
---- param jumps The jumping times.
---- return An autoreleased JumpTo object.
----@param duration number
----@param position vec2_table
----@param height number
----@param jumps number
----@return cc.JumpTo
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param position vec2_table @(cocos2d::Vec2) The jumping destination position.
+---@param height number @(float) The jumping height.
+---@param jumps number @(int) The jumping times.
+---@return cc.JumpTo @(cocos2d::JumpTo*) An autoreleased JumpTo object.
 function JumpTo:create(duration, position, height, jumps)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.JumpTo
-function JumpTo:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.JumpTo
-function JumpTo:clone()
-end
-
---------------------------------
-
---- 
----@return cc.JumpTo
-function JumpTo:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.JumpTo
-function JumpTo:JumpTo()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.JumpTo
-function JumpTo:new() end
-
 
 return nil

@@ -1,83 +1,29 @@
-
---------------------------------
--- @module ShuffleTiles
--- @extend TiledGrid3DAction
--- @parent_module cc
-
 ---@class cc.ShuffleTiles:cc.TiledGrid3DAction
 local ShuffleTiles = {}
 cc.ShuffleTiles = ShuffleTiles
---------------------------------
 
---- brief Initializes the action with grid size, random seed and duration.
---- param duration Specify the duration of the ShuffleTiles action. It's a value in seconds.
---- param gridSize Specify the size of the grid.
---- param seed Specify the random seed.
---- return If the Initialization success, return true; otherwise, return false.
----@param duration number
----@param gridSize size_table
----@param seed number
----@return boolean
-function ShuffleTiles:initWithDuration(duration, gridSize, seed)
-end
-
---------------------------------
-
---- 
----@param pos size_table
----@return size_table
+---@param pos vec2_table @(cocos2d::Vec2)
+---@return vec2_table @(cocos2d::Vec2)
 function ShuffleTiles:getDelta(pos)
 end
 
---------------------------------
+---
+--- @brief Initializes the action with grid size, random seed and duration.
+---@param duration number @(float) Specify the duration of the ShuffleTiles action. It's a value in seconds.
+---@param gridSize vec2_table @(cocos2d::Vec2) Specify the size of the grid.
+---@param seed number @(unsigned int) Specify the random seed.
+---@return boolean @(bool) If the Initialization success, return true; otherwise, return false.
+function ShuffleTiles:initWithDuration(duration, gridSize, seed)
+end
 
---- brief Create the action with grid size, random seed and duration.
---- param duration Specify the duration of the ShuffleTiles action. It's a value in seconds.
---- param gridSize Specify the size of the grid.
---- param seed Specify the random seed.
---- return If the creation success, return a pointer of ShuffleTiles action; otherwise, return nil.
----@param duration number
----@param gridSize size_table
----@param seed number
----@return cc.ShuffleTiles
+---
+--- @brief Create the action with grid size, random seed and duration.
+--- (static)
+---@param duration number @(float) Specify the duration of the ShuffleTiles action. It's a value in seconds.
+---@param gridSize vec2_table @(cocos2d::Vec2) Specify the size of the grid.
+---@param seed number @(unsigned int) Specify the random seed.
+---@return cc.ShuffleTiles @(cocos2d::ShuffleTiles*) If the creation success, return a pointer of ShuffleTiles action; otherwise, return nil.
 function ShuffleTiles:create(duration, gridSize, seed)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.ShuffleTiles
-function ShuffleTiles:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.ShuffleTiles
-function ShuffleTiles:clone()
-end
-
---------------------------------
-
---- 
----@param time number
----@return cc.ShuffleTiles
-function ShuffleTiles:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.ShuffleTiles
-function ShuffleTiles:ShuffleTiles()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ShuffleTiles
-function ShuffleTiles:new() end
-
 
 return nil

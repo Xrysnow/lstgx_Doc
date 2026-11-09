@@ -1,52 +1,25 @@
-
---------------------------------
--- @module TransitionSlideInL
--- @extend TransitionScene,TransitionEaseScene
--- @parent_module cc
-
 ---@class cc.TransitionSlideInL:cc.TransitionScene
 local TransitionSlideInL = {}
 cc.TransitionSlideInL = TransitionSlideInL
---------------------------------
 
----  Returns the action that will be performed by the incoming and outgoing scene.
---- return The action that will be performed by the incoming and outgoing scene.
----@return cc.ActionInterval
+--- Returns the action that will be performed by the incoming and outgoing scene.
+---
+---@return cc.ActionInterval @(cocos2d::ActionInterval*) The action that will be performed by the incoming and outgoing scene.
 function TransitionSlideInL:action()
 end
 
---------------------------------
-
---- 
----@param action cc.ActionInterval
----@return cc.ActionInterval
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@return cc.ActionInterval @(cocos2d::ActionInterval*)
 function TransitionSlideInL:easeActionWithAction(action)
 end
 
---------------------------------
-
----  Creates a transition with duration and incoming scene.
---- param t Duration time, in seconds.
---- param scene A given scene.
---- return A autoreleased TransitionSlideInL object.
----@param t number
----@param scene cc.Scene
----@return cc.TransitionSlideInL
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param scene cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionSlideInL @(cocos2d::TransitionSlideInL*) A autoreleased TransitionSlideInL object.
 function TransitionSlideInL:create(t, scene)
 end
-
---------------------------------
-
---- 
----@return cc.TransitionSlideInL
-function TransitionSlideInL:TransitionSlideInL()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionSlideInL
-function TransitionSlideInL:new() end
-
 
 return nil

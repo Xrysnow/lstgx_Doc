@@ -1,38 +1,24 @@
-
---------------------------------
--- @module TransitionFlipAngular
--- @extend TransitionSceneOriented
--- @parent_module cc
-
 ---@class cc.TransitionFlipAngular:cc.TransitionSceneOriented
 local TransitionFlipAngular = {}
 cc.TransitionFlipAngular = TransitionFlipAngular
---------------------------------
 
----  Creates a transition with duration and incoming scene.<br>
--- param t Duration time, in seconds.<br>
--- param s A given scene.<br>
--- return A autoreleased TransitionFlipAngular object.
----@param t number
----@param s cc.Scene
----@param o number
----@return cc.TransitionFlipAngular
----@overload fun(self:cc.TransitionFlipAngular, t:number, s:cc.Scene):cc.TransitionFlipAngular
+--- Creates a transition with duration, incoming scene and orientation.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@param o cc.TransitionScene.Orientation @(cocos2d::TransitionScene::Orientation) A given orientation.
+---@return cc.TransitionFlipAngular @(cocos2d::TransitionFlipAngular*) A autoreleased TransitionFlipAngular object.
 function TransitionFlipAngular:create(t, s, o)
 end
 
---------------------------------
-
---- 
----@return cc.TransitionFlipAngular
-function TransitionFlipAngular:TransitionFlipAngular()
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionFlipAngular @(cocos2d::TransitionFlipAngular*) A autoreleased TransitionFlipAngular object.
+function TransitionFlipAngular:create(t, s)
 end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionFlipAngular
-function TransitionFlipAngular:new() end
-
 
 return nil

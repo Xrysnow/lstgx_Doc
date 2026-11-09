@@ -1,66 +1,35 @@
-
---------------------------------
--- @module DirectionLight
--- @extend BaseLight
--- @parent_module cc
-
 ---@class cc.DirectionLight:cc.BaseLight
 local DirectionLight = {}
 cc.DirectionLight = DirectionLight
---------------------------------
 
+---
 --- Returns the Direction in parent.
----@return vec3_table
+---@return vec3_table @(cocos2d::Vec3)
 function DirectionLight:getDirection()
 end
 
---------------------------------
-
+---
 --- Returns direction in world.
----@return vec3_table
+---@return vec3_table @(cocos2d::Vec3)
 function DirectionLight:getDirectionInWorld()
 end
 
---------------------------------
-
+---
 --- Sets the Direction in parent.
---- param dir The Direction in parent.
----@param dir vec3_table
----@return cc.DirectionLight
+---
+---@param dir vec3_table @(cocos2d::Vec3) The Direction in parent.
+---@return self @(void)
 function DirectionLight:setDirection(dir)
 end
 
---------------------------------
-
+---
 --- Creates a direction light.
---- param direction The light's direction
---- param color The light's color.
---- return The new direction light.
----@param direction vec3_table
----@param color color3b_table
----@return cc.DirectionLight
+---
+--- (static)
+---@param direction vec3_table @(cocos2d::Vec3) The light's direction
+---@param color color3b_table @(cocos2d::Color3B) The light's color.
+---@return cc.DirectionLight @(cocos2d::DirectionLight*) The new direction light.
 function DirectionLight:create(direction, color)
 end
-
---------------------------------
-
---- 
----@return number
-function DirectionLight:getLightType()
-end
-
---------------------------------
-
---- 
----@return cc.DirectionLight
-function DirectionLight:DirectionLight()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.DirectionLight
-function DirectionLight:new() end
-
 
 return nil

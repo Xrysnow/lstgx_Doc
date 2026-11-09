@@ -1,90 +1,39 @@
-
---------------------------------
--- @module TransitionScene
--- @extend Scene
--- @parent_module cc
-
 ---@class cc.TransitionScene:cc.Scene
 local TransitionScene = {}
 cc.TransitionScene = TransitionScene
---------------------------------
 
---- 
----@return cc.Scene
-function TransitionScene:getInScene()
-end
-
---------------------------------
-
----  Called after the transition finishes.
----@return cc.TransitionScene
+--- Called after the transition finishes.
+---@return self @(void)
 function TransitionScene:finish()
 end
 
---------------------------------
-
----  initializes a transition with duration and incoming scene 
----@param t number
----@param scene cc.Scene
----@return boolean
-function TransitionScene:initWithDuration(t, scene)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function TransitionScene:getDuration()
 end
 
---------------------------------
+---@return cc.Scene @(cocos2d::Scene*)
+function TransitionScene:getInScene()
+end
 
----  Used by some transitions to hide the outer scene.
----@return cc.TransitionScene
+--- Used by some transitions to hide the outer scene.
+---@return self @(void)
 function TransitionScene:hideOutShowIn()
 end
 
---------------------------------
+--- initializes a transition with duration and incoming scene
+---@param t number @(float)
+---@param scene cc.Scene @(cocos2d::Scene*)
+---@return boolean @(bool)
+function TransitionScene:initWithDuration(t, scene)
+end
 
----  Creates a base transition with duration and incoming scene.
---- param t Duration time, in seconds.
---- param scene A given scene.
---- return A autoreleased TransitionScene object.
----@param t number
----@param scene cc.Scene
----@return cc.TransitionScene
+--- Creates a base transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param scene cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionScene @(cocos2d::TransitionScene*) A autoreleased TransitionScene object.
 function TransitionScene:create(t, scene)
 end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return cc.TransitionScene
-function TransitionScene:draw(renderer, transform, flags)
-end
-
---------------------------------
-
---- 
----@return cc.TransitionScene
-function TransitionScene:cleanup()
-end
-
---------------------------------
-
---- 
----@return cc.TransitionScene
-function TransitionScene:TransitionScene()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionScene
-function TransitionScene:new() end
-
 
 return nil

@@ -15,19 +15,17 @@ end
 function Node:unscheduleUpdate()
 end
 
----@param size size_table
+---@param size vec2_table @Input accepts x/y or width/height; output uses x/y.
 ---@return cc.Node
----@overload fun(width:number,height:number):cc.Node
 function Node:setContentSize(size)
 end
 
 ---@param point vec2_table
 ---@return cc.Node
----@overload fun(x:number,y:number):cc.Node
 function Node:setAnchorPoint(point)
 end
 
----@return number,number
+---@return vec2_table @One independent x/y snapshot.
 function Node:getPosition()
 end
 

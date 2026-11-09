@@ -1,63 +1,35 @@
-
---------------------------------
--- @module ScaleBy
--- @extend ScaleTo
--- @parent_module cc
-
 ---@class cc.ScaleBy:cc.ScaleTo
 local ScaleBy = {}
 cc.ScaleBy = ScaleBy
---------------------------------
 
---- Creates the action with and X factor and a Y factor.<br>
--- param duration Duration time, in seconds.<br>
--- param sx Scale factor of x.<br>
--- param sy Scale factor of y.<br>
--- return An autoreleased ScaleBy object.
----@param duration number
----@param sx number
----@param sy number
----@param sz number
----@return cc.ScaleBy
----@overload fun(self:cc.ScaleBy, duration:number, sx:number, sy:number):cc.ScaleBy
----@overload fun(self:cc.ScaleBy, duration:number, s:number):cc.ScaleBy
+---
+--- Creates the action with X Y Z factor.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param sx number @(float) Scale factor of x.
+---@param sy number @(float) Scale factor of y.
+---@param sz number @(float) Scale factor of z.
+---@return cc.ScaleBy @(cocos2d::ScaleBy*) An autoreleased ScaleBy object.
 function ScaleBy:create(duration, sx, sy, sz)
 end
 
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.ScaleBy
-function ScaleBy:startWithTarget(target)
+---
+--- Creates the action with and X factor and a Y factor.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param sx number @(float) Scale factor of x.
+---@param sy number @(float) Scale factor of y.
+---@return cc.ScaleBy @(cocos2d::ScaleBy*) An autoreleased ScaleBy object.
+function ScaleBy:create(duration, sx, sy)
 end
 
---------------------------------
-
---- 
----@return cc.ScaleBy
-function ScaleBy:clone()
+---
+--- Creates the action with the same scale factor for X and Y.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param s number @(float) Scale factor of x and y.
+---@return cc.ScaleBy @(cocos2d::ScaleBy*) An autoreleased ScaleBy object.
+function ScaleBy:create(duration, s)
 end
-
---------------------------------
-
---- 
----@return cc.ScaleBy
-function ScaleBy:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.ScaleBy
-function ScaleBy:ScaleBy()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ScaleBy
-function ScaleBy:new() end
-
 
 return nil

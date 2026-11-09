@@ -1,240 +1,125 @@
-
---------------------------------
--- @module MotionStreak
--- @extend Node,TextureProtocol
--- @parent_module cc
-
 ---@class cc.MotionStreak:cc.Node
 local MotionStreak = {}
 cc.MotionStreak = MotionStreak
---------------------------------
 
----  Remove all living segments of the ribbon.
----@return cc.MotionStreak
-function MotionStreak:reset()
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return cc.BlendFunc
+---
+--- @js NA
+--- @lua NA
+---@return cc.BlendFunc @(const cocos2d::BlendFunc&)
 function MotionStreak:getBlendFunc()
 end
 
---------------------------------
-
---- js NA
---- lua NA
----@param blendFunc cc.BlendFunc
----@return cc.MotionStreak
-function MotionStreak:setBlendFunc(blendFunc)
-end
-
---------------------------------
-
----  Color used for the tint.
---- param colors The color used for the tint.
----@param colors color3b_table
----@return cc.MotionStreak
-function MotionStreak:tintWithColor(colors)
-end
-
---------------------------------
-
---- 
----@return cc.Texture2D
-function MotionStreak:getTexture()
-end
-
---------------------------------
-
----  Sets the starting position initialized or not.
---- param bStartingPositionInitialized True if initialized the starting position.
----@param bStartingPositionInitialized boolean
----@return cc.MotionStreak
-function MotionStreak:setStartingPositionInitialized(bStartingPositionInitialized)
-end
-
---------------------------------
-
---- 
----@param texture cc.Texture2D
----@return cc.MotionStreak
-function MotionStreak:setTexture(texture)
-end
-
---------------------------------
-
----  Is the starting position initialized or not.
---- return True if the starting position is initialized.
----@return boolean
-function MotionStreak:isStartingPositionInitialized()
-end
-
---------------------------------
-
----  When fast mode is enabled, new points are added faster but with lower precision. 
---- return True if fast mode is enabled.
----@return boolean
-function MotionStreak:isFastMode()
-end
-
---------------------------------
-
----  Get stroke.
---- return float stroke.
----@return number
+--- Get stroke.
+---
+---@return number @(float) float stroke.
 function MotionStreak:getStroke()
 end
 
---------------------------------
+---@return cc.Texture2D @(cocos2d::Texture2D*)
+function MotionStreak:getTexture()
+end
 
----  initializes a motion streak with fade in seconds, minimum segments, stroke's width, color and texture  
----@param fade number
----@param minSeg number
----@param stroke number
----@param color color3b_table
----@param path string
----@return boolean
+--- initializes a motion streak with fade in seconds, minimum segments, stroke's width, color and texture
+---@param fade number @(float)
+---@param minSeg number @(float)
+---@param stroke number @(float)
+---@param color color3b_table @(cocos2d::Color3B)
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@return boolean @(bool)
+function MotionStreak:initWithFade(fade, minSeg, stroke, color, texture)
+end
+
+--- initializes a motion streak with fade in seconds, minimum segments, stroke's width, color and texture filename
+---@param fade number @(float)
+---@param minSeg number @(float)
+---@param stroke number @(float)
+---@param color color3b_table @(cocos2d::Color3B)
+---@param path string @(std::string_view)
+---@return boolean @(bool)
 function MotionStreak:initWithFade(fade, minSeg, stroke, color, path)
 end
 
---------------------------------
+--- When fast mode is enabled, new points are added faster but with lower precision.
+---
+---@return boolean @(bool) True if fast mode is enabled.
+function MotionStreak:isFastMode()
+end
 
----  Sets fast mode or not.
---- param bFastMode True if enabled fast mode.
----@param bFastMode boolean
----@return cc.MotionStreak
+--- Is the starting position initialized or not.
+---
+---@return boolean @(bool) True if the starting position is initialized.
+function MotionStreak:isStartingPositionInitialized()
+end
+
+--- Remove all living segments of the ribbon.
+---@return self @(void)
+function MotionStreak:reset()
+end
+
+---
+--- @js NA
+--- @lua NA
+---@param blendFunc cc.BlendFunc @(cocos2d::BlendFunc)
+---@return self @(void)
+function MotionStreak:setBlendFunc(blendFunc)
+end
+
+--- Sets fast mode or not.
+---
+---@param bFastMode boolean @(bool) True if enabled fast mode.
+---@return self @(void)
 function MotionStreak:setFastMode(bFastMode)
 end
 
---------------------------------
+--- Sets the starting position initialized or not.
+---
+---@param bStartingPositionInitialized boolean @(bool) True if initialized the starting position.
+---@return self @(void)
+function MotionStreak:setStartingPositionInitialized(bStartingPositionInitialized)
+end
 
----  Set stroke.
---- param stroke The width of stroke.
----@param stroke number
----@return cc.MotionStreak
+--- Set stroke.
+---
+---@param stroke number @(float) The width of stroke.
+---@return self @(void)
 function MotionStreak:setStroke(stroke)
 end
 
---------------------------------
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@return self @(void)
+function MotionStreak:setTexture(texture)
+end
 
----  Creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture.<br>
--- param timeToFade The fade time, in seconds.<br>
--- param minSeg The minimum segments.<br>
--- param strokeWidth The width of stroke.<br>
--- param strokeColor The color of stroke.<br>
--- param texture The texture name of stoke.<br>
--- return An autoreleased MotionStreak object.
----@param timeToFade number
----@param minSeg number
----@param strokeWidth number
----@param strokeColor color3b_table
----@param imagePath string
----@return cc.MotionStreak
+--- Color used for the tint.
+---
+---@param colors color3b_table @(cocos2d::Color3B) The color used for the tint.
+---@return self @(void)
+function MotionStreak:tintWithColor(colors)
+end
+
+--- Creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture.
+---
+--- (static)
+---@param timeToFade number @(float) The fade time, in seconds.
+---@param minSeg number @(float) The minimum segments.
+---@param strokeWidth number @(float) The width of stroke.
+---@param strokeColor color3b_table @(cocos2d::Color3B) The color of stroke.
+---@param texture cc.Texture2D @(cocos2d::Texture2D*) The texture name of stoke.
+---@return cc.MotionStreak @(cocos2d::MotionStreak*) An autoreleased MotionStreak object.
+function MotionStreak:create(timeToFade, minSeg, strokeWidth, strokeColor, texture)
+end
+
+--- Creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture
+--- filename.
+---
+--- (static)
+---@param timeToFade number @(float) The fade time, in seconds.
+---@param minSeg number @(float) The minimum segments.
+---@param strokeWidth number @(float) The width of stroke.
+---@param strokeColor color3b_table @(cocos2d::Color3B) The color of stroke.
+---@param imagePath string @(std::string_view) The texture file name of stoke.
+---@return cc.MotionStreak @(cocos2d::MotionStreak*) An autoreleased MotionStreak object.
 function MotionStreak:create(timeToFade, minSeg, strokeWidth, strokeColor, imagePath)
 end
-
---------------------------------
-
---- 
----@return boolean
-function MotionStreak:isOpacityModifyRGB()
-end
-
---------------------------------
-
---- 
----@param opacity number
----@return cc.MotionStreak
-function MotionStreak:setOpacity(opacity)
-end
-
---------------------------------
-
---- 
----@param y number
----@return cc.MotionStreak
-function MotionStreak:setPositionY(y)
-end
-
---------------------------------
-
---- 
----@param x number
----@return cc.MotionStreak
-function MotionStreak:setPositionX(x)
-end
-
---------------------------------
-
---- 
----@return number
-function MotionStreak:getPositionY()
-end
-
---------------------------------
-
---- 
----@return number
-function MotionStreak:getPositionX()
-end
-
---------------------------------
-
---- 
----@return vec3_table
-function MotionStreak:getPosition3D()
-end
-
---------------------------------
-
---- 
----@param value boolean
----@return cc.MotionStreak
-function MotionStreak:setOpacityModifyRGB(value)
-end
-
---------------------------------
-
---- 
----@return number
-function MotionStreak:getOpacity()
-end
-
---------------------------------
-
---- 
----@param x number
----@param y number
----@return cc.MotionStreak
----@overload fun(self:cc.MotionStreak, position:vec2_table):cc.MotionStreak
-function MotionStreak:setPosition(x, y)
-end
-
---------------------------------
-
---- 
----@param x float
----@param y float
----@return cc.MotionStreak
----@overload fun(self:cc.MotionStreak):cc.MotionStreak
-function MotionStreak:getPosition(x, y)
-end
-
---------------------------------
-
---- 
----@return cc.MotionStreak
-function MotionStreak:MotionStreak()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.MotionStreak
-function MotionStreak:new() end
-
 
 return nil

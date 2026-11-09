@@ -1,41 +1,14 @@
-
---------------------------------
--- @module AmbientLight
--- @extend BaseLight
--- @parent_module cc
-
 ---@class cc.AmbientLight:cc.BaseLight
 local AmbientLight = {}
 cc.AmbientLight = AmbientLight
---------------------------------
 
+---
 --- Creates a ambient light.
---- param color The light's color.
---- return The new ambient light.
----@param color color3b_table
----@return cc.AmbientLight
+---
+--- (static)
+---@param color color3b_table @(cocos2d::Color3B) The light's color.
+---@return cc.AmbientLight @(cocos2d::AmbientLight*) The new ambient light.
 function AmbientLight:create(color)
 end
-
---------------------------------
-
---- 
----@return number
-function AmbientLight:getLightType()
-end
-
---------------------------------
-
---- 
----@return cc.AmbientLight
-function AmbientLight:AmbientLight()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.AmbientLight
-function AmbientLight:new() end
-
 
 return nil

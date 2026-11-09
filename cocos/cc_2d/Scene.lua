@@ -1,27 +1,65 @@
-
---------------------------------
--- @module Scene
--- @extend Node
--- @parent_module cc
-
 ---@class cc.Scene:cc.Node
 local Scene = {}
 cc.Scene = Scene
---------------------------------
 
---- 
----@return boolean
-function Scene:initWithPhysics()
+--- Get the default camera.
+--- @js NA
+---@return cc.Camera @(cocos2d::Camera*) The default camera of scene.
+function Scene:getDefaultCamera()
 end
 
---------------------------------
+---@param size vec2_table @(cocos2d::Vec2)
+---@return boolean @(bool)
+function Scene:initWithSize(size)
+end
 
---- 
----@return cc.Scene
+---@param event cc.EventCustom @(cocos2d::EventCustom*)
+---@return self @(void)
+function Scene:onProjectionChanged(event)
+end
+
+---@return self @(void)
 function Scene:setCameraOrderDirty()
 end
 
---------------------------------
+--- Creates a new Scene object.
+---
+--- (static)
+---@return cc.Scene @(cocos2d::Scene*) An autoreleased Scene object.
+function Scene:create()
+end
+
+--- Creates a new Scene object with a predefined size.
+---
+--- @js NA
+--- (static)
+---@param size vec2_table @(cocos2d::Vec2) The predefined size of scene.
+---@return cc.Scene @(cocos2d::Scene*) An autoreleased Scene object.
+function Scene:createWithSize(size)
+end
+
+---  Create a scene with physics.
+--- return An autoreleased Scene object with physics.
+--- js NA
+---@return cc.Scene
+function Scene:createWithPhysics()
+end
+
+---  Get the physics world of the scene.
+--- return The physics world of the scene.
+--- js NA
+---@return cc.PhysicsWorld
+function Scene:getPhysicsWorld()
+end
+
+--- Existing Lua adapter; only the documented Lua arities are exposed.
+---@return boolean
+function Scene:initPhysicsWorld() end
+
+---
+---@return boolean
+function Scene:initWithPhysics()
+end
 
 ---  Render the scene.
 --- param renderer The renderer use to render the scene.
@@ -35,113 +73,10 @@ end
 function Scene:render(renderer, eyeTransform, eyeProjection)
 end
 
---------------------------------
-
---- 
+---
 ---@param deltaTime number
 ---@return cc.Scene
 function Scene:stepPhysicsAndNavigation(deltaTime)
 end
-
---------------------------------
-
---- 
----@param event cc.EventCustom
----@return cc.Scene
-function Scene:onProjectionChanged(event)
-end
-
---------------------------------
-
----  Get the physics world of the scene.
---- return The physics world of the scene.
---- js NA
----@return cc.PhysicsWorld
-function Scene:getPhysicsWorld()
-end
-
---------------------------------
-
---- 
----@param size size_table
----@return boolean
-function Scene:initWithSize(size)
-end
-
---------------------------------
-
----  Get the default camera.
---- js NA
---- return The default camera of scene.
----@return cc.Camera
-function Scene:getDefaultCamera()
-end
-
---------------------------------
-
----  Creates a new Scene object with a predefined Size. 
---- param size The predefined size of scene.
---- return An autoreleased Scene object.
---- js NA
----@param size size_table
----@return cc.Scene
-function Scene:createWithSize(size)
-end
-
---------------------------------
-
----  Creates a new Scene object. 
---- return An autoreleased Scene object.
----@return cc.Scene
-function Scene:create()
-end
-
---------------------------------
-
----  Create a scene with physics.
---- return An autoreleased Scene object with physics.
---- js NA
----@return cc.Scene
-function Scene:createWithPhysics()
-end
-
---------------------------------
-
---- 
----@return boolean
-function Scene:init()
-end
-
---------------------------------
-
---- 
----@return string
-function Scene:getDescription()
-end
-
---------------------------------
-
----  override function 
----@return cc.Scene
-function Scene:removeAllChildren()
-end
-
---------------------------------
-
---- 
----@return cc.Scene
-function Scene:Scene()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Scene
-function Scene:new() end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return boolean
-function Scene:initPhysicsWorld() end
-
 
 return nil

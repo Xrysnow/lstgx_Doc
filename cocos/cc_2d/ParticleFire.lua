@@ -1,58 +1,21 @@
-
---------------------------------
--- @module ParticleFire
--- @extend ParticleSystemQuad
--- @parent_module cc
-
 ---@class cc.ParticleFire:cc.ParticleSystemQuad
 local ParticleFire = {}
 cc.ParticleFire = ParticleFire
---------------------------------
 
----  Create a fire particle system.
---- return An autoreleased ParticleFire object.
----@return cc.ParticleFire
+--- Create a fire particle system.
+---
+--- (static)
+---@return cc.ParticleFire @(cocos2d::ParticleFire*) An autoreleased ParticleFire object.
 function ParticleFire:create()
 end
 
---------------------------------
-
----  Create a fire particle system withe a fixed number of particles.
---- param numberOfParticles A given number of particles.
---- return An autoreleased ParticleFire object.
---- js NA
----@param numberOfParticles number
----@return cc.ParticleFire
+--- Create a fire particle system withe a fixed number of particles.
+---
+--- @js NA
+--- (static)
+---@param numberOfParticles number @(int) A given number of particles.
+---@return cc.ParticleFire @(cocos2d::ParticleFire*) An autoreleased ParticleFire object.
 function ParticleFire:createWithTotalParticles(numberOfParticles)
 end
-
---------------------------------
-
---- 
----@return boolean
-function ParticleFire:init()
-end
-
---------------------------------
-
---- 
----@param numberOfParticles number
----@return boolean
-function ParticleFire:initWithTotalParticles(numberOfParticles)
-end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleFire
-function ParticleFire:ParticleFire()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleFire
-function ParticleFire:new() end
-
 
 return nil

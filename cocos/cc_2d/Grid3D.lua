@@ -1,92 +1,51 @@
-
---------------------------------
--- @module Grid3D
--- @extend GridBase
--- @parent_module cc
-
 ---@class cc.Grid3D:cc.GridBase
 local Grid3D = {}
 cc.Grid3D = Grid3D
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function Grid3D:getNeedDepthTestForBlit()
 end
 
---------------------------------
-
 --- @{
 --- Getter and Setter for depth test state when blit.
---- js NA
----@param neededDepthTest boolean
----@return cc.Grid3D
+--- @js NA
+---@param neededDepthTest boolean @(bool)
+---@return self @(void)
 function Grid3D:setNeedDepthTestForBlit(neededDepthTest)
 end
 
---------------------------------
-
----  create one Grid. 
----@param gridSize size_table
----@param texture cc.Texture2D
----@param flipped boolean
----@param rect rect_table
----@return cc.Grid3D
----@overload fun(self:cc.Grid3D, gridSize:size_table, rect:rect_table):cc.Grid3D
----@overload fun(self:cc.Grid3D, gridSize:size_table):cc.Grid3D
----@overload fun(self:cc.Grid3D, gridSize:size_table, texture:cc.Texture2D, flipped:boolean):cc.Grid3D
+--- create one Grid.
+--- (static)
+---@param gridSize vec2_table @(cocos2d::Vec2)
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@param flipped boolean @(bool)
+---@param rect rect_table @(cocos2d::Rect)
+---@return cc.Grid3D @(cocos2d::Grid3D*)
 function Grid3D:create(gridSize, texture, flipped, rect)
 end
 
---------------------------------
-
---- 
----@return cc.Grid3D
-function Grid3D:calculateVertexPoints()
+--- create one Grid.
+--- (static)
+---@param gridSize vec2_table @(cocos2d::Vec2)
+---@param texture cc.Texture2D @(cocos2d::Texture2D*)
+---@param flipped boolean @(bool)
+---@return cc.Grid3D @(cocos2d::Grid3D*)
+function Grid3D:create(gridSize, texture, flipped)
 end
 
---------------------------------
-
---- @{
---- Implementations for interfaces in base class.
----@return cc.Grid3D
-function Grid3D:beforeBlit()
+--- create one Grid.
+--- (static)
+---@param gridSize vec2_table @(cocos2d::Vec2)
+---@param rect rect_table @(cocos2d::Rect)
+---@return cc.Grid3D @(cocos2d::Grid3D*)
+function Grid3D:create(gridSize, rect)
 end
 
---------------------------------
-
---- 
----@return cc.Grid3D
-function Grid3D:afterBlit()
+--- create one Grid.
+--- (static)
+---@param gridSize vec2_table @(cocos2d::Vec2)
+---@return cc.Grid3D @(cocos2d::Grid3D*)
+function Grid3D:create(gridSize)
 end
-
---------------------------------
-
---- 
----@return cc.Grid3D
-function Grid3D:reuse()
-end
-
---------------------------------
-
---- 
----@return cc.Grid3D
-function Grid3D:blit()
-end
-
---------------------------------
-
---- Constructor.
---- js ctor
----@return cc.Grid3D
-function Grid3D:Grid3D()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Grid3D
-function Grid3D:new() end
-
 
 return nil

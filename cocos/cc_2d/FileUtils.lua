@@ -1,602 +1,285 @@
-
---------------------------------
--- @module FileUtils
--- @parent_module cc
-
 ---@class cc.FileUtils
 local FileUtils = {}
 cc.FileUtils = FileUtils
 
---- Application directories use the built-in application identity and platform defaults;
---- no configuration call is needed. Native hosts may configure overrides before the
---- first valid query or ensure begins; configureAppDirectories is unavailable to Lua.
---- PersistentData holds data that must survive normal restarts and upgrades.
---- TransientData holds disposable data: handle missing files by rebuilding or continuing.
---- TransientData is not guaranteed to survive a restart and is not automatically cleared
---- at exit. Neither category promises backup, cloud sync, or survival after uninstall.
---- These roots are independent of getWritablePath()/setWritablePath(); no data is moved.
---------------------------------
-
----  Returns the fullpath for a given filename.
---- First it will try to get a new filename from the "filenameLookup" dictionary.
---- If a new filename can't be found on the dictionary, it will use the original filename.
---- Then it will try to obtain the full path of the filename using the FileUtils search rules: resolutions, and search paths.
---- The file search is based on the array element order of search paths and resolution directories.
---- For instance:
---- We set two elements("/mnt/sdcard/", "internal_dir/") to search paths vector by setSearchPaths,
---- and set three elements("resources-ipadhd/", "resources-ipad/", "resources-iphonehd")
---- to resolutions vector by setSearchResolutionsOrder. The "internal_dir" is relative to "Resources/".
---- If we have a file named 'sprite.png', the mapping in fileLookup dictionary contains `key: sprite.png -> value: sprite.pvr.gz`.
---- Firstly, it will replace 'sprite.png' with 'sprite.pvr.gz', then searching the file sprite.pvr.gz as follows:
---- /mnt/sdcard/resources-ipadhd/sprite.pvr.gz      (if not found, search next)
---- /mnt/sdcard/resources-ipad/sprite.pvr.gz        (if not found, search next)
---- /mnt/sdcard/resources-iphonehd/sprite.pvr.gz    (if not found, search next)
---- /mnt/sdcard/sprite.pvr.gz                       (if not found, search next)
---- internal_dir/resources-ipadhd/sprite.pvr.gz     (if not found, search next)
---- internal_dir/resources-ipad/sprite.pvr.gz       (if not found, search next)
---- internal_dir/resources-iphonehd/sprite.pvr.gz   (if not found, search next)
---- internal_dir/sprite.pvr.gz                      (if not found, return "sprite.png")
---- If the filename contains relative path like "gamescene/uilayer/sprite.png",
---- and the mapping in fileLookup dictionary contains `key: gamescene/uilayer/sprite.png -> value: gamescene/uilayer/sprite.pvr.gz`.
---- The file search order will be:
---- /mnt/sdcard/gamescene/uilayer/resources-ipadhd/sprite.pvr.gz      (if not found, search next)
---- /mnt/sdcard/gamescene/uilayer/resources-ipad/sprite.pvr.gz        (if not found, search next)
---- /mnt/sdcard/gamescene/uilayer/resources-iphonehd/sprite.pvr.gz    (if not found, search next)
---- /mnt/sdcard/gamescene/uilayer/sprite.pvr.gz                       (if not found, search next)
---- internal_dir/gamescene/uilayer/resources-ipadhd/sprite.pvr.gz     (if not found, search next)
---- internal_dir/gamescene/uilayer/resources-ipad/sprite.pvr.gz       (if not found, search next)
---- internal_dir/gamescene/uilayer/resources-iphonehd/sprite.pvr.gz   (if not found, search next)
---- internal_dir/gamescene/uilayer/sprite.pvr.gz                      (if not found, return "gamescene/uilayer/sprite.png")
---- If the new file can't be found on the file system, it will return the parameter filename directly.
---- This method was added to simplify multiplatform support. Whether you are using cocos2d-js or any cross-compilation toolchain like StellaSDK or Apportable,
---- you might need to load different resources for a given file in the different platforms.
---- since v2.1
----@param filename string
----@return string
-function FileUtils:fullPathForFilename(filename)
-end
-
---------------------------------
-
---- Gets string from a file, async off the main cocos thread<br>
--- param path filepath for the string to be read. Can be relative or absolute path<br>
--- param callback Function that will be called when file is read. Will be called <br>
--- on the main cocos thread.
----@param path string
----@param callback fun(arg0:string)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, filename:string):string
-function FileUtils:getStringFromFile(path, callback)
-end
-
---------------------------------
-
---- Sets the filenameLookup dictionary.
---- param filenameLookupDict The dictionary for replacing filename.
---- since v2.1
----@param filenameLookupDict map_table
----@return cc.FileUtils
-function FileUtils:setFilenameLookupDictionary(filenameLookupDict)
-end
-
---------------------------------
-
---- Removes a file, async off the main cocos thread.<br>
--- param filepath the path of the file to remove, it must be an absolute path<br>
--- param callback The function that will be called when the operation is complete. Will have one boolean<br>
--- argument, true if the file was successfully removed, false otherwise.
----@param filepath string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, filepath:string):cc.FileUtils
-function FileUtils:removeFile(filepath, callback)
-end
-
---------------------------------
-
---- List all files recursively in a directory, async off the main cocos thread.
---- param dirPath The path of the directory, it could be a relative or an absolute path.
---- param callback The callback to be called once the list operation is complete. 
---- Will be called on the main cocos thread.
---- js NA
---- lua NA
----@param dirPath string
----@param callback fun(arg0:array_table)
----@return cc.FileUtils
-function FileUtils:listFilesRecursivelyAsync(dirPath, callback)
-end
-
---------------------------------
-
---- Checks whether the path is an absolute path.
---- note On Android, if the parameter passed in is relative to "assets/", this method will treat it as an absolute path.
---- Also on Blackberry, path starts with "app/native/Resources/" is treated as an absolute path.
---- param path The path that needs to be checked.
---- return True if it's an absolute path, false if not.
----@param path string
----@return boolean
-function FileUtils:isAbsolutePath(path)
-end
-
---------------------------------
-
---- Renames a file under the given directory, async off the main cocos thread.<br>
--- param path     The parent directory path of the file, it must be an absolute path.<br>
--- param oldname  The current name of the file.<br>
--- param name     The new name of the file.<br>
--- param callback The function that will be called when the operation is complete. Will have one boolean<br>
--- argument, true if the file was successfully renamed, false otherwise.
----@param path string
----@param oldname string
----@param name string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, path:string, oldname:string, name:string):cc.FileUtils
----@overload fun(self:cc.FileUtils, oldfullpath:string, newfullpath:string):cc.FileUtils
----@overload fun(self:cc.FileUtils, oldfullpath:string, newfullpath:string, callback:function):cc.FileUtils
-function FileUtils:renameFile(path, oldname, name, callback)
-end
-
---------------------------------
-
---- Get default resource root path.
----@return string
-function FileUtils:getDefaultResourceRootPath()
-end
-
---------------------------------
-
---- Loads the filenameLookup dictionary from the contents of a filename.
---- note The plist file name should follow the format below:
---- code
---- <?xml version="1.0" encoding="UTF-8"?>
---- <!DOCTYPE plist PUBLIC "-AppleDTD PLIST 1.0EN" "http:www.apple.com/DTDs/PropertyList-1.0.dtd">
---- <plist version="1.0">
---- <dict>
---- <key>filenames</key>
---- <dict>
---- <key>sounds/click.wav</key>
---- <string>sounds/click.caf</string>
---- <key>sounds/endgame.wav</key>
---- <string>sounds/endgame.caf</string>
---- <key>sounds/gem-0.wav</key>
---- <string>sounds/gem-0.caf</string>
---- </dict>
---- <key>metadata</key>
---- <dict>
---- <key>version</key>
---- <integer>1</integer>
---- </dict>
---- </dict>
---- </plist>
---- endcode
---- param filename The plist file name.
---- since v2.1
---- js loadFilenameLookup
---- lua loadFilenameLookup
----@param filename string
----@return cc.FileUtils
-function FileUtils:loadFilenameLookupDictionaryFromFile(filename)
-end
-
---------------------------------
-
----  Checks whether to pop up a message box when failed to load an image.
---- return True if pop up a message box when failed to load an image, false if not.
----@return boolean
-function FileUtils:isPopupNotify()
-end
-
---------------------------------
-
---- 
----@param filename string
----@return array_table
-function FileUtils:getValueVectorFromFile(filename)
-end
-
---------------------------------
-
---- Gets the array of search paths.
---- return The array of search paths which may contain the prefix of default resource root path. 
---- note In best practise, getter function should return the value of setter function passes in.
---- But since we should not break the compatibility, we keep using the old logic. 
---- Therefore, If you want to get the original search paths, please call 'getOriginalSearchPaths()' instead.
---- see fullPathForFilename(const char*).
---- lua NA
----@return array_table
-function FileUtils:getSearchPaths()
-end
-
---------------------------------
-
---- write a ValueMap into a plist file
---- param dict the ValueMap want to save
---- param fullPath The full path to the file you want to save a string
---- return bool
----@param dict map_table
----@param fullPath string
----@return boolean
-function FileUtils:writeToFile(dict, fullPath)
-end
-
---------------------------------
-
---- Gets the original search path array set by 'setSearchPaths' or 'addSearchPath'.
---- return The array of the original search paths
----@return string[]
-function FileUtils:getOriginalSearchPaths()
-end
-
---------------------------------
-
---- Gets the new filename from the filename lookup dictionary.
---- It is possible to have a override names.
---- param filename The original filename.
---- return The new filename after searching in the filename lookup dictionary.
---- If the original filename wasn't in the dictionary, it will return the original filename.
----@param filename string
----@return string
-function FileUtils:getNewFilename(filename)
-end
-
---------------------------------
-
---- List all files in a directory.
---- param dirPath The path of the directory, it could be a relative or an absolute path.
---- return File paths in a string vector
----@param dirPath string
----@return string[]
-function FileUtils:listFiles(dirPath)
-end
-
---------------------------------
-
---- Converts the contents of a file to a ValueMap.
---- param filename The filename of the file to gets content.
---- return ValueMap of the file contents.
---- note This method is used internally.
----@param filename string
----@return map_table
-function FileUtils:getValueMapFromFile(filename)
-end
-
---------------------------------
-
---- Retrieve the file size, async off the main cocos thread.<br>
--- note If a relative path was passed in, it will be inserted a default root path at the beginning.<br>
--- param filepath The path of the file, it could be a relative or absolute path.<br>
--- param callback The function that will be called when the operation is complete. Will have one long<br>
--- argument, the file size.
----@param filepath string
----@param callback fun(arg0:number)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, filepath:string):cc.FileUtils
-function FileUtils:getFileSize(filepath, callback)
-end
-
---------------------------------
-
----  Converts the contents of a file to a ValueMap.
---- This method is used internally.
----@param filedata string
----@param filesize number
----@return map_table
-function FileUtils:getValueMapFromData(filedata, filesize)
-end
-
---------------------------------
-
---- Removes a directory, async off the main cocos thread.<br>
--- param dirPath the path of the directory, it must be an absolute path<br>
--- param callback The function that will be called when the operation is complete. Will have one boolean<br>
--- argument, true if the directory was successfully removed, false otherwise.
----@param dirPath string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, dirPath:string):cc.FileUtils
-function FileUtils:removeDirectory(dirPath, callback)
-end
-
---------------------------------
-
---- Sets the array of search paths.
---- You can use this array to modify the search path of the resources.
---- If you want to use "themes" or search resources in the "cache", you can do it easily by adding new entries in this array.
---- note This method could access relative path and absolute path.
---- If the relative path was passed to the vector, FileUtils will add the default resource directory before the relative path.
---- For instance:
---- On Android, the default resource root path is "assets/".
---- If "/mnt/sdcard/" and "resources-large" were set to the search paths vector,
---- "resources-large" will be converted to "assets/resources-large" since it was a relative path.
---- param searchPaths The array contains search paths.
---- see fullPathForFilename(const char*)
---- since v2.1
---- In js:var setSearchPaths(var jsval);
---- lua NA
----@param searchPaths string[]
----@return cc.FileUtils
-function FileUtils:setSearchPaths(searchPaths)
-end
-
---------------------------------
-
---- Write a string to a file, done async off the main cocos thread<br>
--- Use this function if you need file access without blocking the main thread.<br>
--- This function takes a std::string by value on purpose, to leverage move sematics.<br>
--- If you want to avoid a copy of your datastr, use std::move/std::forward if appropriate<br>
--- param dataStr the string want to save<br>
--- param fullPath The full path to the file you want to save a string<br>
--- param callback The function called once the string has been written to a file. This<br>
--- function will be executed on the main cocos thread. It will have on boolean argument <br>
--- signifying if the write was successful.
----@param dataStr string
----@param fullPath string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, dataStr:string, fullPath:string):cc.FileUtils
-function FileUtils:writeStringToFile(dataStr, fullPath, callback)
-end
-
---------------------------------
-
---- Sets the array that contains the search order of the resources.
---- param searchResolutionsOrder The source array that contains the search order of the resources.
---- see getSearchResolutionsOrder(), fullPathForFilename(const char*).
---- since v2.1
---- In js:var setSearchResolutionsOrder(var jsval)
---- lua NA
----@param searchResolutionsOrder array_table
----@return cc.FileUtils
-function FileUtils:setSearchResolutionsOrder(searchResolutionsOrder)
-end
-
---------------------------------
-
---- Append search order of the resources.
---- see setSearchResolutionsOrder(), fullPathForFilename().
---- since v2.1
----@param order string
----@param front boolean
----@return cc.FileUtils
-function FileUtils:addSearchResolutionsOrder(order, front)
-end
-
---------------------------------
-
+---
 --- Add search path.
---- since v2.1
----@param path string
----@param front boolean
----@return cc.FileUtils
+---
+--- @since v2.1
+---@param path string @(std::string_view)
+---@param front boolean @(const bool)
+---@return self @(void)
 function FileUtils:addSearchPath(path, front)
 end
 
---------------------------------
-
---- Write a ValueVector into a file, done async off the main cocos thread.<br>
--- Use this function if you need to write a ValueVector while not blocking the main cocos thread.<br>
--- This function takes ValueVector by value on purpose, to leverage move sematics.<br>
--- If you want to avoid a copy of your dict, use std::move/std::forward if appropriate<br>
--- param vecData The ValueVector that will be written to disk<br>
--- param fullPath The absolute file path that the data will be written to<br>
--- param callback The function that will be called when vecData is written to disk. This<br>
--- function will be executed on the main cocos thread. It will have on boolean argument <br>
--- signifying if the write was successful.
----@param vecData array_table
----@param fullPath string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, vecData:array_table, fullPath:string):cc.FileUtils
-function FileUtils:writeValueVectorToFile(vecData, fullPath, callback)
+---
+--- Add search path.
+---
+--- @since v2.1
+---@param path string @(std::string_view)
+---@return self @(void)
+function FileUtils:addSearchPath(path)
 end
 
---------------------------------
-
---- Checks if a file exists, done async off the main cocos thread.<br>
--- Use this function if you need to check if a file exists while not blocking the main cocos thread.<br>
--- note If a relative path was passed in, it will be inserted a default root path at the beginning.<br>
--- param filename The path of the file, it could be a relative or absolute path.<br>
--- param callback The function that will be called when the operation is complete. Will have one boolean<br>
--- argument, true if the file exists, false otherwise.
----@param filename string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, filename:string):cc.FileUtils
-function FileUtils:isFileExist(filename, callback)
-end
-
---------------------------------
-
---- Purges full path caches.
----@return cc.FileUtils
-function FileUtils:purgeCachedEntries()
-end
-
---------------------------------
-
---- Gets full path from a file name and the path of the relative file.
---- param filename The file name.
---- param relativeFile The path of the relative file.
---- return The full path.
---- e.g. filename: hello.png, pszRelativeFile: /User/path1/path2/hello.plist
---- Return: /User/path1/path2/hello.pvr (If there a a key(hello.png)-value(hello.pvr) in FilenameLookup dictionary. )
----@param filename string
----@param relativeFile string
----@return string
-function FileUtils:fullPathFromRelativeFile(filename, relativeFile)
-end
-
---------------------------------
-
---- Windows fopen can't support UTF-8 filename
---- Need convert all parameters fopen and other 3rd-party libs
---- param filenameUtf8 std::string name file for conversion from utf-8
---- return std::string ansi filename in current locale
----@param filenameUtf8 string
----@return string
-function FileUtils:getSuitableFOpen(filenameUtf8)
-end
-
---------------------------------
-
---- Write a ValueMap into a file, done async off the main cocos thread.<br>
--- Use this function if you need to write a ValueMap while not blocking the main cocos thread.<br>
--- This function takes ValueMap by value on purpose, to leverage move sematics.<br>
--- If you want to avoid a copy of your dict, use std::move/std::forward if appropriate<br>
--- param dict The ValueMap that will be written to disk<br>
--- param fullPath The absolute file path that the data will be written to<br>
--- param callback The function that will be called when dict is written to disk. This<br>
--- function will be executed on the main cocos thread. It will have on boolean argument <br>
--- signifying if the write was successful.
----@param dict map_table
----@param fullPath string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, dict:map_table, fullPath:string):cc.FileUtils
-function FileUtils:writeValueMapToFile(dict, fullPath, callback)
-end
-
---------------------------------
-
---- Gets filename extension is a suffix (separated from the base filename by a dot) in lower case.
---- Examples of filename extensions are .png, .jpeg, .exe, .dmg and .txt.
---- param filePath The path of the file, it could be a relative or absolute path.
---- return suffix for filename in lower case or empty if a dot not found.
----@param filePath string
----@return string
-function FileUtils:getFileExtension(filePath)
-end
-
---------------------------------
-
---- Configures a physical writable path without checking or creating the target.
---- Relative paths resolve against the CWD captured during this call; an empty string
---- resets to the platform default. Success stores a normalized absolute UTF-8 path
---- with a trailing slash. Failure returns false and preserves the previous setting.
---- Success does not guarantee that the target exists, is a directory, or is writable.
----@param writablePath string
----@return boolean
-function FileUtils:setWritablePath(writablePath)
-end
-
---------------------------------
-
---- Sets whether to pop-up a message box when failed to load an image.
----@param notify boolean
----@return cc.FileUtils
-function FileUtils:setPopupNotify(notify)
-end
-
---------------------------------
-
---- Checks whether the absoulate path is a directory, async off of the main cocos thread.<br>
--- param dirPath The path of the directory, it must be an absolute path<br>
--- param callback that will accept a boolean, true if the file exists, false otherwise. <br>
--- Callback will happen on the main cocos thread.
----@param fullPath string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, dirPath:string):cc.FileUtils
-function FileUtils:isDirectoryExist(fullPath, callback)
-end
-
---------------------------------
-
---- Set default resource root path.
----@param path string
----@return cc.FileUtils
-function FileUtils:setDefaultResourceRootPath(path)
-end
-
---------------------------------
-
---- Gets the array that contains the search order of the resources.
---- see setSearchResolutionsOrder(const std::vector<std::string>&), fullPathForFilename(const char*).
---- since v2.1
---- lua NA
----@return array_table
-function FileUtils:getSearchResolutionsOrder()
-end
-
---------------------------------
-
---- Creates a physical directory and missing parents without resource-path lookup.
---- The synchronous overload returns true only if the final target is a directory,
---- whether it already existed or was created. Empty paths and embedded NUL return false.
---- Relative paths use the process CWD when the operation executes; for the async
---- overload this is the worker execution time. Its callback receives the same boolean
---- result on the cocos thread after completion.
----@param dirPath string
----@param callback fun(arg0:boolean)
----@return cc.FileUtils
----@overload fun(self:cc.FileUtils, dirPath:string):boolean
+---
+--- Create a directory, async off the main cocos thread.
+---
+--- argument, true if the physical target is a directory, false otherwise (including emptyNUL input).
+---@param dirPath string @(std::string_view) Native path; relative paths use the worker's process CWD when it executes.
+---@param callback function @(std::function<void(bool)>) The function that will be called when the operation is complete. Will have one boolean
+---@return self @(void)
 function FileUtils:createDirectory(dirPath, callback)
 end
 
---------------------------------
-
---- List all files in a directory async, off of the main cocos thread.
---- param dirPath The path of the directory, it could be a relative or an absolute path.
---- param callback The callback to be called once the list operation is complete. Will be called on the main cocos thread.
---- js NA
---- lua NA
----@param dirPath string
----@param callback fun(arg0:array_table)
----@return cc.FileUtils
-function FileUtils:listFilesAsync(dirPath, callback)
+---
+--- Creates a physical directory and any missing parent directories without resource lookup.
+---
+--- @param dirPath Native path; relative paths use the process CWD when the operation executes.
+--- @return True if the target is a directory after the operation (including an existing one).
+--- Empty or NUL-containing paths, file occupants and creation failures return false.
+---@param dirPath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:createDirectory(dirPath)
 end
-
---------------------------------
-
---- Returns the configured absolute physical path as UTF-8 with a trailing slash.
---- The result is empty if no default or override is available. This query does not
---- check or create directories and is identical to getNativeWritableAbsolutePath().
----@return string
-function FileUtils:getWritablePath()
-end
-
---------------------------------
-
---- List all files recursively in a directory.
---- param dirPath The path of the directory, it could be a relative or an absolute path.
---- return File paths in a string vector
----@param dirPath string
----@param files array_table
----@return cc.FileUtils
-function FileUtils:listFilesRecursively(dirPath, files)
-end
-
---------------------------------
-
---- Destroys the instance of FileUtils.
----@return cc.FileUtils
-function FileUtils:destroyInstance()
-end
-
---------------------------------
-
---- Gets the instance of FileUtils.
----@return cc.FileUtils
-function FileUtils:getInstance()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
 
 ---
---- Returns the same absolute physical UTF-8 path as getWritablePath(), using '/'.
---- An empty result means unavailable; this query does not check or create directories.
+--- Recursively create and verify a root or relative child using native filesystem IO.
+--- Child components must be nonempty, without '.', '..', NUL, backslash or drive syntax;
+--- empty input means the root. This is not a sandbox against hostile symlinks.
+--- Success does not promise that subsequent writes will succeed.
+---@param kind cc.AppDirectory @(cocos2d::AppDirectory)
+---@param relativeSubdirectory string @(std::string_view)
+---@return cc.DirectoryResult @(cocos2d::DirectoryResult)
+function FileUtils:ensureAppDirectory(kind, relativeSubdirectory)
+end
+
+---
+--- Recursively create and verify a root or relative child using native filesystem IO.
+--- Child components must be nonempty, without '.', '..', NUL, backslash or drive syntax;
+--- empty input means the root. This is not a sandbox against hostile symlinks.
+--- Success does not promise that subsequent writes will succeed.
+---@param kind cc.AppDirectory @(cocos2d::AppDirectory)
+---@return cc.DirectoryResult @(cocos2d::DirectoryResult)
+function FileUtils:ensureAppDirectory(kind)
+end
+
+--- Returns the fullpath for a given filename.
+---
+--- First it will try to get a new filename from the "filenameLookup" dictionary.
+--- If a new filename can't be found on the dictionary, it will use the original filename.
+--- Then it will try to obtain the full path of the filename using the FileUtils search rules: resolutions, and search
+--- paths. The file search is based on the array element order of search paths and resolution directories.
+---
+--- For instance:
+---
+--- We set two elements("mntsdcard", "internal_dir") to search paths vector by setSearchPaths,
+---
+--- If we have a file named 'sprite.png', the mapping in fileLookup dictionary contains `key: sprite.png -> value:
+--- sprite.pvr.gz`. Firstly, it will replace 'sprite.png' with 'sprite.pvr.gz', then searching the file sprite.pvr.gz
+--- as follows:
+---
+--- mntsdcardresources-ipadhdsprite.pvr.gz      (if not found, search next)
+--- mntsdcardresources-ipadsprite.pvr.gz        (if not found, search next)
+--- mntsdcardresources-iphonehdsprite.pvr.gz    (if not found, search next)
+--- mntsdcardsprite.pvr.gz                       (if not found, search next)
+--- internal_dirresources-ipadhdsprite.pvr.gz     (if not found, search next)
+--- internal_dirresources-ipadsprite.pvr.gz       (if not found, search next)
+--- internal_dirresources-iphonehdsprite.pvr.gz   (if not found, search next)
+--- internal_dirsprite.pvr.gz                      (if not found, return "sprite.png")
+---
+--- If the filename contains relative path like "gamesceneuilayersprite.png",
+--- and the mapping in fileLookup dictionary contains `key: gamesceneuilayersprite.png -> value:
+--- gamesceneuilayersprite.pvr.gz`. The file search order will be:
+---
+--- mntsdcardgamesceneuilayerresources-ipadhdsprite.pvr.gz      (if not found, search next)
+--- mntsdcardgamesceneuilayerresources-ipadsprite.pvr.gz        (if not found, search next)
+--- mntsdcardgamesceneuilayerresources-iphonehdsprite.pvr.gz    (if not found, search next)
+--- mntsdcardgamesceneuilayersprite.pvr.gz                       (if not found, search next)
+--- internal_dirgamesceneuilayerresources-ipadhdsprite.pvr.gz     (if not found, search next)
+--- internal_dirgamesceneuilayerresources-ipadsprite.pvr.gz       (if not found, search next)
+--- internal_dirgamesceneuilayerresources-iphonehdsprite.pvr.gz   (if not found, search next)
+--- internal_dirgamesceneuilayersprite.pvr.gz                      (if not found, return
+--- "gamesceneuilayersprite.png")
+---
+--- If the new file can't be found on the file system, it will return the parameter filename directly.
+---
+--- This method was added to simplify multiplatform support. Whether you are using cocos2d-js or any cross-compilation
+--- toolchain like StellaSDK or Apportable, you might need to load different resources for a given file in the
+--- different platforms.
+---
+--- @since v2.1
+---@param filename string @(std::string_view)
+---@return string @(std::string)
+function FileUtils:fullPathForFilename(filename)
+end
+
+---
+--- Gets full path from a file name and the path of the relative file.
+--- @param filename The file name.
+--- @param relativeFile The path of the relative file.
+--- @return The full path.
+--- e.g. filename: hello.png, pszRelativeFile:Userpath1path2hello.plist
+--- Return:Userpath1path2hello.pvr (If there a a key(hello.png)-value(hello.pvr) in FilenameLookup
+--- dictionary. )
+---
+---@param filename string @(std::string_view)
+---@param relativeFile string @(std::string_view)
+---@return string @(std::string)
+function FileUtils:fullPathFromRelativeFile(filename, relativeFile)
+end
+
+---
+--- Get default resource root path.
+---@return string @(const std::string)
+function FileUtils:getDefaultResourceRootPath()
+end
+
+---
+--- Gets filename extension is a suffix (separated from the base filename by a dot) in lower case.
+--- Examples of filename extensions are .png, .jpeg, .exe, .dmg and .txt.
+--- @param filePath The path of the file, it could be a relative or absolute path.
+--- @return suffix for filename in lower case or empty if a dot not found.
+---@param filePath string @(std::string_view)
+---@return string @(std::string)
+function FileUtils:getFileExtension(filePath)
+end
+
+---
+--- Retrieve the file size, async off the main cocos thread.
+---
+--- @note If a relative path was passed in, it will be inserted a default root path at the beginning.
+--- @param filepath The path of the file, it could be a relative or absolute path.
+--- @param callback The function that will be called when the operation is complete. Will have one long
+--- argument, the file size.
+---@param filepath string @(std::string_view)
+---@param callback function @(std::function<void(int64_t)>)
+---@return self @(void)
+function FileUtils:getFileSize(filepath, callback)
+end
+
+---
+--- Retrieve the file size.
+---
+--- @note If a relative path was passed in, it will be inserted a default root path at the beginning.
+--- @param filepath The path of the file, it could be a relative or absolute path.
+--- @return The file size.
+---@param filepath string @(std::string_view)
+---@return number @(int64_t)
+function FileUtils:getFileSize(filepath)
+end
+
+---
+--- Gets the same physical UTF-8 directory snapshot as getWritablePath().
+--- Native means the physical file system, not a resource name or an ANSI-encoded path.
 ---@return string @(std::string)
 function FileUtils:getNativeWritableAbsolutePath()
 end
 
 ---
---- Checks whether a file exists without considering search paths and resolution orders.
---- @param filename The file (with absolute path) to look up for
---- @return Returns true if the file found at the given absolute path, otherwise returns false
+--- Gets the original search path array set by 'setSearchPaths' or 'addSearchPath'.
+--- @return The array of the original search paths
+---@return string[] @(const std::vector<std::string>)
+function FileUtils:getOriginalSearchPaths()
+end
+
+--- Query-only convenience getters; failure returns an empty string. Check before concatenating.
+---@return string @(std::string)
+function FileUtils:getPersistentDataPath()
+end
+
+---
+--- Gets the array of search paths.
+---
+--- @return The array of search paths which may contain the prefix of default resource root path.
+--- @note In best practise, getter function should return the value of setter function passes in.
+--- But since we should not break the compatibility, we keep using the old logic.
+--- Therefore, If you want to get the original search paths, please call 'getOriginalSearchPaths()' instead.
+--- @see fullPathForFilename(const char*).
+--- @lua NA
+---@return string[] @(const std::vector<std::string>)
+function FileUtils:getSearchPaths()
+end
+
+---
+--- Gets string from a file.
 ---@param filename string @(std::string_view)
+---@return string @(std::string)
+function FileUtils:getStringFromFile(filename)
+end
+
+---
+--- Only for compatibility.
+---@param path string @(std::string_view)
+---@return string @(std::string)
+function FileUtils:getSuitableFOpen(path)
+end
+
+---@return string @(std::string)
+function FileUtils:getTransientDataPath()
+end
+
+--- Converts the contents of a file to a ValueMap.
+--- This method is used internally.
+---@param filedata string @(const char*)
+---@param filesize number @(int)
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+function FileUtils:getValueMapFromData(filedata, filesize)
+end
+
+---
+--- Converts the contents of a file to a ValueMap.
+--- @param filename The filename of the file to gets content.
+--- @return ValueMap of the file contents.
+--- @note This method is used internally.
+---@param filename string @(std::string_view)
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+function FileUtils:getValueMapFromFile(filename)
+end
+
+---@param filename string @(std::string_view)
+---@return cc.Value[] @(cocos2d::ValueVector)
+function FileUtils:getValueVectorFromFile(filename)
+end
+
+---
+--- Gets the configured physical directory as a fully qualified UTF-8 path ending in ''.
+--- This query does not check, create or repair the directory. An empty result means that
+--- no platform default is available and no override has been configured.
+---@return string @(std::string)
+function FileUtils:getWritablePath()
+end
+
+---
+--- Checks whether the path is an absolute path.
+---
+--- @note On Android, if the parameter passed in is relative to "assets", this method will treat it as an absolute
+--- path. Also on Blackberry, path starts with "appnativeResources" is treated as an absolute path.
+---
+--- @param path The path that needs to be checked.
+--- @return True if it's an absolute path, false if not.
+---@param path string @(std::string_view)
 ---@return boolean @(bool)
-function FileUtils:isFileExistInternal(filename)
+function FileUtils:isAbsolutePath(path)
+end
+
+---
+--- Checks whether the absoulate path is a directory, async off of the main cocos thread.
+---
+--- Callback will happen on the main cocos thread.
+---@param fullPath string @(std::string_view)
+---@param callback function @(std::function<void(bool)>) that will accept a boolean, true if the file exists, false otherwise.
+---@return self @(void)
+function FileUtils:isDirectoryExist(fullPath, callback)
+end
+
+---
+--- Checks whether the path is a directory.
+---
+--- @param dirPath The path of the directory, it could be a relative or an absolute path.
+--- @return True if the directory exists, false if not.
+---@param dirPath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:isDirectoryExist(dirPath)
 end
 
 ---
@@ -608,17 +291,347 @@ end
 function FileUtils:isDirectoryExistInternal(dirPath)
 end
 
---- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
----@param data any
----@param dataSize number|string
----@param fullPath string|number
----@return boolean
-function FileUtils:writeBinaryToFile(data, dataSize, fullPath) end
+---
+--- Checks if a file exists, done async off the main cocos thread.
+---
+--- Use this function if you need to check if a file exists while not blocking the main cocos thread.
+---
+--- @note If a relative path was passed in, it will be inserted a default root path at the beginning.
+--- @param filename The path of the file, it could be a relative or absolute path.
+--- @param callback The function that will be called when the operation is complete. Will have one boolean
+--- argument, true if the file exists, false otherwise.
+---@param filename string @(std::string_view)
+---@param callback function @(std::function<void(bool)>)
+---@return self @(void)
+function FileUtils:isFileExist(filename, callback)
+end
 
---- (static)
----@param path string @(std::string_view)
+---
+--- Checks whether a file exists.
+---
+--- @note If a relative path was passed in, it will be inserted a default root path at the beginning.
+--- @param filename The path of the file, it could be a relative or absolute path.
+--- @return True if the file exists, false if not.
+---@param filename string @(std::string_view)
 ---@return boolean @(bool)
-function FileUtils:isAbsolutePathInternal(path)
+function FileUtils:isFileExist(filename)
+end
+
+---
+--- Checks whether a file exists without considering search paths and resolution orders.
+--- @param filename The file (with absolute path) to look up for
+--- @return Returns true if the file found at the given absolute path, otherwise returns false
+---@param filename string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:isFileExistInternal(filename)
+end
+
+--- Checks whether to pop up a message box when failed to load an image.
+--- @return True if pop up a message box when failed to load an image, false if not.
+---@return boolean @(bool)
+function FileUtils:isPopupNotify()
+end
+
+---
+--- List all files in a directory.
+---
+--- @param dirPath The path of the directory, it could be a relative or an absolute path.
+--- @return File paths in a string vector
+---@param dirPath string @(std::string_view)
+---@return string[] @(std::vector<std::string>)
+function FileUtils:listFiles(dirPath)
+end
+
+---
+--- List all files in a directory async, off of the main cocos thread.
+---
+--- thread.
+--- @js NA
+--- @lua NA
+---@param dirPath string @(std::string_view) The path of the directory, it could be a relative or an absolute path.
+---@param callback function @(std::function<void(std::vector<std::string>)>) The callback to be called once the list operation is complete. Will be called on the main cocos
+---@return self @(void)
+function FileUtils:listFilesAsync(dirPath, callback)
+end
+
+---
+--- List all files recursively in a directory, async off the main cocos thread.
+---
+--- @param dirPath The path of the directory, it could be a relative or an absolute path.
+--- @param callback The callback to be called once the list operation is complete.
+--- Will be called on the main cocos thread.
+--- @js NA
+--- @lua NA
+---@param dirPath string @(std::string_view)
+---@param callback function @(std::function<void(std::vector<std::string>)>)
+---@return self @(void)
+function FileUtils:listFilesRecursivelyAsync(dirPath, callback)
+end
+
+---
+--- Purges full path caches.
+---@return self @(void)
+function FileUtils:purgeCachedEntries()
+end
+
+---
+--- Resolve a physical application root without explicitly creating or inspecting it.
+--- Native platform APIs may prepare directories themselves (notably Android Context).
+--- Success gives a fully qualified UTF-8 path with '' separators and a trailing ''.
+--- Errors carry no path; no fallback to CWD, installation or another root occurs.
+--- TransientData may be lost at any time and is not automatically cleared on exit.
+---@param kind cc.AppDirectory @(cocos2d::AppDirectory)
+---@return cc.DirectoryResult @(cocos2d::DirectoryResult)
+function FileUtils:queryAppDirectory(kind)
+end
+
+---
+--- Removes a directory, async off the main cocos thread.
+---
+--- argument, true if the directory was successfully removed, false otherwise.
+---@param dirPath string @(std::string_view) the path of the directory, it must be an absolute path
+---@param callback function @(std::function<void(bool)>) The function that will be called when the operation is complete. Will have one boolean
+---@return self @(void)
+function FileUtils:removeDirectory(dirPath, callback)
+end
+
+---
+--- Removes a directory.
+---
+--- @param dirPath  The full path of the directory, it must be an absolute path.
+--- @return True if the directory have been removed successfully, false if not.
+---@param dirPath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:removeDirectory(dirPath)
+end
+
+---
+--- Removes a file, async off the main cocos thread.
+---
+--- argument, true if the file was successfully removed, false otherwise.
+---@param filepath string @(std::string_view) the path of the file to remove, it must be an absolute path
+---@param callback function @(std::function<void(bool)>) The function that will be called when the operation is complete. Will have one boolean
+---@return self @(void)
+function FileUtils:removeFile(filepath, callback)
+end
+
+---
+--- Removes a file.
+---
+--- @param filepath The full path of the file, it must be an absolute path.
+--- @return True if the file have been removed successfully, false if not.
+---@param filepath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:removeFile(filepath)
+end
+
+---
+--- Renames a file under the given directory, async off the main cocos thread.
+---
+--- @param path     The parent directory path of the file, it must be an absolute path.
+--- @param oldname  The current name of the file.
+--- @param name     The new name of the file.
+--- @param callback The function that will be called when the operation is complete. Will have one boolean
+--- argument, true if the file was successfully renamed, false otherwise.
+---@param path string @(std::string_view)
+---@param oldname string @(std::string_view)
+---@param name string @(std::string_view)
+---@param callback function @(std::function<void(bool)>)
+---@return self @(void)
+function FileUtils:renameFile(path, oldname, name, callback)
+end
+
+---
+--- Renames a file under the given directory, async off the main cocos thread.
+---
+--- @param oldfullpath  The current fullpath of the file. Includes path and name.
+--- @param newfullpath  The new fullpath of the file. Includes path and name.
+--- @param callback The function that will be called when the operation is complete. Will have one boolean
+--- argument, true if the file was successfully renamed, false otherwise.
+---@param oldfullpath string @(std::string_view)
+---@param newfullpath string @(std::string_view)
+---@param callback function @(std::function<void(bool)>)
+---@return self @(void)
+function FileUtils:renameFile(oldfullpath, newfullpath, callback)
+end
+
+---
+--- Renames a file under the given directory.
+---
+--- @param path     The parent directory path of the file, it must be an absolute path.
+--- @param oldname  The current name of the file.
+--- @param name     The new name of the file.
+--- @return True if the file have been renamed successfully, false if not.
+---@param path string @(std::string_view)
+---@param oldname string @(std::string_view)
+---@param name string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:renameFile(path, oldname, name)
+end
+
+---
+--- Renames a file under the given directory.
+---
+--- @param oldfullpath  The current fullpath of the file. Includes path and name.
+--- @param newfullpath  The new fullpath of the file. Includes path and name.
+--- @return True if the file have been renamed successfully, false if not.
+---@param oldfullpath string @(std::string_view)
+---@param newfullpath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:renameFile(oldfullpath, newfullpath)
+end
+
+---
+--- Set default resource root path.
+---@param path string @(std::string_view)
+---@return self @(void)
+function FileUtils:setDefaultResourceRootPath(path)
+end
+
+---
+--- Sets whether to pop-up a message box when failed to load an image.
+---@param notify boolean @(bool)
+---@return self @(void)
+function FileUtils:setPopupNotify(notify)
+end
+
+---
+--- Sets the array of search paths.
+---
+--- You can use this array to modify the search path of the resources.
+--- If you want to use "themes" or search resources in the "cache", you can do it easily by adding new entries in
+--- this array.
+---
+--- @note This method could access relative path and absolute path.
+--- If the relative path was passed to the vector, FileUtils will add the default resource directory before
+--- the relative path. For instance: On Android, the default resource root path is "assets". If "mntsdcard" and
+--- "resources-large" were set to the search paths vector, "resources-large" will be converted to
+--- "assetsresources-large" since it was a relative path.
+---
+--- @param searchPaths The array contains search paths.
+--- @see fullPathForFilename(const char*)
+--- @since v2.1
+--- In js:var setSearchPaths(var jsval);
+--- @lua NA
+---@param searchPaths string[] @(std::vector<std::string>)
+---@return self @(void)
+function FileUtils:setSearchPaths(searchPaths)
+end
+
+---
+--- Configures a physical directory without testing its existence or writability.
+--- Ordinary relative paths are resolved once against this call's process CWD snapshot.
+--- Empty input reloads the platform default and removes the override. Invalid UTF-8,
+--- embedded NUL, invalid native syntax, or unavailable required path information fails
+--- without changing the previous state. Windows drive-relative, root-relative, device
+--- and extended namespace paths are rejected. No shellURI expansion is performed.
+--- Normalization is lexical and does not resolve symlinks. Callers must synchronize
+--- concurrent process-CWD changes and explicitly prepare directories before writing.
+--- @return True if the configuration was accepted; this does not guarantee successful IO.
+---@param writablePath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:setWritablePath(writablePath)
+end
+
+---
+--- Write a string to a file, done async off the main cocos thread
+--- Use this function if you need file access without blocking the main thread.
+---
+--- This function takes a std::string by value on purpose, to leverage move sematics.
+--- If you want to avoid a copy of your datastr, use std::movestd::forward if appropriate
+---
+--- function will be executed on the main cocos thread. It will have on boolean argument
+--- signifying if the write was successful.
+---@param dataStr string @(std::string) the string want to save
+---@param fullPath string @(std::string_view) The full path to the file you want to save a string
+---@param callback function @(std::function<void(bool)>) The function called once the string has been written to a file. This
+---@return self @(void)
+function FileUtils:writeStringToFile(dataStr, fullPath, callback)
+end
+
+---
+--- write a string into a file
+---
+---@param dataStr string @(std::string_view) the string want to save
+---@param fullPath string @(std::string_view) The full path to the file you want to save a string
+---@return boolean @(bool) bool True if write success
+function FileUtils:writeStringToFile(dataStr, fullPath)
+end
+
+---
+--- write a ValueMap into a plist file
+---
+--- *@param dict the ValueMap want to save
+--- *@param fullPath The full path to the file you want to save a string
+--- *@return bool
+---@param dict tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+---@param fullPath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:writeToFile(dict, fullPath)
+end
+
+---
+--- Write a ValueMap into a file, done async off the main cocos thread.
+---
+--- Use this function if you need to write a ValueMap while not blocking the main cocos thread.
+---
+--- This function takes ValueMap by value on purpose, to leverage move sematics.
+--- If you want to avoid a copy of your dict, use std::movestd::forward if appropriate
+---
+--- *@param dict The ValueMap that will be written to disk
+--- *@param fullPath The absolute file path that the data will be written to
+--- *@param callback The function that will be called when dict is written to disk. This
+--- function will be executed on the main cocos thread. It will have on boolean argument
+--- signifying if the write was successful.
+---@param dict tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+---@param fullPath string @(std::string_view)
+---@param callback function @(std::function<void(bool)>)
+---@return self @(void)
+function FileUtils:writeValueMapToFile(dict, fullPath, callback)
+end
+
+---
+--- write ValueMap into a plist file
+---
+--- *@param dict the ValueMap want to save
+--- *@param fullPath The full path to the file you want to save a string
+--- *@return bool
+---@param dict tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+---@param fullPath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:writeValueMapToFile(dict, fullPath)
+end
+
+---
+--- Write a ValueVector into a file, done async off the main cocos thread.
+---
+--- Use this function if you need to write a ValueVector while not blocking the main cocos thread.
+---
+--- This function takes ValueVector by value on purpose, to leverage move sematics.
+--- If you want to avoid a copy of your dict, use std::movestd::forward if appropriate
+---
+--- *@param vecData The ValueVector that will be written to disk
+--- *@param fullPath The absolute file path that the data will be written to
+--- *@param callback The function that will be called when vecData is written to disk. This
+--- function will be executed on the main cocos thread. It will have on boolean argument
+--- signifying if the write was successful.
+---@param vecData cc.Value[] @(cocos2d::ValueVector)
+---@param fullPath string @(std::string_view)
+---@param callback function @(std::function<void(bool)>)
+---@return self @(void)
+function FileUtils:writeValueVectorToFile(vecData, fullPath, callback)
+end
+
+---
+--- write ValueVector into a plist file
+---
+--- *@param vecData the ValueVector want to save
+--- *@param fullPath The full path to the file you want to save a string
+--- *@return bool
+---@param vecData cc.Value[] @(cocos2d::ValueVector)
+---@param fullPath string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:writeValueVectorToFile(vecData, fullPath)
 end
 
 ---
@@ -631,55 +644,24 @@ end
 function FileUtils:getFileShortName(filePath)
 end
 
---------------------------------
-
---- Resolves an application directory without creating it or checking its current
---- existence or writability. Platform APIs may prepare directories internally.
---- On success, path is an absolute physical UTF-8 path using '/' and a trailing '/'.
---- On failure, path is empty; inspect status/nativeDomain/nativeCode for diagnostics.
---- The result never uses resource search paths or falls back to the working directory.
----@param kind cc.AppDirectory
----@return cc.DirectoryResult
-function FileUtils:queryAppDirectory(kind)
+---
+--- Gets the instance of FileUtils.
+--- (static)
+---@return cc.FileUtils @(cocos2d::FileUtils*)
+function FileUtils:getInstance()
 end
 
---------------------------------
-
---- Resolves, recursively creates, and verifies the selected application directory.
---- An omitted or empty relativeSubdirectory selects the root. Nonempty children must
---- contain '/'-separated relative components only: no absolute path, drive, backslash,
---- '.', '..', empty component, embedded NUL, or invalid UTF-8. These naming rules do
---- not provide a symlink sandbox.
---- Check status == cc.DirectoryStatus.Ok before appending a filename; later file opens
---- can still fail, and disposable directories may disappear. Existing files occupying
---- a directory path return NotDirectory. Failure does not select another location.
---- Example: local r = cc.FileUtils:getInstance():ensureAppDirectory(cc.AppDirectory.TransientData, "logs")
---- Use PersistentData for logs or state that must remain available after restart.
----@param kind cc.AppDirectory
----@param relativeSubdirectory string
----@return cc.DirectoryResult
----@overload fun(self:cc.FileUtils, kind:cc.AppDirectory):cc.DirectoryResult
-function FileUtils:ensureAppDirectory(kind, relativeSubdirectory)
+--- (static)
+---@param path string @(std::string_view)
+---@return boolean @(bool)
+function FileUtils:isAbsolutePathInternal(path)
 end
 
---------------------------------
-
---- Convenience query for PersistentData. Does not create or verify the directory.
---- Returns an absolute physical UTF-8 path with trailing '/', or an empty string on
---- failure. Use queryAppDirectory/ensureAppDirectory when error details are needed;
---- never append a filename to an unchecked empty result.
----@return string
-function FileUtils:getPersistentDataPath()
-end
-
---------------------------------
-
---- Convenience query for TransientData. Does not create or verify the directory.
---- Returns an absolute physical UTF-8 path with trailing '/', or an empty string on
---- failure. Data may be lost; callers must recover from missing directories and files.
----@return string
-function FileUtils:getTransientDataPath()
-end
-
+--- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
+---@param data any
+---@param dataSize number|string
+---@param fullPath string|number
+---@return boolean
+function FileUtils:writeBinaryToFile(data, dataSize, fullPath) end
 
 return nil

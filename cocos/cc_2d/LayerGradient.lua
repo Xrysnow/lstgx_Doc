@@ -1,170 +1,130 @@
-
---------------------------------
--- @module LayerGradient
--- @extend LayerColor
--- @parent_module cc
-
 ---@class cc.LayerGradient:cc.LayerColor
 local LayerGradient = {}
 cc.LayerGradient = LayerGradient
---------------------------------
 
----  Returns the start color of the gradient.
---- return The start color.
----@return color3b_table
-function LayerGradient:getStartColor()
-end
-
---------------------------------
-
----  Get the compressedInterpolation
---- return The interpolation will be compressed if true.
----@return boolean
-function LayerGradient:isCompressedInterpolation()
-end
-
---------------------------------
-
----  Returns the start opacity of the gradient.
---- return The start opacity.
----@return number
-function LayerGradient:getStartOpacity()
-end
-
---------------------------------
-
----  Sets the directional vector that will be used for the gradient.
---- The default value is vertical direction (0,-1). 
---- param alongVector The direction of gradient.
----@param alongVector vec2_table
----@return cc.LayerGradient
-function LayerGradient:setVector(alongVector)
-end
-
---------------------------------
-
----  Returns the start opacity of the gradient.
---- param startOpacity The start opacity, from 0 to 255.
----@param startOpacity number
----@return cc.LayerGradient
-function LayerGradient:setStartOpacity(startOpacity)
-end
-
---------------------------------
-
----  Whether or not the interpolation will be compressed in order to display all the colors of the gradient both in canonical and non canonical vectors.
---- Default: true.
---- param compressedInterpolation The interpolation will be compressed if true.
----@param compressedInterpolation boolean
----@return cc.LayerGradient
-function LayerGradient:setCompressedInterpolation(compressedInterpolation)
-end
-
---------------------------------
-
----  Returns the end opacity of the gradient.
---- param endOpacity The end opacity, from 0 to 255.
----@param endOpacity number
----@return cc.LayerGradient
-function LayerGradient:setEndOpacity(endOpacity)
-end
-
---------------------------------
-
----  Returns the directional vector used for the gradient.
---- return The direction of gradient.
----@return vec2_table
-function LayerGradient:getVector()
-end
-
---------------------------------
-
----  Sets the end color of the gradient.
---- param endColor The end color.
----@param endColor color3b_table
----@return cc.LayerGradient
-function LayerGradient:setEndColor(endColor)
-end
-
---------------------------------
-
----  Initializes the Layer with a gradient between start and end in the direction of v.<br>
--- js init<br>
--- lua init
----@param start color4b_table
----@param end_ color4b_table
----@param v vec2_table
----@return boolean
----@overload fun(self:cc.LayerGradient, start:color4b_table, end:color4b_table):boolean
-function LayerGradient:initWithColor(start, end_, v)
-end
-
---------------------------------
-
----  Returns the end color of the gradient.
---- return The end color.
----@return color3b_table
+--- Returns the end color of the gradient.
+---
+---@return color3b_table @(const cocos2d::Color3B&) The end color.
 function LayerGradient:getEndColor()
 end
 
---------------------------------
-
----  Returns the end opacity of the gradient.
---- return The end opacity.
----@return number
+--- Returns the end opacity of the gradient.
+---
+---@return number @(uint8_t) The end opacity.
 function LayerGradient:getEndOpacity()
 end
 
---------------------------------
+--- Returns the start color of the gradient.
+---
+---@return color3b_table @(const cocos2d::Color3B&) The start color.
+function LayerGradient:getStartColor()
+end
 
----  Sets the start color of the gradient.
---- param startColor The start color.
----@param startColor color3b_table
----@return cc.LayerGradient
+--- Returns the start opacity of the gradient.
+---
+---@return number @(uint8_t) The start opacity.
+function LayerGradient:getStartOpacity()
+end
+
+--- Returns the directional vector used for the gradient.
+---
+---@return vec2_table @(const cocos2d::Vec2&) The direction of gradient.
+function LayerGradient:getVector()
+end
+
+--- Initializes the Layer with a gradient between start and end in the direction of v.
+--- @js init
+--- @lua init
+---@param start color4b_table @(cocos2d::Color4B)
+---@param end_ color4b_table @(cocos2d::Color4B)
+---@param v vec2_table @(cocos2d::Vec2)
+---@return boolean @(bool)
+function LayerGradient:initWithColor(start, end_, v)
+end
+
+--- Initializes the Layer with a gradient between start and end.
+--- @js init
+--- @lua init
+---@param start color4b_table @(cocos2d::Color4B)
+---@param end_ color4b_table @(cocos2d::Color4B)
+---@return boolean @(bool)
+function LayerGradient:initWithColor(start, end_)
+end
+
+--- Get the compressedInterpolation
+---
+---@return boolean @(bool) The interpolation will be compressed if true.
+function LayerGradient:isCompressedInterpolation()
+end
+
+--- Whether or not the interpolation will be compressed in order to display all the colors of the gradient both in
+--- canonical and non canonical vectors. Default: true.
+---
+---@param compressedInterpolation boolean @(bool) The interpolation will be compressed if true.
+---@return self @(void)
+function LayerGradient:setCompressedInterpolation(compressedInterpolation)
+end
+
+--- Sets the end color of the gradient.
+---
+---@param endColor color3b_table @(cocos2d::Color3B) The end color.
+---@return self @(void)
+function LayerGradient:setEndColor(endColor)
+end
+
+--- Returns the end opacity of the gradient.
+---
+---@param endOpacity number @(uint8_t) The end opacity, from 0 to 255.
+---@return self @(void)
+function LayerGradient:setEndOpacity(endOpacity)
+end
+
+--- Sets the start color of the gradient.
+---
+---@param startColor color3b_table @(cocos2d::Color3B) The start color.
+---@return self @(void)
 function LayerGradient:setStartColor(startColor)
 end
 
---------------------------------
+--- Returns the start opacity of the gradient.
+---
+---@param startOpacity number @(uint8_t) The start opacity, from 0 to 255.
+---@return self @(void)
+function LayerGradient:setStartOpacity(startOpacity)
+end
 
----  Creates a full-screen Layer with a gradient between start and end.<br>
--- param start The start color.<br>
--- param end The end color.<br>
--- return An autoreleased LayerGradient object.
----@param start color4b_table
----@param end_ color4b_table
----@param v vec2_table
----@return cc.LayerGradient
----@overload fun(self:cc.LayerGradient, start:color4b_table, end:color4b_table):cc.LayerGradient
----@overload fun(self:cc.LayerGradient):cc.LayerGradient
+--- Sets the directional vector that will be used for the gradient.
+--- The default value is vertical direction (0,-1).
+---
+---@param alongVector vec2_table @(cocos2d::Vec2) The direction of gradient.
+---@return self @(void)
+function LayerGradient:setVector(alongVector)
+end
+
+--- Creates a full-screen Layer with a gradient between start and end in the direction of v.
+---
+--- (static)
+---@param start color4b_table @(cocos2d::Color4B) The start color.
+---@param end_ color4b_table @(cocos2d::Color4B) The end color.
+---@param v vec2_table @(cocos2d::Vec2) The direction of gradient color.
+---@return cc.LayerGradient @(cocos2d::LayerGradient*) An autoreleased LayerGradient object.
 function LayerGradient:create(start, end_, v)
 end
 
---------------------------------
-
---- 
----@return boolean
-function LayerGradient:init()
+--- Creates a full-screen Layer with a gradient between start and end.
+---
+--- (static)
+---@param start color4b_table @(cocos2d::Color4B) The start color.
+---@param end_ color4b_table @(cocos2d::Color4B) The end color.
+---@return cc.LayerGradient @(cocos2d::LayerGradient*) An autoreleased LayerGradient object.
+function LayerGradient:create(start, end_)
 end
 
---------------------------------
-
---- 
----@return string
-function LayerGradient:getDescription()
+--- Creates a fullscreen black layer.
+---
+--- (static)
+---@return cc.LayerGradient @(cocos2d::LayerGradient*) An autoreleased LayerGradient object.
+function LayerGradient:create()
 end
-
---------------------------------
-
---- 
----@return cc.LayerGradient
-function LayerGradient:LayerGradient()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.LayerGradient
-function LayerGradient:new() end
-
 
 return nil

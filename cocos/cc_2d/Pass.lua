@@ -1,172 +1,94 @@
-
---------------------------------
--- @module Pass
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.Pass:cc.Ref
 local Pass = {}
 cc.Pass = Pass
---------------------------------
 
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformPointLightPosition(arg0, arg1)
-end
-
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformDirLightDir(arg0, arg1)
-end
-
---------------------------------
-
---- 
----@param technique cc.Technique
----@return cc.Pass
-function Pass:setTechnique(technique)
-end
-
---------------------------------
-
---- Returns the vertex attribute binding for this pass.
---- return The vertex attribute binding for this pass.
----@return cc.VertexAttribBinding
-function Pass:getVertexAttributeBinding()
-end
-
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformSpotLightOuterAngleCos(arg0, arg1)
-end
-
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformSpotLightDir(arg0, arg1)
-end
-
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformMatrixPalette(arg0, arg1)
-end
-
---------------------------------
-
---- 
----@param name string
----@return cc.Pass
-function Pass:setName(name)
-end
-
---------------------------------
-
---- 
----@return string
-function Pass:getName()
-end
-
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformSpotLightRangeInverse(arg0, arg1)
-end
-
---------------------------------
-
---- Returns a clone (deep-copy) of this instance 
----@return cc.Pass
+---
+--- Returns a clone (deep-copy) of this instance
+---@return cc.Pass @(cocos2d::Pass*)
 function Pass:clone()
 end
 
---------------------------------
-
---- 
----@param meshCommand cc.MeshCommand
----@param globalZOrder number
----@param vertexBuffer ccb.Buffer
----@param indexBuffer ccb.Buffer
----@param primitive number
----@param indexFormat number
----@param indexCount number
----@param modelView mat4_table
----@return cc.Pass
+---@param meshCommand cc.MeshCommand @(cocos2d::MeshCommand*)
+---@param globalZOrder number @(float)
+---@param vertexBuffer ccb.Buffer @(cocos2d::backend::Buffer*)
+---@param indexBuffer ccb.Buffer @(cocos2d::backend::Buffer*)
+---@param primitive ccb.PrimitiveType @(cocos2d::CustomCommand::PrimitiveType)
+---@param indexFormat ccb.IndexFormat @(cocos2d::MeshCommand::IndexFormat)
+---@param indexCount number @(unsigned int)
+---@param modelView mat4_table @(cocos2d::Mat4)
+---@return self @(void)
 function Pass:draw(meshCommand, globalZOrder, vertexBuffer, indexBuffer, primitive, indexFormat, indexCount, modelView)
 end
 
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformPointLightRangeInverse(arg0, arg1)
+---@return string @(std::string_view)
+function Pass:getName()
 end
 
---------------------------------
-
---- 
----@param slot number
----@param arg1 ccb.TextureBackend
----@return cc.Pass
-function Pass:setUniformNormTexture(slot, arg1)
-end
-
---------------------------------
-
---- 
----@param modelView mat4_table
----@return cc.Pass
-function Pass:updateMVPUniform(modelView)
-end
-
---------------------------------
-
----  Returns the ProgramState 
----@return ccb.ProgramState
+--- Returns the ProgramState
+---@return ccb.ProgramState @(cocos2d::backend::ProgramState*)
 function Pass:getProgramState()
 end
 
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformSpotLightColor(arg0, arg1)
+---
+--- Returns the vertex attribute binding for this pass.
+---
+---@return cc.VertexAttribBinding @(cocos2d::VertexAttribBinding*) The vertex attribute binding for this pass.
+function Pass:getVertexAttributeBinding()
 end
 
---------------------------------
+---@param name string @(std::string_view)
+---@return self @(void)
+function Pass:setName(name)
+end
 
---- 
+---@param technique cc.Technique @(cocos2d::Technique*)
+---@return self @(void)
+function Pass:setTechnique(technique)
+end
+
+---@param slot number @(uint32_t)
+---@param param2 ccb.TextureBackend @(cocos2d::backend::TextureBackend*)
+---@return self @(void)
+function Pass:setUniformNormTexture(slot, param2)
+end
+
+---@param slot number @(uint32_t)
+---@param param2 ccb.TextureBackend @(cocos2d::backend::TextureBackend*)
+---@return self @(void)
+function Pass:setUniformTexture(slot, param2)
+end
+
+---
+--- Sets a vertex attribute binding for this pass.
+---
+--- When a mesh binding is set, the VertexAttribBinding will be automatically
+--- bound when the bind() method is called for the pass.
+---
+---@param binding cc.VertexAttribBinding @(cocos2d::VertexAttribBinding*) The VertexAttribBinding to set (or NULL to remove an existing binding).
+---@return self @(void)
+function Pass:setVertexAttribBinding(binding)
+end
+
+---@param modelView mat4_table @(cocos2d::Mat4)
+---@return self @(void)
+function Pass:updateMVPUniform(modelView)
+end
+
+--- (static)
+---@param parent cc.Technique @(cocos2d::Technique*)
+---@return cc.Pass @(cocos2d::Pass*)
+function Pass:create(parent)
+end
+
+--- Creates a Pass with a GLProgramState.
+--- (static)
+---@param parent cc.Technique @(cocos2d::Technique*)
+---@param programState ccb.ProgramState @(cocos2d::backend::ProgramState*)
+---@return cc.Pass @(cocos2d::Pass*)
+function Pass:createWithProgramState(parent, programState)
+end
+
+---
 --- Retained buffer-input stub; native void* conversion is unavailable.
 ---@param arg0 any
 ---@param arg1 number
@@ -174,59 +96,7 @@ end
 function Pass:setUniformAmbientLigthColor(arg0, arg1)
 end
 
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformDirLightColor(arg0, arg1)
-end
-
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformSpotLightPosition(arg0, arg1)
-end
-
---------------------------------
-
---- Sets a vertex attribute binding for this pass.
---- When a mesh binding is set, the VertexAttribBinding will be automatically
---- bound when the bind() method is called for the pass.
---- param binding The VertexAttribBinding to set (or NULL to remove an existing binding).
----@param binding cc.VertexAttribBinding
----@return cc.Pass
-function Pass:setVertexAttribBinding(binding)
-end
-
---------------------------------
-
---- 
----@param slot number
----@param arg1 ccb.TextureBackend
----@return cc.Pass
-function Pass:setUniformTexture(slot, arg1)
-end
-
---------------------------------
-
---- 
---- Retained buffer-input stub; native void* conversion is unavailable.
----@param arg0 any
----@param arg1 number
----@return cc.Pass
-function Pass:setUniformSpotLightInnerAngleCos(arg0, arg1)
-end
-
---------------------------------
-
---- 
+---
 --- Retained buffer-input stub; native void* conversion is unavailable.
 ---@param arg0 any
 ---@param arg1 number
@@ -234,9 +104,31 @@ end
 function Pass:setUniformColor(arg0, arg1)
 end
 
---------------------------------
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformDirLightColor(arg0, arg1)
+end
 
---- 
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformDirLightDir(arg0, arg1)
+end
+
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformMatrixPalette(arg0, arg1)
+end
+
+---
 --- Retained buffer-input stub; native void* conversion is unavailable.
 ---@param arg0 any
 ---@param arg1 number
@@ -244,22 +136,68 @@ end
 function Pass:setUniformPointLightColor(arg0, arg1)
 end
 
---------------------------------
-
----  Creates a Pass with a GLProgramState.
----@param parent cc.Technique
----@param programState ccb.ProgramState
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:createWithProgramState(parent, programState)
+function Pass:setUniformPointLightPosition(arg0, arg1)
 end
 
---------------------------------
-
---- 
----@param parent cc.Technique
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
 ---@return cc.Pass
-function Pass:create(parent)
+function Pass:setUniformPointLightRangeInverse(arg0, arg1)
 end
 
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformSpotLightColor(arg0, arg1)
+end
+
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformSpotLightDir(arg0, arg1)
+end
+
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformSpotLightInnerAngleCos(arg0, arg1)
+end
+
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformSpotLightOuterAngleCos(arg0, arg1)
+end
+
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformSpotLightPosition(arg0, arg1)
+end
+
+---
+--- Retained buffer-input stub; native void* conversion is unavailable.
+---@param arg0 any
+---@param arg1 number
+---@return cc.Pass
+function Pass:setUniformSpotLightRangeInverse(arg0, arg1)
+end
 
 return nil

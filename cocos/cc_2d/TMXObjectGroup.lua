@@ -1,111 +1,81 @@
-
---------------------------------
--- @module TMXObjectGroup
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.TMXObjectGroup:cc.Ref
 local TMXObjectGroup = {}
 cc.TMXObjectGroup = TMXObjectGroup
---------------------------------
 
----  Sets the offset position of child objects. 
---- param offset The offset position of child objects.
----@param offset vec2_table
----@return cc.TMXObjectGroup
-function TMXObjectGroup:setPositionOffset(offset)
-end
-
---------------------------------
-
----  Return the value for the specific property name. 
---- param propertyName The specific property name.
---- return Return the value for the specific property name.
---- js NA
----@param propertyName string
----@return cc.Value
-function TMXObjectGroup:getProperty(propertyName)
-end
-
---------------------------------
-
----  Gets the offset position of child objects. 
---- return The offset position of child objects.
----@return vec2_table
-function TMXObjectGroup:getPositionOffset()
-end
-
---------------------------------
-
----  Return the dictionary for the specific object name.
---- It will return the 1st object found on the array for the given name.
---- return Return the dictionary for the specific object name.
----@param objectName string
----@return map_table
-function TMXObjectGroup:getObject(objectName)
-end
-
---------------------------------
-
---- 
----@return array_table
-function TMXObjectGroup:getObjects()
-end
-
---------------------------------
-
----  Set the group name. 
---- param groupName A string,it is used to set the group name.
----@param groupName string
----@return cc.TMXObjectGroup
-function TMXObjectGroup:setGroupName(groupName)
-end
-
---------------------------------
-
---- 
----@return map_table
-function TMXObjectGroup:getProperties()
-end
-
---------------------------------
-
----  Get the group name. 
---- return The group name.
----@return string
+--- Get the group name.
+---
+---@return string @(std::string_view) The group name.
 function TMXObjectGroup:getGroupName()
 end
 
---------------------------------
-
----  Sets the list of properties.
---- param properties The list of properties.
----@param properties map_table
----@return cc.TMXObjectGroup
-function TMXObjectGroup:setProperties(properties)
+--- Return the dictionary for the specific object name.
+--- It will return the 1st object found on the array for the given name.
+---
+---@param objectName string @(std::string_view)
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap) Return the dictionary for the specific object name.
+function TMXObjectGroup:getObject(objectName)
 end
 
---------------------------------
+---@return cc.Value[] @(cocos2d::ValueVector&)
+function TMXObjectGroup:getObjects()
+end
 
----  Sets the array of the objects.
---- param objects The array of the objects.
----@param objects array_table
----@return cc.TMXObjectGroup
+--- Gets the array of the objects.
+---
+---@return cc.Value[] @(const cocos2d::ValueVector&) The array of the objects.
+function TMXObjectGroup:getObjects()
+end
+
+--- Gets the offset position of child objects.
+---
+---@return vec2_table @(const cocos2d::Vec2&) The offset position of child objects.
+function TMXObjectGroup:getPositionOffset()
+end
+
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap&)
+function TMXObjectGroup:getProperties()
+end
+
+--- Gets the list of properties stored in a dictionary.
+---
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(const cocos2d::ValueMap&) The list of properties stored in a dictionary.
+function TMXObjectGroup:getProperties()
+end
+
+--- Return the value for the specific property name.
+---
+--- @js NA
+---@param propertyName string @(std::string_view) The specific property name.
+---@return cc.Value @(cocos2d::Value) Return the value for the specific property name.
+function TMXObjectGroup:getProperty(propertyName)
+end
+
+--- Set the group name.
+---
+---@param groupName string @(std::string_view) A string,it is used to set the group name.
+---@return self @(void)
+function TMXObjectGroup:setGroupName(groupName)
+end
+
+--- Sets the array of the objects.
+---
+---@param objects cc.Value[] @(cocos2d::ValueVector) The array of the objects.
+---@return self @(void)
 function TMXObjectGroup:setObjects(objects)
 end
 
---------------------------------
-
---- js ctor
----@return cc.TMXObjectGroup
-function TMXObjectGroup:TMXObjectGroup()
+--- Sets the offset position of child objects.
+---
+---@param offset vec2_table @(cocos2d::Vec2) The offset position of child objects.
+---@return self @(void)
+function TMXObjectGroup:setPositionOffset(offset)
 end
 
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TMXObjectGroup
-function TMXObjectGroup:new() end
-
+--- Sets the list of properties.
+---
+---@param properties tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap) The list of properties.
+---@return self @(void)
+function TMXObjectGroup:setProperties(properties)
+end
 
 return nil

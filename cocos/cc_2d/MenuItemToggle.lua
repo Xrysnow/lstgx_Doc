@@ -1,106 +1,39 @@
-
---------------------------------
--- @module MenuItemToggle
--- @extend MenuItem
--- @parent_module cc
-
 ---@class cc.MenuItemToggle:cc.MenuItem
 local MenuItemToggle = {}
 cc.MenuItemToggle = MenuItemToggle
---------------------------------
 
----  Sets the array that contains the subitems. 
----@param items array_table
----@return cc.MenuItemToggle
-function MenuItemToggle:setSubItems(items)
-end
-
---------------------------------
-
----  Initializes a menu item with a item. 
----@param item cc.MenuItem
----@return boolean
-function MenuItemToggle:initWithItem(item)
-end
-
---------------------------------
-
----  Gets the index of the selected item. 
----@return number
-function MenuItemToggle:getSelectedIndex()
-end
-
---------------------------------
-
----  Add more menu item. 
----@param item cc.MenuItem
----@return cc.MenuItemToggle
+--- Add more menu item.
+---@param item cc.MenuItem @(cocos2d::MenuItem*)
+---@return self @(void)
 function MenuItemToggle:addSubItem(item)
 end
 
---------------------------------
+--- Gets the index of the selected item.
+---@return number @(unsigned int)
+function MenuItemToggle:getSelectedIndex()
+end
 
----  Return the selected item. 
----@return cc.MenuItem
+--- Return the selected item.
+---@return cc.MenuItem @(cocos2d::MenuItem*)
 function MenuItemToggle:getSelectedItem()
 end
 
---------------------------------
+--- Initializes a menu item with a item.
+---@param item cc.MenuItem @(cocos2d::MenuItem*)
+---@return boolean @(bool)
+function MenuItemToggle:initWithItem(item)
+end
 
----  Sets the index of the selected item. 
----@param index number
----@return cc.MenuItemToggle
+--- Sets the index of the selected item.
+---@param index number @(unsigned int)
+---@return self @(void)
 function MenuItemToggle:setSelectedIndex(index)
 end
 
---------------------------------
-
---- 
----@param var boolean
----@return cc.MenuItemToggle
-function MenuItemToggle:setEnabled(var)
+--- Sets the array that contains the subitems.
+---@param items cc.MenuItem [] @(cocos2d::Vector<cocos2d::MenuItem *>)
+---@return self @(void)
+function MenuItemToggle:setSubItems(items)
 end
-
---------------------------------
-
---- 
----@return cc.MenuItemToggle
-function MenuItemToggle:cleanup()
-end
-
---------------------------------
-
---- 
----@return cc.MenuItemToggle
-function MenuItemToggle:activate()
-end
-
---------------------------------
-
---- 
----@return cc.MenuItemToggle
-function MenuItemToggle:unselected()
-end
-
---------------------------------
-
---- 
----@return cc.MenuItemToggle
-function MenuItemToggle:selected()
-end
-
---------------------------------
-
---- js ctor
----@return cc.MenuItemToggle
-function MenuItemToggle:MenuItemToggle()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.MenuItemToggle
-function MenuItemToggle:new() end
-
 
 return nil

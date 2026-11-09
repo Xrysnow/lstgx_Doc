@@ -1,76 +1,29 @@
-
---------------------------------
--- @module Console
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.Console:cc.Ref
 local Console = {}
 cc.Console = Console
---------------------------------
 
----  starts listening to specified TCP port 
----@param port number
----@return boolean
-function Console:listenOnTCP(port)
-end
-
---------------------------------
-
----  log something in the console 
----@param buf string
----@return cc.Console
-function Console:log(buf)
-end
-
---------------------------------
-
----  delete custom command 
----@param cmdName string
----@return cc.Console
+--- delete custom command
+---@param cmdName string @(std::string_view)
+---@return self @(void)
 function Console:delCommand(cmdName)
 end
 
---------------------------------
-
----  stops the Console. 'stop' will be called at destruction time as well 
----@return cc.Console
-function Console:stop()
-end
-
---------------------------------
-
----  starts listening to specified file descriptor 
----@param fd number
----@return boolean
-function Console:listenOnFileDescriptor(fd)
-end
-
---------------------------------
-
---- 
----@param var number
----@return cc.Console
-function Console:setCommandSeparator(var)
-end
-
---------------------------------
-
---- set bind address
---- address : 127.0.0.1
----@param address string
----@return cc.Console
-function Console:setBindAddress(address)
-end
-
---------------------------------
-
----  Checks whether the server for console is bound with ipv6 address 
----@return boolean
+--- Checks whether the server for console is bound with ipv6 address
+---@return boolean @(bool)
 function Console:isIpv6Server()
 end
 
--- P6 Core: existing registered entries omitted from the earlier documentation.
+--- starts listening to specified file descriptor
+---@param fd number @(int)
+---@return boolean @(bool)
+function Console:listenOnFileDescriptor(fd)
+end
+
+--- starts listening to specified TCP port
+---@param port number @(int)
+---@return boolean @(bool)
+function Console:listenOnTCP(port)
+end
 
 --- print something in the console
 ---@param buf string @(const char*)
@@ -78,5 +31,24 @@ end
 function Console:print(buf)
 end
 
+---
+--- set bind address
+---
+--- @address : 127.0.0.1
+---@param address string @(std::string_view)
+---@return self @(void)
+function Console:setBindAddress(address)
+end
+
+--- The command separator
+---@param var number @(char)
+---@return self @(void)
+function Console:setCommandSeparator(var)
+end
+
+--- stops the Console. 'stop' will be called at destruction time as well
+---@return self @(void)
+function Console:stop()
+end
 
 return nil

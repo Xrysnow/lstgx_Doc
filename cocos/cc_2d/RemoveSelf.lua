@@ -1,63 +1,26 @@
-
---------------------------------
--- @module RemoveSelf
--- @extend ActionInstant
--- @parent_module cc
-
 ---@class cc.RemoveSelf:cc.ActionInstant
 local RemoveSelf = {}
 cc.RemoveSelf = RemoveSelf
---------------------------------
 
----  init the action 
----@param isNeedCleanUp boolean
----@return boolean
+--- init the action
+---@param isNeedCleanUp boolean @(bool)
+---@return boolean @(bool)
 function RemoveSelf:init(isNeedCleanUp)
 end
 
---------------------------------
+--- Create the action.
+---
+--- (static)
+---@param isNeedCleanUp boolean @(bool) Is need to clean up, the default value is true.
+---@return cc.RemoveSelf @(cocos2d::RemoveSelf*) An autoreleased RemoveSelf object.
+function RemoveSelf:create(isNeedCleanUp)
+end
 
----  Create the action.
---- param isNeedCleanUp Is need to clean up, the default value is true.
---- return An autoreleased RemoveSelf object.
----@return cc.RemoveSelf
+--- Create the action.
+---
+--- (static)
+---@return cc.RemoveSelf @(cocos2d::RemoveSelf*) An autoreleased RemoveSelf object.
 function RemoveSelf:create()
 end
-
---------------------------------
-
---- 
----@return cc.RemoveSelf
-function RemoveSelf:clone()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.RemoveSelf
-function RemoveSelf:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.RemoveSelf
-function RemoveSelf:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.RemoveSelf
-function RemoveSelf:RemoveSelf()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.RemoveSelf
-function RemoveSelf:new() end
-
 
 return nil

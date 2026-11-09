@@ -1,85 +1,62 @@
-
---------------------------------
--- @module ScaleTo
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.ScaleTo:cc.ActionInterval
 local ScaleTo = {}
 cc.ScaleTo = ScaleTo
---------------------------------
 
---- initializes the action with and X factor and a Y factor <br>
--- param duration in seconds
----@param duration number
----@param sx number
----@param sy number
----@param sz number
----@return boolean
----@overload fun(self:cc.ScaleTo, duration:number, sx:number, sy:number):boolean
----@overload fun(self:cc.ScaleTo, duration:number, s:number):boolean
+---
+--- initializes the action with X Y Z factor
+---@param duration number @(float) in seconds
+---@param sx number @(float)
+---@param sy number @(float)
+---@param sz number @(float)
+---@return boolean @(bool)
 function ScaleTo:initWithDuration(duration, sx, sy, sz)
 end
 
---------------------------------
+---
+--- initializes the action with and X factor and a Y factor
+---@param duration number @(float) in seconds
+---@param sx number @(float)
+---@param sy number @(float)
+---@return boolean @(bool)
+function ScaleTo:initWithDuration(duration, sx, sy)
+end
 
---- Creates the action with and X factor and a Y factor.<br>
--- param duration Duration time, in seconds.<br>
--- param sx Scale factor of x.<br>
--- param sy Scale factor of y.<br>
--- return An autoreleased ScaleTo object.
----@param duration number
----@param sx number
----@param sy number
----@param sz number
----@return cc.ScaleTo
----@overload fun(self:cc.ScaleTo, duration:number, sx:number, sy:number):cc.ScaleTo
----@overload fun(self:cc.ScaleTo, duration:number, s:number):cc.ScaleTo
+---
+--- initializes the action with the same scale factor for X and Y
+---@param duration number @(float) in seconds
+---@param s number @(float)
+---@return boolean @(bool)
+function ScaleTo:initWithDuration(duration, s)
+end
+
+---
+--- Creates the action with X Y Z factor.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param sx number @(float) Scale factor of x.
+---@param sy number @(float) Scale factor of y.
+---@param sz number @(float) Scale factor of z.
+---@return cc.ScaleTo @(cocos2d::ScaleTo*) An autoreleased ScaleTo object.
 function ScaleTo:create(duration, sx, sy, sz)
 end
 
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.ScaleTo
-function ScaleTo:startWithTarget(target)
+---
+--- Creates the action with and X factor and a Y factor.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param sx number @(float) Scale factor of x.
+---@param sy number @(float) Scale factor of y.
+---@return cc.ScaleTo @(cocos2d::ScaleTo*) An autoreleased ScaleTo object.
+function ScaleTo:create(duration, sx, sy)
 end
 
---------------------------------
-
---- 
----@return cc.ScaleTo
-function ScaleTo:clone()
+---
+--- Creates the action with the same scale factor for X and Y.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param s number @(float) Scale factor of x and y.
+---@return cc.ScaleTo @(cocos2d::ScaleTo*) An autoreleased ScaleTo object.
+function ScaleTo:create(duration, s)
 end
-
---------------------------------
-
---- 
----@return cc.ScaleTo
-function ScaleTo:reverse()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.ScaleTo
-function ScaleTo:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.ScaleTo
-function ScaleTo:ScaleTo()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ScaleTo
-function ScaleTo:new() end
-
 
 return nil

@@ -1,81 +1,30 @@
-
---------------------------------
--- @module ActionInterval
--- @extend FiniteTimeAction
--- @parent_module cc
-
 ---@class cc.ActionInterval:cc.FiniteTimeAction
 local ActionInterval = {}
 cc.ActionInterval = ActionInterval
---------------------------------
 
----  Gets the amplitude rate, extension in GridAction
---- return  The amplitude rate.
----@return number
+--- Gets the amplitude rate, extension in GridAction
+---
+---@return number @(float)  The amplitude rate.
 function ActionInterval:getAmplitudeRate()
 end
 
---------------------------------
-
----  initializes the action 
----@param d number
----@return boolean
-function ActionInterval:initWithDuration(d)
-end
-
---------------------------------
-
----  Sets the amplitude rate, extension in GridAction
---- param amp   The amplitude rate.
----@param amp number
----@return cc.ActionInterval
-function ActionInterval:setAmplitudeRate(amp)
-end
-
---------------------------------
-
----  How many seconds had elapsed since the actions started to run.
---- return The seconds had elapsed since the actions started to run.
----@return number
+--- How many seconds had elapsed since the actions started to run.
+---
+---@return number @(float) The seconds had elapsed since the actions started to run.
 function ActionInterval:getElapsed()
 end
 
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.ActionInterval
-function ActionInterval:startWithTarget(target)
+--- initializes the action
+---@param d number @(float)
+---@return boolean @(bool)
+function ActionInterval:initWithDuration(d)
 end
 
---------------------------------
-
---- param dt in seconds
----@param dt number
----@return cc.ActionInterval
-function ActionInterval:step(dt)
+--- Sets the amplitude rate, extension in GridAction
+---
+---@param amp number @(float)   The amplitude rate.
+---@return self @(void)
+function ActionInterval:setAmplitudeRate(amp)
 end
-
---------------------------------
-
---- 
----@return cc.ActionInterval
-function ActionInterval:clone()
-end
-
---------------------------------
-
---- 
----@return cc.ActionInterval
-function ActionInterval:reverse()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ActionInterval:isDone()
-end
-
 
 return nil

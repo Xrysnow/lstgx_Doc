@@ -1,76 +1,39 @@
-
---------------------------------
--- @module TransitionPageTurn
--- @extend TransitionScene
--- @parent_module cc
-
 ---@class cc.TransitionPageTurn:cc.TransitionScene
 local TransitionPageTurn = {}
 cc.TransitionPageTurn = TransitionPageTurn
---------------------------------
 
----  Returns the action that will be performed with size.
---- param vector A given size.
---- return The action that will be performed.
----@param vector size_table
----@return cc.ActionInterval
+--- Returns the action that will be performed with size.
+---
+---@param vector vec2_table @(cocos2d::Vec2) A given size.
+---@return cc.ActionInterval @(cocos2d::ActionInterval*) The action that will be performed.
 function TransitionPageTurn:actionWithSize(vector)
 end
 
---------------------------------
-
+---
 --- Creates a base transition with duration and incoming scene.
 --- If back is true then the effect is reversed to appear as if the incoming
 --- scene is being turned from left over the outgoing scene.
---- param t Duration time, in seconds.
---- param scene A given scene.
---- param backwards If back is true then the effect is reversed to appear as if the incoming scene is being turned from left over the outgoing scene.
---- return True if initialize success.
----@param t number
----@param scene cc.Scene
----@param backwards boolean
----@return boolean
+---
+--- from left over the outgoing scene.
+---@param t number @(float) Duration time, in seconds.
+---@param scene cc.Scene @(cocos2d::Scene*) A given scene.
+---@param backwards boolean @(bool) If back is true then the effect is reversed to appear as if the incoming scene is being turned
+---@return boolean @(bool) True if initialize success.
 function TransitionPageTurn:initWithDuration(t, scene, backwards)
 end
 
---------------------------------
-
+---
 --- Creates a base transition with duration and incoming scene.
 --- If back is true then the effect is reversed to appear as if the incoming
 --- scene is being turned from left over the outgoing scene.
---- param t Duration time, in seconds.
---- param scene A given scene.
---- param backwards If back is true then the effect is reversed to appear as if the incoming scene is being turned from left over the outgoing scene.
---- return An autoreleased TransitionPageTurn object.
----@param t number
----@param scene cc.Scene
----@param backwards boolean
----@return cc.TransitionPageTurn
+---
+--- from left over the outgoing scene.
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param scene cc.Scene @(cocos2d::Scene*) A given scene.
+---@param backwards boolean @(bool) If back is true then the effect is reversed to appear as if the incoming scene is being turned
+---@return cc.TransitionPageTurn @(cocos2d::TransitionPageTurn*) An autoreleased TransitionPageTurn object.
 function TransitionPageTurn:create(t, scene, backwards)
 end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return cc.TransitionPageTurn
-function TransitionPageTurn:draw(renderer, transform, flags)
-end
-
---------------------------------
-
---- js ctor
----@return cc.TransitionPageTurn
-function TransitionPageTurn:TransitionPageTurn()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionPageTurn
-function TransitionPageTurn:new() end
-
 
 return nil

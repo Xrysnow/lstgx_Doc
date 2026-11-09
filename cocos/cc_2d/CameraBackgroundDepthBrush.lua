@@ -1,66 +1,20 @@
-
---------------------------------
--- @module CameraBackgroundDepthBrush
--- @extend CameraBackgroundBrush
--- @parent_module cc
-
 ---@class cc.CameraBackgroundDepthBrush:cc.CameraBackgroundBrush
 local CameraBackgroundDepthBrush = {}
 cc.CameraBackgroundDepthBrush = CameraBackgroundDepthBrush
---------------------------------
 
+---
 --- Set depth
---- param depth Depth used to clear depth buffer
----@param depth number
----@return cc.CameraBackgroundDepthBrush
+---@param depth number @(float) Depth used to clear depth buffer
+---@return self @(void)
 function CameraBackgroundDepthBrush:setDepth(depth)
 end
 
---------------------------------
-
+---
 --- Create a depth brush
---- param depth Depth used to clear the depth buffer
---- return Created brush
----@param depth number
----@return cc.CameraBackgroundDepthBrush
+--- (static)
+---@param depth number @(float) Depth used to clear the depth buffer
+---@return cc.CameraBackgroundDepthBrush @(cocos2d::CameraBackgroundDepthBrush*) Created brush
 function CameraBackgroundDepthBrush:create(depth)
 end
-
---------------------------------
-
---- Get brush type. Should be BrushType::DEPTH
---- return brush type
----@return number
-function CameraBackgroundDepthBrush:getBrushType()
-end
-
---------------------------------
-
---- Draw background
----@param camera cc.Camera
----@return cc.CameraBackgroundDepthBrush
-function CameraBackgroundDepthBrush:drawBackground(camera)
-end
-
---------------------------------
-
---- 
----@return boolean
-function CameraBackgroundDepthBrush:init()
-end
-
---------------------------------
-
---- 
----@return cc.CameraBackgroundDepthBrush
-function CameraBackgroundDepthBrush:CameraBackgroundDepthBrush()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.CameraBackgroundDepthBrush
-function CameraBackgroundDepthBrush:new() end
-
 
 return nil

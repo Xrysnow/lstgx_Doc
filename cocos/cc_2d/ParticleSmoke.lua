@@ -1,58 +1,30 @@
-
---------------------------------
--- @module ParticleSmoke
--- @extend ParticleSystemQuad
--- @parent_module cc
-
 ---@class cc.ParticleSmoke:cc.ParticleSystemQuad
 local ParticleSmoke = {}
 cc.ParticleSmoke = ParticleSmoke
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function ParticleSmoke:init()
 end
 
---------------------------------
-
---- 
----@param numberOfParticles number
----@return boolean
+---@param numberOfParticles number @(int)
+---@return boolean @(bool)
 function ParticleSmoke:initWithTotalParticles(numberOfParticles)
 end
 
---------------------------------
-
----  Create a smoke particle system.
---- return An autoreleased ParticleSmoke object.
----@return cc.ParticleSmoke
+--- Create a smoke particle system.
+---
+--- (static)
+---@return cc.ParticleSmoke @(cocos2d::ParticleSmoke*) An autoreleased ParticleSmoke object.
 function ParticleSmoke:create()
 end
 
---------------------------------
-
----  Create a smoke particle system withe a fixed number of particles.
---- param numberOfParticles A given number of particles.
---- return An autoreleased ParticleSmoke object.
---- js NA
----@param numberOfParticles number
----@return cc.ParticleSmoke
+--- Create a smoke particle system withe a fixed number of particles.
+---
+--- @js NA
+--- (static)
+---@param numberOfParticles number @(int) A given number of particles.
+---@return cc.ParticleSmoke @(cocos2d::ParticleSmoke*) An autoreleased ParticleSmoke object.
 function ParticleSmoke:createWithTotalParticles(numberOfParticles)
 end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleSmoke
-function ParticleSmoke:ParticleSmoke()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleSmoke
-function ParticleSmoke:new() end
-
 
 return nil

@@ -1,78 +1,23 @@
-
---------------------------------
--- @module SkewTo
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.SkewTo:cc.ActionInterval
 local SkewTo = {}
 cc.SkewTo = SkewTo
---------------------------------
 
---- param t In seconds.
----@param t number
----@param sx number
----@param sy number
----@return boolean
+---
+---@param t number @(float) In seconds.
+---@param sx number @(float)
+---@param sy number @(float)
+---@return boolean @(bool)
 function SkewTo:initWithDuration(t, sx, sy)
 end
 
---------------------------------
-
+---
 --- Creates the action.
---- param t Duration time, in seconds.
---- param sx Skew x angle.
---- param sy Skew y angle.
---- return An autoreleased SkewTo object.
----@param t number
----@param sx number
----@param sy number
----@return cc.SkewTo
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param sx number @(float) Skew x angle.
+---@param sy number @(float) Skew y angle.
+---@return cc.SkewTo @(cocos2d::SkewTo*) An autoreleased SkewTo object.
 function SkewTo:create(t, sx, sy)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.SkewTo
-function SkewTo:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.SkewTo
-function SkewTo:clone()
-end
-
---------------------------------
-
---- 
----@return cc.SkewTo
-function SkewTo:reverse()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.SkewTo
-function SkewTo:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.SkewTo
-function SkewTo:SkewTo()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.SkewTo
-function SkewTo:new() end
-
 
 return nil

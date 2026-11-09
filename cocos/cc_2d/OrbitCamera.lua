@@ -1,83 +1,31 @@
-
---------------------------------
--- @module OrbitCamera
--- @extend ActionCamera
--- @parent_module cc
-
 ---@class cc.OrbitCamera:cc.ActionCamera
 local OrbitCamera = {}
 cc.OrbitCamera = OrbitCamera
---------------------------------
 
----  Initializes a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX. 
----@param t number
----@param radius number
----@param deltaRadius number
----@param angleZ number
----@param deltaAngleZ number
----@param angleX number
----@param deltaAngleX number
----@return boolean
+--- Initializes a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX.
+---@param t number @(float)
+---@param radius number @(float)
+---@param deltaRadius number @(float)
+---@param angleZ number @(float)
+---@param deltaAngleZ number @(float)
+---@param angleX number @(float)
+---@param deltaAngleX number @(float)
+---@return boolean @(bool)
 function OrbitCamera:initWithDuration(t, radius, deltaRadius, angleZ, deltaAngleZ, angleX, deltaAngleX)
 end
 
---------------------------------
-
----  Creates a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX. 
---- param t Duration in seconds.
---- param radius The start radius.
---- param deltaRadius The delta radius.
---- param angleZ The start angle in Z.
---- param deltaAngleZ The delta angle in Z.
---- param angleX The start angle in X.
---- param deltaAngleX The delta angle in X.
---- return An OrbitCamera.
----@param t number
----@param radius number
----@param deltaRadius number
----@param angleZ number
----@param deltaAngleZ number
----@param angleX number
----@param deltaAngleX number
----@return cc.OrbitCamera
+--- Creates a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX.
+---
+--- (static)
+---@param t number @(float) Duration in seconds.
+---@param radius number @(float) The start radius.
+---@param deltaRadius number @(float) The delta radius.
+---@param angleZ number @(float) The start angle in Z.
+---@param deltaAngleZ number @(float) The delta angle in Z.
+---@param angleX number @(float) The start angle in X.
+---@param deltaAngleX number @(float) The delta angle in X.
+---@return cc.OrbitCamera @(cocos2d::OrbitCamera*) An OrbitCamera.
 function OrbitCamera:create(t, radius, deltaRadius, angleZ, deltaAngleZ, angleX, deltaAngleX)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.OrbitCamera
-function OrbitCamera:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.OrbitCamera
-function OrbitCamera:clone()
-end
-
---------------------------------
-
---- 
----@param time number
----@return cc.OrbitCamera
-function OrbitCamera:update(time)
-end
-
---------------------------------
-
---- js ctor
----@return cc.OrbitCamera
-function OrbitCamera:OrbitCamera()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.OrbitCamera
-function OrbitCamera:new() end
-
 
 return nil

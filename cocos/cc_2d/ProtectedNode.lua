@@ -1,182 +1,138 @@
-
---------------------------------
--- @module ProtectedNode
--- @extend Node
--- @parent_module cc
-
 ---@class cc.ProtectedNode:cc.Node
 local ProtectedNode = {}
 cc.ProtectedNode = ProtectedNode
---------------------------------
 
---- Adds a child to the container with a local z-order.<br>
--- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called immediately.<br>
--- param child     A child node<br>
--- param localZOrder    Z order for drawing priority. Please refer to `setLocalZOrder(int)`
----@param child cc.Node
----@param localZOrder number
----@param tag number
----@return cc.ProtectedNode
----@overload fun(self:cc.ProtectedNode, child:cc.Node, localZOrder:number):cc.ProtectedNode
----@overload fun(self:cc.ProtectedNode, child:cc.Node):cc.ProtectedNode
+---
+--- Adds a child to the container with z order and tag.
+---
+--- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called
+--- immediately.
+---
+---@param child cc.Node @(cocos2d::Node*)     A child node
+---@param localZOrder number @(int)    Z order for drawing priority. Please refer to `setLocalZOrder(int)`
+---@param tag number @(int)       An integer to identify the node easily. Please refer to `setTag(int)`
+---@return self @(void)
 function ProtectedNode:addProtectedChild(child, localZOrder, tag)
 end
 
---------------------------------
+---
+--- Adds a child to the container with a local z-order.
+---
+--- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called
+--- immediately.
+---
+---@param child cc.Node @(cocos2d::Node*)     A child node
+---@param localZOrder number @(int)    Z order for drawing priority. Please refer to `setLocalZOrder(int)`
+---@return self @(void)
+function ProtectedNode:addProtectedChild(child, localZOrder)
+end
 
---- 
----@return cc.ProtectedNode
+---
+--- Adds a child to the container with z-order as 0.
+---
+--- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called
+--- immediately.
+---
+---@param child cc.Node @(cocos2d::Node*) A child node
+---@return self @(void)
+function ProtectedNode:addProtectedChild(child)
+end
+
+---@return self @(void)
 function ProtectedNode:disableCascadeColor()
 end
 
---------------------------------
-
---- Removes a child from the container by tag value. It will also cleanup all running actions depending on the cleanup parameter.
---- param tag       An integer number that identifies a child node.
---- param cleanup   true if all running actions and callbacks on the child node will be cleanup, false otherwise.
----@param tag number
----@param cleanup boolean
----@return cc.ProtectedNode
-function ProtectedNode:removeProtectedChildByTag(tag, cleanup)
-end
-
---------------------------------
-
---- Reorders a child according to a new z value.
---- param child     An already added child node. It MUST be already added.
---- param localZOrder Z order for drawing priority. Please refer to setLocalZOrder(int)
----@param child cc.Node
----@param localZOrder number
----@return cc.ProtectedNode
-function ProtectedNode:reorderProtectedChild(child, localZOrder)
-end
-
---------------------------------
-
---- Removes all children from the container, and do a cleanup to all running actions depending on the cleanup parameter.
---- param cleanup   true if all running actions on all children nodes should be cleanup, false otherwise.
---- js removeAllChildren
---- lua removeAllChildren
----@param cleanup boolean
----@return cc.ProtectedNode
-function ProtectedNode:removeAllProtectedChildrenWithCleanup(cleanup)
-end
-
---------------------------------
-
---- 
----@return cc.ProtectedNode
+---@return self @(void)
 function ProtectedNode:disableCascadeOpacity()
 end
 
---------------------------------
-
---- Sorts the children array once before drawing, instead of every time when a child is added or reordered.
---- This approach can improves the performance massively.
---- note Don't call this manually unless a child added needs to be removed in the same frame
----@return cc.ProtectedNode
-function ProtectedNode:sortAllProtectedChildren()
-end
-
---------------------------------
-
+---
 --- Gets a child from the container with its tag.
---- param tag   An identifier to find the child node.
---- return a Node object whose tag equals to the input parameter.
----@param tag number
----@return cc.Node
+---
+---
+---@param tag number @(int)   An identifier to find the child node.
+---@return cc.Node @(cocos2d::Node*) a Node object whose tag equals to the input parameter.
 function ProtectedNode:getProtectedChildByTag(tag)
 end
 
---------------------------------
-
---- Removes a child from the container. It will also cleanup all running actions depending on the cleanup parameter.
---- param child     The child node which will be removed.
---- param cleanup   true if all running actions and callbacks on the child node will be cleanup, false otherwise.
----@param child cc.Node
----@param cleanup boolean
----@return cc.ProtectedNode
-function ProtectedNode:removeProtectedChild(child, cleanup)
-end
-
---------------------------------
-
+---
 --- Removes all children from the container with a cleanup.
---- see `removeAllChildrenWithCleanup(bool)`.
----@return cc.ProtectedNode
+---
+--- @see `removeAllChildrenWithCleanup(bool)`.
+---@return self @(void)
 function ProtectedNode:removeAllProtectedChildren()
 end
 
---------------------------------
+---
+--- Removes all children from the container, and do a cleanup to all running actions depending on the cleanup
+--- parameter.
+---
+--- @js removeAllChildren
+--- @lua removeAllChildren
+---@param cleanup boolean @(bool)   true if all running actions on all children nodes should be cleanup, false otherwise.
+---@return self @(void)
+function ProtectedNode:removeAllProtectedChildrenWithCleanup(cleanup)
+end
 
+---
+--- Removes a child from the container. It will also cleanup all running actions depending on the cleanup parameter.
+---
+---@param child cc.Node @(cocos2d::Node*)     The child node which will be removed.
+---@param cleanup boolean @(bool)   true if all running actions and callbacks on the child node will be cleanup, false otherwise.
+---@return self @(void)
+function ProtectedNode:removeProtectedChild(child, cleanup)
+end
+
+---
+--- Removes a child from the container. It will also cleanup all running actions depending on the cleanup parameter.
+---
+---@param child cc.Node @(cocos2d::Node*)     The child node which will be removed.
+---@return self @(void)
+function ProtectedNode:removeProtectedChild(child)
+end
+
+---
+--- Removes a child from the container by tag value. It will also cleanup all running actions depending on the
+--- cleanup parameter.
+---
+---@param tag number @(int)       An integer number that identifies a child node.
+---@param cleanup boolean @(bool)   true if all running actions and callbacks on the child node will be cleanup, false otherwise.
+---@return self @(void)
+function ProtectedNode:removeProtectedChildByTag(tag, cleanup)
+end
+
+---
+--- Removes a child from the container by tag value. It will also cleanup all running actions depending on the
+--- cleanup parameter.
+---
+---@param tag number @(int)       An integer number that identifies a child node.
+---@return self @(void)
+function ProtectedNode:removeProtectedChildByTag(tag)
+end
+
+---
+--- Reorders a child according to a new z value.
+---
+---@param child cc.Node @(cocos2d::Node*)     An already added child node. It MUST be already added.
+---@param localZOrder number @(int) Z order for drawing priority. Please refer to setLocalZOrder(int)
+---@return self @(void)
+function ProtectedNode:reorderProtectedChild(child, localZOrder)
+end
+
+---
+--- Sorts the children array once before drawing, instead of every time when a child is added or reordered.
+--- This approach can improves the performance massively.
+--- @note Don't call this manually unless a child added needs to be removed in the same frame
+---@return self @(void)
+function ProtectedNode:sortAllProtectedChildren()
+end
+
+---
 --- Creates a ProtectedNode with no argument.
---- return A instance of ProtectedNode.
----@return cc.ProtectedNode
+--- *@return A instance of ProtectedNode.
+--- (static)
+---@return cc.ProtectedNode @(cocos2d::ProtectedNode*)
 function ProtectedNode:create()
 end
-
---------------------------------
-
---- 
----@param mask number
----@param applyChildren boolean
----@return cc.ProtectedNode
-function ProtectedNode:setCameraMask(mask, applyChildren)
-end
-
---------------------------------
-
---- 
----@param globalZOrder number
----@return cc.ProtectedNode
-function ProtectedNode:setGlobalZOrder(globalZOrder)
-end
-
---------------------------------
-
---- js NA
----@param renderer cc.Renderer
----@param parentTransform mat4_table
----@param parentFlags number
----@return cc.ProtectedNode
-function ProtectedNode:visit(renderer, parentTransform, parentFlags)
-end
-
---------------------------------
-
---- 
----@param parentOpacity number
----@return cc.ProtectedNode
-function ProtectedNode:updateDisplayedOpacity(parentOpacity)
-end
-
---------------------------------
-
---- 
----@param parentColor color3b_table
----@return cc.ProtectedNode
-function ProtectedNode:updateDisplayedColor(parentColor)
-end
-
---------------------------------
-
---- 
----@return cc.ProtectedNode
-function ProtectedNode:cleanup()
-end
-
---------------------------------
-
---- 
----@return cc.ProtectedNode
-function ProtectedNode:ProtectedNode()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ProtectedNode
-function ProtectedNode:new() end
-
 
 return nil

@@ -1,76 +1,22 @@
-
---------------------------------
--- @module FadeTo
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.FadeTo:cc.ActionInterval
 local FadeTo = {}
 cc.FadeTo = FadeTo
---------------------------------
 
---- initializes the action with duration and opacity 
---- param duration in seconds
----@param duration number
----@param opacity number
----@return boolean
+---
+--- initializes the action with duration and opacity
+---@param duration number @(float) in seconds
+---@param opacity number @(uint8_t)
+---@return boolean @(bool)
 function FadeTo:initWithDuration(duration, opacity)
 end
 
---------------------------------
-
+---
 --- Creates an action with duration and opacity.
---- param duration Duration time, in seconds.
---- param opacity A certain opacity, the range is from 0 to 255.
---- return An autoreleased FadeTo object.
----@param duration number
----@param opacity number
----@return cc.FadeTo
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param opacity number @(uint8_t) A certain opacity, the range is from 0 to 255.
+---@return cc.FadeTo @(cocos2d::FadeTo*) An autoreleased FadeTo object.
 function FadeTo:create(duration, opacity)
 end
-
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.FadeTo
-function FadeTo:startWithTarget(target)
-end
-
---------------------------------
-
---- 
----@return cc.FadeTo
-function FadeTo:clone()
-end
-
---------------------------------
-
---- 
----@return cc.FadeTo
-function FadeTo:reverse()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.FadeTo
-function FadeTo:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.FadeTo
-function FadeTo:FadeTo()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.FadeTo
-function FadeTo:new() end
-
 
 return nil

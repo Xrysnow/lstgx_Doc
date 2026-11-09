@@ -1,126 +1,65 @@
-
---------------------------------
--- @module LayerColor
--- @extend Layer,BlendProtocol
--- @parent_module cc
-
 ---@class cc.LayerColor:cc.Sprite
 local LayerColor = {}
 cc.LayerColor = LayerColor
---------------------------------
 
----  Change width and height in Points.
---- param w The width of layer.
---- param h The Height of layer.
---- since v0.8
----@param w number
----@param h number
----@return cc.LayerColor
-function LayerColor:changeWidthAndHeight(w, h)
-end
-
---------------------------------
-
----  BlendFunction. Conforms to BlendProtocol protocol 
---- lua NA
----@return cc.BlendFunc
-function LayerColor:getBlendFunc()
-end
-
---------------------------------
-
---- code
---- When this function bound into js or lua,the parameter will be changed
---- In js: var setBlendFunc(var src, var dst)
---- In lua: local setBlendFunc(local src, local dst)
---- endcode
----@param blendFunc cc.BlendFunc
----@return cc.LayerColor
-function LayerColor:setBlendFunc(blendFunc)
-end
-
---------------------------------
-
----  Change width in Points.
---- param w The width of layer.
----@param w number
----@return cc.LayerColor
-function LayerColor:changeWidth(w)
-end
-
---------------------------------
-
---- 
----@param color color4b_table
----@param width number
----@param height number
----@return boolean
----@overload fun(self:cc.LayerColor, color:color4b_table):boolean
-function LayerColor:initWithColor(color, width, height)
-end
-
---------------------------------
-
----  Change height in Points.
---- param h The height of layer.
----@param h number
----@return cc.LayerColor
+--- Change height in Points.
+---
+---@param h number @(float) The height of layer.
+---@return self @(void)
 function LayerColor:changeHeight(h)
 end
 
---------------------------------
+--- Change width in Points.
+---
+---@param w number @(float) The width of layer.
+---@return self @(void)
+function LayerColor:changeWidth(w)
+end
 
----  Creates a Layer with color, width and height in Points.<br>
--- param color The color of layer.<br>
--- param width The width of layer.<br>
--- param height The height of layer.<br>
--- return An autoreleased LayerColor object.
----@param color color4b_table
----@param width number
----@param height number
----@return cc.LayerColor
----@overload fun(self:cc.LayerColor):cc.LayerColor
----@overload fun(self:cc.LayerColor, color:color4b_table):cc.LayerColor
+--- Change width and height in Points.
+---
+--- @since v0.8
+---@param w number @(float) The width of layer.
+---@param h number @(float) The Height of layer.
+---@return self @(void)
+function LayerColor:changeWidthAndHeight(w, h)
+end
+
+---@param color color4b_table @(cocos2d::Color4B)
+---@param width number @(float)
+---@param height number @(float)
+---@return boolean @(bool)
+function LayerColor:initWithColor(color, width, height)
+end
+
+---@param color color4b_table @(cocos2d::Color4B)
+---@return boolean @(bool)
+function LayerColor:initWithColor(color)
+end
+
+--- Creates a Layer with color, width and height in Points.
+---
+--- (static)
+---@param color color4b_table @(cocos2d::Color4B) The color of layer.
+---@param width number @(float) The width of layer.
+---@param height number @(float) The height of layer.
+---@return cc.LayerColor @(cocos2d::LayerColor*) An autoreleased LayerColor object.
 function LayerColor:create(color, width, height)
 end
 
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return cc.LayerColor
-function LayerColor:draw(renderer, transform, flags)
+--- Creates a Layer with color. Width and height are the window size.
+---
+--- (static)
+---@param color color4b_table @(cocos2d::Color4B) The color of layer.
+---@return cc.LayerColor @(cocos2d::LayerColor*) An autoreleased LayerColor object.
+function LayerColor:create(color)
 end
 
---------------------------------
-
---- 
----@return boolean
-function LayerColor:init()
+--- Creates a fullscreen black layer.
+---
+--- (static)
+---@return cc.LayerColor @(cocos2d::LayerColor*) An autoreleased LayerColor object.
+function LayerColor:create()
 end
-
---------------------------------
-
---- 
----@param var size_table
----@return cc.LayerColor
-function LayerColor:setContentSize(var)
-end
-
---------------------------------
-
---- 
----@return cc.LayerColor
-function LayerColor:LayerColor()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.LayerColor
-function LayerColor:new() end
-
 
 return nil

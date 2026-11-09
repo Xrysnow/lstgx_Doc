@@ -1,58 +1,30 @@
-
---------------------------------
--- @module ParticleSun
--- @extend ParticleSystemQuad
--- @parent_module cc
-
 ---@class cc.ParticleSun:cc.ParticleSystemQuad
 local ParticleSun = {}
 cc.ParticleSun = ParticleSun
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function ParticleSun:init()
 end
 
---------------------------------
-
---- 
----@param numberOfParticles number
----@return boolean
+---@param numberOfParticles number @(int)
+---@return boolean @(bool)
 function ParticleSun:initWithTotalParticles(numberOfParticles)
 end
 
---------------------------------
-
----  Create a sun particle system.
---- return An autoreleased ParticleSun object.
----@return cc.ParticleSun
+--- Create a sun particle system.
+---
+--- (static)
+---@return cc.ParticleSun @(cocos2d::ParticleSun*) An autoreleased ParticleSun object.
 function ParticleSun:create()
 end
 
---------------------------------
-
----  Create a sun particle system withe a fixed number of particles.
---- param numberOfParticles A given number of particles.
---- return An autoreleased ParticleSun object.
---- js NA
----@param numberOfParticles number
----@return cc.ParticleSun
+--- Create a sun particle system withe a fixed number of particles.
+---
+--- @js NA
+--- (static)
+---@param numberOfParticles number @(int) A given number of particles.
+---@return cc.ParticleSun @(cocos2d::ParticleSun*) An autoreleased ParticleSun object.
 function ParticleSun:createWithTotalParticles(numberOfParticles)
 end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleSun
-function ParticleSun:ParticleSun()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleSun
-function ParticleSun:new() end
-
 
 return nil

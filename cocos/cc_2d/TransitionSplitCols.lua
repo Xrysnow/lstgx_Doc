@@ -1,62 +1,25 @@
-
---------------------------------
--- @module TransitionSplitCols
--- @extend TransitionScene,TransitionEaseScene
--- @parent_module cc
-
 ---@class cc.TransitionSplitCols:cc.TransitionScene
 local TransitionSplitCols = {}
 cc.TransitionSplitCols = TransitionSplitCols
---------------------------------
 
----  Returns the action that will be performed.
---- return The action that will be performed.
----@return cc.ActionInterval
+--- Returns the action that will be performed.
+---
+---@return cc.ActionInterval @(cocos2d::ActionInterval*) The action that will be performed.
 function TransitionSplitCols:action()
 end
 
---------------------------------
-
---- 
----@param action cc.ActionInterval
----@return cc.ActionInterval
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@return cc.ActionInterval @(cocos2d::ActionInterval*)
 function TransitionSplitCols:easeActionWithAction(action)
 end
 
---------------------------------
-
----  Creates a transition with duration and incoming scene.
---- param t Duration time, in seconds.
---- param scene A given scene.
---- return A autoreleased TransitionSplitCols object.
----@param t number
----@param scene cc.Scene
----@return cc.TransitionSplitCols
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param scene cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionSplitCols @(cocos2d::TransitionSplitCols*) A autoreleased TransitionSplitCols object.
 function TransitionSplitCols:create(t, scene)
 end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return cc.TransitionSplitCols
-function TransitionSplitCols:draw(renderer, transform, flags)
-end
-
---------------------------------
-
---- 
----@return cc.TransitionSplitCols
-function TransitionSplitCols:TransitionSplitCols()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionSplitCols
-function TransitionSplitCols:new() end
-
 
 return nil

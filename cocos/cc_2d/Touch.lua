@@ -1,129 +1,87 @@
-
---------------------------------
--- @module Touch
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.Touch:cc.Ref
 local Touch = {}
 cc.Touch = Touch
---------------------------------
 
----  Returns the previous touch location in screen coordinates. 
---- return The previous touch location in screen coordinates.
----@return vec2_table
-function Touch:getPreviousLocationInView()
-end
-
---------------------------------
-
----  Returns the current touch location in OpenGL coordinates.
---- return The current touch location in OpenGL coordinates.
----@return vec2_table
-function Touch:getLocation()
-end
-
---------------------------------
-
----  Returns the delta of 2 current touches locations in screen coordinates.
---- return The delta of 2 current touches locations in screen coordinates.
----@return vec2_table
-function Touch:getDelta()
-end
-
---------------------------------
-
----  Returns the start touch location in screen coordinates.
---- return The start touch location in screen coordinates.
----@return vec2_table
-function Touch:getStartLocationInView()
-end
-
---------------------------------
-
----  Returns the current touch force for 3d touch.
---- return The current touch force for 3d touch.
----@return number
+--- Returns the current touch force for 3d touch.
+---
+---@return number @(float) The current touch force for 3d touch.
 function Touch:getCurrentForce()
 end
 
---------------------------------
-
----  Returns the start touch location in OpenGL coordinates.
---- return The start touch location in OpenGL coordinates.
----@return vec2_table
-function Touch:getStartLocation()
+--- Returns the delta of 2 current touches locations in screen coordinates.
+---
+---@return vec2_table @(cocos2d::Vec2) The delta of 2 current touches locations in screen coordinates.
+function Touch:getDelta()
 end
 
---------------------------------
-
----  Get touch id.
---- js getId
---- lua getId
---- return The id of touch.
----@return number
-function Touch:getID()
+--- Get touch id.
+--- @js getId
+--- @lua getId
+---
+---@return number @(int) The id of touch.
+function Touch:getId()
 end
 
---------------------------------
-
----  Set the touch information. It always used to monitor touch event.<br>
--- param id A given id<br>
--- param x A given x coordinate.<br>
--- param y A given y coordinate.<br>
--- param force Current force for 3d touch.<br>
--- param maxForce maximum possible force for 3d touch.
----@param id number
----@param x number
----@param y number
----@param force number
----@param maxForce number
----@return cc.Touch
----@overload fun(self:cc.Touch, id:number, x:number, y:number):cc.Touch
-function Touch:setTouchInfo(id, x, y, force, maxForce)
+--- Returns the current touch location in OpenGL coordinates.
+---
+---@return vec2_table @(cocos2d::Vec2) The current touch location in OpenGL coordinates.
+function Touch:getLocation()
 end
 
---------------------------------
-
----  Returns the maximum touch force for 3d touch.
---- return The maximum touch force for 3d touch.
----@return number
-function Touch:getMaxForce()
-end
-
---------------------------------
-
----  Returns the current touch location in screen coordinates.
---- return The current touch location in screen coordinates.
----@return vec2_table
+--- Returns the current touch location in screen coordinates.
+---
+---@return vec2_table @(cocos2d::Vec2) The current touch location in screen coordinates.
 function Touch:getLocationInView()
 end
 
---------------------------------
+--- Returns the maximum touch force for 3d touch.
+---
+---@return number @(float) The maximum touch force for 3d touch.
+function Touch:getMaxForce()
+end
 
----  Returns the previous touch location in OpenGL coordinates.
---- return The previous touch location in OpenGL coordinates.
----@return vec2_table
+--- Returns the previous touch location in OpenGL coordinates.
+---
+---@return vec2_table @(cocos2d::Vec2) The previous touch location in OpenGL coordinates.
 function Touch:getPreviousLocation()
 end
 
---------------------------------
-
----  Constructor.
---- js ctor
----@return cc.Touch
-function Touch:Touch()
+--- Returns the previous touch location in screen coordinates.
+---
+---@return vec2_table @(cocos2d::Vec2) The previous touch location in screen coordinates.
+function Touch:getPreviousLocationInView()
 end
 
--- P6 Core: existing registered entries omitted from the earlier documentation.
+--- Returns the start touch location in OpenGL coordinates.
+---
+---@return vec2_table @(cocos2d::Vec2) The start touch location in OpenGL coordinates.
+function Touch:getStartLocation()
+end
 
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Touch
-function Touch:new() end
+--- Returns the start touch location in screen coordinates.
+---
+---@return vec2_table @(cocos2d::Vec2) The start touch location in screen coordinates.
+function Touch:getStartLocationInView()
+end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return number
-function Touch:getId() end
+--- Set the touch information. It always used to monitor touch event.
+---
+---@param id number @(int) A given id
+---@param x number @(float) A given x coordinate.
+---@param y number @(float) A given y coordinate.
+---@param force number @(float) Current force for 3d touch.
+---@param maxForce number @(float) maximum possible force for 3d touch.
+---@return self @(void)
+function Touch:setTouchInfo(id, x, y, force, maxForce)
+end
 
+--- Set the touch information. It always used to monitor touch event.
+---
+---@param id number @(int) A given id
+---@param x number @(float) A given x coordinate.
+---@param y number @(float) A given y coordinate.
+---@return self @(void)
+function Touch:setTouchInfo(id, x, y)
+end
 
 return nil

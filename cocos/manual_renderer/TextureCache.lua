@@ -10,6 +10,8 @@ local TextureCache = {}
 --- Supported image extensions: .png, .jpg
 ---@since v0.8
 ---@param filepath string @A null terminated string.
----@param callback fun(tex:cc.Texture2D) @A callback function would be invoked after the image is loaded.
+--- The callback is optional; nil disables completion delivery. The last native callable owns its Lua captures.
+--- Cancellation prevents pending delivery and releases that request callable; other native copies may still exist.
+---@param callback fun(tex:cc.Texture2D|nil)|nil @A callback function would be invoked after the image is loaded.
 function TextureCache:addImageAsync(filepath, callback)
 end

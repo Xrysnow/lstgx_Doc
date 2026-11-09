@@ -1,59 +1,29 @@
-
---------------------------------
--- @module Event
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.Event:cc.Ref
 local Event = {}
 cc.Event = Event
---------------------------------
 
----  Checks whether the event has been stopped.
---- return True if the event has been stopped.
----@return boolean
-function Event:isStopped()
-end
-
---------------------------------
-
----  Gets the event type.
---- return The event type.
----@return number
-function Event:getType()
-end
-
---------------------------------
-
----  Gets current target of the event.
---- return The target with which the event associates.
---- note It's only available when the event listener is associated with node.
+--- Gets current target of the event.
+--- @note It's only available when the event listener is associated with node.
 --- It returns 0 when the listener is associated with fixed priority.
----@return cc.Node
+---@return cc.Node @(cocos2d::Node*) The target with which the event associates.
 function Event:getCurrentTarget()
 end
 
---------------------------------
+--- Gets the event type.
+---
+---@return cc.Event.Type @(cocos2d::Event::Type) The event type.
+function Event:getType()
+end
 
----  Stops propagation for current event.
----@return cc.Event
+--- Checks whether the event has been stopped.
+---
+---@return boolean @(bool) True if the event has been stopped.
+function Event:isStopped()
+end
+
+--- Stops propagation for current event.
+---@return self @(void)
 function Event:stopPropagation()
 end
-
---------------------------------
-
----  Constructor 
----@param type number
----@return cc.Event
-function Event:Event(type)
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@param arg0 number|string
----@return cc.Event
-function Event:new(arg0) end
-
 
 return nil

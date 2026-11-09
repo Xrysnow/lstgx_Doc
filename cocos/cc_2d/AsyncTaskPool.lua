@@ -1,17 +1,22 @@
-
---------------------------------
--- @module AsyncTaskPool
--- @parent_module cc
-
 ---@class cc.AsyncTaskPool
 local AsyncTaskPool = {}
 cc.AsyncTaskPool = AsyncTaskPool
---------------------------------
 
---- Enqueue a asynchronous task.<br>
--- param type task type is io task, network task or others, each type of task has a thread to deal with it.<br>
--- param task: task can be lambda function to be performed off thread.<br>
--- lua NA
+---
+--- Stop tasks.
+---
+---@param type cc.AsyncTaskPool.TaskType @(cocos2d::AsyncTaskPool::TaskType) Task type you want to stop.
+---@return self @(void)
+function AsyncTaskPool:stopTasks(type)
+end
+
+---
+--- Returns the shared instance of the async task pool.
+--- (static)
+---@return cc.AsyncTaskPool @(cocos2d::AsyncTaskPool*)
+function AsyncTaskPool:getInstance()
+end
+
 ---@param type number
 ---@param callback fun()
 ---@param callbackParam void
@@ -20,42 +25,5 @@ cc.AsyncTaskPool = AsyncTaskPool
 ---@overload fun(self:cc.AsyncTaskPool, type:number, task:function):cc.AsyncTaskPool
 function AsyncTaskPool:enqueue(type, callback, callbackParam, task)
 end
-
---------------------------------
-
---- Stop tasks.
---- param type Task type you want to stop.
----@param type number
----@return cc.AsyncTaskPool
-function AsyncTaskPool:stopTasks(type)
-end
-
---------------------------------
-
---- Destroys the async task pool.
----@return cc.AsyncTaskPool
-function AsyncTaskPool:destroyInstance()
-end
-
---------------------------------
-
---- Returns the shared instance of the async task pool.
----@return cc.AsyncTaskPool
-function AsyncTaskPool:getInstance()
-end
-
---------------------------------
-
---- 
----@return cc.AsyncTaskPool
-function AsyncTaskPool:AsyncTaskPool()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.AsyncTaskPool
-function AsyncTaskPool:new() end
-
 
 return nil

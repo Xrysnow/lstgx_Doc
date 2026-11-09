@@ -1,81 +1,52 @@
-
---------------------------------
--- @module RotateTo
--- @extend ActionInterval
--- @parent_module cc
-
 ---@class cc.RotateTo:cc.ActionInterval
 local RotateTo = {}
 cc.RotateTo = RotateTo
---------------------------------
 
---- initializes the action<br>
--- param duration in seconds
----@param duration number
----@param dstAngleX number
----@param dstAngleY number
----@return boolean
----@overload fun(self:cc.RotateTo, duration:number, dstAngle3D:vec3_table):boolean
+---
+--- initializes the action
+---@param duration number @(float) in seconds
+---@param dstAngleX number @(float) in degreesCW
+---@param dstAngleY number @(float) in degreesCW
+---@return boolean @(bool)
 function RotateTo:initWithDuration(duration, dstAngleX, dstAngleY)
 end
 
---------------------------------
+---
+--- initializes the action
+---@param duration number @(float) in seconds
+---@param dstAngle3D vec3_table @(cocos2d::Vec3)
+---@return boolean @(bool)
+function RotateTo:initWithDuration(duration, dstAngle3D)
+end
 
---- Creates the action.<br>
--- param duration Duration time, in seconds.<br>
--- param dstAngle In degreesCW.<br>
--- return An autoreleased RotateTo object.
----@param duration number
----@param dstAngleX number
----@param dstAngleY number
----@return cc.RotateTo
----@overload fun(self:cc.RotateTo, duration:number, dstAngle:number):cc.RotateTo
----@overload fun(self:cc.RotateTo, duration:number, dstAngle3D:vec3_table):cc.RotateTo
+---
+--- Creates the action with separate rotation angles.
+---
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param dstAngleX number @(float) In degreesCW.
+---@param dstAngleY number @(float) In degreesCW.
+---@return cc.RotateTo @(cocos2d::RotateTo*) An autoreleased RotateTo object.
 function RotateTo:create(duration, dstAngleX, dstAngleY)
 end
 
---------------------------------
-
---- 
----@param target cc.Node
----@return cc.RotateTo
-function RotateTo:startWithTarget(target)
+---
+--- Creates the action with 3D rotation angles.
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param dstAngle3D vec3_table @(cocos2d::Vec3) A Vec3 angle.
+---@return cc.RotateTo @(cocos2d::RotateTo*) An autoreleased RotateTo object.
+function RotateTo:create(duration, dstAngle3D)
 end
 
---------------------------------
-
---- 
----@return cc.RotateTo
-function RotateTo:clone()
+---
+--- Creates the action.
+---
+--- (static)
+---@param duration number @(float) Duration time, in seconds.
+---@param dstAngle number @(float) In degreesCW.
+---@return cc.RotateTo @(cocos2d::RotateTo*) An autoreleased RotateTo object.
+function RotateTo:create(duration, dstAngle)
 end
-
---------------------------------
-
---- 
----@return cc.RotateTo
-function RotateTo:reverse()
-end
-
---------------------------------
-
---- param time In seconds.
----@param time number
----@return cc.RotateTo
-function RotateTo:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.RotateTo
-function RotateTo:RotateTo()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.RotateTo
-function RotateTo:new() end
-
 
 return nil

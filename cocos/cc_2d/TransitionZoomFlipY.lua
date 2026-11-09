@@ -1,38 +1,24 @@
-
---------------------------------
--- @module TransitionZoomFlipY
--- @extend TransitionSceneOriented
--- @parent_module cc
-
 ---@class cc.TransitionZoomFlipY:cc.TransitionSceneOriented
 local TransitionZoomFlipY = {}
 cc.TransitionZoomFlipY = TransitionZoomFlipY
---------------------------------
 
----  Creates a transition with duration and incoming scene.<br>
--- param t Duration time, in seconds.<br>
--- param s A given scene.<br>
--- return A autoreleased TransitionZoomFlipY object.
----@param t number
----@param s cc.Scene
----@param o number
----@return cc.TransitionZoomFlipY
----@overload fun(self:cc.TransitionZoomFlipY, t:number, s:cc.Scene):cc.TransitionZoomFlipY
+--- Creates a transition with duration, incoming scene and orientation.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@param o cc.TransitionScene.Orientation @(cocos2d::TransitionScene::Orientation) A given orientation.
+---@return cc.TransitionZoomFlipY @(cocos2d::TransitionZoomFlipY*) A autoreleased TransitionZoomFlipY object.
 function TransitionZoomFlipY:create(t, s, o)
 end
 
---------------------------------
-
---- 
----@return cc.TransitionZoomFlipY
-function TransitionZoomFlipY:TransitionZoomFlipY()
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cocos2d::Scene*) A given scene.
+---@return cc.TransitionZoomFlipY @(cocos2d::TransitionZoomFlipY*) A autoreleased TransitionZoomFlipY object.
+function TransitionZoomFlipY:create(t, s)
 end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TransitionZoomFlipY
-function TransitionZoomFlipY:new() end
-
 
 return nil

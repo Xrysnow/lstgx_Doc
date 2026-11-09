@@ -1,67 +1,25 @@
-
---------------------------------
--- @module EaseBezierAction
--- @extend ActionEase
--- @parent_module cc
-
 ---@class cc.EaseBezierAction:cc.ActionEase
 local EaseBezierAction = {}
 cc.EaseBezierAction = EaseBezierAction
---------------------------------
 
---- brief Set the bezier parameters.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@return cc.EaseBezierAction
+---
+--- @brief Set the bezier parameters.
+---@param p0 number @(float)
+---@param p1 number @(float)
+---@param p2 number @(float)
+---@param p3 number @(float)
+---@return self @(void)
 function EaseBezierAction:setBezierParamer(p0, p1, p2, p3)
 end
 
---------------------------------
-
---- brief Create the action with the inner action.
---- param action The pointer of the inner action.
---- return A pointer of EaseBezierAction action. If creation failed, return nil.
----@param action cc.ActionInterval
----@return cc.EaseBezierAction
+---
+--- @brief Create the action with the inner action.
+--- @param action The pointer of the inner action.
+--- @return A pointer of EaseBezierAction action. If creation failed, return nil.
+--- (static)
+---@param action cc.ActionInterval @(cocos2d::ActionInterval*)
+---@return cc.EaseBezierAction @(cocos2d::EaseBezierAction*)
 function EaseBezierAction:create(action)
 end
-
---------------------------------
-
---- 
----@return cc.EaseBezierAction
-function EaseBezierAction:clone()
-end
-
---------------------------------
-
---- 
----@param time number
----@return cc.EaseBezierAction
-function EaseBezierAction:update(time)
-end
-
---------------------------------
-
---- 
----@return cc.EaseBezierAction
-function EaseBezierAction:reverse()
-end
-
---------------------------------
-
---- 
----@return cc.EaseBezierAction
-function EaseBezierAction:EaseBezierAction()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.EaseBezierAction
-function EaseBezierAction:new() end
-
 
 return nil

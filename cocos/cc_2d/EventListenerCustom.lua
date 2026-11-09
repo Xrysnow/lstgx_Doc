@@ -1,38 +1,13 @@
-
---------------------------------
--- @module EventListenerCustom
--- @extend EventListener
--- @parent_module cc
-
 ---@class cc.EventListenerCustom:cc.EventListener
 local EventListenerCustom = {}
 cc.EventListenerCustom = EventListenerCustom
---------------------------------
 
---- 
----@return cc.EventListenerCustom
-function EventListenerCustom:clone()
+--- Creates an event listener with type and callback.
+--- (static)
+---@param eventName string @(std::string_view) The type of the event.
+---@param callback function @(std::function<void(cocos2d::EventCustom*)>) The callback function when the specified event was emitted. Required callback; nil is rejected.
+---@return cc.EventListenerCustom @(cocos2d::EventListenerCustom*) An autoreleased EventListenerCustom object.
+function EventListenerCustom:create(eventName, callback)
 end
-
---------------------------------
-
---- / Overrides
----@return boolean
-function EventListenerCustom:checkAvailable()
-end
-
---------------------------------
-
----  Constructor 
----@return cc.EventListenerCustom
-function EventListenerCustom:EventListenerCustom()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.EventListenerCustom
-function EventListenerCustom:new() end
-
 
 return nil

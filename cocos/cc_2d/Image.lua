@@ -1,149 +1,82 @@
-
---------------------------------
--- @module Image
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.Image:cc.Ref
 local Image = {}
 cc.Image = Image
---------------------------------
 
---- 
----@return boolean
-function Image:hasPremultipliedAlpha()
-end
-
---------------------------------
-
---- 
----@return cc.Image
-function Image:reversePremultipliedAlpha()
-end
-
---------------------------------
-
---- 
----@return boolean
-function Image:isCompressed()
-end
-
---------------------------------
-
---- 
----@return boolean
-function Image:hasAlpha()
-end
-
---------------------------------
-
---- 
----@return number
-function Image:getPixelFormat()
-end
-
---------------------------------
-
---- 
----@return number
-function Image:getHeight()
-end
-
---------------------------------
-
---- 
----@return cc.Image
-function Image:premultiplyAlpha()
-end
-
---------------------------------
-
---- brief Load the image from the specified path.
---- param path   the absolute file path.
---- return true if loaded correctly.
----@param path string
----@return boolean
-function Image:initWithImageFile(path)
-end
-
---------------------------------
-
---- 
----@return number
-function Image:getWidth()
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(int)
 function Image:getBitPerPixel()
 end
 
---------------------------------
-
---- 
----@return number
-function Image:getFileType()
-end
-
---------------------------------
-
---- 
----@return string
+---@return string @(std::string)
 function Image:getFilePath()
 end
 
---------------------------------
+---@return cc.Image.Format @(cocos2d::Image::Format)
+function Image:getFileType()
+end
 
---- 
----@return number
+---@return number @(int)
+function Image:getHeight()
+end
+
+---@return number @(int)
 function Image:getNumberOfMipmaps()
 end
 
---------------------------------
+---@return ccb.PixelFormat @(cocos2d::backend::PixelFormat)
+function Image:getPixelFormat()
+end
 
---- brief    Save Image data to the specified file, with specified format.
---- param    filePath        the file's absolute path, including file suffix.
---- param    isToRGB        whether the image is saved as RGB format.
----@param filename string
----@param isToRGB boolean
----@return boolean
+---@return number @(int)
+function Image:getWidth()
+end
+
+---@return boolean @(bool)
+function Image:hasAlpha()
+end
+
+---@return boolean @(bool)
+function Image:hasPremultipliedAlpha()
+end
+
+---
+--- @brief Load the image from the specified path.
+--- @param path   the absolute file path.
+--- @return true if loaded correctly.
+---@param path string @(std::string_view)
+---@return boolean @(bool)
+function Image:initWithImageFile(path)
+end
+
+---@return boolean @(bool)
+function Image:isCompressed()
+end
+
+---@return self @(void)
+function Image:premultiplyAlpha()
+end
+
+---@return self @(void)
+function Image:reversePremultipliedAlpha()
+end
+
+---
+--- @brief    Save Image data to the specified file, with specified format.
+--- @param    filePath        the file's absolute path, including file suffix.
+--- @param    isToRGB        whether the image is saved as RGB format.
+---@param filename string @(std::string_view)
+---@param isToRGB boolean @(bool)
+---@return boolean @(bool)
 function Image:saveToFile(filename, isToRGB)
 end
 
---------------------------------
-
----  treats (or not) PVR files as if they have alpha premultiplied.
---- Since it is impossible to know at runtime if the PVR images have the alpha channel premultiplied, it is
---- possible load them as if they have (or not) the alpha channel premultiplied.
---- By default it is disabled.
----@param haveAlphaPremultiplied boolean
----@return cc.Image
-function Image:setPVRImagesHavePremultipliedAlpha(haveAlphaPremultiplied)
+---
+--- @brief    Save Image data to the specified file, with specified format.
+--- @param    filePath        the file's absolute path, including file suffix.
+--- @param    isToRGB        whether the image is saved as RGB format.
+---@param filename string @(std::string_view)
+---@return boolean @(bool)
+function Image:saveToFile(filename)
 end
-
---------------------------------
-
---- Enables or disables premultiplied alpha for PNG files.
---- param enabled (default: true)
----@param enabled boolean
----@return cc.Image
-function Image:setPNGPremultipliedAlphaEnabled(enabled)
-end
-
---------------------------------
-
---- js ctor
----@return cc.Image
-function Image:Image()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Image
-function Image:new() end
 
 --- (static)
 ---@param target number @(uint32_t)
@@ -166,5 +99,14 @@ end
 function Image:setCompressedImagesHavePMA(targets, havePMA)
 end
 
+---
+--- Enables or disables premultiplied alpha for PNG files.
+---
+--- @param enabled (default: true)
+--- (static)
+---@param enabled boolean @(bool)
+---@return self @(void)
+function Image:setPNGPremultipliedAlphaEnabled(enabled)
+end
 
 return nil

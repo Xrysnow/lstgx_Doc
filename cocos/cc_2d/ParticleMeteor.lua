@@ -1,58 +1,30 @@
-
---------------------------------
--- @module ParticleMeteor
--- @extend ParticleSystemQuad
--- @parent_module cc
-
 ---@class cc.ParticleMeteor:cc.ParticleSystemQuad
 local ParticleMeteor = {}
 cc.ParticleMeteor = ParticleMeteor
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function ParticleMeteor:init()
 end
 
---------------------------------
-
---- 
----@param numberOfParticles number
----@return boolean
+---@param numberOfParticles number @(int)
+---@return boolean @(bool)
 function ParticleMeteor:initWithTotalParticles(numberOfParticles)
 end
 
---------------------------------
-
----  Create a meteor particle system.
---- return An autoreleased ParticleMeteor object.
----@return cc.ParticleMeteor
+--- Create a meteor particle system.
+---
+--- (static)
+---@return cc.ParticleMeteor @(cocos2d::ParticleMeteor*) An autoreleased ParticleMeteor object.
 function ParticleMeteor:create()
 end
 
---------------------------------
-
----  Create a meteor particle system withe a fixed number of particles.
---- param numberOfParticles A given number of particles.
---- return An autoreleased ParticleMeteor object.
---- js NA
----@param numberOfParticles number
----@return cc.ParticleMeteor
+--- Create a meteor particle system withe a fixed number of particles.
+---
+--- @js NA
+--- (static)
+---@param numberOfParticles number @(int) A given number of particles.
+---@return cc.ParticleMeteor @(cocos2d::ParticleMeteor*) An autoreleased ParticleMeteor object.
 function ParticleMeteor:createWithTotalParticles(numberOfParticles)
 end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleMeteor
-function ParticleMeteor:ParticleMeteor()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleMeteor
-function ParticleMeteor:new() end
-
 
 return nil

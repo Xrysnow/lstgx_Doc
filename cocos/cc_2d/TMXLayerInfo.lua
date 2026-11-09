@@ -1,39 +1,14 @@
-
---------------------------------
--- @module TMXLayerInfo
--- @extend Ref
--- @parent_module cc
-
 ---@class cc.TMXLayerInfo:cc.Ref
 local TMXLayerInfo = {}
 cc.TMXLayerInfo = TMXLayerInfo
---------------------------------
 
---- 
----@param properties map_table
----@return cc.TMXLayerInfo
-function TMXLayerInfo:setProperties(properties)
-end
-
---------------------------------
-
---- 
----@return map_table
+---@return tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap&)
 function TMXLayerInfo:getProperties()
 end
 
---------------------------------
-
---- js ctor
----@return cc.TMXLayerInfo
-function TMXLayerInfo:TMXLayerInfo()
+---@param properties tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+---@return self @(void)
+function TMXLayerInfo:setProperties(properties)
 end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.TMXLayerInfo
-function TMXLayerInfo:new() end
-
 
 return nil

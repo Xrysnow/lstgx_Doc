@@ -1,58 +1,30 @@
-
---------------------------------
--- @module ParticleGalaxy
--- @extend ParticleSystemQuad
--- @parent_module cc
-
 ---@class cc.ParticleGalaxy:cc.ParticleSystemQuad
 local ParticleGalaxy = {}
 cc.ParticleGalaxy = ParticleGalaxy
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function ParticleGalaxy:init()
 end
 
---------------------------------
-
---- 
----@param numberOfParticles number
----@return boolean
+---@param numberOfParticles number @(int)
+---@return boolean @(bool)
 function ParticleGalaxy:initWithTotalParticles(numberOfParticles)
 end
 
---------------------------------
-
----  Create a galaxy particle system.
---- return An autoreleased ParticleGalaxy object.
----@return cc.ParticleGalaxy
+--- Create a galaxy particle system.
+---
+--- (static)
+---@return cc.ParticleGalaxy @(cocos2d::ParticleGalaxy*) An autoreleased ParticleGalaxy object.
 function ParticleGalaxy:create()
 end
 
---------------------------------
-
----  Create a galaxy particle system withe a fixed number of particles.
---- param numberOfParticles A given number of particles.
---- return An autoreleased ParticleGalaxy object.
---- js NA
----@param numberOfParticles number
----@return cc.ParticleGalaxy
+--- Create a galaxy particle system withe a fixed number of particles.
+---
+--- @js NA
+--- (static)
+---@param numberOfParticles number @(int) A given number of particles.
+---@return cc.ParticleGalaxy @(cocos2d::ParticleGalaxy*) An autoreleased ParticleGalaxy object.
 function ParticleGalaxy:createWithTotalParticles(numberOfParticles)
 end
-
---------------------------------
-
---- js ctor
----@return cc.ParticleGalaxy
-function ParticleGalaxy:ParticleGalaxy()
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.ParticleGalaxy
-function ParticleGalaxy:new() end
-
 
 return nil
