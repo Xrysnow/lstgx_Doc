@@ -1,52 +1,24 @@
 ---@class cc.Animate3D:cc.ActionInterval
-local Animate3D={}
-cc.Animate3D=Animate3D
+local Animate3D = {}
+cc.Animate3D = Animate3D
 
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Animate3D
-function Animate3D:new() end
+---@return number @(float)
+function Animate3D:getOriginInterval()
+end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param keyFrame number|string
----@param userInfo table
----@return cc.Animate3D
-function Animate3D:setKeyFrameUserInfo(keyFrame, userInfo) end
+--- get animate quality
+---@return cc.Animate3DQuality @(cocos2d::Animate3DQuality)
+function Animate3D:getQuality()
+end
 
 --- get & set speed, negative speed means playing reverse
 ---@return number @(float)
 function Animate3D:getSpeed()
 end
 
---- set animate quality
----@param quality number @(cocos2d::Animate3DQuality)
----@return self @(void)
-function Animate3D:setQuality(quality)
-end
-
----@param weight number @(float)
----@return self @(void)
-function Animate3D:setWeight(weight)
-end
-
----@return self @(void)
-function Animate3D:removeFromMap()
-end
-
----@param animation cc.Animation3D @(cocos2d::Animation3D*)
----@param startFrame number @(int)
----@param endFrame number @(int)
----@param frameRate number @(float)
----@return boolean @(bool)
-function Animate3D:initWithFrames(animation, startFrame, endFrame, frameRate)
-end
-
+--- get & set blend weight, weight must positive
 ---@return number @(float)
-function Animate3D:getOriginInterval()
-end
-
----@param speed number @(float)
----@return self @(void)
-function Animate3D:setSpeed(speed)
+function Animate3D:getWeight()
 end
 
 ---@param animation cc.Animation3D @(cocos2d::Animation3D*)
@@ -62,20 +34,44 @@ end
 function Animate3D:init(animation)
 end
 
+---@param animation cc.Animation3D @(cocos2d::Animation3D*)
+---@param startFrame number @(int)
+---@param endFrame number @(int)
+---@param frameRate number @(float)
+---@return boolean @(bool)
+function Animate3D:initWithFrames(animation, startFrame, endFrame, frameRate)
+end
+
+---@return self @(void)
+function Animate3D:removeFromMap()
+end
+
+---@param keyFrame number @(int)
+---@param userInfo tsl.robin_map<std.string, cc.Value, hlookup.string_hash, hlookup.equal_to> @(cocos2d::ValueMap)
+---@return self @(void)
+function Animate3D:setKeyFrameUserInfo(keyFrame, userInfo)
+end
+
 --- get & set origin interval
 ---@param interval number @(float)
 ---@return self @(void)
 function Animate3D:setOriginInterval(interval)
 end
 
---- get & set blend weight, weight must positive
----@return number @(float)
-function Animate3D:getWeight()
+--- set animate quality
+---@param quality cc.Animate3DQuality @(cocos2d::Animate3DQuality)
+---@return self @(void)
+function Animate3D:setQuality(quality)
 end
 
---- get animate quality
----@return number @(cocos2d::Animate3DQuality)
-function Animate3D:getQuality()
+---@param speed number @(float)
+---@return self @(void)
+function Animate3D:setSpeed(speed)
+end
+
+---@param weight number @(float)
+---@return self @(void)
+function Animate3D:setWeight(weight)
 end
 
 ---
@@ -93,12 +89,6 @@ end
 ---@param animation cc.Animation3D @(cocos2d::Animation3D*)
 ---@return cc.Animate3D @(cocos2d::Animate3D*)
 function Animate3D:create(animation)
-end
-
---- get animate transition time between 3d animations
---- (static)
----@return number @(float)
-function Animate3D:getTransitionTime()
 end
 
 ---
@@ -122,9 +112,19 @@ end
 function Animate3D:createWithFrames(animation, startFrame, endFrame)
 end
 
+--- get animate transition time between 3d animations
+--- (static)
+---@return number @(float)
+function Animate3D:getTransitionTime()
+end
+
 --- set animate transition time between 3d animations
 --- (static)
 ---@param transTime number @(float)
 ---@return self @(void)
 function Animate3D:setTransitionTime(transTime)
 end
+
+---
+---  TextureCube is a collection of six separate square textures that are put
+---  onto the faces of an imaginary cube.

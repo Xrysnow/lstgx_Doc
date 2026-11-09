@@ -1,25 +1,71 @@
 ---@class cc.Mesh:cc.Ref
-local Mesh={}
-cc.Mesh=Mesh
+local Mesh = {}
+cc.Mesh = Mesh
 
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Mesh
-function Mesh:new() end
+---
+--- calculate the AABB of the mesh
+--- @note the AABB is in the local space, not the world space
+---@return self @(void)
+function Mesh:calculateAABB()
+end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return cc.Material|nil
-function Mesh:getMaterial() end
+---@param renderer cc.Renderer @(cocos2d::Renderer*)
+---@param globalZ number @(float)
+---@param transform mat4_table @(cocos2d::Mat4)
+---@param flags number @(uint32_t)
+---@param lightMask number @(unsigned int)
+---@param color vec4_table @(cocos2d::Vec4)
+---@param forceDepthWrite boolean @(bool)
+---@param wireframe boolean @(bool)
+---@return self @(void)
+function Mesh:draw(renderer, globalZ, transform, flags, lightMask, color, forceDepthWrite, wireframe)
+end
+
+---@return cc.BlendFunc @(const cocos2d::BlendFunc&)
+function Mesh:getBlendFunc()
+end
+
+--- Returns the Material being used by the Mesh
+---@return cc.Material @(cocos2d::Material*)
+function Mesh:getMaterial()
+end
+
+--- get mesh vertex attribute count
+---@return number @(ssize_t)
+function Mesh:getMeshVertexAttribCount()
+end
+
+--- get MeshVertexAttribute by index
+---@param idx number @(int)
+---@return cc.MeshVertexAttrib @(const cocos2d::MeshVertexAttrib&)
+function Mesh:getMeshVertexAttribute(idx)
+end
+
+--- name getter
+---@return string @(std::string_view)
+function Mesh:getName()
+end
+
+---
+--- get ProgramState
+---
+--- @lua NA
+---@return cc.backend.ProgramState @(cocos2d::backend::ProgramState*)
+function Mesh:getProgramState()
+end
 
 --- get per vertex size in bytes
 ---@return number @(int)
 function Mesh:getVertexSizeInBytes()
 end
 
---- Sets a new ProgramState for the Mesh
---- A new Material will be created for it
----@param programState cc.backend.ProgramState @(cocos2d::backend::ProgramState*)
+---@return boolean @(bool)
+function Mesh:isVisible()
+end
+
+---@param blendFunc cc.BlendFunc @(cocos2d::BlendFunc)
 ---@return self @(void)
-function Mesh:setProgramState(programState)
+function Mesh:setBlendFunc(blendFunc)
 end
 
 ---
@@ -31,43 +77,11 @@ end
 function Mesh:setIndexFormat(indexFormat)
 end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param material cc.Material|nil
----@return cc.Mesh
-function Mesh:setMaterial(material) end
-
---- name getter
----@return string @(std::string_view)
-function Mesh:getName()
-end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param idx number|string
----@return any
-function Mesh:getMeshVertexAttribute(idx) end
-
----
---- calculate the AABB of the mesh
---- @note the AABB is in the local space, not the world space
+--- Sets a new Material to the Mesh
+---@param material cc.Material @(cocos2d::Material*)
 ---@return self @(void)
-function Mesh:calculateAABB()
+function Mesh:setMaterial(material)
 end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param renderer cc.Renderer|nil
----@param globalZ number|string
----@param transform mat4_table
----@param flags number|string
----@param lightMask number|string
----@param color vec4_table
----@param forceDepthWrite boolean|nil
----@param wireframe boolean|nil
----@return cc.Mesh
-function Mesh:draw(renderer, globalZ, transform, flags, lightMask, color, forceDepthWrite, wireframe) end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return table
-function Mesh:getBlendFunc() end
 
 --- name setter
 ---@param name string @(std::string_view)
@@ -75,32 +89,11 @@ function Mesh:getBlendFunc() end
 function Mesh:setName(name)
 end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param indexdata cc.MeshIndexData|nil
----@return cc.Mesh
-function Mesh:setMeshIndexData(indexdata) end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return ccb.ProgramState|nil
-function Mesh:getProgramState() end
-
---- get mesh vertex attribute count
----@return number @(ssize_t)
-function Mesh:getMeshVertexAttribCount()
-end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param blendFunc table
----@return cc.Mesh
-function Mesh:setBlendFunc(blendFunc) end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param skin cc.MeshSkin|nil
----@return cc.Mesh
-function Mesh:setSkin(skin) end
-
----@return boolean @(bool)
-function Mesh:isVisible()
+--- Sets a new ProgramState for the Mesh
+--- A new Material will be created for it
+---@param programState cc.backend.ProgramState @(cocos2d::backend::ProgramState*)
+---@return self @(void)
+function Mesh:setProgramState(programState)
 end
 
 --- visible getter and setter
@@ -109,5 +102,6 @@ end
 function Mesh:setVisible(visible)
 end
 
-
---- Vertex/index queries require initialized MeshIndexData; bare new() does not allocate it.
+---
+--- Skeleton
+---

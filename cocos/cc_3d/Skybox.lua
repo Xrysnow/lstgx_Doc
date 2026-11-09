@@ -1,25 +1,23 @@
 ---@class cc.Skybox:cc.Node
-local Skybox={}
-cc.Skybox=Skybox
+local Skybox = {}
+cc.Skybox = Skybox
 
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Skybox
-function Skybox:new() end
+---
+--- initialize with texture path
+---@param positive_x string @(std::string_view)
+---@param negative_x string @(std::string_view)
+---@param positive_y string @(std::string_view)
+---@param negative_y string @(std::string_view)
+---@param positive_z string @(std::string_view)
+---@param negative_z string @(std::string_view)
+---@return boolean @(bool)
+function Skybox:init(positive_x, negative_x, positive_y, negative_y, positive_z, negative_z)
+end
 
 --- reload sky box after GLESContext reconstructed.
 ---@return self @(void)
 function Skybox:reload()
 end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param positive_x string|number
----@param negative_x string|number
----@param positive_y string|number
----@param negative_y string|number
----@param positive_z string|number
----@param negative_z string|number
----@return boolean
-function Skybox:init(positive_x, negative_x, positive_y, negative_y, positive_z, negative_z) end
 
 --- texture getter and setter
 ---@param param1 cc.TextureCube @(cocos2d::TextureCube*)
@@ -50,3 +48,6 @@ end
 ---@return cc.Skybox @(cocos2d::Skybox*)
 function Skybox:create()
 end
+
+--- @brief MeshRenderer: A mesh can be loaded from model files, .obj, .c3t, .c3b
+---  *and a mesh renderer renders a list of these loaded meshes with specified materials

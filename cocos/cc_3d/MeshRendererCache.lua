@@ -1,10 +1,6 @@
 ---@class cc.MeshRendererCache
-local MeshRendererCache={}
-cc.MeshRendererCache=MeshRendererCache
-
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.MeshRendererCache
-function MeshRendererCache:new() end
+local MeshRendererCache = {}
+cc.MeshRendererCache = MeshRendererCache
 
 --- remove all the MeshData objects from the MeshRenderer
 ---@return self @(void)
@@ -17,10 +13,10 @@ end
 function MeshRendererCache:removeMeshRenderData(key)
 end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return cc.MeshRendererCache
-function MeshRendererCache:destroyInstance() end
+--- (static)
+---@return cc.MeshRendererCache @(cocos2d::MeshRendererCache*)
+function MeshRendererCache:getInstance()
+end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return cc.MeshRendererCache|nil
-function MeshRendererCache:getInstance() end
+---
+--- @brief MeshMaterial: a mesh material for MeshRenderers.

@@ -1,10 +1,53 @@
 ---@class cc.Terrain:cc.Node
-local Terrain={}
-cc.Terrain=Terrain
+local Terrain = {}
+cc.Terrain = Terrain
 
---- Legacy constructor; initialize the native object before operations that require init().
----@return cc.Terrain
-function Terrain:new() end
+---
+--- Convert a world Space position (X,Z) to terrain space position (X,Z)
+---@param worldSpace vec2_table @(cocos2d::Vec2)
+---@return vec2_table @(cocos2d::Vec2)
+function Terrain:convertToTerrainSpace(worldSpace)
+end
+
+---
+--- get the terrain's height data
+---@return number[] @(std::vector<float>)
+function Terrain:getHeightData()
+end
+
+--- get height from the raw height filed
+---@param pixelX number @(int)
+---@param pixelY number @(int)
+---@return number @(float)
+function Terrain:getImageHeight(pixelX, pixelY)
+end
+
+---
+--- get the terrain's maximal height.
+---@return number @(float)
+function Terrain:getMaxHeight()
+end
+
+---
+--- get the terrain's minimal height.
+---@return number @(float)
+function Terrain:getMinHeight()
+end
+
+--- get the normal of the specified position in terrain
+--- @note the fast normal calculation may not get precise normal vector.
+---
+---@param pixelX number @(int)
+---@param pixelY number @(int)
+---@return vec3_table @(cocos2d::Vec3) the normal vector of the specified position of the terrain.
+function Terrain:getNormal(pixelX, pixelY)
+end
+
+---
+--- get the terrain's size
+---@return vec2_table @(cocos2d::Vec2)
+function Terrain:getTerrainSize()
+end
 
 --- initialize heightMap data
 ---@param heightMap string @(std::string_view)
@@ -12,11 +55,31 @@ function Terrain:new() end
 function Terrain:initHeightMap(heightMap)
 end
 
----
---- set the MaxDetailAmount.
----@param maxValue number @(int)
+--- initialize all Properties which terrain need
+---@return boolean @(bool)
+function Terrain:initProperties()
+end
+
+--- initialize alphaMap ,detailMaps textures
+---@return boolean @(bool)
+function Terrain:initTextures()
+end
+
 ---@return self @(void)
-function Terrain:setMaxDetailMapAmount(maxValue)
+function Terrain:reload()
+end
+
+---
+--- reset the heightmap data.
+---@param heightMap string @(std::string_view)
+---@return self @(void)
+function Terrain:resetHeightMap(heightMap)
+end
+
+--- set the alpha map
+---@param newAlphaMapTexture cc.Texture2D @(cocos2d::Texture2D*)
+---@return self @(void)
+function Terrain:setAlphaMap(newAlphaMapTexture)
 end
 
 --- show the wireline instead of the surface,Debug Use only.
@@ -27,61 +90,12 @@ end
 function Terrain:setDrawWire(boolValue)
 end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return table
-function Terrain:getHeightData() end
-
---- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
----@param index number|string
----@param detailMap any
----@return cc.Terrain
-function Terrain:setDetailMap(index, detailMap) end
-
----
---- reset the heightmap data.
----@param heightMap string @(std::string_view)
+--- Switch frustum Culling Flag
+--- @Note frustum culling will remarkable improve your terrain rendering performance.
+---@param boolValue boolean @(bool)
 ---@return self @(void)
-function Terrain:resetHeightMap(heightMap)
+function Terrain:setIsEnableFrustumCull(boolValue)
 end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param lightDir vec3_table
----@return cc.Terrain
-function Terrain:setLightDir(lightDir) end
-
---- set the alpha map
----@param newAlphaMapTexture cc.Texture2D @(cocos2d::Texture2D*)
----@return self @(void)
-function Terrain:setAlphaMap(newAlphaMapTexture)
-end
-
----
---- set the skirt height ratio
----@param ratio number @(float)
----@return self @(void)
-function Terrain:setSkirtHeightRatio(ratio)
-end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param worldSpace vec2_table
----@return vec2_table
-function Terrain:convertToTerrainSpace(worldSpace) end
-
---- initialize alphaMap ,detailMaps textures
----@return boolean @(bool)
-function Terrain:initTextures()
-end
-
---- initialize all Properties which terrain need
----@return boolean @(bool)
-function Terrain:initProperties()
-end
-
---- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
----@param parameter any
----@param fixedType number|string
----@return boolean
-function Terrain:initWithTerrainData(parameter, fixedType) end
 
 ---
 --- Set threshold distance of each LOD level,must equal or greater than the chunk size
@@ -93,25 +107,13 @@ function Terrain:initWithTerrainData(parameter, fixedType) end
 function Terrain:setLODDistance(lod1, lod2, lod3)
 end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@return vec2_table
-function Terrain:getTerrainSize() end
-
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param pixelX number|string
----@param pixelY number|string
----@return vec3_table
-function Terrain:getNormal(pixelX, pixelY) end
-
+---
+--- set directional light for the terrain
+--- @param lightDir The direction of directional light, Note that lightDir is in the terrain's local space. Most of the
+--- time terrain is placed at (0,0,0) and without rotation, so lightDir is also in the world space.
+---@param lightDir vec3_table @(cocos2d::Vec3)
 ---@return self @(void)
-function Terrain:reload()
-end
-
---- get height from the raw height filed
----@param pixelX number @(int)
----@param pixelY number @(int)
----@return number @(float)
-function Terrain:getImageHeight(pixelX, pixelY)
+function Terrain:setLightDir(lightDir)
 end
 
 --- set light map texture
@@ -120,42 +122,46 @@ end
 function Terrain:setLightMap(fileName)
 end
 
---- Switch frustum Culling Flag
---- @Note frustum culling will remarkable improve your terrain rendering performance.
----@param boolValue boolean @(bool)
+---
+--- set the MaxDetailAmount.
+---@param maxValue number @(int)
 ---@return self @(void)
-function Terrain:setIsEnableFrustumCull(boolValue)
+function Terrain:setMaxDetailMapAmount(maxValue)
 end
 
 ---
---- get the terrain's minimal height.
----@return number @(float)
-function Terrain:getMinHeight()
+--- set the skirt height ratio
+---@param ratio number @(float)
+---@return self @(void)
+function Terrain:setSkirtHeightRatio(ratio)
 end
 
 ---
---- get the terrain's maximal height.
----@return number @(float)
-function Terrain:getMaxHeight()
-end
-
---- Retained TerrainData table adapter; explicit optional crack-fixed mode.
+--- @brief Defines a bundle file that contains a collection of assets. Mesh, Material, MeshSkin, Animation
+--- There are two types of bundle files, c3t and c3b.
+--- c3t text file
+--- c3b binary file
+--- @js NA
+--- @lua NA
+--- TerrainData descriptor: optional _chunkSize={x=32,y=32}, _heightMapSrc='', _alphaMapSrc='', _detailMaps={}, _mapHeight=2, _mapScale=0.1, _detailMapAmount=0, _skirtHeightRatio=1.
+--- Each supplied detail map has optional _detailMapSrc='' and _detailMapSize=0; unused native slots retain size 35. Dense array capacity is four; amount must be 0..4 and no greater than supplied maps. Field type errors reject the whole descriptor before native invocation. Chunks require integral power-of-two dimensions >=8, valid assets, positive map scale and an equal number of chunks along both grid axes.
 ---@param data table
 ---@param fixedType number|nil
 ---@return cc.Terrain|nil
 function Terrain:create(data,fixedType) end
---- Retained scalar/Vec2 inputs and optional normal output adapter.
----@param x number
----@param z number
----@param normal vec3_table
----@return number,vec3_table
----@overload fun(self:cc.Terrain,point:vec2_table):number
----@overload fun(self:cc.Terrain,point:vec2_table,normal:cc.Vec3):number,vec3_table
+---@param point table @Vec2 {x,y}
+---@return number
 ---@overload fun(self:cc.Terrain,x:number,z:number):number
-function Terrain:getHeight(x,z,normal) end
---- Retained Ray userdata and optional Vec3 output adapter.
+function Terrain:getHeight(point) end
+--- Output storage belongs to this call; no normal input placeholder is accepted. Out-of-range height and normal are zero.
+---@param point table @Vec2 {x,y}
+---@return number,table @height, normal {x,y,z}
+---@overload fun(self:cc.Terrain,x:number,z:number):number,table
+function Terrain:getHeightWithNormal(point) end
 ---@param ray cc.Ray
----@param point vec3_table
----@return boolean,vec3_table
----@overload fun(self:cc.Terrain,ray:cc.Ray):vec3_table
-function Terrain:getIntersectionPoint(ray,point) end
+---@return table @point {x,y,z}, zero on miss
+function Terrain:getIntersectionPoint(ray) end
+--- Returns false and a zero vector on miss; no writable point input is required.
+---@param ray cc.Ray
+---@return boolean,table @hit, point {x,y,z}
+function Terrain:intersectRay(ray) end
