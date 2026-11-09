@@ -1,78 +1,49 @@
-
---------------------------------
--- @module VertexLayout
--- @parent_module ccb
-
 ---@class ccb.VertexLayout
+--- Native value userdata. Inputs require this userdata type; fields and table conversion are unavailable.
 local VertexLayout = {}
 ccb.VertexLayout = VertexLayout
---------------------------------
 
---- Get vertex step function. Default value is VERTEX.
---- return Vertex step function.
---- note Used in metal.
----@return number
-function VertexLayout:getVertexStepMode()
+--- (constructor, default)
+---@return ccb.VertexLayout @independent Lua-owned userdata
+function VertexLayout:new()
 end
 
---------------------------------
-
---- Check if vertex layout has been set.
----@return boolean
-function VertexLayout:isValid()
-end
-
---------------------------------
-
---- Set stride of vertices.
---- param stride Specifies the distance between the data of two vertices, in bytes.
----@param stride number
----@return ccb.VertexLayout
-function VertexLayout:setLayout(stride)
-end
-
---------------------------------
-
---- Set attribute values to name.
---- param name Specifies the attribute name.
---- param index Specifies the index of the generic vertex attribute to be modified.
---- param format Specifies how the vertex attribute data is laid out in memory.
---- param offset Specifies the byte offset to the first component of the first generic vertex attribute.
---- param needToBeNormallized Specifies whether fixed-point data values should be normalized (true) or converted directly as fixed-point values (false) when they are accessed.
----@param name string
----@param index number
----@param format number
----@param offset number
----@param needToBeNormallized boolean
----@return ccb.VertexLayout
-function VertexLayout:setAttribute(name, index, format, offset, needToBeNormallized)
-end
-
---------------------------------
-
+---
 --- Get the distance between the data of two vertices, in bytes.
---- return The distance between the data of two vertices, in bytes.
----@return number
+---@return number @(std::size_t) The distance between the data of two vertices, in bytes.
 function VertexLayout:getStride()
 end
 
---------------------------------
-
---- 
----@return ccb.VertexLayout
-function VertexLayout:VertexLayout()
+---
+--- Get vertex step function. Default value is VERTEX.
+--- @note Used in metal.
+---@return ccb.VertexStepMode @(cocos2d::backend::VertexStepMode) Vertex step function.
+function VertexLayout:getVertexStepMode()
 end
 
--- P6 Core: existing registered entries omitted from the earlier documentation.
+---
+--- Check if vertex layout has been set.
+---@return boolean @(bool)
+function VertexLayout:isValid()
+end
 
---- Legacy constructor; initialize the native object before operations that require init().
----@return ccb.VertexLayout
-function VertexLayout:new() end
+---
+--- Set attribute values to name.
+--- directly as fixed-point values (false) when they are accessed.
+---@param name string @(std::string_view) Specifies the attribute name.
+---@param index number @(std::size_t) Specifies the index of the generic vertex attribute to be modified.
+---@param format ccb.VertexFormat @(cocos2d::backend::VertexFormat) Specifies how the vertex attribute data is laid out in memory.
+---@param offset number @(std::size_t) Specifies the byte offset to the first component of the first generic vertex attribute.
+---@param needToBeNormallized boolean @(bool) Specifies whether fixed-point data values should be normalized (true) or converted
+---@return ccb.VertexLayout @self
+function VertexLayout:setAttribute(name, index, format, offset, needToBeNormallized)
+end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
----@param stride number|string
----@return ccb.VertexLayout
-function VertexLayout:setStride(stride) end
-
+---
+--- Set stride of vertices.
+---@param stride number @(std::size_t) Specifies the distance between the data of two vertices, in bytes.
+---@return ccb.VertexLayout @self
+function VertexLayout:setStride(stride)
+end
 
 return nil

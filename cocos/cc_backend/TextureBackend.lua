@@ -1,103 +1,68 @@
-
---------------------------------
--- @module TextureBackend
--- @extend Ref
--- @parent_module ccb
-
 ---@class ccb.TextureBackend:cc.Ref
 local TextureBackend = {}
 ccb.TextureBackend = TextureBackend
---------------------------------
 
---- Get texture format.
---- return Texture format.
----@return number
-function TextureBackend:getTextureFormat()
-end
-
---------------------------------
-
---- Get texture type. Symbolic constant value can be either TEXTURE_2D or TEXTURE_CUBE.
---- return Texture type.
----@return number
-function TextureBackend:getTextureType()
-end
-
---------------------------------
-
---- Update sampler
---- param sampler Specifies the sampler descriptor.
----@param sampler ccb.SamplerDescriptor
----@return ccb.TextureBackend
-function TextureBackend:updateSamplerDescriptor(sampler)
-end
-
---------------------------------
-
---- Update texture description.
---- param descriptor Specifies texture and sampler descriptor.
----@param descriptor ccb.TextureDescriptor
----@return ccb.TextureBackend
-function TextureBackend:updateTextureDescriptor(descriptor)
-end
-
---------------------------------
-
---- Get texture usage. Symbolic constant can be READ, WRITE or RENDER_TARGET.
---- return Texture usage.
----@return number
-function TextureBackend:getTextureUsage()
-end
-
---------------------------------
-
---- Check if mipmap had generated before.
---- return true if the mipmap has always generated before, otherwise false.
----@return boolean
-function TextureBackend:hasMipmaps()
-end
-
---------------------------------
-
---- / Generate mipmaps.
----@return ccb.TextureBackend
+--- Generate mipmaps.
+---@return self @(void)
 function TextureBackend:generateMipmaps()
-end
-
---------------------------------
-
---- Read a block of pixels from the drawable texture
---- param x,y Specify the window coordinates of the first pixel that is read from the drawable texture. This location is the lower left corner of a rectangular block of pixels.
---- param width,height Specify the dimensions of the pixel rectangle. width and height of one correspond to a single pixel.
---- param flipImage Specifies if needs to flip the image.
---- param callback Specifies a call back function to deal with the image.
----@param x number
----@param y number
----@param width number
----@param height number
----@param flipImage boolean
----@param callback fun(arg0:unsigned char,arg1:number,arg2:number)
----@return ccb.TextureBackend
-function TextureBackend:getBytes(x, y, width, height, flipImage, callback)
-end
-
--- P6 Core: existing registered entries omitted from the earlier documentation.
-
----@return number @(uint32_t)
-function TextureBackend:getHeight()
-end
-
----@return number @(uint32_t)
-function TextureBackend:getWidth()
 end
 
 ---@return number @(int)
 function TextureBackend:getCount()
 end
 
+---@param index number @(int)
+---@return number @(uintptr_t)
+function TextureBackend:getHandler(index)
+end
+
 ---@return number @(uintptr_t)
 function TextureBackend:getHandler()
 end
 
+---@return number @(uint32_t)
+function TextureBackend:getHeight()
+end
+
+---
+--- Get texture format.
+---@return ccb.PixelFormat @(cocos2d::backend::PixelFormat) Texture format.
+function TextureBackend:getTextureFormat()
+end
+
+---
+--- Get texture type. Symbolic constant value can be either TEXTURE_2D or TEXTURE_CUBE.
+---@return ccb.TextureType @(cocos2d::backend::TextureType) Texture type.
+function TextureBackend:getTextureType()
+end
+
+---
+--- Get texture usage. Symbolic constant can be READ, WRITE or RENDER_TARGET.
+---@return ccb.TextureUsage @(cocos2d::backend::TextureUsage) Texture usage.
+function TextureBackend:getTextureUsage()
+end
+
+---@return number @(uint32_t)
+function TextureBackend:getWidth()
+end
+
+---
+--- Check if mipmap had generated before.
+---@return boolean @(bool) true if the mipmap has always generated before, otherwise false.
+function TextureBackend:hasMipmaps()
+end
+
+---
+--- Update sampler
+---@param sampler ccb.SamplerDescriptor @(cocos2d::backend::SamplerDescriptor) Specifies the sampler descriptor.
+---@return self @(void)
+function TextureBackend:updateSamplerDescriptor(sampler)
+end
+
+--- updateSamplerDescriptor defaults: LINEAR mag/min filters, CLAMP_TO_EDGE s/t address modes.
+--- Missing/nil fields preserve these native defaults; malformed supplied fields reject the call.
+--- Native address-mode keys take precedence; wrapS/wrapT are fallback aliases.
+--- Texture2D::TexParams aliases this native type; Core's Lua setter retains its four-scalar protocol.
+--- TextureDescriptor rebuilding and raw pixel/compressed uploads are unavailable.
 
 return nil
