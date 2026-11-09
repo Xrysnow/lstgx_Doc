@@ -1,4 +1,7 @@
--- P6 Extension: generated own methods and explicitly retained legacy adapters.
+-- Extension convergence: shared generated calls, reviewed ownership contract.
+-- Manager-owned Ref views; getters do not add native ownership.
+-- Keep the native manager alive and do not use a view after manifest replacement/destruction.
+-- getSearchPaths returns a new standard vector snapshot.
 ---@class cc.Manifest:cc.Ref
 local Manifest = {}
 cc.Manifest = Manifest
@@ -40,5 +43,3 @@ end
 
 ---
 --- @brief   This class is used to auto update resources, such as pictures or scripts.
-
-return nil

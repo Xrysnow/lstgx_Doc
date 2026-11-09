@@ -1,15 +1,8 @@
--- Extension runtime module: exactly seven own class definitions.
--- Historical Control/ScrollView/TableView documents in this directory are not
--- registrations of the current Extension module.
--- cc.AssetsManager : cc.Node
--- cc.EventAssetsManagerEx : cc.EventCustom
--- cc.Manifest : cc.Ref
--- cc.AssetsManagerEx : cc.Ref
--- cc.EventListenerAssetsManagerEx : cc.EventListenerCustom
--- cc.ParticleSystem3D : cc.Node
--- cc.PUParticleSystem3D : cc.ParticleSystem3D
--- Manual-only registry extension: cc.ParticlePool:getActiveDataList().
--- This module does not define cc.ParticlePool. If another owner registers that
--- type before Extension, the existing adapter is installed. It returns a table;
--- the legacy nonempty list-pointer packaging is retained without new ownership.
+-- Current Extension runtime module: seven own classes, 94 own methods.
+-- Ref new, AssetsManager:setDelegate, ParticlePool borrowing/conditional extension,
+-- and signatures using unregistered particle dependency types have been removed.
+-- All retained ordinary calls use shared conversions/checks/diagnostics.
+-- ManifestAsset is an output-only five-field table snapshot, not a runtime class.
+-- Historical Control/ScrollView/TableView documents in this directory do not
+-- describe registrations made by the current Extension module.
 return nil

@@ -1,29 +1,14 @@
--- P6 Extension: generated own methods and explicitly retained legacy adapters.
+-- Extension convergence: shared generated calls, reviewed ownership contract.
+-- Use create() or the existing resource factories; Ref new is removed.
+-- Resource initialization does not expose PU emitter/listener/observer/behaviour types.
+-- getParentParticleSystem is borrowed: keep its native hierarchy alive.
+-- A clone is an autoreleased Ref; ownership follows the native factory contract.
+-- rotationOffset uses a shared Vec3 value; it does not mutate the input Lua table.
+-- calulateRotationOffset requires a valid initialized hierarchy. A marked root with no
+-- native parent remains invalid input; this change does not fix that native precondition.
 ---@class cc.PUParticleSystem3D:cc.ParticleSystem3D
 local PUParticleSystem3D = {}
 cc.PUParticleSystem3D = PUParticleSystem3D
-
----@param behaviour cc.PUBehaviour @(cocos2d::PUBehaviour*)
----@return self @(void)
-function PUParticleSystem3D:addBehaviourTemplate(behaviour)
-end
-
----
---- add particle affector
----@param emitter cc.PUEmitter @(cocos2d::PUEmitter*)
----@return self @(void)
-function PUParticleSystem3D:addEmitter(emitter)
-end
-
----@param listener cc.PUListener @(cocos2d::PUListener*)
----@return self @(void)
-function PUParticleSystem3D:addListener(listener)
-end
-
----@param observer cc.PUObserver @(cocos2d::PUObserver*)
----@return self @(void)
-function PUParticleSystem3D:addObserver(observer)
-end
 
 ---@return self @(void)
 function PUParticleSystem3D:calulateRotationOffset()
@@ -40,14 +25,6 @@ end
 ---@param system cc.PUParticleSystem3D @(cocos2d::PUParticleSystem3D*)
 ---@return self @(void)
 function PUParticleSystem3D:copyAttributesTo(system)
-end
-
---- Forces emission of particles.
---- @remarks The number of requested particles are the exact number that are emitted. No down-scaling is applied.
----@param emitter cc.PUEmitter @(cocos2d::PUEmitter*)
----@param requested number @(unsigned int)
----@return self @(void)
-function PUParticleSystem3D:forceEmission(emitter, requested)
 end
 
 ---@param delta number @(float)
@@ -134,11 +111,6 @@ end
 function PUParticleSystem3D:isMarkedForEmission()
 end
 
----@param particle cc.PUParticle3D @(cocos2d::PUParticle3D*)
----@return boolean @(bool)
-function PUParticleSystem3D:makeParticleLocal(particle)
-end
-
 ---@return self @(void)
 function PUParticleSystem3D:removeAllBehaviourTemplate()
 end
@@ -151,13 +123,16 @@ end
 function PUParticleSystem3D:removeAllListener()
 end
 
----@param listener cc.PUListener @(cocos2d::PUListener*)
----@return self @(void)
-function PUParticleSystem3D:removeListener(listener)
-end
-
 ---@return self @(void)
 function PUParticleSystem3D:removerAllObserver()
+end
+
+---
+--- If the orientation of the particle system has been changed since the last update, the passed vector is rotated
+--- accordingly.
+---@param pos vec3_table @(cocos2d::Vec3&)
+---@return self @(void)
+function PUParticleSystem3D:rotationOffset(pos)
 end
 
 ---@param depth number @(const float)
@@ -224,17 +199,3 @@ end
 ---@return cc.PUParticleSystem3D @(cocos2d::PUParticleSystem3D*)
 function PUParticleSystem3D:create()
 end
-
---- Retained: Retained new + autorelease constructor, old default arities and error text.
---- Allocates a Ref and autoreleases it; no Lua-owned delete.
----@return cc.PUParticleSystem3D
-function PUParticleSystem3D:new()
-end
-
---- Retained: Legacy Vec3 table input conversion.
----@param pos vec3_table @(Vec3 &)
----@return self
-function PUParticleSystem3D:rotationOffset(pos)
-end
-
-return nil

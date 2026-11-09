@@ -1,14 +1,12 @@
--- P6 Extension: generated own methods and explicitly retained legacy adapters.
+-- Extension convergence: shared generated calls, reviewed ownership contract.
+-- No Lua new or base factory is supplied. Existing PU instances expose these methods.
+-- BlendFunc uses the shared {src,dst} conversion; getters return value snapshots.
+-- getParticlePool and the non-owning ParticlePool registry extension are removed.
+-- Unregistered Particle3DRender/Emitter/Affector object methods are excluded.
+-- removeAffector(index) and removeAllAffector() operate on native-owned contents.
 ---@class cc.ParticleSystem3D:cc.Node
 local ParticleSystem3D = {}
 cc.ParticleSystem3D = ParticleSystem3D
-
----
---- add particle affector
----@param affector cc.Particle3DAffector @(cocos2d::Particle3DAffector*)
----@return self @(void)
-function ParticleSystem3D:addAffector(affector)
-end
 
 ---
 --- get alive particles count
@@ -17,15 +15,15 @@ function ParticleSystem3D:getAliveParticleCount()
 end
 
 ---
---- get particle quota
----@return number @(unsigned int)
-function ParticleSystem3D:getParticleQuota()
+--- override function
+---@return cc.BlendFunc @(const cocos2d::BlendFunc&)
+function ParticleSystem3D:getBlendFunc()
 end
 
 ---
---- return particle render
----@return cc.Particle3DRender @(cocos2d::Particle3DRender*)
-function ParticleSystem3D:getRender()
+--- get particle quota
+---@return number @(unsigned int)
+function ParticleSystem3D:getParticleQuota()
 end
 
 ---
@@ -70,10 +68,10 @@ function ParticleSystem3D:resumeParticleSystem()
 end
 
 ---
---- set emitter for particle system, can set your own particle emitter
----@param emitter cc.Particle3DEmitter @(cocos2d::Particle3DEmitter*)
+--- override function
+---@param blendFunc cc.BlendFunc @(cocos2d::BlendFunc)
 ---@return self @(void)
-function ParticleSystem3D:setEmitter(emitter)
+function ParticleSystem3D:setBlendFunc(blendFunc)
 end
 
 ---
@@ -96,13 +94,6 @@ function ParticleSystem3D:setParticleQuota(quota)
 end
 
 ---
---- set particle render, can set your own particle render
----@param render cc.Particle3DRender @(cocos2d::Particle3DRender*)
----@return self @(void)
-function ParticleSystem3D:setRender(render)
-end
-
----
 --- particle system play control
 ---@return self @(void)
 function ParticleSystem3D:startParticleSystem()
@@ -113,29 +104,3 @@ end
 ---@return self @(void)
 function ParticleSystem3D:stopParticleSystem()
 end
-
---- Retained: Retained new + autorelease constructor, old default arities and error text.
---- Allocates a Ref and autoreleases it; no Lua-owned delete.
----@return cc.ParticleSystem3D
-function ParticleSystem3D:new()
-end
-
---- Retained: Legacy BlendFunc table snapshot and virtual override.
----@return table
-function ParticleSystem3D:getBlendFunc()
-end
-
---- Retained: Legacy permissive BlendFunc input conversion.
----@param blendFunc table @(const BlendFunc &)
----@return self
-function ParticleSystem3D:setBlendFunc(blendFunc)
-end
-
---- Borrowed native pool; its storage remains owned by this particle system.
---- Legacy tolua address caching can return the existing particle-system userdata.
---- ParticlePool has no own class registration in this module.
----@return userdata
-function ParticleSystem3D:getParticlePool()
-end
-
-return nil

@@ -1,4 +1,12 @@
--- P6 Extension: generated own methods and explicitly retained legacy adapters.
+-- Extension convergence: shared generated calls, reviewed ownership contract.
+-- Callback ownership does not add native cancellation or keep the manager alive.
+-- The manifest getters borrow manager-owned Refs without extending their lifetime.
+-- Both callback setters accept function or nil; nil restores the native default path.
+-- Version comparison returns the shared int conversion (negative, zero or positive).
+-- Verify receives (path, snapshot) and uses shared bool conversion; Lua errors return false.
+-- The plain snapshot has exactly md5:string, path:string, compressed:boolean,
+-- size:number (native float) and downloadState:integer. It has no metatable.
+-- Strings preserve their length; mutating the snapshot does not alter the manifest.
 ---@class cc.AssetsManagerEx:cc.Ref
 local AssetsManagerEx = {}
 cc.AssetsManagerEx = AssetsManagerEx
@@ -46,6 +54,19 @@ end
 function AssetsManagerEx:setMaxConcurrentTask(max)
 end
 
+--- @brief Set the verification function for checking whether downloaded asset is correct, e.g. using md5
+--- verification
+---@param callback function|nil @(std::function<bool(std::string_view, cocos2d::extension::Manifest::Asset)>)  The verify callback function
+---@return self @(void)
+function AssetsManagerEx:setVerifyCallback(callback)
+end
+
+--- @brief Set the handle function for comparing manifests versions
+---@param handle function|nil @(std::function<int(std::string_view, std::string_view)>)    The compare function
+---@return self @(void)
+function AssetsManagerEx:setVersionCompareHandle(handle)
+end
+
 --- @brief Update with the current local manifest.
 ---@return self @(void)
 function AssetsManagerEx:update()
@@ -76,27 +97,3 @@ end
 ---     Removes a listener
 ---
 ---        dispatcher->removeEventListener(listener);
-
---- Retained: Retained new + autorelease constructor, old default arities and error text.
---- Allocates a Ref and autoreleases it; no Lua-owned delete.
----@param manifestUrl string @(std::string_view)
----@param storagePath string @(std::string_view)
----@return cc.AssetsManagerEx
-function AssetsManagerEx:new(manifestUrl, storagePath)
-end
-
---- Retained: Old unsupported ManifestAsset callback stub preserved.
---- Unsupported legacy stub: Debug asserts; Release installs an empty callback.
----@param callback function @(const std::function<bool (std::string_view, Manifest::Asset)> &)
----@return self
-function AssetsManagerEx:setVerifyCallback(callback)
-end
-
---- Retained: Old unsupported callback stub preserved.
---- Unsupported legacy stub: Debug asserts; Release installs an empty callback.
----@param handle function @(const std::function<int (std::string_view, std::string_view)> &)
----@return self
-function AssetsManagerEx:setVersionCompareHandle(handle)
-end
-
-return nil

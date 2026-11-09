@@ -1,4 +1,9 @@
--- P6 Extension: generated own methods and explicitly retained legacy adapters.
+-- Extension convergence: shared generated calls, reviewed ownership contract.
+-- create requires error(int), progress(int), success() functions; nil is rejected.
+-- Callbacks are owned by the native factory delegate. Keep the manager alive until
+-- its native download/decompression work finishes; callback ownership does not cancel work.
+-- The former setDelegate(function, channel) API and Ref new are removed.
+-- update() keeps the original no-argument API; Node update(float) is not an overload here.
 ---@class cc.AssetsManager:cc.Node
 local AssetsManager = {}
 cc.AssetsManager = AssetsManager
@@ -57,33 +62,13 @@ end
 function AssetsManager:update()
 end
 
---- Retained: Retained new + autorelease constructor, old default arities and error text.
---- Allocates a Ref and autoreleases it; no Lua-owned delete.
----@param packageUrl? string @(const char *) default NULL
----@param versionFileUrl? string @(const char *) default NULL
----@param storagePath? string @(const char *) default NULL
----@return cc.AssetsManager
-function AssetsManager:new(packageUrl, versionFileUrl, storagePath)
-end
-
---- Retained: Old unsupported std::function stub: assert in Debug, empty callbacks in Release.
---- Unsupported legacy stub: Debug asserts; Release installs an empty callback.
----@param packageUrl string @(const char *)
----@param versionFileUrl string @(const char *)
----@param storagePath string @(const char *)
----@param errorCallback number @(ErrorCallback)
----@param progressCallback number @(ProgressCallback)
----@param successCallback number @(SuccessCallback)
----@return cc.AssetsManager
+--- (static)
+---@param packageUrl string @(const char*)
+---@param versionFileUrl string @(const char*)
+---@param storagePath string @(const char*)
+---@param errorCallback function @(cocos2d::extension::AssetsManager::ErrorCallback) Required callback; nil is rejected.
+---@param progressCallback function @(cocos2d::extension::AssetsManager::ProgressCallback) Required callback; nil is rejected.
+---@param successCallback function @(cocos2d::extension::AssetsManager::SuccessCallback) Required callback; nil is rejected.
+---@return cc.AssetsManager @(cocos2d::extension::AssetsManager*)
 function AssetsManager:create(packageUrl, versionFileUrl, storagePath, errorCallback, progressCallback, successCallback)
 end
-
---- Retained ScriptHandlerMgr delegate. handlerType: 0 progress(number),
---- 1 success(), 2 error(number). Same-channel replacement releases the old handler.
---- Returns no values; delegate lifetime follows Node userObject.
----@param callback function
----@param handlerType number
-function AssetsManager:setDelegate(callback, handlerType)
-end
-
-return nil
