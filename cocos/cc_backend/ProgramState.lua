@@ -132,7 +132,7 @@ end
 
 --- There is no Lua new/callable constructor or implicit create replacement.
 --- Obtain a state from a native owner (for example Sprite:getProgramState), or clone an existing state.
---- src/xe/util.lua's ccb.ProgramState(program) caller requires a separately designed factory migration.
+--- For builtin sprite programs, use sprite:setProgramState(programType); the native owner creates and adopts the state.
 
 --- Clone layout, uniforms and textures. Initial reference is autoreleased once.
 --- A Lua variable does not retain a Ref: use a native owner or balanced retain/release across frames.
