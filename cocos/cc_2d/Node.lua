@@ -1526,10 +1526,10 @@ end
 function Node:getAttachedNodeCount()
 end
 
----
----@return cc.PhysicsBody
-function Node:getPhysicsBody()
-end
+--- Shared generated native method.
+--- Available when: CC_USE_PHYSICS.
+---@return cc.PhysicsBody|nil
+function Node:getPhysicsBody() end
 
 ---@param cleanup boolean
 ---@return cc.Node
@@ -1543,10 +1543,10 @@ end
 ---@overload fun(self:cc.Node):cc.Node
 function Node:removeFromParent(cleanup) end
 
----
----@param physicsBody cc.PhysicsBody
----@return cc.Node
-function Node:setPhysicsBody(physicsBody)
-end
+--- Shared generated native method.
+--- Available when: CC_USE_PHYSICS.
+---@param physicsBody cc.PhysicsBody|nil
+---@return self
+function Node:setPhysicsBody(physicsBody) end
 
 return nil

@@ -38,33 +38,58 @@ end
 function Scene:createWithSize(size)
 end
 
----  Create a scene with physics.
---- return An autoreleased Scene object with physics.
---- js NA
----@return cc.Scene
-function Scene:createWithPhysics()
-end
+--- Shared generated native method.
+--- Available when: CC_USE_PHYSICS || (CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION).
+---@return cc.Scene|nil
+function Scene:createWithPhysics() end
 
----  Get the physics world of the scene.
---- return The physics world of the scene.
---- js NA
----@return cc.PhysicsWorld
-function Scene:getPhysicsWorld()
-end
+--- Shared generated native method.
+--- Available when: CC_USE_PHYSICS.
+---@return cc.PhysicsWorld|nil
+function Scene:getPhysicsWorld() end
 
---- Existing Lua adapter; only the documented Lua arities are exposed.
+--- Shared generated native method.
+--- Available when: CC_USE_PHYSICS || (CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION).
 ---@return boolean
 function Scene:initPhysicsWorld() end
 
----
+--- Shared generated native method.
+--- Available when: CC_USE_PHYSICS || (CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION).
 ---@return boolean
-function Scene:initWithPhysics()
-end
+function Scene:initWithPhysics() end
 
----
+--- Shared generated native method.
+--- Available when: CC_USE_PHYSICS || (CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION) || CC_USE_NAVMESH.
 ---@param deltaTime number
----@return cc.Scene
-function Scene:stepPhysicsAndNavigation(deltaTime)
-end
+---@return self
+function Scene:stepPhysicsAndNavigation(deltaTime) end
+
+--- Shared generated native method.
+--- Available when: CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION.
+---@return cc.Physics3DWorld|nil
+function Scene:getPhysics3DWorld() end
+
+--- Shared generated native method.
+--- Available when: CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION.
+---@param camera cc.Camera|nil
+---@return self
+function Scene:setPhysics3DDebugCamera(camera) end
+
+--- Shared generated native method.
+--- Available when: CC_USE_NAVMESH.
+---@param camera cc.Camera|nil
+---@return self
+function Scene:setNavMeshDebugCamera(camera) end
+
+--- Shared generated native method.
+--- Available when: CC_USE_NAVMESH.
+---@param navMesh cc.NavMesh|nil
+---@return self
+function Scene:setNavMesh(navMesh) end
+
+--- Shared generated native method.
+--- Available when: CC_USE_NAVMESH.
+---@return cc.NavMesh|nil
+function Scene:getNavMesh() end
 
 return nil
