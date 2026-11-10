@@ -302,12 +302,4 @@ function Physics3DRigidBody:new() end
 ---@return userdata
 function Physics3DRigidBody:getRigidBody() end
 
---- Legacy pointer conversion is unsupported; this entry always raises invalid arguments.
----@param data any
-function Physics3DRigidBody:init(data) end
---- Descriptor defaults: mass=0, localInertia={x=0,y=0,z=0}, shape=nil,
---- originalTransform=identity, disableSleep=false; native valid shape is required.
----@param description table
----@return cc.Physics3DRigidBody
-function Physics3DRigidBody:create(description) end
 return nil

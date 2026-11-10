@@ -264,17 +264,4 @@ end
 function GLView:windowShouldClose()
 end
 
----  Return the OpenGL context attrs.
---- return Return the OpenGL context attrs.
----@return GLContextAttrs
-function GLView:getGLContextAttrs()
-end
-
----  Static method and member so that we can modify it on all platforms before create OpenGL context.
---- param glContextAttrs The OpenGL context attrs.
----@param glContextAttrs GLContextAttrs
----@return cc.GLView
-function GLView:setGLContextAttrs(glContextAttrs)
-end
-
 return nil

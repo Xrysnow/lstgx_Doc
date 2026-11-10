@@ -31,10 +31,4 @@ end
 --- Legacy constructor; native autorelease and tolua identity are unchanged.
 ---@return cc.PhysicsMeshRenderer
 function PhysicsMeshRenderer:new() end
----@param modelPath string
----@param description table Physics3DRigidBodyDes descriptor
----@param translateInPhysics? vec3_table default=Vec3::ZERO
----@param rotationInPhysics? quaternion_table default=Quaternion::ZERO
----@return cc.PhysicsMeshRenderer
-function PhysicsMeshRenderer:create(modelPath,description,translateInPhysics,rotationInPhysics) end
 return nil
