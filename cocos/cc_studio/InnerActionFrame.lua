@@ -1,108 +1,55 @@
-
---------------------------------
--- @module InnerActionFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.InnerActionFrame:ccs.Frame
 local InnerActionFrame = {}
 ccs.InnerActionFrame = InnerActionFrame
---------------------------------
 
---- 
----@return number
+---@return number @(int)
 function InnerActionFrame:getEndFrameIndex()
 end
 
---------------------------------
-
---- 
----@return number
-function InnerActionFrame:getStartFrameIndex()
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(cocostudio::timeline::InnerActionType)
 function InnerActionFrame:getInnerActionType()
 end
 
---------------------------------
-
---- 
----@param frameIndex number
----@return ccs.InnerActionFrame
-function InnerActionFrame:setEndFrameIndex(frameIndex)
-end
-
---------------------------------
-
---- 
----@param isEnterWithName boolean
----@return ccs.InnerActionFrame
-function InnerActionFrame:setEnterWithName(isEnterWithName)
-end
-
---------------------------------
-
---- 
----@param frameIndex number
----@return ccs.InnerActionFrame
-function InnerActionFrame:setSingleFrameIndex(frameIndex)
-end
-
---------------------------------
-
---- 
----@param frameIndex number
----@return ccs.InnerActionFrame
-function InnerActionFrame:setStartFrameIndex(frameIndex)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(int)
 function InnerActionFrame:getSingleFrameIndex()
 end
 
---------------------------------
-
---- 
----@param type number
----@return ccs.InnerActionFrame
-function InnerActionFrame:setInnerActionType(type)
+---@return number @(int)
+function InnerActionFrame:getStartFrameIndex()
 end
 
---------------------------------
-
---- 
----@param animationNamed string
----@return ccs.InnerActionFrame
+---@param animationNamed string @(std::string_view)
+---@return self @(void)
 function InnerActionFrame:setAnimationName(animationNamed)
 end
 
---------------------------------
+---@param frameIndex number @(int)
+---@return self @(void)
+function InnerActionFrame:setEndFrameIndex(frameIndex)
+end
 
---- 
----@return ccs.InnerActionFrame
+---@param isEnterWithName boolean @(bool)
+---@return self @(void)
+function InnerActionFrame:setEnterWithName(isEnterWithName)
+end
+
+---@param type number @(cocostudio::timeline::InnerActionType)
+---@return self @(void)
+function InnerActionFrame:setInnerActionType(type)
+end
+
+---@param frameIndex number @(int)
+---@return self @(void)
+function InnerActionFrame:setSingleFrameIndex(frameIndex)
+end
+
+---@param frameIndex number @(int)
+---@return self @(void)
+function InnerActionFrame:setStartFrameIndex(frameIndex)
+end
+
+--- (static)
+---@return ccs.InnerActionFrame @(cocostudio::timeline::InnerActionFrame*)
 function InnerActionFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function InnerActionFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.InnerActionFrame
-function InnerActionFrame:InnerActionFrame()
-end
-
-
-return nil

@@ -1,45 +1,32 @@
-
---------------------------------
--- @module ActionTintFrame
--- @extend ActionFrame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.ActionTintFrame:ccs.ActionFrame
 local ActionTintFrame = {}
 ccs.ActionTintFrame = ActionTintFrame
---------------------------------
 
---- Gets the tint action color.
---- return the tint action color.
----@return color3b_table
-function ActionTintFrame:getColor()
-end
-
---------------------------------
-
+---
 --- Gets the ActionInterval of ActionFrame.
---- param duration   the duration time of ActionFrame
---- return ActionInterval
----@param duration number
----@return cc.ActionInterval
+---
+---
+---@param duration number @(float)   the duration time of ActionFrame
+---@return cc.ActionInterval @(cocos2d::ActionInterval*) ActionInterval
 function ActionTintFrame:getAction(duration)
 end
 
---------------------------------
+---
+--- Gets the tint action color.
+---
+---@return color3b_table @(cocos2d::Color3B) the tint action color.
+function ActionTintFrame:getColor()
+end
 
+---
 --- Changes the tint action color.
---- param ccolor the tint action color
----@param ccolor color3b_table
----@return ccs.ActionTintFrame
+---
+---@param ccolor color3b_table @(cocos2d::Color3B) the tint action color
+---@return self @(void)
 function ActionTintFrame:setColor(ccolor)
 end
 
---------------------------------
-
---- Default constructor
----@return ccs.ActionTintFrame
-function ActionTintFrame:ActionTintFrame()
-end
-
-
-return nil
+---
+---  @js NA
+---  @lua NA

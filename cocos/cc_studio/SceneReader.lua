@@ -1,64 +1,35 @@
-
---------------------------------
--- @module SceneReader
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+--- createNodeWithSceneFile defaults attachComponent to EMPTY_NODE. A missing lookup may return nil.
 ---@class ccs.SceneReader
 local SceneReader = {}
 ccs.SceneReader = SceneReader
---------------------------------
 
---- 
----@param selector fun(arg0:cc.Ref,arg1:void)
----@return ccs.SceneReader
-function SceneReader:setTarget(selector)
-end
-
---------------------------------
-
---- 
----@param fileName string
----@param attachComponent number
----@return cc.Node
+---@param fileName string @(std::string_view)
+---@param attachComponent ccs.SceneReader.AttachComponentType @(cocostudio::SceneReader::AttachComponentType)
+---@return cc.Node|nil @(cocos2d::Node*)
 function SceneReader:createNodeWithSceneFile(fileName, attachComponent)
 end
 
---------------------------------
+---@param fileName string @(std::string_view)
+---@return cc.Node|nil @(cocos2d::Node*)
+function SceneReader:createNodeWithSceneFile(fileName)
+end
 
---- 
----@return number
+---@return ccs.SceneReader.AttachComponentType @(cocostudio::SceneReader::AttachComponentType)
 function SceneReader:getAttachComponentType()
 end
 
---------------------------------
-
---- 
----@param nTag number
----@return cc.Node
+---@param nTag number @(int)
+---@return cc.Node|nil @(cocos2d::Node*)
 function SceneReader:getNodeByTag(nTag)
 end
 
---------------------------------
-
---- js purge
---- lua destroySceneReader
----@return ccs.SceneReader
-function SceneReader:destroyInstance()
-end
-
---------------------------------
-
---- 
----@return string
-function SceneReader:sceneReaderVersion()
-end
-
---------------------------------
-
---- 
----@return ccs.SceneReader
+--- (static)
+---@return ccs.SceneReader @(cocostudio::SceneReader*)
 function SceneReader:getInstance()
 end
 
-
-return nil
+--- (static)
+---@return string @(const char*)
+function SceneReader:sceneReaderVersion()
+end

@@ -1,272 +1,167 @@
-
---------------------------------
--- @module ComAudio
--- @extend Component,PlayableProtocol
--- @parent_module ccs
-
----@class ccs.ComAudio:ccs.Component,ccs.PlayableProtocol
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.ComAudio:cc.Component
 local ComAudio = {}
 ccs.ComAudio = ComAudio
---------------------------------
 
---- 
----@return ccs.ComAudio
-function ComAudio:stopAllEffects()
-end
-
---------------------------------
-
---- 
----@return number
-function ComAudio:getEffectsVolume()
-end
-
---------------------------------
-
---- 
----@param nSoundId number
----@return ccs.ComAudio
-function ComAudio:stopEffect(nSoundId)
-end
-
---------------------------------
-
---- 
----@return number
-function ComAudio:getBackgroundMusicVolume()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ComAudio:willPlayBackgroundMusic()
-end
-
---------------------------------
-
---- 
----@param volume number
----@return ccs.ComAudio
-function ComAudio:setBackgroundMusicVolume(volume)
-end
-
---------------------------------
-
---- / @{/ @name implement Playable Protocol
----@return ccs.ComAudio
-function ComAudio:start()
-end
-
---------------------------------
-
---- 
----@param bReleaseData boolean
----@return ccs.ComAudio
----@overload fun(self:ccs.ComAudio):ccs.ComAudio
-function ComAudio:stopBackgroundMusic(bReleaseData)
-end
-
---------------------------------
-
---- 
----@return ccs.ComAudio
-function ComAudio:pauseBackgroundMusic()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ComAudio:isBackgroundMusicPlaying()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ComAudio:isLoop()
-end
-
---------------------------------
-
---- 
----@return ccs.ComAudio
-function ComAudio:resumeAllEffects()
-end
-
---------------------------------
-
---- 
----@return ccs.ComAudio
-function ComAudio:pauseAllEffects()
-end
-
---------------------------------
-
---- 
----@param pszFilePath string
----@return ccs.ComAudio
-function ComAudio:preloadBackgroundMusic(pszFilePath)
-end
-
---------------------------------
-
---- 
----@param pszFilePath string
----@param bLoop boolean
----@return ccs.ComAudio
----@overload fun(self:ccs.ComAudio, pszFilePath:string):ccs.ComAudio
----@overload fun(self:ccs.ComAudio):ccs.ComAudio
-function ComAudio:playBackgroundMusic(pszFilePath, bLoop)
-end
-
---------------------------------
-
---- 
----@return ccs.ComAudio
-function ComAudio:stop()
-end
-
---------------------------------
-
---- lua endToLua
----@return ccs.ComAudio
+---
+--- @lua endToLua
+---@return self @(void)
 function ComAudio:endToLua()
 end
 
---------------------------------
-
---- 
----@param pszFilePath string
----@param bLoop boolean
----@return number
----@overload fun(self:ccs.ComAudio, pszFilePath:string):number
----@overload fun(self:ccs.ComAudio):number
-function ComAudio:playEffect(pszFilePath, bLoop)
+---@return number @(float)
+function ComAudio:getBackgroundMusicVolume()
 end
 
---------------------------------
-
---- 
----@param pszFilePath string
----@return ccs.ComAudio
-function ComAudio:preloadEffect(pszFilePath)
+---@return number @(float)
+function ComAudio:getEffectsVolume()
 end
 
---------------------------------
-
---- 
----@param bLoop boolean
----@return ccs.ComAudio
-function ComAudio:setLoop(bLoop)
-end
-
---------------------------------
-
---- 
----@param pszFilePath string
----@return ccs.ComAudio
-function ComAudio:unloadEffect(pszFilePath)
-end
-
---------------------------------
-
---- 
----@return ccs.ComAudio
-function ComAudio:rewindBackgroundMusic()
-end
-
---------------------------------
-
---- 
----@param nSoundId number
----@return ccs.ComAudio
-function ComAudio:pauseEffect(nSoundId)
-end
-
---------------------------------
-
---- 
----@return ccs.ComAudio
-function ComAudio:resumeBackgroundMusic()
-end
-
---------------------------------
-
---- 
----@param pszFilePath string
----@return ccs.ComAudio
-function ComAudio:setFile(pszFilePath)
-end
-
---------------------------------
-
---- 
----@param volume number
----@return ccs.ComAudio
-function ComAudio:setEffectsVolume(volume)
-end
-
---------------------------------
-
---- 
----@return string
+---@return string @(const char*)
 function ComAudio:getFile()
 end
 
---------------------------------
+---@return boolean @(bool)
+function ComAudio:isBackgroundMusicPlaying()
+end
 
---- 
----@param nSoundId number
----@return ccs.ComAudio
+---@return boolean @(bool)
+function ComAudio:isLoop()
+end
+
+---@return self @(void)
+function ComAudio:pauseAllEffects()
+end
+
+---@return self @(void)
+function ComAudio:pauseBackgroundMusic()
+end
+
+---@param nSoundId number @(unsigned int)
+---@return self @(void)
+function ComAudio:pauseEffect(nSoundId)
+end
+
+---@param pszFilePath string @(const char*)
+---@param bLoop boolean @(bool)
+---@return self @(void)
+function ComAudio:playBackgroundMusic(pszFilePath, bLoop)
+end
+
+---@param pszFilePath string @(const char*)
+---@return self @(void)
+function ComAudio:playBackgroundMusic(pszFilePath)
+end
+
+---@return self @(void)
+function ComAudio:playBackgroundMusic()
+end
+
+---@param pszFilePath string @(const char*)
+---@param bLoop boolean @(bool)
+---@return number @(unsigned int)
+function ComAudio:playEffect(pszFilePath, bLoop)
+end
+
+---@param pszFilePath string @(const char*)
+---@return number @(unsigned int)
+function ComAudio:playEffect(pszFilePath)
+end
+
+---@return number @(unsigned int)
+function ComAudio:playEffect()
+end
+
+---@param pszFilePath string @(const char*)
+---@return self @(void)
+function ComAudio:preloadBackgroundMusic(pszFilePath)
+end
+
+---@param pszFilePath string @(const char*)
+---@return self @(void)
+function ComAudio:preloadEffect(pszFilePath)
+end
+
+---@return self @(void)
+function ComAudio:resumeAllEffects()
+end
+
+---@return self @(void)
+function ComAudio:resumeBackgroundMusic()
+end
+
+---@param nSoundId number @(unsigned int)
+---@return self @(void)
 function ComAudio:resumeEffect(nSoundId)
 end
 
---------------------------------
+---@return self @(void)
+function ComAudio:rewindBackgroundMusic()
+end
 
---- 
----@return ccs.ComAudio
+---@param volume number @(float)
+---@return self @(void)
+function ComAudio:setBackgroundMusicVolume(volume)
+end
+
+---@param volume number @(float)
+---@return self @(void)
+function ComAudio:setEffectsVolume(volume)
+end
+
+---@param pszFilePath string @(const char*)
+---@return self @(void)
+function ComAudio:setFile(pszFilePath)
+end
+
+---@param bLoop boolean @(bool)
+---@return self @(void)
+function ComAudio:setLoop(bLoop)
+end
+
+--- @{
+--- @name implement Playable Protocol
+---@return self @(void)
+function ComAudio:start()
+end
+
+---@return self @(void)
+function ComAudio:stop()
+end
+
+---@return self @(void)
+function ComAudio:stopAllEffects()
+end
+
+---@param bReleaseData boolean @(bool)
+---@return self @(void)
+function ComAudio:stopBackgroundMusic(bReleaseData)
+end
+
+---@return self @(void)
+function ComAudio:stopBackgroundMusic()
+end
+
+---@param nSoundId number @(unsigned int)
+---@return self @(void)
+function ComAudio:stopEffect(nSoundId)
+end
+
+---@param pszFilePath string @(const char*)
+---@return self @(void)
+function ComAudio:unloadEffect(pszFilePath)
+end
+
+---@return boolean @(bool)
+function ComAudio:willPlayBackgroundMusic()
+end
+
+--- (static)
+---@return ccs.ComAudio @(cocostudio::ComAudio*)
 function ComAudio:create()
 end
 
---------------------------------
-
---- 
----@return cc.Ref
+--- (static)
+---@return cc.Ref @(cocos2d::Ref*)
 function ComAudio:createInstance()
 end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComAudio
-function ComAudio:onRemove()
-end
-
---------------------------------
-
---- 
----@param r void
----@return boolean
-function ComAudio:serialize(r)
-end
-
---------------------------------
-
---- 
----@return boolean
-function ComAudio:init()
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComAudio
-function ComAudio:onAdd()
-end
-
-
-return nil

@@ -1,47 +1,18 @@
-
---------------------------------
--- @module VisibleFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.VisibleFrame:ccs.Frame
 local VisibleFrame = {}
 ccs.VisibleFrame = VisibleFrame
---------------------------------
 
---- 
----@return boolean
+---@return boolean @(bool)
 function VisibleFrame:isVisible()
 end
 
---------------------------------
-
---- 
----@param visible boolean
----@return ccs.VisibleFrame
+---@param visible boolean @(bool)
+---@return self @(void)
 function VisibleFrame:setVisible(visible)
 end
 
---------------------------------
-
---- 
----@return ccs.VisibleFrame
+--- (static)
+---@return ccs.VisibleFrame @(cocostudio::timeline::VisibleFrame*)
 function VisibleFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function VisibleFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.VisibleFrame
-function VisibleFrame:VisibleFrame()
-end
-
-
-return nil

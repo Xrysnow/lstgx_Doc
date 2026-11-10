@@ -1,55 +1,18 @@
-
---------------------------------
--- @module TextureFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.TextureFrame:ccs.Frame
 local TextureFrame = {}
 ccs.TextureFrame = TextureFrame
---------------------------------
 
---- 
----@return string
+---@return string @(std::string_view)
 function TextureFrame:getTextureName()
 end
 
---------------------------------
-
---- 
----@param textureName string
----@return ccs.TextureFrame
+---@param textureName string @(std::string_view)
+---@return self @(void)
 function TextureFrame:setTextureName(textureName)
 end
 
---------------------------------
-
---- 
----@return ccs.TextureFrame
+--- (static)
+---@return ccs.TextureFrame @(cocostudio::timeline::TextureFrame*)
 function TextureFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function TextureFrame:clone()
-end
-
---------------------------------
-
---- 
----@param node cc.Node
----@return ccs.TextureFrame
-function TextureFrame:setNode(node)
-end
-
---------------------------------
-
---- 
----@return ccs.TextureFrame
-function TextureFrame:TextureFrame()
-end
-
-
-return nil

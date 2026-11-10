@@ -1,49 +1,24 @@
-
---------------------------------
--- @module ActionTimelineData
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.ActionTimelineData:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.ActionTimelineData:cc.Ref
 local ActionTimelineData = {}
 ccs.ActionTimelineData = ActionTimelineData
---------------------------------
 
---- 
----@param actionTag number
----@return ccs.ActionTimelineData
-function ActionTimelineData:setActionTag(actionTag)
-end
-
---------------------------------
-
---- 
----@param actionTag number
----@return boolean
-function ActionTimelineData:init(actionTag)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(int)
 function ActionTimelineData:getActionTag()
 end
 
---------------------------------
+---@param actionTag number @(int)
+---@return boolean @(bool)
+function ActionTimelineData:init(actionTag)
+end
 
---- 
----@param actionTag number
----@return ccs.ActionTimelineData
+---@param actionTag number @(int)
+---@return self @(void)
+function ActionTimelineData:setActionTag(actionTag)
+end
+
+--- (static)
+---@param actionTag number @(int)
+---@return ccs.ActionTimelineData @(cocostudio::timeline::ActionTimelineData*)
 function ActionTimelineData:create(actionTag)
 end
-
---------------------------------
-
---- 
----@return ccs.ActionTimelineData
-function ActionTimelineData:ActionTimelineData()
-end
-
-
-return nil

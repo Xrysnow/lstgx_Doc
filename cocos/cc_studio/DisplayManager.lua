@@ -1,173 +1,131 @@
-
---------------------------------
--- @module DisplayManager
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.DisplayManager:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+--- getContentSize returns a shared Vec2 snapshot with x/y fields. Rect retains width/height.
+---@class ccs.DisplayManager:cc.Ref
 local DisplayManager = {}
 ccs.DisplayManager = DisplayManager
---------------------------------
 
---- 
----@return cc.Node
-function DisplayManager:getDisplayRenderNode()
+---@param display cc.Node @(cocos2d::Node*)
+---@param index number @(int)
+---@return self @(void)
+function DisplayManager:addDisplay(display, index)
 end
 
---------------------------------
-
---- 
----@return vec2_table
-function DisplayManager:getAnchorPointInPoints()
-end
-
---------------------------------
-
---- 
----@return number
-function DisplayManager:getDisplayRenderNodeType()
-end
-
---------------------------------
-
---- 
----@param index number
----@return ccs.DisplayManager
-function DisplayManager:removeDisplay(index)
-end
-
---------------------------------
-
---- 
----@param force boolean
----@return ccs.DisplayManager
-function DisplayManager:setForceChangeDisplay(force)
-end
-
---------------------------------
-
---- 
----@param bone ccs.Bone
----@return boolean
-function DisplayManager:init(bone)
-end
-
---------------------------------
-
---- 
----@return size_table
-function DisplayManager:getContentSize()
-end
-
---------------------------------
-
---- 
----@return rect_table
-function DisplayManager:getBoundingBox()
-end
-
---------------------------------
-
---- 
----@param displayData ccs.DisplayData
----@param index number
----@return ccs.DisplayManager
+---
+--- Add display and use  _DisplayData init the display.
+--- If index already have a display, then replace it.
+--- If index is current display index, then also change display to _index
+---
+--- @param     displayData it include the display information, like DisplayType.
+--- If you want to create a sprite display, then create a SpriteDisplayData param
+---
+--- @param     index the index of the display you want to replace or add to
+--- -1 : append display from back
+---@param displayData ccs.DisplayData @(cocostudio::DisplayData*)
+---@param index number @(int)
+---@return self @(void)
 function DisplayManager:addDisplay(displayData, index)
 end
 
---------------------------------
-
---- Check if the position is inside the bone.
----@param x number
----@param y number
----@return boolean
----@overload fun(self:ccs.DisplayManager, _point:vec2_table):boolean
-function DisplayManager:containPoint(x, y)
-end
-
---------------------------------
-
+---
 --- Change display by index. You can just use this method to change display in the display list.
 --- The display list is just used for this bone, and it is the displays you may use in every frame.
+---
 --- Note : if index is the same with prev index, the method will not effect
---- param index The index of the display you want to change
---- param force If true, then force change display to specified display, or current display will set to  display index edit in the flash every key frame.
----@param index number
----@param force boolean
----@return ccs.DisplayManager
+---
+--- index edit in the flash every key frame.
+---@param index number @(int) The index of the display you want to change
+---@param force boolean @(bool) If true, then force change display to specified display, or current display will set to  display
+---@return self @(void)
 function DisplayManager:changeDisplayWithIndex(index, force)
 end
 
---------------------------------
-
---- 
----@param name string
----@param force boolean
----@return ccs.DisplayManager
+---@param name string @(std::string_view)
+---@param force boolean @(bool)
+---@return self @(void)
 function DisplayManager:changeDisplayWithName(name, force)
 end
 
---------------------------------
-
---- 
----@return boolean
-function DisplayManager:isForceChangeDisplay()
+---
+--- Check if the position is inside the bone.
+---@param x number @(float)
+---@param y number @(float)
+---@return boolean @(bool)
+function DisplayManager:containPoint(x, y)
 end
 
---------------------------------
-
---- 
----@return number
-function DisplayManager:getCurrentDisplayIndex()
+---
+--- Check if the position is inside the bone.
+---@param _point vec2_table @(cocos2d::Vec2&)
+---@return boolean @(bool)
+function DisplayManager:containPoint(_point)
 end
 
---------------------------------
-
---- 
----@return vec2_table
+---@return vec2_table @(cocos2d::Vec2)
 function DisplayManager:getAnchorPoint()
 end
 
---------------------------------
-
---- 
----@return array_table
-function DisplayManager:getDecorativeDisplayList()
+---@return vec2_table @(cocos2d::Vec2)
+function DisplayManager:getAnchorPointInPoints()
 end
 
---------------------------------
+---@return rect_table @(cocos2d::Rect)
+function DisplayManager:getBoundingBox()
+end
 
+---@return vec2_table @(cocos2d::Size)
+function DisplayManager:getContentSize()
+end
+
+---@return number @(int)
+function DisplayManager:getCurrentDisplayIndex()
+end
+
+---@return cc.Node @(cocos2d::Node*)
+function DisplayManager:getDisplayRenderNode()
+end
+
+---@return ccs.DisplayType @(cocostudio::DisplayType)
+function DisplayManager:getDisplayRenderNodeType()
+end
+
+---@param bone ccs.Bone @(cocostudio::Bone*)
+---@return boolean @(bool)
+function DisplayManager:init(bone)
+end
+
+---@return boolean @(bool)
+function DisplayManager:isForceChangeDisplay()
+end
+
+---
 --- Determines if the display is visible
---- see setVisible(bool)
---- return true if the node is visible, false if the node is hidden.
----@return boolean
+---
+--- @see setVisible(bool)
+---@return boolean @(bool) true if the node is visible, false if the node is hidden.
 function DisplayManager:isVisible()
 end
 
---------------------------------
+---@param index number @(int)
+---@return self @(void)
+function DisplayManager:removeDisplay(index)
+end
 
+---@param force boolean @(bool)
+---@return self @(void)
+function DisplayManager:setForceChangeDisplay(force)
+end
+
+---
 --- Sets whether the display is visible
 --- The default value is true, a node is default to visible
---- param visible   true if the node is visible, false if the node is hidden.
----@param visible boolean
----@return ccs.DisplayManager
+---
+---@param visible boolean @(bool)   true if the node is visible, false if the node is hidden.
+---@return self @(void)
 function DisplayManager:setVisible(visible)
 end
 
---------------------------------
-
---- 
----@param bone ccs.Bone
----@return ccs.DisplayManager
+--- (static)
+---@param bone ccs.Bone @(cocostudio::Bone*)
+---@return ccs.DisplayManager @(cocostudio::DisplayManager*)
 function DisplayManager:create(bone)
 end
-
---------------------------------
-
---- 
----@return ccs.DisplayManager
-function DisplayManager:DisplayManager()
-end
-
-
-return nil

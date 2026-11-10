@@ -1,73 +1,35 @@
-
---------------------------------
--- @module ActionTimelineNode
--- @extend Node
--- @parent_module ccs
-
----@class ccs.ActionTimelineNode:ccs.Node
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.ActionTimelineNode:cc.Node
 local ActionTimelineNode = {}
 ccs.ActionTimelineNode = ActionTimelineNode
---------------------------------
 
---- 
----@return cc.Node
-function ActionTimelineNode:getRoot()
-end
-
---------------------------------
-
---- 
----@return ccs.ActionTimeline
+---@return ccs.ActionTimeline @(cocostudio::timeline::ActionTimeline*)
 function ActionTimelineNode:getActionTimeline()
 end
 
---------------------------------
-
---- 
----@param action ccs.ActionTimeline
----@return ccs.ActionTimelineNode
-function ActionTimelineNode:setActionTimeline(action)
+---@return cc.Node @(cocos2d::Node*)
+function ActionTimelineNode:getRoot()
 end
 
---------------------------------
-
---- 
----@param root cc.Node
----@param action ccs.ActionTimeline
----@return boolean
+---@param root cc.Node @(cocos2d::Node*)
+---@param action ccs.ActionTimeline @(cocostudio::timeline::ActionTimeline*)
+---@return boolean @(bool)
 function ActionTimelineNode:init(root, action)
 end
 
---------------------------------
+---@param action ccs.ActionTimeline @(cocostudio::timeline::ActionTimeline*)
+---@return self @(void)
+function ActionTimelineNode:setActionTimeline(action)
+end
 
---- 
----@param root cc.Node
----@return ccs.ActionTimelineNode
+---@param root cc.Node @(cocos2d::Node*)
+---@return self @(void)
 function ActionTimelineNode:setRoot(root)
 end
 
---------------------------------
-
---- 
----@param root cc.Node
----@param action ccs.ActionTimeline
----@return ccs.ActionTimelineNode
+--- (static)
+---@param root cc.Node @(cocos2d::Node*)
+---@param action ccs.ActionTimeline @(cocostudio::timeline::ActionTimeline*)
+---@return ccs.ActionTimelineNode @(cocostudio::timeline::ActionTimelineNode*)
 function ActionTimelineNode:create(root, action)
 end
-
---------------------------------
-
---- 
----@return boolean
-function ActionTimelineNode:init()
-end
-
---------------------------------
-
---- 
----@return ccs.ActionTimelineNode
-function ActionTimelineNode:ActionTimelineNode()
-end
-
-
-return nil

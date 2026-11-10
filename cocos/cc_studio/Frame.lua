@@ -1,123 +1,71 @@
-
---------------------------------
--- @module Frame
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.Frame:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.Frame:cc.Ref
 local Frame = {}
 ccs.Frame = Frame
---------------------------------
 
---- 
----@return ccs.Frame
-function Frame:clone()
-end
-
---------------------------------
-
---- 
----@param tweenType number
----@return ccs.Frame
-function Frame:setTweenType(tweenType)
-end
-
---------------------------------
-
---- 
----@param node cc.Node
----@return ccs.Frame
-function Frame:setNode(node)
-end
-
---------------------------------
-
---- 
----@param timeline ccs.Timeline
----@return ccs.Frame
-function Frame:setTimeline(timeline)
-end
-
---------------------------------
-
---- 
----@return boolean
-function Frame:isEnterWhenPassed()
-end
-
---------------------------------
-
---- 
----@return number
-function Frame:getTweenType()
-end
-
---------------------------------
-
---- 
----@return array_table
-function Frame:getEasingParams()
-end
-
---------------------------------
-
---- 
----@param easingParams array_table
----@return ccs.Frame
-function Frame:setEasingParams(easingParams)
-end
-
---------------------------------
-
---- 
----@return number
-function Frame:getFrameIndex()
-end
-
---------------------------------
-
---- 
----@param percent number
----@return ccs.Frame
+---@param percent number @(float)
+---@return self @(void)
 function Frame:apply(percent)
 end
 
---------------------------------
-
---- 
----@return boolean
-function Frame:isTween()
+---@return ccs.Frame @(cocostudio::timeline::Frame*)
+function Frame:clone()
 end
 
---------------------------------
-
---- 
----@param frameIndex number
----@return ccs.Frame
-function Frame:setFrameIndex(frameIndex)
+---@return number[] @(const std::vector<float>&)
+function Frame:getEasingParams()
 end
 
---------------------------------
-
---- 
----@param tween boolean
----@return ccs.Frame
-function Frame:setTween(tween)
+---@return number @(unsigned int)
+function Frame:getFrameIndex()
 end
 
---------------------------------
-
---- 
----@return ccs.Timeline
-function Frame:getTimeline()
-end
-
---------------------------------
-
---- 
----@return cc.Node
+---@return cc.Node @(cocos2d::Node*)
 function Frame:getNode()
 end
 
+---@return ccs.Timeline @(cocostudio::timeline::Timeline*)
+function Frame:getTimeline()
+end
 
-return nil
+---@return cc.tweenfunc.TweenType @(cocos2d::tweenfunc::TweenType)
+function Frame:getTweenType()
+end
+
+---@return boolean @(bool)
+function Frame:isEnterWhenPassed()
+end
+
+---@return boolean @(bool)
+function Frame:isTween()
+end
+
+---@param easingParams number[] @(std::vector<float>)
+---@return self @(void)
+function Frame:setEasingParams(easingParams)
+end
+
+---@param frameIndex number @(unsigned int)
+---@return self @(void)
+function Frame:setFrameIndex(frameIndex)
+end
+
+---@param node cc.Node @(cocos2d::Node*)
+---@return self @(void)
+function Frame:setNode(node)
+end
+
+---@param timeline ccs.Timeline @(cocostudio::timeline::Timeline*)
+---@return self @(void)
+function Frame:setTimeline(timeline)
+end
+
+---@param tween boolean @(bool)
+---@return self @(void)
+function Frame:setTween(tween)
+end
+
+---@param tweenType cc.tweenfunc.TweenType @(cocos2d::tweenfunc::TweenType)
+---@return self @(void)
+function Frame:setTweenType(tweenType)
+end

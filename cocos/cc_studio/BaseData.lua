@@ -1,40 +1,26 @@
-
---------------------------------
--- @module BaseData
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.BaseData:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.BaseData:cc.Ref
 local BaseData = {}
 ccs.BaseData = BaseData
---------------------------------
 
---- 
----@return color4b_table
+--- Whether or not this frame have the color changed Info
+---@type number (int)
+BaseData.a = nil
+
+---@return color4b_table @(cocos2d::Color4B)
 function BaseData:getColor()
 end
 
---------------------------------
-
---- 
----@param color color4b_table
----@return ccs.BaseData
+---@param color color4b_table @(cocos2d::Color4B)
+---@return self @(void)
 function BaseData:setColor(color)
 end
 
---------------------------------
-
---- 
----@return ccs.BaseData
+--- (static)
+---@return ccs.BaseData @(cocostudio::BaseData*)
 function BaseData:create()
 end
 
---------------------------------
-
---- js ctor
----@return ccs.BaseData
-function BaseData:BaseData()
-end
-
-
-return nil
+---
+---  @js NA
+---  @lua NA

@@ -1,63 +1,14 @@
-
---------------------------------
--- @module ComController
--- @extend Component,InputDelegate
--- @parent_module ccs
-
----@class ccs.ComController:ccs.Component,ccs.InputDelegate
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.ComController:cc.Component
 local ComController = {}
 ccs.ComController = ComController
---------------------------------
 
---- 
----@return ccs.ComController
+--- (static)
+---@return ccs.ComController @(cocostudio::ComController*)
 function ComController:create()
 end
 
---------------------------------
-
---- 
----@return cc.Ref
+--- (static)
+---@return cc.Ref @(cocos2d::Ref*)
 function ComController:createInstance()
 end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComController
-function ComController:onRemove()
-end
-
---------------------------------
-
---- 
----@param delta number
----@return ccs.ComController
-function ComController:update(delta)
-end
-
---------------------------------
-
---- 
----@return boolean
-function ComController:init()
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComController
-function ComController:onAdd()
-end
-
---------------------------------
-
---- js ctor
----@return ccs.ComController
-function ComController:ComController()
-end
-
-
-return nil

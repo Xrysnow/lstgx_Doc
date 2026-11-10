@@ -1,48 +1,27 @@
-
---------------------------------
--- @module MovementBoneData
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.MovementBoneData:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.MovementBoneData:cc.Ref
 local MovementBoneData = {}
 ccs.MovementBoneData = MovementBoneData
---------------------------------
 
---- 
----@return boolean
-function MovementBoneData:init()
-end
-
---------------------------------
-
---- 
----@param index number
----@return ccs.FrameData
-function MovementBoneData:getFrameData(index)
-end
-
---------------------------------
-
---- 
----@param frameData ccs.FrameData
----@return ccs.MovementBoneData
+---@param frameData ccs.FrameData @(cocostudio::FrameData*)
+---@return self @(void)
 function MovementBoneData:addFrameData(frameData)
 end
 
---------------------------------
+---@param index number @(int)
+---@return ccs.FrameData @(cocostudio::FrameData*)
+function MovementBoneData:getFrameData(index)
+end
 
---- 
----@return ccs.MovementBoneData
+---@return boolean @(bool)
+function MovementBoneData:init()
+end
+
+--- (static)
+---@return ccs.MovementBoneData @(cocostudio::MovementBoneData*)
 function MovementBoneData:create()
 end
 
---------------------------------
-
---- js ctor
----@return ccs.MovementBoneData
-function MovementBoneData:MovementBoneData()
-end
-
-
-return nil
+---
+---  @js NA
+---  @lua NA

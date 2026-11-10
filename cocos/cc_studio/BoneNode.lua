@@ -1,258 +1,144 @@
-
---------------------------------
--- @module BoneNode
--- @extend Node,BlendProtocol
--- @parent_module ccs
-
----@class ccs.BoneNode:ccs.Node,ccs.BlendProtocol
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+--- addSkin(skin,display) defaults hideOthers=false; displaySkin(skin,hideOthers) requires both arguments.
+---@class ccs.BoneNode:cc.Node
 local BoneNode = {}
 ccs.BoneNode = BoneNode
---------------------------------
 
---- 
----@return number
-function BoneNode:getDebugDrawWidth()
-end
-
---------------------------------
-
---- 
----@return array_table
-function BoneNode:getChildBones()
-end
-
---------------------------------
-
---- 
----@return cc.BlendFunc
-function BoneNode:getBlendFunc()
-end
-
---------------------------------
-
---- brief: get all bones in this bone tree
----@return array_table
-function BoneNode:getAllSubBones()
-end
-
---------------------------------
-
---- 
----@param blendFunc cc.BlendFunc
----@return ccs.BoneNode
-function BoneNode:setBlendFunc(blendFunc)
-end
-
---------------------------------
-
---- 
----@param isDebugDraw boolean
----@return ccs.BoneNode
-function BoneNode:setDebugDrawEnabled(isDebugDraw)
-end
-
---------------------------------
-
---- get displayings rect in self transform
----@return rect_table
-function BoneNode:getVisibleSkinsRect()
-end
-
---------------------------------
-
---- brief: get all skins in this bone tree
----@return array_table
-function BoneNode:getAllSubSkins()
-end
-
---------------------------------
-
---- brief: display all skins named skinName, if hide display only one skin,<br>
--- prefer to use display(SkinNode* skin, bool hideOthers = false)<br>
--- param: hideOthers, set other skins invisible
----@param skin cc.Node
----@param hideOthers boolean
----@return ccs.BoneNode
-function BoneNode:displaySkin(skin, hideOthers)
-end
-
---------------------------------
-
---- 
----@return boolean
-function BoneNode:isDebugDrawEnabled()
-end
-
---------------------------------
-
---- brief: add a skin<br>
--- param: display, whether display this skin<br>
--- param: hideOthers, whether hide other skins added to this bone
----@param skin cc.Node
----@param display boolean
----@param hideOthers boolean
----@return ccs.BoneNode
----@overload fun(self:ccs.BoneNode, skin:cc.Node, display:boolean):ccs.BoneNode
+---
+--- *@brief: add a skin
+--- *@param: display, whether display this skin
+--- *@param: hideOthers, whether hide other skins added to this bone
+---@param skin cc.Node @(cocostudio::timeline::SkinNode*)
+---@param display boolean @(bool)
+---@param hideOthers boolean @(bool)
+---@return self @(void)
 function BoneNode:addSkin(skin, display, hideOthers)
 end
 
---------------------------------
-
---- 
----@return ccs.SkeletonNode
-function BoneNode:getRootSkeletonNode()
+---
+--- *@brief: add a skin
+--- *@param: display, whether display this skin
+---@param skin cc.Node @(cocostudio::timeline::SkinNode*)
+---@param display boolean @(bool)
+---@return self @(void)
+function BoneNode:addSkin(skin, display)
 end
 
---------------------------------
-
---- 
----@param length number
----@return ccs.BoneNode
-function BoneNode:setDebugDrawLength(length)
+---
+--- @brief: display all skins named skinName, if hide display only one skin,
+--- prefer to use displaySkin(skin, hideOthers)
+--- @param: hideOthers, set other skins invisible
+---@param skinName string @(std::string_view)
+---@param hideOthers boolean @(bool)
+---@return self @(void)
+function BoneNode:displaySkin(skinName, hideOthers)
 end
 
---------------------------------
-
---- 
----@return array_table
-function BoneNode:getSkins()
+---
+--- @brief: display skin
+--- @param: hideOthers, set other skins invisible
+---@param skin cc.Node @(cocostudio::timeline::SkinNode*)
+---@param hideOthers boolean @(bool)
+---@return self @(void)
+function BoneNode:displaySkin(skin, hideOthers)
 end
 
---------------------------------
-
---- 
----@return array_table
-function BoneNode:getVisibleSkins()
+---
+--- @brief: get all bones in this bone tree
+---@return ccs.BoneNode [] @(cocos2d::Vector<cocostudio::timeline::BoneNode *>)
+function BoneNode:getAllSubBones()
 end
 
---------------------------------
-
---- 
----@param width number
----@return ccs.BoneNode
-function BoneNode:setDebugDrawWidth(width)
+---
+--- @brief: get all skins in this bone tree
+---@return cc.Node [] @(cocos2d::Vector<cocos2d::Node *>)
+function BoneNode:getAllSubSkins()
 end
 
---------------------------------
-
---- 
----@return number
-function BoneNode:getDebugDrawLength()
+---@return cc.BlendFunc @(const cocos2d::BlendFunc&)
+function BoneNode:getBlendFunc()
 end
 
---------------------------------
-
---- 
----@param color color4f_table
----@return ccs.BoneNode
-function BoneNode:setDebugDrawColor(color)
+---@return ccs.BoneNode [] @(cocos2d::Vector<cocostudio::timeline::BoneNode *>&)
+function BoneNode:getChildBones()
 end
 
---------------------------------
+---@return ccs.BoneNode [] @(const cocos2d::Vector<cocostudio::timeline::BoneNode *>&)
+function BoneNode:getChildBones()
+end
 
---- 
----@return color4f_table
+---@return color4f_table @(cocos2d::Color4F)
 function BoneNode:getDebugDrawColor()
 end
 
---------------------------------
+---@return number @(float)
+function BoneNode:getDebugDrawLength()
+end
 
---- 
----@param length number
----@return ccs.BoneNode
----@overload fun(self:ccs.BoneNode):ccs.BoneNode
+---@return number @(float)
+function BoneNode:getDebugDrawWidth()
+end
+
+---@return ccs.SkeletonNode @(cocostudio::timeline::SkeletonNode*)
+function BoneNode:getRootSkeletonNode()
+end
+
+---@return cc.Node [] @(cocos2d::Vector<cocos2d::Node *>&)
+function BoneNode:getSkins()
+end
+
+---
+--- get skins in this bone's children
+---@return cc.Node [] @(const cocos2d::Vector<cocos2d::Node *>&)
+function BoneNode:getSkins()
+end
+
+---@return cc.Node [] @(cocos2d::Vector<cocos2d::Node *>)
+function BoneNode:getVisibleSkins()
+end
+
+---
+--- *get displayings rect in self transform
+---@return rect_table @(cocos2d::Rect)
+function BoneNode:getVisibleSkinsRect()
+end
+
+---@return boolean @(bool)
+function BoneNode:isDebugDrawEnabled()
+end
+
+---@param blendFunc cc.BlendFunc @(cocos2d::BlendFunc)
+---@return self @(void)
+function BoneNode:setBlendFunc(blendFunc)
+end
+
+---@param color color4f_table @(cocos2d::Color4F)
+---@return self @(void)
+function BoneNode:setDebugDrawColor(color)
+end
+
+---@param isDebugDraw boolean @(bool)
+---@return self @(void)
+function BoneNode:setDebugDrawEnabled(isDebugDraw)
+end
+
+---@param length number @(float)
+---@return self @(void)
+function BoneNode:setDebugDrawLength(length)
+end
+
+---@param width number @(float)
+---@return self @(void)
+function BoneNode:setDebugDrawWidth(width)
+end
+
+--- (static)
+---@param length number @(int)
+---@return ccs.BoneNode @(cocostudio::timeline::BoneNode*)
 function BoneNode:create(length)
 end
 
---------------------------------
-
---- 
----@param child cc.Node
----@param localZOrder number
----@param name string
----@return ccs.BoneNode
-function BoneNode:addChild(child, localZOrder, name)
+--- (static)
+---@return ccs.BoneNode @(cocostudio::timeline::BoneNode*)
+function BoneNode:create()
 end
-
---------------------------------
-
---- 
----@param renderer cc.Renderer
----@param transform mat4_table
----@param flags number
----@return ccs.BoneNode
-function BoneNode:draw(renderer, transform, flags)
-end
-
---------------------------------
-
---- 
----@param name string
----@return ccs.BoneNode
-function BoneNode:setName(name)
-end
-
---------------------------------
-
---- 
----@param anchorPoint vec2_table
----@return ccs.BoneNode
-function BoneNode:setAnchorPoint(anchorPoint)
-end
-
---------------------------------
-
---- 
----@param localZOrder number
----@return ccs.BoneNode
-function BoneNode:setLocalZOrder(localZOrder)
-end
-
---------------------------------
-
---- 
----@param child cc.Node
----@param cleanup boolean
----@return ccs.BoneNode
-function BoneNode:removeChild(child, cleanup)
-end
-
---------------------------------
-
---- 
----@return boolean
-function BoneNode:init()
-end
-
---------------------------------
-
---- 
----@return rect_table
-function BoneNode:getBoundingBox()
-end
-
---------------------------------
-
---- 
----@param contentSize size_table
----@return ccs.BoneNode
-function BoneNode:setContentSize(contentSize)
-end
-
---------------------------------
-
---- 
----@param visible boolean
----@return ccs.BoneNode
-function BoneNode:setVisible(visible)
-end
-
---------------------------------
-
---- 
----@return ccs.BoneNode
-function BoneNode:BoneNode()
-end
-
-
-return nil

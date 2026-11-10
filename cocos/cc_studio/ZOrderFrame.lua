@@ -1,47 +1,18 @@
-
---------------------------------
--- @module ZOrderFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.ZOrderFrame:ccs.Frame
 local ZOrderFrame = {}
 ccs.ZOrderFrame = ZOrderFrame
---------------------------------
 
---- 
----@return number
+---@return number @(int)
 function ZOrderFrame:getZOrder()
 end
 
---------------------------------
-
---- 
----@param zorder number
----@return ccs.ZOrderFrame
+---@param zorder number @(int)
+---@return self @(void)
 function ZOrderFrame:setZOrder(zorder)
 end
 
---------------------------------
-
---- 
----@return ccs.ZOrderFrame
+--- (static)
+---@return ccs.ZOrderFrame @(cocostudio::timeline::ZOrderFrame*)
 function ZOrderFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function ZOrderFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.ZOrderFrame
-function ZOrderFrame:ZOrderFrame()
-end
-
-
-return nil

@@ -1,47 +1,18 @@
-
---------------------------------
--- @module PlayableFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.PlayableFrame:ccs.Frame
 local PlayableFrame = {}
 ccs.PlayableFrame = PlayableFrame
---------------------------------
 
---- 
----@param playact string
----@return ccs.PlayableFrame
-function PlayableFrame:setPlayableAct(playact)
-end
-
---------------------------------
-
---- 
----@return string
+---@return string @(std::string)
 function PlayableFrame:getPlayableAct()
 end
 
---------------------------------
+---@param playact string @(std::string)
+---@return self @(void)
+function PlayableFrame:setPlayableAct(playact)
+end
 
---- 
----@return ccs.PlayableFrame
+--- (static)
+---@return ccs.PlayableFrame @(cocostudio::timeline::PlayableFrame*)
 function PlayableFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function PlayableFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.PlayableFrame
-function PlayableFrame:PlayableFrame()
-end
-
-
-return nil

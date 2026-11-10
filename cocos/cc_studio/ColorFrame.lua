@@ -1,47 +1,18 @@
-
---------------------------------
--- @module ColorFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.ColorFrame:ccs.Frame
 local ColorFrame = {}
 ccs.ColorFrame = ColorFrame
---------------------------------
 
---- 
----@return color3b_table
+---@return color3b_table @(cocos2d::Color3B)
 function ColorFrame:getColor()
 end
 
---------------------------------
-
---- 
----@param color color3b_table
----@return ccs.ColorFrame
+---@param color color3b_table @(cocos2d::Color3B)
+---@return self @(void)
 function ColorFrame:setColor(color)
 end
 
---------------------------------
-
---- 
----@return ccs.ColorFrame
+--- (static)
+---@return ccs.ColorFrame @(cocostudio::timeline::ColorFrame*)
 function ColorFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function ColorFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.ColorFrame
-function ColorFrame:ColorFrame()
-end
-
-
-return nil

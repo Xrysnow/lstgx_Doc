@@ -1,62 +1,47 @@
-
---------------------------------
--- @module ActionScaleFrame
--- @extend ActionFrame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.ActionScaleFrame:ccs.ActionFrame
 local ActionScaleFrame = {}
 ccs.ActionScaleFrame = ActionScaleFrame
---------------------------------
 
---- Changes the scale action scaleY.
---- param rotation the scale action scaleY.
----@param scaleY number
----@return ccs.ActionScaleFrame
-function ActionScaleFrame:setScaleY(scaleY)
-end
-
---------------------------------
-
---- Changes the scale action scaleX.
---- param the scale action scaleX.
----@param scaleX number
----@return ccs.ActionScaleFrame
-function ActionScaleFrame:setScaleX(scaleX)
-end
-
---------------------------------
-
---- Gets the scale action scaleY.
---- return the scale action scaleY.
----@return number
-function ActionScaleFrame:getScaleY()
-end
-
---------------------------------
-
---- Gets the scale action scaleX.
---- return the scale action scaleX.
----@return number
-function ActionScaleFrame:getScaleX()
-end
-
---------------------------------
-
+---
 --- Gets the ActionInterval of ActionFrame.
---- param duration   the duration time of ActionFrame
---- return ActionInterval
----@param duration number
----@return cc.ActionInterval
+---
+---
+---@param duration number @(float)   the duration time of ActionFrame
+---@return cc.ActionInterval @(cocos2d::ActionInterval*) ActionInterval
 function ActionScaleFrame:getAction(duration)
 end
 
---------------------------------
-
---- Default constructor
----@return ccs.ActionScaleFrame
-function ActionScaleFrame:ActionScaleFrame()
+---
+--- Gets the scale action scaleX.
+---
+---@return number @(float) the scale action scaleX.
+function ActionScaleFrame:getScaleX()
 end
 
+---
+--- Gets the scale action scaleY.
+---
+---@return number @(float) the scale action scaleY.
+function ActionScaleFrame:getScaleY()
+end
 
-return nil
+---
+--- Changes the scale action scaleX.
+---
+---@param scaleX number @(float)
+---@return self @(void)
+function ActionScaleFrame:setScaleX(scaleX)
+end
+
+---
+--- Changes the scale action scaleY.
+---
+---@param scaleY number @(float)
+---@return self @(void)
+function ActionScaleFrame:setScaleY(scaleY)
+end
+
+---
+---  @js NA
+---  @lua NA

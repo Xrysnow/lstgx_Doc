@@ -1,25 +1,13 @@
-
---------------------------------
--- @module ArmatureDisplayData
--- @extend DisplayData
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.ArmatureDisplayData:ccs.DisplayData
 local ArmatureDisplayData = {}
 ccs.ArmatureDisplayData = ArmatureDisplayData
---------------------------------
 
---- 
----@return ccs.ArmatureDisplayData
+--- (static)
+---@return ccs.ArmatureDisplayData @(cocostudio::ArmatureDisplayData*)
 function ArmatureDisplayData:create()
 end
 
---------------------------------
-
---- js ctor
----@return ccs.ArmatureDisplayData
-function ArmatureDisplayData:ArmatureDisplayData()
-end
-
-
-return nil
+---
+---  @js NA
+---  @lua NA

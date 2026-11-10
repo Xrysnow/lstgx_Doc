@@ -1,25 +1,16 @@
-
---------------------------------
--- @module ParticleDisplayData
--- @extend DisplayData
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.ParticleDisplayData:ccs.DisplayData
 local ParticleDisplayData = {}
 ccs.ParticleDisplayData = ParticleDisplayData
---------------------------------
 
---- 
----@return ccs.ParticleDisplayData
+--- (static)
+---@return ccs.ParticleDisplayData @(cocostudio::ParticleDisplayData*)
 function ParticleDisplayData:create()
 end
 
---------------------------------
-
---- js ctor
----@return ccs.ParticleDisplayData
-function ParticleDisplayData:ParticleDisplayData()
-end
-
-
-return nil
+---
+--- BoneData used to init a Bone.
+--- BoneData keeps a DisplayData list, a Bone can have many display to change.
+--- The display information saved in the DisplayData
+--- @js NA
+--- @lua NA

@@ -1,48 +1,27 @@
-
---------------------------------
--- @module TextureData
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.TextureData:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.TextureData:cc.Ref
 local TextureData = {}
 ccs.TextureData = TextureData
---------------------------------
 
---- 
----@param index number
----@return ccs.ContourData
-function TextureData:getContourData(index)
-end
-
---------------------------------
-
---- 
----@return boolean
-function TextureData:init()
-end
-
---------------------------------
-
---- 
----@param contourData ccs.ContourData
----@return ccs.TextureData
+---@param contourData ccs.ContourData @(cocostudio::ContourData*)
+---@return self @(void)
 function TextureData:addContourData(contourData)
 end
 
---------------------------------
+---@param index number @(int)
+---@return ccs.ContourData @(cocostudio::ContourData*)
+function TextureData:getContourData(index)
+end
 
---- 
----@return ccs.TextureData
+---@return boolean @(bool)
+function TextureData:init()
+end
+
+--- (static)
+---@return ccs.TextureData @(cocostudio::TextureData*)
 function TextureData:create()
 end
 
---------------------------------
-
---- js ctor
----@return ccs.TextureData
-function TextureData:TextureData()
-end
-
-
-return nil
+---
+---  @js NA
+---  @lua NA

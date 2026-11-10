@@ -1,47 +1,18 @@
-
---------------------------------
--- @module RotationFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.RotationFrame:ccs.Frame
 local RotationFrame = {}
 ccs.RotationFrame = RotationFrame
---------------------------------
 
---- 
----@param rotation number
----@return ccs.RotationFrame
-function RotationFrame:setRotation(rotation)
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function RotationFrame:getRotation()
 end
 
---------------------------------
+---@param rotation number @(float)
+---@return self @(void)
+function RotationFrame:setRotation(rotation)
+end
 
---- 
----@return ccs.RotationFrame
+--- (static)
+---@return ccs.RotationFrame @(cocostudio::timeline::RotationFrame*)
 function RotationFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function RotationFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.RotationFrame
-function RotationFrame:RotationFrame()
-end
-
-
-return nil

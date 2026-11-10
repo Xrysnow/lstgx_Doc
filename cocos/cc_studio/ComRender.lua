@@ -1,67 +1,30 @@
-
---------------------------------
--- @module ComRender
--- @extend Component
--- @parent_module ccs
-
----@class ccs.ComRender:ccs.Component
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.ComRender:cc.Component
 local ComRender = {}
 ccs.ComRender = ComRender
---------------------------------
 
---- 
----@param node cc.Node
----@return ccs.ComRender
-function ComRender:setNode(node)
-end
-
---------------------------------
-
---- 
----@return cc.Node
+---@return cc.Node @(cocos2d::Node*)
 function ComRender:getNode()
 end
 
---------------------------------
+---@param node cc.Node @(cocos2d::Node*)
+---@return self @(void)
+function ComRender:setNode(node)
+end
 
---- 
----@param node cc.Node
----@param comName string
----@return ccs.ComRender
----@overload fun(self:ccs.ComRender):ccs.ComRender
+--- (static)
+---@param node cc.Node @(cocos2d::Node*)
+---@param comName string @(const char*)
+---@return ccs.ComRender @(cocostudio::ComRender*)
 function ComRender:create(node, comName)
 end
 
---------------------------------
+--- (static)
+---@return ccs.ComRender @(cocostudio::ComRender*)
+function ComRender:create()
+end
 
---- 
----@return cc.Ref
+--- (static)
+---@return cc.Ref @(cocos2d::Ref*)
 function ComRender:createInstance()
 end
-
---------------------------------
-
---- 
----@param r void
----@return boolean
-function ComRender:serialize(r)
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComRender
-function ComRender:onRemove()
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComRender
-function ComRender:onAdd()
-end
-
-
-return nil

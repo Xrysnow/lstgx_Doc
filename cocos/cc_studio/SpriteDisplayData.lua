@@ -1,33 +1,18 @@
-
---------------------------------
--- @module SpriteDisplayData
--- @extend DisplayData
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.SpriteDisplayData:ccs.DisplayData
 local SpriteDisplayData = {}
 ccs.SpriteDisplayData = SpriteDisplayData
---------------------------------
 
---- 
----@param displayData ccs.DisplayData
----@return ccs.SpriteDisplayData
+---@param displayData ccs.DisplayData @(cocostudio::DisplayData*)
+---@return self @(void)
 function SpriteDisplayData:copy(displayData)
 end
 
---------------------------------
-
---- 
----@return ccs.SpriteDisplayData
+--- (static)
+---@return ccs.SpriteDisplayData @(cocostudio::SpriteDisplayData*)
 function SpriteDisplayData:create()
 end
 
---------------------------------
-
---- js ctor
----@return ccs.SpriteDisplayData
-function SpriteDisplayData:SpriteDisplayData()
-end
-
-
-return nil
+---
+---  @js NA
+---  @lua NA

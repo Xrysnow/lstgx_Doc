@@ -1,334 +1,219 @@
-
---------------------------------
--- @module ActionTimeline
--- @extend Action,PlayableProtocol
--- @parent_module ccs
-
----@class ccs.ActionTimeline:ccs.Action,ccs.PlayableProtocol
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+--- Callback slots accept function/nil; nil clears the corresponding event/last/clip-end slot.
+--- addFrameEndCallFunc requires a function; remove/clearFrameEndCallFuncs affect only the dispatch map.
+--- AnimationInfo may retain a clip-end callback after map removal; setter(nil)/removeAnimationInfo release it.
+--- clone copies timelines and AnimationInfo callbacks, not the event/last slots or independent map entries.
+--- gotoFrameAndPlay(start) uses end=duration, current=start and loop=true.
+---@class ccs.ActionTimeline:cc.Action
 local ActionTimeline = {}
 ccs.ActionTimeline = ActionTimeline
---------------------------------
 
---- 
----@return ccs.ActionTimeline
-function ActionTimeline:clearFrameEndCallFuncs()
-end
-
---------------------------------
-
---- add a frame end call back to animation's end frame
---- param animationName  @addFrameEndCallFunc, make the animationName as funcKey
---- param func the callback function
----@param animationName string
----@param func fun()
----@return ccs.ActionTimeline
-function ActionTimeline:setAnimationEndCallFunc(animationName, func)
-end
-
---------------------------------
-
----  add Timeline to ActionTimeline 
----@param timeline ccs.Timeline
----@return ccs.ActionTimeline
-function ActionTimeline:addTimeline(timeline)
-end
-
---------------------------------
-
----  Get current frame. 
----@return number
-function ActionTimeline:getCurrentFrame()
-end
-
---------------------------------
-
----  Start frame index of this action
----@return number
-function ActionTimeline:getStartFrame()
-end
-
---------------------------------
-
----  Pause the animation. 
----@return ccs.ActionTimeline
-function ActionTimeline:pause()
-end
-
---------------------------------
-
---- / @{/ @name implement Playable Protocol
----@return ccs.ActionTimeline
-function ActionTimeline:start()
-end
-
---------------------------------
-
---- 
----@return boolean
-function ActionTimeline:init()
-end
-
---------------------------------
-
---- 
----@param timeline ccs.Timeline
----@return ccs.ActionTimeline
-function ActionTimeline:removeTimeline(timeline)
-end
-
---------------------------------
-
---- 
----@return ccs.ActionTimeline
-function ActionTimeline:clearFrameEventCallFunc()
-end
-
---------------------------------
-
----  Last frame callback will call when arriving last frame 
----@param listener fun()
----@return ccs.ActionTimeline
-function ActionTimeline:setLastFrameCallFunc(listener)
-end
-
---------------------------------
-
---- 
----@return array_table
-function ActionTimeline:getTimelines()
-end
-
---------------------------------
-
---- 
----@param animationName string
----@param loop boolean
----@return ccs.ActionTimeline
-function ActionTimeline:play(animationName, loop)
-end
-
---------------------------------
-
---- 
----@param animationName string
----@return ccs.AnimationInfo
-function ActionTimeline:getAnimationInfo(animationName)
-end
-
---------------------------------
-
----  Resume the animation. 
----@return ccs.ActionTimeline
-function ActionTimeline:resume()
-end
-
---------------------------------
-
----  add a callback function after played frameIndex
---- param frameIndex the frame index call back after
---- param funcKey for identity the callback function
---- param func the callback function
----@param frameIndex number
----@param funcKey string
----@param func fun()
----@return ccs.ActionTimeline
-function ActionTimeline:addFrameEndCallFunc(frameIndex, funcKey, func)
-end
-
---------------------------------
-
---- 
----@param animationName string
----@return ccs.ActionTimeline
-function ActionTimeline:removeAnimationInfo(animationName)
-end
-
---------------------------------
-
----  Get current animation speed. 
----@return number
-function ActionTimeline:getTimeSpeed()
-end
-
---------------------------------
-
----  AnimationInfo
----@param animationInfo ccs.AnimationInfo
----@return ccs.ActionTimeline
-function ActionTimeline:addAnimationInfo(animationInfo)
-end
-
---------------------------------
-
---- 
----@return number
-function ActionTimeline:getDuration()
-end
-
---------------------------------
-
----  Goto the specified frame index, and pause at this index.
---- param startIndex The animation will pause at this index.
----@param startIndex number
----@return ccs.ActionTimeline
-function ActionTimeline:gotoFrameAndPause(startIndex)
-end
-
---------------------------------
-
----  Whether or not Action is playing. 
----@return boolean
-function ActionTimeline:isPlaying()
-end
-
---------------------------------
-
---- 
----@param frameIndex number
----@return ccs.ActionTimeline
-function ActionTimeline:removeFrameEndCallFuncs(frameIndex)
-end
-
---------------------------------
-
----  Goto the specified frame index, and start playing from this index.<br>
--- param startIndex The animation will play from this index.<br>
--- param loop Whether or not the animation need loop. 
----@param startIndex number
----@param endIndex number
----@param currentFrameIndex number
----@param loop boolean
----@return ccs.ActionTimeline
----@overload fun(self:ccs.ActionTimeline, startIndex:number, loop:boolean):ccs.ActionTimeline
----@overload fun(self:ccs.ActionTimeline, startIndex:number):ccs.ActionTimeline
----@overload fun(self:ccs.ActionTimeline, startIndex:number, endIndex:number, loop:boolean):ccs.ActionTimeline
-function ActionTimeline:gotoFrameAndPlay(startIndex, endIndex, currentFrameIndex, loop)
-end
-
---------------------------------
-
---- 
----@param animationName string
----@return boolean
+---@param animationName string @(std::string_view)
+---@return boolean @(bool)
 function ActionTimeline:IsAnimationInfoExists(animationName)
 end
 
---------------------------------
-
----  End frame of this action.
---- When action play to this frame, if action is not loop, then it will stop, 
---- or it will play from start frame again. 
----@return number
-function ActionTimeline:getEndFrame()
+--- add a callback function after played frameIndex
+---@param frameIndex number @(int) the frame index call back after
+---@param funcKey string @(std::string_view) for identity the callback function
+---@param func function @(std::function<void()>) the callback function Required callback; nil is rejected.
+---@return self @(void)
+function ActionTimeline:addFrameEndCallFunc(frameIndex, funcKey, func)
 end
 
---------------------------------
-
----  Set the animation speed, this will speed up or slow down the speed. 
----@param speed number
----@return ccs.ActionTimeline
-function ActionTimeline:setTimeSpeed(speed)
+--- add Timeline to ActionTimeline
+---@param timeline ccs.Timeline @(cocostudio::timeline::Timeline*)
+---@return self @(void)
+function ActionTimeline:addTimeline(timeline)
 end
 
---------------------------------
+---@return self @(void)
+function ActionTimeline:clearFrameEndCallFuncs()
+end
 
---- 
----@return ccs.ActionTimeline
+---@return self @(void)
+function ActionTimeline:clearFrameEventCallFunc()
+end
+
+---@return self @(void)
 function ActionTimeline:clearLastFrameCallFunc()
 end
 
---------------------------------
-
----  duration of the whole action
----@param duration number
----@return ccs.ActionTimeline
-function ActionTimeline:setDuration(duration)
+--- Get current frame.
+---@return number @(int)
+function ActionTimeline:getCurrentFrame()
 end
 
---------------------------------
-
----  Set current frame index, this will cause action plays to this frame. 
----@param frameIndex number
----@return ccs.ActionTimeline
-function ActionTimeline:setCurrentFrame(frameIndex)
+---@return number @(int)
+function ActionTimeline:getDuration()
 end
 
---------------------------------
+--- End frame of this action.
+--- When action play to this frame, if action is not loop, then it will stop,
+--- or it will play from start frame again.
+---@return number @(int)
+function ActionTimeline:getEndFrame()
+end
 
---- 
----@param frameIndex number
----@param funcKey string
----@return ccs.ActionTimeline
+--- Start frame index of this action
+---@return number @(int)
+function ActionTimeline:getStartFrame()
+end
+
+--- Get current animation speed.
+---@return number @(float)
+function ActionTimeline:getTimeSpeed()
+end
+
+---@return ccs.Timeline [] @(const cocos2d::Vector<cocostudio::timeline::Timeline *>&)
+function ActionTimeline:getTimelines()
+end
+
+--- Goto the specified frame index, and pause at this index.
+---@param startIndex number @(int) The animation will pause at this index.
+---@return self @(void)
+function ActionTimeline:gotoFrameAndPause(startIndex)
+end
+
+--- Goto the specified frame index, and start playing from start index, end at end index.
+---@param startIndex number @(int) The animation will play from this index.
+---@param endIndex number @(int) The animation will end at this index.
+---@param currentFrameIndex number @(int) set current frame index.
+---@param loop boolean @(bool) Whether or not the animation need loop.
+---@return self @(void)
+function ActionTimeline:gotoFrameAndPlay(startIndex, endIndex, currentFrameIndex, loop)
+end
+
+--- Goto the specified frame index, and start playing from start index, end at end index.
+---@param startIndex number @(int) The animation will play from this index.
+---@param endIndex number @(int) The animation will end at this index.
+---@param loop boolean @(bool) Whether or not the animation need loop.
+---@return self @(void)
+function ActionTimeline:gotoFrameAndPlay(startIndex, endIndex, loop)
+end
+
+--- Goto the specified frame index, and start playing from this index.
+---@param startIndex number @(int) The animation will play from this index.
+---@param loop boolean @(bool) Whether or not the animation need loop.
+---@return self @(void)
+function ActionTimeline:gotoFrameAndPlay(startIndex, loop)
+end
+
+--- Goto the specified frame index, and start playing from this index.
+---@param startIndex number @(int) The animation will play from this index.
+---@return self @(void)
+function ActionTimeline:gotoFrameAndPlay(startIndex)
+end
+
+---@return boolean @(bool)
+function ActionTimeline:init()
+end
+
+--- Whether or not Action is playing.
+---@return boolean @(bool)
+function ActionTimeline:isPlaying()
+end
+
+--- Pause the animation.
+---@return self @(void)
+function ActionTimeline:pause()
+end
+
+---@param animationName string @(std::string)
+---@param loop boolean @(bool)
+---@return self @(void)
+function ActionTimeline:play(animationName, loop)
+end
+
+---@param animationName string @(std::string)
+---@return self @(void)
+function ActionTimeline:removeAnimationInfo(animationName)
+end
+
+---@param frameIndex number @(int)
+---@param funcKey string @(std::string_view)
+---@return self @(void)
 function ActionTimeline:removeFrameEndCallFunc(frameIndex, funcKey)
 end
 
---------------------------------
+---@param frameIndex number @(int)
+---@return self @(void)
+function ActionTimeline:removeFrameEndCallFuncs(frameIndex)
+end
 
---- 
----@return ccs.ActionTimeline
+---@param timeline ccs.Timeline @(cocostudio::timeline::Timeline*)
+---@return self @(void)
+function ActionTimeline:removeTimeline(timeline)
+end
+
+--- Resume the animation.
+---@return self @(void)
+function ActionTimeline:resume()
+end
+
+--- add a frame end call back to animation's end frame
+---@param animationName string @(const std::string)  @addFrameEndCallFunc, make the animationName as funcKey
+---@param func (fun())|nil
+---@return self @(void)
+function ActionTimeline:setAnimationEndCallFunc(animationName, func)
+end
+
+--- Set current frame index, this will cause action plays to this frame.
+---@param frameIndex number @(int)
+---@return self @(void)
+function ActionTimeline:setCurrentFrame(frameIndex)
+end
+
+--- duration of the whole action
+---@param duration number @(int)
+---@return self @(void)
+function ActionTimeline:setDuration(duration)
+end
+
+--- Set ActionTimeline's frame event callback function
+---@param listener (fun(frame:ccs.Frame))|nil
+---@return self @(void)
+function ActionTimeline:setFrameEventCallFunc(listener)
+end
+
+--- Last frame callback will call when arriving last frame
+---@param listener (fun())|nil
+---@return self @(void)
+function ActionTimeline:setLastFrameCallFunc(listener)
+end
+
+--- Set the animation speed, this will speed up or slow down the speed.
+---@param speed number @(float)
+---@return self @(void)
+function ActionTimeline:setTimeSpeed(speed)
+end
+
+--- @{
+--- @name implement Playable Protocol
+---@return self @(void)
+function ActionTimeline:start()
+end
+
+--- (static)
+---@return ccs.ActionTimeline @(cocostudio::timeline::ActionTimeline*)
 function ActionTimeline:create()
 end
 
---------------------------------
-
---- 
----@param target cc.Node
----@return ccs.ActionTimeline
-function ActionTimeline:startWithTarget(target)
-end
-
---------------------------------
-
----  Returns a reverse of ActionTimeline. 
---- Not implement yet.
----@return ccs.ActionTimeline
-function ActionTimeline:reverse()
-end
-
---------------------------------
-
----  Returns a clone of ActionTimeline 
----@return ccs.ActionTimeline
-function ActionTimeline:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.ActionTimeline
-function ActionTimeline:stop()
-end
-
---------------------------------
-
---- 
----@param delta number
----@return ccs.ActionTimeline
-function ActionTimeline:step(delta)
-end
-
---------------------------------
-
---- 
----@return boolean
-function ActionTimeline:isDone()
-end
-
---------------------------------
-
---- 
----@return ccs.ActionTimeline
-function ActionTimeline:ActionTimeline()
-end
 
 
-return nil
+---@class ccs.AnimationInfoSnapshot
+---@field name string
+---@field startIndex integer
+---@field endIndex integer
 
--- P6 formal Studio migration: retained/manual registrations.
+--- Three required fields use shared string/integer conversion. Extra callback fields are not imported.
+--- Duplicate names retain the native no-overwrite behavior.
+---@param info ccs.AnimationInfoSnapshot
+---@return self
+function ActionTimeline:addAnimationInfo(info) end
 
---- Native event frame callback; clearFrameEventCallFunc() cancels it.
---- Replacement/destruction releases the owned Lua closure; errors and reentry preserve the Lua stack.
---- Debug requires a function; legacy Release non-functions replace it with a no-op.
----@param callback fun(frame:ccs.Frame)
----@return ccs.ActionTimeline
-function ActionTimeline:setFrameEventCallFunc(callback) end
+--- Return an independent three-field snapshot; no hidden callback reference escapes.
+--- A missing animation returns nil.
+---@param name string
+---@return ccs.AnimationInfoSnapshot|nil
+function ActionTimeline:getAnimationInfo(name) end

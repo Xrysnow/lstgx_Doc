@@ -1,64 +1,33 @@
-
---------------------------------
--- @module GUIReader
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.GUIReader:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.GUIReader:cc.Ref
 local GUIReader = {}
 ccs.GUIReader = GUIReader
---------------------------------
 
---- 
----@param strFilePath string
----@return ccs.GUIReader
-function GUIReader:setFilePath(strFilePath)
-end
-
---------------------------------
-
---- 
----@param fileName string
----@return ccui.Widget
-function GUIReader:widgetFromJsonFile(fileName)
-end
-
---------------------------------
-
---- 
----@return string
+---@return string @(std::string_view)
 function GUIReader:getFilePath()
 end
 
---------------------------------
-
---- 
----@param fileName string
----@return ccui.Widget
-function GUIReader:widgetFromBinaryFile(fileName)
-end
-
---------------------------------
-
---- 
----@param str string
----@return number
+---@param str string @(const char*)
+---@return number @(int)
 function GUIReader:getVersionInteger(str)
 end
 
---------------------------------
-
---- 
----@return ccs.GUIReader
-function GUIReader:destroyInstance()
+---@param strFilePath string @(std::string_view)
+---@return self @(void)
+function GUIReader:setFilePath(strFilePath)
 end
 
---------------------------------
+---@param fileName string @(const char*)
+---@return ccui.Widget|nil @(cocos2d::ui::Widget*)
+function GUIReader:widgetFromBinaryFile(fileName)
+end
 
---- 
----@return ccs.GUIReader
+---@param fileName string @(const char*)
+---@return ccui.Widget|nil @(cocos2d::ui::Widget*)
+function GUIReader:widgetFromJsonFile(fileName)
+end
+
+--- (static)
+---@return ccs.GUIReader @(cocostudio::GUIReader*)
 function GUIReader:getInstance()
 end
-
-
-return nil

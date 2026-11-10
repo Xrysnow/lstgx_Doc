@@ -1,85 +1,32 @@
-
---------------------------------
--- @module ComExtensionData
--- @extend Component
--- @parent_module ccs
-
----@class ccs.ComExtensionData:ccs.Component
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.ComExtensionData:cc.Component
 local ComExtensionData = {}
 ccs.ComExtensionData = ComExtensionData
---------------------------------
 
---- 
----@param actionTag number
----@return ccs.ComExtensionData
-function ComExtensionData:setActionTag(actionTag)
-end
-
---------------------------------
-
---- 
----@return string
-function ComExtensionData:getCustomProperty()
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(int)
 function ComExtensionData:getActionTag()
 end
 
---------------------------------
+---@return string @(std::string)
+function ComExtensionData:getCustomProperty()
+end
 
---- 
----@param customProperty string
----@return ccs.ComExtensionData
+---@param actionTag number @(int)
+---@return self @(void)
+function ComExtensionData:setActionTag(actionTag)
+end
+
+---@param customProperty string @(std::string_view)
+---@return self @(void)
 function ComExtensionData:setCustomProperty(customProperty)
 end
 
---------------------------------
-
---- 
----@return ccs.ComExtensionData
+--- (static)
+---@return ccs.ComExtensionData @(cocostudio::ComExtensionData*)
 function ComExtensionData:create()
 end
 
---------------------------------
-
---- 
----@return cc.Ref
+--- (static)
+---@return cc.Ref @(cocos2d::Ref*)
 function ComExtensionData:createInstance()
 end
-
---------------------------------
-
---- 
----@return boolean
-function ComExtensionData:init()
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComExtensionData
-function ComExtensionData:onRemove()
-end
-
---------------------------------
-
---- js NA
---- lua NA
----@return ccs.ComExtensionData
-function ComExtensionData:onAdd()
-end
-
---------------------------------
-
---- 
----@return ccs.ComExtensionData
-function ComExtensionData:ComExtensionData()
-end
-
-
-return nil

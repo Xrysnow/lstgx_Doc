@@ -1,125 +1,70 @@
-
---------------------------------
--- @module Timeline
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.Timeline:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.Timeline:cc.Ref
 local Timeline = {}
 ccs.Timeline = Timeline
---------------------------------
 
---- 
----@return ccs.Timeline
-function Timeline:clone()
-end
-
---------------------------------
-
---- 
----@param frameIndex number
----@return ccs.Timeline
-function Timeline:gotoFrame(frameIndex)
-end
-
---------------------------------
-
---- 
----@param node cc.Node
----@return ccs.Timeline
-function Timeline:setNode(node)
-end
-
---------------------------------
-
---- 
----@return ccs.ActionTimeline
-function Timeline:getActionTimeline()
-end
-
---------------------------------
-
---- 
----@param frame ccs.Frame
----@param index number
----@return ccs.Timeline
-function Timeline:insertFrame(frame, index)
-end
-
---------------------------------
-
---- 
----@param tag number
----@return ccs.Timeline
-function Timeline:setActionTag(tag)
-end
-
---------------------------------
-
---- 
----@param frame ccs.Frame
----@return ccs.Timeline
+---@param frame ccs.Frame @(cocostudio::timeline::Frame*)
+---@return self @(void)
 function Timeline:addFrame(frame)
 end
 
---------------------------------
-
---- 
----@return array_table
-function Timeline:getFrames()
+---@return ccs.Timeline @(cocostudio::timeline::Timeline*)
+function Timeline:clone()
 end
 
---------------------------------
-
---- 
----@return number
+---@return number @(int)
 function Timeline:getActionTag()
 end
 
---------------------------------
+---@return ccs.ActionTimeline @(cocostudio::timeline::ActionTimeline*)
+function Timeline:getActionTimeline()
+end
 
---- 
----@return cc.Node
+---@return ccs.Frame [] @(const cocos2d::Vector<cocostudio::timeline::Frame *>&)
+function Timeline:getFrames()
+end
+
+---@return cc.Node @(cocos2d::Node*)
 function Timeline:getNode()
 end
 
---------------------------------
+---@param frameIndex number @(int)
+---@return self @(void)
+function Timeline:gotoFrame(frameIndex)
+end
 
---- 
----@param frame ccs.Frame
----@return ccs.Timeline
+---@param frame ccs.Frame @(cocostudio::timeline::Frame*)
+---@param index number @(int)
+---@return self @(void)
+function Timeline:insertFrame(frame, index)
+end
+
+---@param frame ccs.Frame @(cocostudio::timeline::Frame*)
+---@return self @(void)
 function Timeline:removeFrame(frame)
 end
 
---------------------------------
+---@param tag number @(int)
+---@return self @(void)
+function Timeline:setActionTag(tag)
+end
 
---- 
----@param action ccs.ActionTimeline
----@return ccs.Timeline
+---@param action ccs.ActionTimeline @(cocostudio::timeline::ActionTimeline*)
+---@return self @(void)
 function Timeline:setActionTimeline(action)
 end
 
---------------------------------
+---@param node cc.Node @(cocos2d::Node*)
+---@return self @(void)
+function Timeline:setNode(node)
+end
 
---- 
----@param frameIndex number
----@return ccs.Timeline
+---@param frameIndex number @(int)
+---@return self @(void)
 function Timeline:stepToFrame(frameIndex)
 end
 
---------------------------------
-
---- 
----@return ccs.Timeline
+--- (static)
+---@return ccs.Timeline @(cocostudio::timeline::Timeline*)
 function Timeline:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Timeline
-function Timeline:Timeline()
-end
-
-
-return nil

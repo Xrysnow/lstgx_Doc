@@ -1,62 +1,22 @@
-
---------------------------------
--- @module EventFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.EventFrame:ccs.Frame
 local EventFrame = {}
 ccs.EventFrame = EventFrame
---------------------------------
 
---- 
----@param event string
----@return ccs.EventFrame
-function EventFrame:setEvent(event)
-end
-
---------------------------------
-
---- 
----@return ccs.EventFrame
-function EventFrame:init()
-end
-
---------------------------------
-
---- 
----@return string
+---@return string @(std::string_view)
 function EventFrame:getEvent()
 end
 
---------------------------------
+---@return self @(void)
+function EventFrame:init()
+end
 
---- 
----@return ccs.EventFrame
+---@param event string @(std::string_view)
+---@return self @(void)
+function EventFrame:setEvent(event)
+end
+
+--- (static)
+---@return ccs.EventFrame @(cocostudio::timeline::EventFrame*)
 function EventFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function EventFrame:clone()
-end
-
---------------------------------
-
---- 
----@param node cc.Node
----@return ccs.EventFrame
-function EventFrame:setNode(node)
-end
-
---------------------------------
-
---- 
----@return ccs.EventFrame
-function EventFrame:EventFrame()
-end
-
-
-return nil

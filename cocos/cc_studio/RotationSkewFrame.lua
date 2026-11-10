@@ -1,32 +1,9 @@
-
---------------------------------
--- @module RotationSkewFrame
--- @extend SkewFrame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.RotationSkewFrame:ccs.SkewFrame
 local RotationSkewFrame = {}
 ccs.RotationSkewFrame = RotationSkewFrame
---------------------------------
 
---- 
----@return ccs.RotationSkewFrame
+--- (static)
+---@return ccs.RotationSkewFrame @(cocostudio::timeline::RotationSkewFrame*)
 function RotationSkewFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function RotationSkewFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.RotationSkewFrame
-function RotationSkewFrame:RotationSkewFrame()
-end
-
-
-return nil

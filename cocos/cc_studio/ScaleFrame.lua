@@ -1,70 +1,32 @@
-
---------------------------------
--- @module ScaleFrame
--- @extend Frame
--- @parent_module ccs
-
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
 ---@class ccs.ScaleFrame:ccs.Frame
 local ScaleFrame = {}
 ccs.ScaleFrame = ScaleFrame
---------------------------------
 
---- 
----@param scaleY number
----@return ccs.ScaleFrame
-function ScaleFrame:setScaleY(scaleY)
-end
-
---------------------------------
-
---- 
----@param scaleX number
----@return ccs.ScaleFrame
-function ScaleFrame:setScaleX(scaleX)
-end
-
---------------------------------
-
---- 
----@return number
-function ScaleFrame:getScaleY()
-end
-
---------------------------------
-
---- 
----@return number
+---@return number @(float)
 function ScaleFrame:getScaleX()
 end
 
---------------------------------
+---@return number @(float)
+function ScaleFrame:getScaleY()
+end
 
---- 
----@param scale number
----@return ccs.ScaleFrame
+---@param scale number @(float)
+---@return self @(void)
 function ScaleFrame:setScale(scale)
 end
 
---------------------------------
+---@param scaleX number @(float)
+---@return self @(void)
+function ScaleFrame:setScaleX(scaleX)
+end
 
---- 
----@return ccs.ScaleFrame
+---@param scaleY number @(float)
+---@return self @(void)
+function ScaleFrame:setScaleY(scaleY)
+end
+
+--- (static)
+---@return ccs.ScaleFrame @(cocostudio::timeline::ScaleFrame*)
 function ScaleFrame:create()
 end
-
---------------------------------
-
---- 
----@return ccs.Frame
-function ScaleFrame:clone()
-end
-
---------------------------------
-
---- 
----@return ccs.ScaleFrame
-function ScaleFrame:ScaleFrame()
-end
-
-
-return nil

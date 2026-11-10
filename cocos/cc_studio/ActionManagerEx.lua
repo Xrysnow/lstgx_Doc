@@ -1,81 +1,74 @@
-
---------------------------------
--- @module ActionManagerEx
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.ActionManagerEx:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.ActionManagerEx:cc.Ref
 local ActionManagerEx = {}
 ccs.ActionManagerEx = ActionManagerEx
---------------------------------
 
---- Stop an Action with a name.
---- param jsonName  UI file name
---- param actionName  action name in the UIfile.
---- return  ActionObject which named as the param name
----@param jsonName string
----@param actionName string
----@return ccs.ActionObject
-function ActionManagerEx:stopActionByName(jsonName, actionName)
-end
-
---------------------------------
-
+---
 --- Gets an ActionObject with a name.
---- param jsonName  UI file name
---- param actionName  action name in the UI file.
---- return  ActionObject which named as the param name
----@param jsonName string
----@param actionName string
----@return ccs.ActionObject
+---
+---
+---
+---@param jsonName string @(const char*)  UI file name
+---@param actionName string @(const char*)  action name in the UI file.
+---@return ccs.ActionObject|nil @(cocostudio::ActionObject*)  ActionObject which named as the param name
 function ActionManagerEx:getActionByName(jsonName, actionName)
 end
 
---------------------------------
-
---- 
----@return number
+---@return number @(int)
 function ActionManagerEx:getStudioVersionNumber()
 end
 
---------------------------------
-
---- Play an Action with a name.<br>
--- param jsonName  UI file name<br>
--- param actionName  action name in the UIfile.<br>
--- param func ui action call back
----@param jsonName string
----@param actionName string
----@param func cc.CallFunc
----@return ccs.ActionObject
----@overload fun(self:ccs.ActionManagerEx, jsonName:string, actionName:string):ccs.ActionObject
+---
+--- Play an Action with a name.
+---
+---
+---
+---@param jsonName string @(const char*)  UI file name
+---@param actionName string @(const char*)  action name in the UIfile.
+---@param func cc.CallFunc @(cocos2d::CallFunc*) ui action call back
+---@return ccs.ActionObject|nil @(cocostudio::ActionObject*)
 function ActionManagerEx:playActionByName(jsonName, actionName, func)
 end
 
---------------------------------
+---
+--- Play an Action with a name.
+---
+---
+---
+---@param jsonName string @(const char*)  UI file name
+---@param actionName string @(const char*)  action name in the UIfile.
+---@return ccs.ActionObject|nil @(cocostudio::ActionObject*)  ActionObject which named as the param name
+function ActionManagerEx:playActionByName(jsonName, actionName)
+end
 
+---
 --- Release all actions.
----@return ccs.ActionManagerEx
+---
+---@return self @(void)
 function ActionManagerEx:releaseActions()
 end
 
---------------------------------
-
---- Purges ActionManager point.
---- js purge
---- lua destroyActionManager
----@return ccs.ActionManagerEx
-function ActionManagerEx:destroyInstance()
+---
+--- Stop an Action with a name.
+---
+---
+---
+---@param jsonName string @(const char*)  UI file name
+---@param actionName string @(const char*)  action name in the UIfile.
+---@return ccs.ActionObject|nil @(cocostudio::ActionObject*)  ActionObject which named as the param name
+function ActionManagerEx:stopActionByName(jsonName, actionName)
 end
 
---------------------------------
-
+---
 --- Gets the static instance of ActionManager.
---- js getInstance
---- lua getInstance
----@return ccs.ActionManagerEx
+--- @js getInstance
+--- @lua getInstance
+--- (static)
+---@return ccs.ActionManagerEx @(cocostudio::ActionManagerEx*)
 function ActionManagerEx:getInstance()
 end
 
-
-return nil
+---
+--- The base node include a lot of attributes.
+--- @js NA
+--- @lua NA

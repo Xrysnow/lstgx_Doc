@@ -1,41 +1,24 @@
-
---------------------------------
--- @module DisplayData
--- @extend Ref
--- @parent_module ccs
-
----@class ccs.DisplayData:ccs.Ref
+-- Studio shared binding contract; Ref new and singleton destruction are not exposed.
+---@class ccs.DisplayData:cc.Ref
 local DisplayData = {}
 ccs.DisplayData = DisplayData
---------------------------------
 
---- 
----@param displayData ccs.DisplayData
----@return ccs.DisplayData
+---@param displayData ccs.DisplayData @(cocostudio::DisplayData*)
+---@return self @(void)
 function DisplayData:copy(displayData)
 end
 
---------------------------------
-
---- 
----@param displayName string
----@return string
+--- (static)
+---@param displayName string @(std::string_view)
+---@return string @(std::string)
 function DisplayData:changeDisplayToTexture(displayName)
 end
 
---------------------------------
-
---- 
----@return ccs.DisplayData
+--- (static)
+---@return ccs.DisplayData @(cocostudio::DisplayData*)
 function DisplayData:create()
 end
 
---------------------------------
-
---- js ctor
----@return ccs.DisplayData
-function DisplayData:DisplayData()
-end
-
-
-return nil
+---
+---  @js NA
+---  @lua NA
