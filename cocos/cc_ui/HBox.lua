@@ -10,7 +10,7 @@ ccui.HBox = HBox
 --------------------------------
 
 --- 
----@param size size_table
+---@param size vec2_table
 ---@return boolean
 function HBox:initWithSize(size)
 end
@@ -20,7 +20,7 @@ end
 --- Create a HBox with a certain size.<br>
 -- param size The content size of the layout.<br>
 -- return A HBox instance pointer.
----@param size size_table
+---@param size vec2_table
 ---@return ccui.HBox
 ---@overload fun(self:ccui.HBox):ccui.HBox
 function HBox:create(size)
@@ -33,14 +33,6 @@ end
 function HBox:init()
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.HBox
-function HBox:HBox()
-end
 
 
 return nil

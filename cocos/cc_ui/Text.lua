@@ -111,7 +111,7 @@ end
 --------------------------------
 
 --- Return shadow effect offset value.
----@return size_table
+---@return vec2_table
 function Text:getShadowOffset()
 end
 
@@ -170,7 +170,7 @@ end
 --- along with calling `ignoreContentAdaptWithSize(false)`, otherwise the text area
 --- size is calculated by the real size of the text content.
 --- param size The text rendering area size.
----@param size size_table
+---@param size vec2_table
 ---@return ccui.Text
 function Text:setTextAreaSize(size)
 end
@@ -190,7 +190,7 @@ end
 
 ---  Gets the render size in auto mode.
 --- return The size of render size in auto mode.
----@return size_table
+---@return vec2_table
 function Text:getAutoRenderSize()
 end
 
@@ -302,7 +302,7 @@ end
 
 ---  Return the text rendering area size.
 --- return The text rendering area size.
----@return size_table
+---@return vec2_table
 function Text:getTextAreaSize()
 end
 
@@ -369,18 +369,10 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function Text:getVirtualRendererSize()
 end
 
---------------------------------
-
---- Default constructor.
---- js ctor
---- lua new
----@return ccui.Text
-function Text:Text()
-end
 
 
 return nil

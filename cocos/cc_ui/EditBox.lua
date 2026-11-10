@@ -15,14 +15,6 @@ ccui.EditBox = EditBox
 function EditBox:getFontSize()
 end
 
---------------------------------
-
---- js NA
---- lua NA
----@param info cc.IMEKeyboardNotificationInfo
----@return ccui.EditBox
-function EditBox:keyboardDidShow(info)
-end
 
 --------------------------------
 
@@ -73,13 +65,13 @@ end
 -- param size The size of edit box.<br>
 -- param normal9SpriteBg  background image of edit box.<br>
 -- return Whether initialization is successfully or not.
----@param size size_table
+---@param size vec2_table
 ---@param normalSprite ccui.Scale9Sprite
 ---@param pressedSprite ccui.Scale9Sprite
 ---@param disabledSprite ccui.Scale9Sprite
 ---@return boolean
----@overload fun(self:ccui.EditBox, size:size_table, normal9SpriteBg:ccui.Scale9Sprite):boolean
----@overload fun(self:ccui.EditBox, size:size_table, normal9SpriteBg:string, texType:number):boolean
+---@overload fun(self:ccui.EditBox, size:vec2_table, normal9SpriteBg:ccui.Scale9Sprite):boolean
+---@overload fun(self:ccui.EditBox, size:vec2_table, normal9SpriteBg:string, texType:number):boolean
 function EditBox:initWithSizeAndBackgroundSprite(size, normalSprite, pressedSprite, disabledSprite)
 end
 
@@ -91,14 +83,6 @@ end
 function EditBox:getPlaceholderFontName()
 end
 
---------------------------------
-
---- js NA
---- lua NA
----@param info cc.IMEKeyboardNotificationInfo
----@return ccui.EditBox
-function EditBox:keyboardDidHide(info)
-end
 
 --------------------------------
 
@@ -144,29 +128,13 @@ end
 
 --------------------------------
 
---- Registers a script function that will be called for EditBox events.
---- This handler will be removed automatically after onExit() called.
---- code
---- -- lua sample
---- local function editboxEventHandler(eventType)
---- if eventType == "began" then
---- -- triggered when an edit box gains focus after keyboard is shown
---- elseif eventType == "ended" then
---- -- triggered when an edit box loses focus after keyboard is hidden.
---- elseif eventType == "changed" then
---- -- triggered when the edit box text was changed.
---- elseif eventType == "return" then
---- -- triggered when the return button was pressed or the outside area of keyboard was touched.
---- end
---- end
---- local editbox = EditBox:create(Size(...), Scale9Sprite:create(...))
---- editbox = registerScriptEditBoxHandler(editboxEventHandler)
---- endcode
---- param handler A number that indicates a lua function.
---- js NA
---- lua NA
----@param handler number
----@return ccui.EditBox
+--- Install an owned notification callback, replacing the previous callback.
+--- Receives began/changed/ended/return and this EditBox. Ending dispatches ended before return.
+--- nil clears the callback; unregisterScriptEditBoxHandler does the same.
+--- The callback remains owned until replacement, clearing or destruction, including after onExit.
+--- This notification callback is not copied by Widget:clone().
+---@param handler (fun(eventName:string,sender:ccui.EditBox))|nil
+---@return ccui.EditBox @The original Lua receiver, including a .c_instance wrapper.
 function EditBox:registerScriptEditBoxHandler(handler)
 end
 
@@ -210,21 +178,13 @@ end
 
 --------------------------------
 
---- Unregisters a script function that will be called for EditBox events.
+--- Clear the owned EditBox notification callback; equivalent to registering nil.
 --- js NA
 --- lua NA
 ---@return ccui.EditBox
 function EditBox:unregisterScriptEditBoxHandler()
 end
 
---------------------------------
-
---- js NA
---- lua NA
----@param info cc.IMEKeyboardNotificationInfo
----@return ccui.EditBox
-function EditBox:keyboardWillShow(info)
-end
 
 --------------------------------
 
@@ -258,14 +218,6 @@ end
 function EditBox:getFontName()
 end
 
---------------------------------
-
---- js NA
---- lua NA
----@param info cc.IMEKeyboardNotificationInfo
----@return ccui.EditBox
-function EditBox:keyboardWillHide(info)
-end
 
 --------------------------------
 
@@ -310,7 +262,7 @@ end
 --- param pressedImage  pressed state texture name.
 --- param disabledImage  disabled state texture name.
 --- return Whether initialization is successfully or not.
----@param size size_table
+---@param size vec2_table
 ---@param normalImage string
 ---@param pressedImage string
 ---@param disabledImage string
@@ -342,14 +294,6 @@ end
 function EditBox:getCapInsetsPressedRenderer()
 end
 
---------------------------------
-
---- get a script Handler
---- js NA
---- lua NA
----@return number
-function EditBox:getScriptEditBoxHandler()
-end
 
 --------------------------------
 
@@ -481,14 +425,14 @@ end
 
 --- create a edit box with size.<br>
 -- return An autorelease pointer of EditBox, you don't need to release it only if you retain it again.
----@param size size_table
+---@param size vec2_table
 ---@param normalImage string
 ---@param pressedImage string
 ---@param disabledImage string
 ---@param texType number
 ---@return ccui.EditBox
----@overload fun(self:ccui.EditBox, size:size_table, normalImage:string, texType:number):ccui.EditBox
----@overload fun(self:ccui.EditBox, size:size_table, normalSprite:ccui.Scale9Sprite, pressedSprite:ccui.Scale9Sprite, disabledSprite:ccui.Scale9Sprite):ccui.EditBox
+---@overload fun(self:ccui.EditBox, size:vec2_table, normalImage:string, texType:number):ccui.EditBox
+---@overload fun(self:ccui.EditBox, size:vec2_table, normalSprite:ccui.Scale9Sprite, pressedSprite:ccui.Scale9Sprite, disabledSprite:ccui.Scale9Sprite):ccui.EditBox
 function EditBox:create(size, normalImage, pressedImage, disabledImage, texType)
 end
 
@@ -537,19 +481,11 @@ end
 --------------------------------
 
 --- 
----@param size size_table
+---@param size vec2_table
 ---@return ccui.EditBox
 function EditBox:setContentSize(size)
 end
 
---------------------------------
-
---- Constructor.
---- js ctor
---- lua new
----@return ccui.EditBox
-function EditBox:EditBox()
-end
 
 
 return nil

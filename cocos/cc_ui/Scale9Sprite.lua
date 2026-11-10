@@ -22,7 +22,7 @@ ccui.Scale9Sprite = Scale9Sprite
 ---@param rect rect_table
 ---@param rotated boolean
 ---@param offset vec2_table
----@param originalSize size_table
+---@param originalSize vec2_table
 ---@param capInsets rect_table
 ---@return boolean
 ---@overload fun(self:ccui.Scale9Sprite, sprite:cc.Sprite, rect:rect_table, rotated:boolean, capInsets:rect_table):boolean
@@ -127,7 +127,7 @@ end
 ---@param rect rect_table
 ---@param rotated boolean
 ---@param offset vec2_table
----@param originalSize size_table
+---@param originalSize vec2_table
 ---@param capInsets rect_table
 ---@return boolean
 ---@overload fun(self:ccui.Scale9Sprite, sprite:cc.Sprite, rect:rect_table, capInsets:rect_table):boolean
@@ -139,7 +139,7 @@ end
 
 --- brief Change the preferred size of Scale9Sprite.
 --- param size A delimitation zone.
----@param size size_table
+---@param size vec2_table
 ---@return ccui.Scale9Sprite
 function Scale9Sprite:setPreferredSize(size)
 end
@@ -228,7 +228,7 @@ end
 
 --- brief Query the sprite's original size.
 --- return Sprite size.
----@return size_table
+---@return vec2_table
 function Scale9Sprite:getOriginalSize()
 end
 
@@ -287,7 +287,7 @@ end
 
 --- brief Query the Scale9Sprite's preferred size.
 --- return Scale9Sprite's preferred size.
----@return size_table
+---@return vec2_table
 function Scale9Sprite:getPreferredSize()
 end
 
@@ -406,14 +406,6 @@ end
 function Scale9Sprite:init()
 end
 
---------------------------------
-
---- Default constructor.
---- js ctor
---- lua new
----@return ccui.Scale9Sprite
-function Scale9Sprite:Scale9Sprite()
-end
 
 
 return nil

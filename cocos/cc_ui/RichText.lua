@@ -71,7 +71,7 @@ end
 ---  @brief enable the shadow of a-tag 
 ---@param enable boolean
 ---@param shadowColor color3b_table
----@param offset size_table
+---@param offset vec2_table
 ---@param blurRadius number
 ---@return ccui.RichText
 function RichText:setAnchorTextShadow(enable, shadowColor, offset, blurRadius)
@@ -151,8 +151,9 @@ end
 
 --- 
 ---@param xml string
----@param defaults map_table
----@param handleOpenUrl fun(arg0:std::string&)
+---@param defaults table<string,any> @Shared ValueMap: nested nil/boolean/number/string/array/string-keyed tables.
+---@param handleOpenUrl (fun(url:string))|nil @nil uses the native default URL opener.
+---@overload fun(self:ccui.RichText, xml:string, defaults:table<string,any>):boolean
 ---@return boolean
 function RichText:initWithXML(xml, defaults, handleOpenUrl)
 end
@@ -212,7 +213,9 @@ end
 --------------------------------
 
 --- 
----@return map_table
+--- The native implementation currently always returns an empty ValueMap.
+--- This does not read back configured styles or arbitrary keys passed to setDefaults.
+---@return table<string,any> @Independent empty table; preserves the native capability limit.
 function RichText:getDefaults()
 end
 
@@ -263,7 +266,7 @@ end
 --------------------------------
 
 --- 
----@param defaults map_table
+---@param defaults table<string,any> @Shared ValueMap: nested nil/boolean/number/string/array/string-keyed tables.
 ---@return ccui.RichText
 function RichText:setDefaults(defaults)
 end
@@ -290,6 +293,7 @@ end
 -- param element A RichElement type.
 ---@param index number
 ---@return ccui.RichText
+---@overload fun(self:ccui.RichText, element:ccui.RichElement):ccui.RichText
 function RichText:removeElement(index)
 end
 
@@ -304,7 +308,7 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function RichText:getAnchorTextShadowOffset()
 end
 
@@ -380,8 +384,9 @@ end
 --- brief Create a RichText from an XML
 --- return RichText instance.
 ---@param xml string
----@param defaults map_table
----@param handleOpenUrl fun(arg0:std::string&)
+---@param defaults table<string,any> @Shared ValueMap: nested nil/boolean/number/string/array/string-keyed tables.
+---@param handleOpenUrl (fun(url:string))|nil @nil uses the native default URL opener.
+---@overload fun(self:ccui.RichText, xml:string, defaults:table<string,any>):ccui.RichText
 ---@return ccui.RichText
 function RichText:createWithXML(xml, defaults, handleOpenUrl)
 end
@@ -408,14 +413,6 @@ end
 function RichText:ignoreContentAdaptWithSize(ignore)
 end
 
---------------------------------
-
---- brief Default constructor.
---- js ctor
---- lua new
----@return ccui.RichText
-function RichText:RichText()
-end
 
 
 return nil

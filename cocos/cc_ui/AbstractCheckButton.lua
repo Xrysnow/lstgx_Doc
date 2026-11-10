@@ -223,7 +223,7 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function AbstractCheckButton:getVirtualRendererSize()
 end
 

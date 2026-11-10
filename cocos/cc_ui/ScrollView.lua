@@ -175,7 +175,7 @@ end
 --- Change inner container size of scrollview.
 --- Inner container size must be larger than or equal scrollview's size.
 --- param size Inner container size.
----@param size size_table
+---@param size vec2_table
 ---@return ccui.ScrollView
 function ScrollView:setInnerContainerSize(size)
 end
@@ -224,7 +224,8 @@ end
 --- Add callback function which will be called  when scrollview event triggered.
 --- param callback A callback function with type of `ccScrollViewCallback`.
 --- Re-registering replaces only this scroll callback; receives (sender, native ScrollView event number).
----@param callback fun(arg0:cc.Ref,arg1:ccui.ScrollView::EventType)
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(arg0:cc.Ref,arg1:ccui.ScrollView::EventType))|nil
 ---@return ccui.ScrollView
 function ScrollView:addEventListener(callback)
 end
@@ -530,7 +531,7 @@ end
 --- Get inner container size of scrollview.
 --- Inner container size must be larger than or equal scrollview's size.
 --- return The inner container size.
----@return size_table
+---@return vec2_table
 function ScrollView:getInnerContainerSize()
 end
 
@@ -678,14 +679,6 @@ end
 function ScrollView:setLayoutType(type)
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.ScrollView
-function ScrollView:ScrollView()
-end
 
 
 return nil

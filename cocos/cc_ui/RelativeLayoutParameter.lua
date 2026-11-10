@@ -83,13 +83,6 @@ end
 function RelativeLayoutParameter:copyProperties(model)
 end
 
---------------------------------
-
---- Default constructor
---- lua new
----@return ccui.RelativeLayoutParameter
-function RelativeLayoutParameter:RelativeLayoutParameter()
-end
 
 
 return nil

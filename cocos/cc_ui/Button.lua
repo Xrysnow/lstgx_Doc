@@ -10,7 +10,7 @@ ccui.Button = Button
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function Button:getNormalTextureSize()
 end
 
@@ -400,7 +400,7 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function Button:getVirtualRendererSize()
 end
 
@@ -412,12 +412,6 @@ end
 function Button:ignoreContentAdaptWithSize(ignore)
 end
 
---------------------------------
-
---- Default constructor.
----@return ccui.Button
-function Button:Button()
-end
 
 
 return nil

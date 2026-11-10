@@ -88,7 +88,7 @@ end
 --- param  textureSize  The size of a scale9enabled texture
 --- return a restricted capInset.
 ---@param capInsets rect_table
----@param textureSize size_table
+---@param textureSize vec2_table
 ---@return rect_table
 function Helper:restrictCapInsetRect(capInsets, textureSize)
 end

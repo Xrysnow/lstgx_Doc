@@ -29,7 +29,7 @@ end
 
 --- Get the user defined widget size.
 --- return User defined size.
----@return size_table
+---@return vec2_table
 function Widget:getCustomSize()
 end
 
@@ -119,7 +119,7 @@ end
 --- Get the content size of widget.
 --- warning This API exists mainly for keeping back compatibility.
 --- return 
----@return size_table
+---@return vec2_table
 function Widget:getLayoutSize()
 end
 
@@ -155,7 +155,7 @@ end
 
 --- Get the virtual renderer's size
 --- return Widget virtual renderer size.
----@return size_table
+---@return vec2_table
 function Widget:getVirtualRendererSize()
 end
 
@@ -426,7 +426,7 @@ end
 --- This function is used for determining touch area of widget.
 --- param pt        The point in `Vec2`.
 --- param camera    The camera look at widget, used to convert GL screen point to near/far plane.
---- The application binding accepts (pt, camera) or (pt, camera, outPoint).
+--- The UI binding accepts (pt, camera) or (pt, camera, outPoint).
 --- If outPoint is supplied it must be a table; x/y/z are written into that same table.
 --- Omit outPoint when the intersection coordinates are not needed.
 --- return true if the point is in widget's content space, false otherwise.
@@ -456,7 +456,7 @@ end
 --------------------------------
 
 --- Update all children's contents size and position recursively.
----@param parentSize size_table
+---@param parentSize vec2_table
 ---@return ccui.Widget
 ---@overload fun(self:ccui.Widget):ccui.Widget
 function Widget:updateSizeAndPosition(parentSize)
@@ -695,7 +695,7 @@ end
 
 --- Changes the size that is widget's size
 --- param contentSize A content size in `Size`.
----@param contentSize size_table
+---@param contentSize vec2_table
 ---@return ccui.Widget
 function Widget:setContentSize(contentSize)
 end
@@ -707,14 +707,6 @@ end
 function Widget:getScale()
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.Widget
-function Widget:Widget()
-end
 
 
 return nil

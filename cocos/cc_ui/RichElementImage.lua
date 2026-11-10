@@ -71,14 +71,6 @@ end
 function RichElementImage:create(tag, color, opacity, filePath, url, texType)
 end
 
---------------------------------
-
---- brief Default constructor.
---- js ctor
---- lua new
----@return ccui.RichElementImage
-function RichElementImage:RichElementImage()
-end
 
 
 return nil

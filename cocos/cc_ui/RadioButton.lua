@@ -11,7 +11,8 @@ ccui.RadioButton = RadioButton
 
 --- Add a callback function which would be called when radio button is selected or unselected.
 --- param callback A std::function with type @see `ccRadioButtonCallback`
----@param callback fun(arg0:ccui.RadioButton,arg1:ccui.RadioButton::EventType)
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(arg0:ccui.RadioButton,arg1:ccui.RadioButton::EventType))|nil
 ---@return ccui.RadioButton
 function RadioButton:addEventListener(callback)
 end
@@ -52,13 +53,6 @@ end
 function RadioButton:getDescription()
 end
 
---------------------------------
-
---- Default constructor.
---- lua new
----@return ccui.RadioButton
-function RadioButton:RadioButton()
-end
 
 
 return nil

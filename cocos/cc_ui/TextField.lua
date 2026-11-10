@@ -129,7 +129,8 @@ end
 
 --- Add a event listener to TextField, when some predefined event happens, the callback will be called.
 --- param callback A callback function with type of `ccTextFieldCallback`.
----@param callback fun(arg0:cc.Ref,arg1:ccui.TextField::EventType)
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(arg0:cc.Ref,arg1:ccui.TextField::EventType))|nil
 ---@return ccui.TextField
 function TextField:addEventListener(callback)
 end
@@ -153,7 +154,7 @@ end
 
 --- brief Change the text area size.
 --- param size A delimitation zone.
----@param size size_table
+---@param size vec2_table
 ---@return ccui.TextField
 function TextField:setTextAreaSize(size)
 end
@@ -177,7 +178,7 @@ end
 
 --- brief Get the renderer size in auto mode.
 --- return A delimitation zone.
----@return size_table
+---@return vec2_table
 function TextField:getAutoRenderSize()
 end
 
@@ -310,6 +311,7 @@ end
 --- js NA
 ---@param cursor number
 ---@return ccui.TextField
+--- Shared integer input is explicitly narrowed to target-platform plain char; not UTF-8.
 function TextField:setCursorChar(cursor)
 end
 
@@ -378,7 +380,7 @@ end
 --- brief Set the touch size
 --- The touch size is used for @see `hitTest`.
 --- param size A delimitation zone.
----@param size size_table
+---@param size vec2_table
 ---@return ccui.TextField
 function TextField:setTouchSize(size)
 end
@@ -387,7 +389,7 @@ end
 
 --- brief Get current touch size of TextField.
 --- return The TextField's touch size.
----@return size_table
+---@return vec2_table
 function TextField:getTouchSize()
 end
 
@@ -455,16 +457,10 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function TextField:getVirtualRendererSize()
 end
 
---------------------------------
-
---- brief Default constructor.
----@return ccui.TextField
-function TextField:TextField()
-end
 
 
 return nil

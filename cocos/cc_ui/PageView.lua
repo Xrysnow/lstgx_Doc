@@ -93,7 +93,8 @@ end
 --- param callback A page turning callback.
 --- Independent of the inherited ListView:addScrollViewEventListener scroll channel.
 --- TURNING (0) is delivered before the scroll AUTOSCROLL_ENDED (12) event.
----@param callback fun(arg0:cc.Ref,arg1:ccui.PageView::EventType)
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(arg0:cc.Ref,arg1:ccui.PageView::EventType))|nil
 ---@return ccui.PageView
 function PageView:addEventListener(callback)
 end
@@ -323,14 +324,6 @@ end
 function PageView:setDirection(direction)
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.PageView
-function PageView:PageView()
-end
 
 
 return nil

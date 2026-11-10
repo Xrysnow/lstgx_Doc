@@ -164,14 +164,16 @@ end
 --- Add an event click callback to ListView, then one item of Listview is clicked, the callback will be called.
 --- param callback A callback function with type of `ccListViewCallback`.
 --- Uses only the ListView item event channel; independent of addScrollViewEventListener.
----@param callback fun(arg0:cc.Ref,arg1:ccui.ListView::EventType)
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(arg0:cc.Ref,arg1:ccui.ListView::EventType))|nil
 ---@return ccui.ListView
 function ListView:addEventListener(callback)
 end
 
 --- Register the inherited ScrollView callback independently of item/page events.
 --- Re-registering replaces only this scroll callback. Also inherited by PageView.
----@param callback fun(sender:cc.Ref,eventType:integer) @Native ccui.ScrollView.EventType number.
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(sender:cc.Ref,eventType:integer))|nil @Native ccui.ScrollView.EventType number.
 ---@return ccui.ListView
 function ListView:addScrollViewEventListener(callback)
 end
@@ -233,7 +235,7 @@ end
 
 --- Return all items in a ListView.
 --- returns A vector of widget pointers.
----@return array_table
+---@return ccui.Widget[] @Independent array; elements share Ref identity and gain no extra retain.
 function ListView:getItems()
 end
 
@@ -557,14 +559,6 @@ end
 function ListView:jumpToPercentVertical(percent)
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.ListView
-function ListView:ListView()
-end
 
 
 return nil

@@ -90,7 +90,12 @@ local UniformLocation = { location = { 0, 0 }, shaderStage = 0 }
 
 -------------------------------------------------
 
+--- UI value data. All four fields are required for input; output is an independent table.
 ---@class margin_table
+---@field left number
+---@field top number
+---@field right number
+---@field bottom number
 local Margin = { left = 0, right = 0, top = 0, bottom = 0 }
 
 ---@class ttfconfig_table
@@ -109,8 +114,9 @@ local _
 ---@class cc.TextureAtlas
 local _
 
+--- UI output-only snapshot; no native identity, ownership or input conversion.
 ---@class cc.ResourceData
-local _
-
----@class cc.IMEKeyboardNotificationInfo
+---@field type number
+---@field file string
+---@field plist string
 local _

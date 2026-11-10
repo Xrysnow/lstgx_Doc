@@ -108,17 +108,10 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function TextAtlas:getVirtualRendererSize()
 end
 
---------------------------------
-
---- Default constructor.
---- lua new
----@return ccui.TextAtlas
-function TextAtlas:TextAtlas()
-end
 
 
 return nil

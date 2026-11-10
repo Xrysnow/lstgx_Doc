@@ -242,7 +242,7 @@ end
 
 --- Gets background image texture size.
 --- return background image texture size.
----@return size_table
+---@return vec2_table
 function Layout:getBackGroundImageTextureSize()
 end
 
@@ -395,14 +395,6 @@ end
 function Layout:setGlobalZOrder(globalZOrder)
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.Layout
-function Layout:Layout()
-end
 
 
 return nil

@@ -144,7 +144,7 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function ImageView:getVirtualRendererSize()
 end
 
@@ -156,14 +156,6 @@ end
 function ImageView:ignoreContentAdaptWithSize(ignore)
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.ImageView
-function ImageView:ImageView()
-end
 
 
 return nil

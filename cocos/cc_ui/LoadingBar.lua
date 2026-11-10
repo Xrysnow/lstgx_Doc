@@ -135,7 +135,7 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function LoadingBar:getVirtualRendererSize()
 end
 
@@ -147,14 +147,6 @@ end
 function LoadingBar:ignoreContentAdaptWithSize(ignore)
 end
 
---------------------------------
-
---- Default constructor.
---- js ctor
---- lua new
----@return ccui.LoadingBar
-function LoadingBar:LoadingBar()
-end
 
 
 return nil

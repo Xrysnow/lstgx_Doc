@@ -37,14 +37,6 @@ end
 function RichElement:setColor(color)
 end
 
---------------------------------
-
---- brief Default constructor.
---- js ctor
---- lua new
----@return ccui.RichElement
-function RichElement:RichElement()
-end
 
 
 return nil

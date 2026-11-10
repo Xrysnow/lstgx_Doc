@@ -39,14 +39,6 @@ end
 function RichElementCustomNode:create(tag, color, opacity, customNode)
 end
 
---------------------------------
-
---- brief Default constructor.
---- js ctor
---- lua new
----@return ccui.RichElementCustomNode
-function RichElementCustomNode:RichElementCustomNode()
-end
 
 
 return nil

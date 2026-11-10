@@ -88,18 +88,10 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function TextBMFont:getVirtualRendererSize()
 end
 
---------------------------------
-
---- Default constructor
---- js ctor
---- lua new
----@return ccui.TextBMFont
-function TextBMFont:TextBMFont()
-end
 
 
 return nil

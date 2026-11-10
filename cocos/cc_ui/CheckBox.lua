@@ -11,7 +11,8 @@ ccui.CheckBox = CheckBox
 
 --- Add a callback function which would be called when checkbox is selected or unselected.
 --- param callback A std::function with type @see `ccCheckBoxCallback`
----@param callback fun(arg0:cc.Ref,arg1:ccui.CheckBox::EventType)
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(arg0:cc.Ref,arg1:ccui.CheckBox::EventType))|nil
 ---@return ccui.CheckBox
 function CheckBox:addEventListener(callback)
 end
@@ -52,13 +53,6 @@ end
 function CheckBox:getDescription()
 end
 
---------------------------------
-
---- Default constructor.
---- lua new
----@return ccui.CheckBox
-function CheckBox:CheckBox()
-end
 
 
 return nil

@@ -121,7 +121,8 @@ end
 
 --- Add call back function called when slider's percent has changed to slider.
 --- param callback An given call back function called when slider's percent has changed to slider.
----@param callback fun(arg0:cc.Ref,arg1:ccui.Slider::EventType)
+--- nil clears only this event slot; function replaces it. Returns the original Lua receiver.
+---@param callback (fun(arg0:cc.Ref,arg1:ccui.Slider::EventType))|nil
 ---@return ccui.Slider
 function Slider:addEventListener(callback)
 end
@@ -336,18 +337,10 @@ end
 --------------------------------
 
 --- 
----@return size_table
+---@return vec2_table
 function Slider:getVirtualRendererSize()
 end
 
---------------------------------
-
---- Default constructor.
---- js ctor
---- lua new
----@return ccui.Slider
-function Slider:Slider()
-end
 
 
 return nil

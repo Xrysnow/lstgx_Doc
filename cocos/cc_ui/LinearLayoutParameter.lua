@@ -49,13 +49,6 @@ end
 function LinearLayoutParameter:copyProperties(model)
 end
 
---------------------------------
-
---- Default constructor.
---- lua new
----@return ccui.LinearLayoutParameter
-function LinearLayoutParameter:LinearLayoutParameter()
-end
 
 
 return nil

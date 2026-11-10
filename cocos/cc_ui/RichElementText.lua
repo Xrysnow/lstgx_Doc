@@ -36,7 +36,7 @@ ccui.RichElementText = RichElementText
 ---@param outlineColor color3b_table
 ---@param outlineSize number
 ---@param shadowColor color3b_table
----@param shadowOffset size_table
+---@param shadowOffset vec2_table
 ---@param shadowBlurRadius number
 ---@param glowColor color3b_table
 ---@return boolean
@@ -72,21 +72,13 @@ end
 ---@param outlineColor color3b_table
 ---@param outlineSize number
 ---@param shadowColor color3b_table
----@param shadowOffset size_table
+---@param shadowOffset vec2_table
 ---@param shadowBlurRadius number
 ---@param glowColor color3b_table
 ---@return ccui.RichElementText
 function RichElementText:create(tag, color, opacity, text, fontName, fontSize, flags, url, outlineColor, outlineSize, shadowColor, shadowOffset, shadowBlurRadius, glowColor)
 end
 
---------------------------------
-
---- brief Default constructor.
---- js ctor
---- lua new
----@return ccui.RichElementText
-function RichElementText:RichElementText()
-end
 
 
 return nil

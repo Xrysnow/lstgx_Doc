@@ -49,13 +49,6 @@ end
 function LayoutParameter:create()
 end
 
---------------------------------
-
---- Default constructor.
---- lua new
----@return ccui.LayoutParameter
-function LayoutParameter:LayoutParameter()
-end
 
 
 return nil

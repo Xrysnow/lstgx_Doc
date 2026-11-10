@@ -21,14 +21,6 @@ ccui.RichElementNewLine = RichElementNewLine
 function RichElementNewLine:create(tag, color, opacity)
 end
 
---------------------------------
-
---- brief Default constructor.
---- js ctor
---- lua new
----@return ccui.RichElementNewLine
-function RichElementNewLine:RichElementNewLine()
-end
 
 
 return nil

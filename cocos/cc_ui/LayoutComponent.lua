@@ -72,7 +72,7 @@ end
 
 --- Query owner's content size.
 --- return Owner's content size.
----@return size_table
+---@return vec2_table
 function LayoutComponent:getSize()
 end
 
@@ -422,7 +422,7 @@ end
 
 --- Change the content size of owner.
 --- param size Content size in @see `Size`.
----@param size size_table
+---@param size vec2_table
 ---@return ccui.LayoutComponent
 function LayoutComponent:setSize(size)
 end
@@ -453,13 +453,6 @@ end
 function LayoutComponent:init()
 end
 
---------------------------------
-
---- Default constructor
---- lua new
----@return ccui.LayoutComponent
-function LayoutComponent:LayoutComponent()
-end
 
 
 return nil
