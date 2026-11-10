@@ -311,13 +311,13 @@ end
 ---@return cc.Physics3DSliderConstraint
 function Physics3DSliderConstraint:new() end
 
---- Only this five-argument native overload was exposed by the old Lua module.
+--- Generated exact five-argument native factory. No shorter overload is exposed.
 ---@param bodyA cc.Physics3DRigidBody
 ---@param bodyB cc.Physics3DRigidBody
 ---@param frameA mat4_table
 ---@param frameB mat4_table
 ---@param useLinearReferenceFrameA boolean
----@return cc.Physics3DSliderConstraint
+---@return cc.Physics3DSliderConstraint|nil
 function Physics3DSliderConstraint:create(bodyA,bodyB,frameA,frameB,useLinearReferenceFrameA) end
 
 return nil

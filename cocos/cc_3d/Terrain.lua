@@ -136,17 +136,13 @@ end
 function Terrain:setSkirtHeightRatio(ratio)
 end
 
----
---- @brief Defines a bundle file that contains a collection of assets. Mesh, Material, MeshSkin, Animation
---- There are two types of bundle files, c3t and c3b.
---- c3t text file
---- c3b binary file
---- @js NA
---- @lua NA
---- TerrainData descriptor: optional _chunkSize={x=32,y=32}, _heightMapSrc='', _alphaMapSrc='', _detailMaps={}, _mapHeight=2, _mapScale=0.1, _detailMapAmount=0, _skirtHeightRatio=1.
---- Each supplied detail map has optional _detailMapSrc='' and _detailMapSize=0; unused native slots retain size 35. Dense array capacity is four; amount must be 0..4 and no greater than supplied maps. Field type errors reject the whole descriptor before native invocation. Chunks require integral power-of-two dimensions >=8, valid assets, positive map scale and an equal number of chunks along both grid axes.
+--- Shared generated native factory using the shared TerrainData descriptor conversion.
+--- Optional fields: _chunkSize={x=32,y=32}, _heightMapSrc='', _alphaMapSrc='', _detailMaps={},
+--- _mapHeight=2, _mapScale=0.1, _detailMapAmount=0, _skirtHeightRatio=1.
+--- Detail maps accept _detailMapSrc='' and _detailMapSize=0; dense capacity is four and amount cannot exceed supplied maps.
+--- Chunks require integral power-of-two dimensions >=8, valid assets, positive scale and equal chunk counts on both axes.
 ---@param data table
----@param fixedType number|nil
+---@param fixedType? number @Native default INCREASE_LOWER; omit rather than pass nil.
 ---@return cc.Terrain|nil
 function Terrain:create(data,fixedType) end
 ---@param point table @Vec2 {x,y}
@@ -158,8 +154,10 @@ function Terrain:getHeight(point) end
 ---@return number,table @height, normal {x,y,z}
 ---@overload fun(self:cc.Terrain,x:number,z:number):number,table
 function Terrain:getHeightWithNormal(point) end
+--- Shared generated value-returning overload only. The Ray remains Geometry value userdata.
+--- Returns an independent Vec3 snapshot, zero on miss; no writable output argument is accepted.
 ---@param ray cc.Ray
----@return table @point {x,y,z}, zero on miss
+---@return table @point {x,y,z}
 function Terrain:getIntersectionPoint(ray) end
 --- Returns false and a zero vector on miss; no writable point input is required.
 ---@param ray cc.Ray

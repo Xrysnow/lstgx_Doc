@@ -36,9 +36,8 @@ end
 function ActionCamera:setUp(up)
 end
 
----
----@return cc.ActionCamera
-function ActionCamera:reverse()
-end
+--- Shared generated native reverse; preserves virtual dispatch and the native returned action type.
+---@return cc.ActionCamera|nil
+function ActionCamera:reverse() end
 
 return nil

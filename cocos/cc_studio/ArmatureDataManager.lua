@@ -188,9 +188,10 @@ end
 
 
 
---- Required callback, owned by native work until the last task copy is released.
---- Cache hits may notify synchronously; percent reflects native global loading progress.
---- The four-argument form additionally supplies image/plist paths. No cancellation API is added.
+--- Generated callable overloads only; callback is required in both checks modes.
+--- Native work owns the callback until its last copy is released. Cache hits may notify synchronously.
+--- Percent is native global loading progress; completion also notifies on failure and is not a success guarantee.
+--- No selector overload or new cancellation API is exposed.
 ---@param configFilePath string
 ---@param callback fun(percent:number)
 ---@overload fun(self:ccs.ArmatureDataManager,imagePath:string,plistPath:string,configFilePath:string,callback:fun(percent:number)):ccs.ArmatureDataManager

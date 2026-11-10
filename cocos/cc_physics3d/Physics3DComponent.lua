@@ -55,9 +55,12 @@ end
 --- Legacy constructor; native autorelease and tolua identity are unchanged.
 ---@return cc.Physics3DComponent
 function Physics3DComponent:new() end
+--- Generated native factories; the no-argument factory creates an empty component.
+--- Other forms accept an object and optional native Vec3/Quaternion defaults.
 ---@param object cc.Physics3DObject
----@param translateInPhysics? vec3_table default=Vec3::ZERO
----@param rotationInPhysics? quaternion_table default=Quaternion::ZERO
----@return cc.Physics3DComponent
+---@param translateInPhysics? vec3_table @Default Vec3::ZERO.
+---@param rotationInPhysics? quaternion_table @Default Quaternion::ZERO.
+---@overload fun(self:cc.Physics3DComponent):cc.Physics3DComponent|nil
+---@return cc.Physics3DComponent|nil
 function Physics3DComponent:create(object,translateInPhysics,rotationInPhysics) end
 return nil

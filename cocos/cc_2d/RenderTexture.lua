@@ -405,4 +405,11 @@ end
 function RenderTexture:create(w, h)
 end
 
+--- Shared generated readback. A callback is required in both checks modes; nil is rejected.
+--- Native delivery owns the RefPtr<Image> during the call; captures use shared callback ownership.
+---@param callback fun(image:cc.Image|nil)
+---@param flipImage? boolean @Default true; omission is a native short call, not an explicit nil argument.
+---@return self @The original Lua receiver, including a .c_instance wrapper.
+function RenderTexture:newImage(callback, flipImage) end
+
 return nil

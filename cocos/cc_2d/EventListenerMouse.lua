@@ -11,4 +11,9 @@ end
 function EventListenerMouse:clone()
 end
 
+--- Shared generated native factory; failure returns one nil result.
+--- Legacy event registration and clone contracts are unchanged.
+---@return cc.EventListenerMouse|nil
+function EventListenerMouse:create() end
+
 return nil

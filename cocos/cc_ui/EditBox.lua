@@ -128,15 +128,13 @@ end
 
 --------------------------------
 
---- Install an owned notification callback, replacing the previous callback.
---- Receives began/changed/ended/return and this EditBox. Ending dispatches ended before return.
---- nil clears the callback; unregisterScriptEditBoxHandler does the same.
---- The callback remains owned until replacement, clearing or destruction, including after onExit.
---- This notification callback is not copied by Widget:clone().
+--- Shared generated alias of setScriptEditBoxCallback, replacing the owned notification slot.
+--- Receives began/changed/ended/return and this EditBox; ending dispatches ended before return.
+--- nil clears the slot, as does unregisterScriptEditBoxHandler. onExit does not clear it.
+--- Widget clone does not copy this notification callback.
 ---@param handler (fun(eventName:string,sender:ccui.EditBox))|nil
----@return ccui.EditBox @The original Lua receiver, including a .c_instance wrapper.
-function EditBox:registerScriptEditBoxHandler(handler)
-end
+---@return self @The original Lua receiver, including a .c_instance wrapper.
+function EditBox:registerScriptEditBoxHandler(handler) end
 
 --------------------------------
 

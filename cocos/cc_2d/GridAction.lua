@@ -17,9 +17,8 @@ end
 function GridAction:initWithDuration(duration, gridSize)
 end
 
----
----@return cc.GridAction
-function GridAction:reverse()
-end
+--- Shared generated native reverse; preserves virtual dispatch and the native returned action type.
+---@return cc.GridAction|nil
+function GridAction:reverse() end
 
 return nil
