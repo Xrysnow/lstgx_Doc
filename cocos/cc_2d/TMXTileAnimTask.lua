@@ -16,11 +16,4 @@ end
 function TMXTileAnimTask:stop()
 end
 
---- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
----@param layer cc.FastTMXLayer|nil
----@param animation any
----@param tilePos vec2_table
----@return cc.TMXTileAnimTask|nil
-function TMXTileAnimTask:create(layer, animation, tilePos) end
-
 return nil

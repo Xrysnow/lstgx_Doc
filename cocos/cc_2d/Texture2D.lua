@@ -374,29 +374,4 @@ end
 ---@overload fun(self:cc.Texture2D, descriptor:any):boolean
 function Texture2D:updateTextureDescriptor(descriptor, preMultipliedAlpha) end
 
---- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
----@param mipmaps any
----@param mipmapsNum number|string
----@param pixelFormat number|string
----@param renderFormat number|string
----@param pixelsWide number|string
----@param pixelsHigh number|string
----@param preMultipliedAlpha boolean|nil
----@param index number|string
----@return boolean
----@overload fun(self:cc.Texture2D, mipmaps:any, mipmapsNum:number|string, pixelFormat:number|string, renderFormat:number|string, pixelsWide:number|string, pixelsHigh:number|string):boolean
----@overload fun(self:cc.Texture2D, mipmaps:any, mipmapsNum:number|string, pixelFormat:number|string, renderFormat:number|string, pixelsWide:number|string, pixelsHigh:number|string, preMultipliedAlpha:boolean|nil):boolean
-function Texture2D:updateWithMipmaps(mipmaps, mipmapsNum, pixelFormat, renderFormat, pixelsWide, pixelsHigh, preMultipliedAlpha, index) end
-
---- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
----@param data any
----@param offsetX number|string
----@param offsetY number|string
----@param width number|string
----@param height number|string
----@param index number|string
----@return boolean
----@overload fun(self:cc.Texture2D, data:any, offsetX:number|string, offsetY:number|string, width:number|string, height:number|string):boolean
-function Texture2D:updateWithSubData(data, offsetX, offsetY, width, height, index) end
-
 return nil

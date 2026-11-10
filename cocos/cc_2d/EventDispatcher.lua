@@ -142,13 +142,4 @@ end
 function EventDispatcher:setPriority(listener, fixedPriority)
 end
 
----  Dispatches a Custom Event with a event name an optional user data.
---- param eventName The name of the event which needs to be dispatched.
---- param optionalUserData The optional user data, it's a void*, the default value is nullptr.
----@param eventName string
----@param optionalUserData void
----@return cc.EventDispatcher
-function EventDispatcher:dispatchCustomEvent(eventName, optionalUserData)
-end
-
 return nil

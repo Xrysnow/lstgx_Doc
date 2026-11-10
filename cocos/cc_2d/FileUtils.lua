@@ -657,11 +657,4 @@ end
 function FileUtils:isAbsolutePathInternal(path)
 end
 
---- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
----@param data any
----@param dataSize number|string
----@param fullPath string|number
----@return boolean
-function FileUtils:writeBinaryToFile(data, dataSize, fullPath) end
-
 return nil

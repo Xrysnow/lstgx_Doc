@@ -17,13 +17,4 @@ end
 function AsyncTaskPool:getInstance()
 end
 
----@param type number
----@param callback fun()
----@param callbackParam void
----@param task fun()
----@return cc.AsyncTaskPool
----@overload fun(self:cc.AsyncTaskPool, type:number, task:function):cc.AsyncTaskPool
-function AsyncTaskPool:enqueue(type, callback, callbackParam, task)
-end
-
 return nil

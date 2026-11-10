@@ -61,18 +61,6 @@ function Scene:initPhysicsWorld() end
 function Scene:initWithPhysics()
 end
 
----  Render the scene.
---- param renderer The renderer use to render the scene.
---- param eyeTransform The AdditionalTransform of camera.
---- param eyeProjection The projection matrix of camera.
---- js NA
----@param renderer cc.Renderer
----@param eyeTransform mat4_table
----@param eyeProjection mat4_table
----@return cc.Scene
-function Scene:render(renderer, eyeTransform, eyeProjection)
-end
-
 ---
 ---@param deltaTime number
 ---@return cc.Scene

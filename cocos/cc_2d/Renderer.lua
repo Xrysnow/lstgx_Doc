@@ -365,12 +365,6 @@ end
 function Renderer:getViewport()
 end
 
---- Retained legacy callback stub; the Lua bridge does not implement the native callback signature.
----@param rt ccb.RenderTarget|nil
----@param callback any
----@return cc.Renderer
-function Renderer:readPixels(rt, callback) end
-
 --- Retained legacy stub; native buffer/value input conversion is unavailable in this Lua bridge.
 ---@param dsDesc any
 ---@return cc.Renderer

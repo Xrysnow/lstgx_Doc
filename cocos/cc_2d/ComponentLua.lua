@@ -8,9 +8,4 @@ cc.ComponentLua = ComponentLua
 function ComponentLua:create(scriptFileName)
 end
 
---- This function is used to be invoked from lua side to get the corresponding script object of this component.
----@return void
-function ComponentLua:getScriptObject()
-end
-
 return nil
