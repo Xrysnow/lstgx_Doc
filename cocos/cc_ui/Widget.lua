@@ -52,15 +52,6 @@ end
 
 --------------------------------
 
---- Set callback name.
---- param callbackName A string representation of callback name.
----@param callbackName string
----@return ccui.Widget
-function Widget:setCallbackName(callbackName)
-end
-
---------------------------------
-
 --- Gets the inner Renderer node of widget.
 --- For example, a button's Virtual Renderer is it's texture renderer.
 --- return Node pointer.
@@ -247,14 +238,6 @@ end
 --- return true if the widget is touch enabled, false if the widget is touch disabled.
 ---@return boolean
 function Widget:isTouchEnabled()
-end
-
---------------------------------
-
---- Query callback name.
---- return The callback name.
----@return string
-function Widget:getCallbackName()
 end
 
 --------------------------------
@@ -490,14 +473,6 @@ end
 
 --------------------------------
 
---- Query callback type.
---- return Callback type string.
----@return string
-function Widget:getCallbackType()
-end
-
---------------------------------
-
 --- 
 ---@return vec2_table
 function Widget:getTouchEndPosition()
@@ -582,15 +557,6 @@ end
 ---@param bright boolean
 ---@return ccui.Widget
 function Widget:setBright(bright)
-end
-
---------------------------------
-
---- Set callback type.
---- param callbackType A string representation of callback type.
----@param callbackType string
----@return ccui.Widget
-function Widget:setCallbackType(callbackType)
 end
 
 --------------------------------
