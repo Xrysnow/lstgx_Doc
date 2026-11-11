@@ -64,7 +64,7 @@ end
 --- @param callback Use this function can catch movement state.
 ---@param destination vec3_table @(cocos2d::Vec3)
 --- Omission clears callback. Called each valid preUpdate: (agent, elapsedSeconds).
---- Debug requires function; legacy Release accepts nonfunction as no callback.
+--- Shared callback conversion accepts function/nil in both build modes; nil clears the slot.
 ---@param callback? function @(cocos2d::NavMeshAgent::MoveCallback)
 ---@return self @(void)
 function NavMeshAgent:move(destination, callback)
@@ -180,12 +180,9 @@ end
 ---@return cc.NavMeshAgent
 function NavMeshAgent:new() end
 
---- Table defaults: radius=.6, height=2, maxAcceleration=8, maxSpeed=3.5,
---- collisionQueryRange=radius*12, pathOptimizationRange=radius*30,
---- separationWeight=2, updateFlags=27, obstacleAvoidanceType=3, queryFilterType=0.
---- Missing/non-numeric fields use defaults; numeric strings are accepted.
----@param param table
----@return cc.NavMeshAgent
+--- Shared native factory; validated partial descriptor with native constructor defaults.
+---@param param cc.NavMeshAgentParam
+---@return cc.NavMeshAgent|nil
 function NavMeshAgent:create(param) end
 
 --- Legacy wrapper returns its existing stack top (self).
@@ -197,7 +194,7 @@ function NavMeshAgent:getUserData() end
 function NavMeshAgent:setUserData(data) end
 
 --- Snapshot containing startPosition/endPosition Vec3 tables.
----@return table
+---@return cc.OffMeshLinkData
 function NavMeshAgent:getCurrentOffMeshLinkData() end
 
 return nil

@@ -61,8 +61,9 @@ end
 
 --- updateSamplerDescriptor defaults: LINEAR mag/min filters, CLAMP_TO_EDGE s/t address modes.
 --- Missing/nil fields preserve these native defaults; malformed supplied fields reject the call.
---- Native address-mode keys take precedence; wrapS/wrapT are fallback aliases.
---- Texture2D::TexParams aliases this native type; Core's Lua setter retains its four-scalar protocol.
+--- Only minFilter/magFilter/sAddressMode/tAddressMode are accepted; enum values must be declared.
+--- Unknown keys and aliases reject; reads do not execute metamethods.
+--- Texture2D::TexParams aliases this same table contract; its generated setter takes one table.
 --- TextureDescriptor rebuilding and raw pixel/compressed uploads are unavailable.
 
 return nil

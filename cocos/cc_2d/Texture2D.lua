@@ -374,4 +374,10 @@ end
 ---@overload fun(self:cc.Texture2D, descriptor:any):boolean
 function Texture2D:updateTextureDescriptor(descriptor, preMultipliedAlpha) end
 
+--- Set the native sampler descriptor using canonical named fields.
+--- Missing/nil fields use native defaults; malformed/unknown fields are rejected.
+---@param params ccb.SamplerDescriptor
+---@return self
+function Texture2D:setTexParameters(params) end
+
 return nil

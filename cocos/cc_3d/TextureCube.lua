@@ -17,7 +17,7 @@ end
 
 --- Sets the min filter, mag filter, wrap s and wrap t texture parameters.
 --- If the texture size is NPOT (non power of 2), then in can only use GL_CLAMP_TO_EDGE in GL_TEXTURE_WRAP_{S,T}.
----@param param1 cc.backend.SamplerDescriptor @(cocos2d::Texture2D::TexParams)
+---@param param1 ccb.SamplerDescriptor @(cocos2d::Texture2D::TexParams)
 ---@return self @(void)
 function TextureCube:setTexParameters(param1)
 end
