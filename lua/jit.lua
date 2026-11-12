@@ -1,6 +1,10 @@
 --
 
 ---@class jit
+---@field version string
+---@field version_num number
+---@field os string
+---@field arch string
 --- The functions in this built-in module control the behavior of the JIT compiler engine. Note that JIT-compilation is fully automatic — you probably won't need to use any of the following functions unless you have special needs.
 jit = jit or {}
 
@@ -43,19 +47,15 @@ function jit.status()
 end
 
 --- Contains the LuaJIT version string.
----@field version string
 jit.version = ''
 
 --- Contains the version number of the LuaJIT core. Version xx.yy.zz is represented by the decimal number xxyyzz.
----@field version_num number
 jit.version_num = 0
 
 --- Contains the target OS name: "Windows", "Linux", "OSX", "BSD", "POSIX" or "Other".
----@field os string
 jit.os = ''
 
 --- Contains the target architecture name: "x86", "x64", "arm", "ppc", "ppcspe", or "mips".
----@field arch string
 jit.arch = ''
 
 local opt = {}

@@ -10,6 +10,9 @@
 --- Declaring and Accessing External Symbols
 --- External symbols must be declared first and can then be accessed by indexing a C library namespace, which automatically binds the symbol to a specific library.
 ---@class ffi
+---@field C table
+---@field os table
+---@field arch table
 ffi = ffi or {}
 
 --- Adds multiple C declarations for types or external symbols (named variables or functions). def must be a Lua string.
@@ -29,7 +32,6 @@ end
 --- This is the default C library namespace — note the uppercase 'C'. It binds to the default set of symbols or libraries on the target system. These are more or less the same as a C compiler would offer by default, without specifying extra link libraries.
 --- On POSIX systems, this binds to symbols in the default or global namespace. This includes all exported symbols from the executable and any libraries loaded into the global namespace. This includes at least libc, libm, libdl (on Linux), libgcc (if compiled with GCC), as well as any exported symbols from the Lua/C API provided by LuaJIT itself.
 --- On Windows systems, this binds to symbols exported from the *.exe, the lua51.dll (i.e. the Lua/C API provided by LuaJIT itself), the C runtime library LuaJIT was linked with (msvcrt*.dll), kernel32.dll, user32.dll and gdi32.dll.
----@field C table
 ffi.C = ffi.C or {}
 
 --- This loads the dynamic library given by name and returns a new C library namespace which binds to its symbols. On POSIX systems, if global is true, the library symbols are loaded into the global namespace, too.
@@ -157,18 +159,16 @@ function ffi.abi(param)
 end
 
 --- Contains the target OS name. Same contents as jit.os.
----@field os table
 ffi.os = {}
 
 --- Contains the target architecture name. Same contents as jit.arch.
----@field arch table
 ffi.arch = {}
 
 -- Methods for Callbacks
 
 --- The C types for callbacks have some extra methods
 ---@class ffi.callback
-local cb = cb or {}
+local cb = {}
 
 --- Free the resources associated with a callback. The associated Lua function is unanchored and may be garbage collected. The callback function pointer is no longer valid and must not be called anymore (it may be reused by a subsequently created callback).
 function cb:free()
