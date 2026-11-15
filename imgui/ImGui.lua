@@ -21,16 +21,6 @@ end
 
 --------------------------------
 
----   helper to create a child window / scrolling region that looks like a normal widget frame 
----@param id number
----@param size ImVec2
----@param flags number
----@return boolean
-function imgui.beginChildFrame(id, size, flags)
-end
-
---------------------------------
-
 --- 
 ---@param label string
 ---@param preview_value string
@@ -281,12 +271,6 @@ end
 ---   add a dummy item of given size. unlike InvisibleButton(), Dummy() won't take the mouse click or be navigable into. 
 ---@param size ImVec2
 function imgui.dummy(size)
-end
-
---------------------------------
-
----   always call EndChildFrame() regardless of BeginChildFrame() return values (which indicates a collapsed/clipped window) 
-function imgui.endChildFrame()
 end
 
 --------------------------------

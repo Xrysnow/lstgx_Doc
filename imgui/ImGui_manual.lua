@@ -61,12 +61,12 @@ end
 ---   [Important: due to legacy reason, this is inconsistent with most other functions such as BeginMenu/EndMenu,
 ---   BeginPopup/EndPopup, etc. where the EndXXX call should only be called if the corresponding BeginXXX function
 ---   returned true. Begin and BeginChild are the only odd ones out. Will be fixed in a future update.]
----@param id string
+---@param id string|number
 ---@param size ImVec2 optional
----@param border number optional
+---@param child_flags number|boolean optional ImGuiChildFlags, or legacy border boolean
 ---@param flags number optional ImGuiWindowFlags
 ---@return boolean
-function imgui.beginChild(id, size, border, flags)
+function imgui.beginChild(id, size, child_flags, flags)
 end
 
 function imgui.endChild()
