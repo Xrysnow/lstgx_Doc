@@ -4,6 +4,8 @@
 ------------------------------
 
 
+--- Legacy synchronous desktop API. New code should use cc.FileDialog.openFiles,
+--- pickFolder or exportFile and continue in the engine-thread callback.
 ---@class lstg.FileDialog
 local FileDialog = {}
 lstg.FileDialog = FileDialog
