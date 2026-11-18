@@ -1,5 +1,6 @@
 --- Engine-thread asynchronous system document picker.
 ---@class cc.FileDialog
+---@field filters cc.FileDialogFilters @Provided by the bundled Lua scripts.
 local FileDialog = {}
 
 ---@class cc.DialogRequest
@@ -33,6 +34,17 @@ function Target:tryGetLocalPath() end
 ---@field mimeTypes string[]|nil
 ---@field appleTypeIdentifiers string[]|nil
 
+--- Each factory returns a fresh filter table.
+---@class cc.FileDialogFilters
+---@field image fun():cc.FileDialogFilter
+---@field audio fun():cc.FileDialogFilter
+---@field video fun():cc.FileDialogFilter
+---@field font fun():cc.FileDialogFilter
+---@field text fun():cc.FileDialogFilter
+---@field json fun():cc.FileDialogFilter
+---@field lua fun():cc.FileDialogFilter
+---@field zip fun():cc.FileDialogFilter
+
 ---@class cc.FileDialogResult
 ---@field status 'ok'|'cancelled'|'error'
 ---@field cancelReason 'none'|'user'|'caller'
@@ -47,6 +59,30 @@ function Target:tryGetLocalPath() end
 
 ---@return table @backend, available, unavailableReason and per-operation capability flags.
 function FileDialog.capabilities() end
+
+--- Pick one file. The callback-only overload accepts all types.
+---@overload fun(callback:fun(result:cc.FileDialogResult)):cc.DialogRequest|nil,cc.FileDialogError|nil
+---@param filter cc.FileDialogFilter|nil
+---@param callback fun(result:cc.FileDialogResult)
+---@return cc.DialogRequest|nil, cc.FileDialogError|nil
+function FileDialog.openFile(filter, callback) end
+
+--- Pick one or more files. The callback-only overload accepts all types.
+---@overload fun(callback:fun(result:cc.FileDialogResult)):cc.DialogRequest|nil,cc.FileDialogError|nil
+---@param filter cc.FileDialogFilter|nil
+---@param callback fun(result:cc.FileDialogResult)
+---@return cc.DialogRequest|nil, cc.FileDialogError|nil
+function FileDialog.openMultiple(filter, callback) end
+
+---@param callback fun(result:cc.FileDialogResult)
+---@return cc.DialogRequest|nil, cc.FileDialogError|nil
+function FileDialog.openFolder(callback) end
+
+---@param source cc.Document
+---@param suggestedName string
+---@param callback fun(result:cc.FileDialogResult)
+---@return cc.DialogRequest|nil, cc.FileDialogError|nil
+function FileDialog.exportAs(source, suggestedName, callback) end
 
 --- An accepted request completes once on a later engine frame while the session and VM live.
 --- Dropping the handle leaves the operation active. Cancel explicitly when the owning scene exits.
