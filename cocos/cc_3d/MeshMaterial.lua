@@ -35,8 +35,8 @@ end
 ---
 --- Create material with a ProgramState
 --- (static)
----@param programState cc.backend.ProgramState @(cocos2d::backend::ProgramState*) GLProgramState instance
----@return cc.MeshMaterial @(cocos2d::MeshMaterial*) An autorelease material object
+---@param programState ccb.ProgramState @(cc::IntrusivePtr<cc::backend::ProgramState>) State held by the material's pass
+---@return cc.MeshMaterial @(cc::IntrusivePtr<cc::MeshMaterial>) An autorelease material object
 function MeshMaterial:createWithProgramState(programState)
 end
 

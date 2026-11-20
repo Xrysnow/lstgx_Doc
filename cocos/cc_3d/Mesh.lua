@@ -91,7 +91,7 @@ end
 
 --- Sets a new ProgramState for the Mesh
 --- A new Material will be created for it
----@param programState cc.backend.ProgramState @(cocos2d::backend::ProgramState*)
+---@param programState ccb.ProgramState @(cc::IntrusivePtr<cc::backend::ProgramState>)
 ---@return self @(void)
 function Mesh:setProgramState(programState)
 end

@@ -130,12 +130,12 @@ end
 function ProgramState:validateSharedVertexLayout(fnValidate)
 end
 
---- There is no Lua new/callable constructor or implicit create replacement.
---- Obtain a state from a native owner (for example Sprite:getProgramState), or clone an existing state.
---- For builtin sprite programs, use sprite:setProgramState(programType); the native owner creates and adopts the state.
+--- Borrow a state from a native owner such as Sprite:getProgramState, create a custom
+--- state with RenderMode:newProgramState(), or clone an existing state.
+--- For built-in sprite programs, sprite:setProgramState(programType) creates and owns the state.
 
 --- Clone layout, uniforms and textures. Initial reference is autoreleased once.
---- A Lua variable does not retain a Ref: use a native owner or balanced retain/release across frames.
+--- Call node:setProgramState(state) to let a node keep the clone across frames.
 ---@return ccb.ProgramState|nil
 function ProgramState:clone() end
 

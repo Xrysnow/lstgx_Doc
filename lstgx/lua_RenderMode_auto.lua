@@ -21,7 +21,8 @@ end
 function RenderMode:getBlendFunc()
 end
 
----@return cc.backend.ProgramState @(cocos2d::backend::ProgramState*)
+--- Borrows the default state held by this RenderMode.
+---@return ccb.ProgramState|nil @(cc::backend::ProgramState*)
 function RenderMode:getDefaultProgramState()
 end
 
@@ -45,7 +46,9 @@ end
 function RenderMode:getUniformNames()
 end
 
----@return cc.backend.ProgramState @(cocos2d::backend::ProgramState*)
+--- Creates a state with this mode's uniforms. The initial reference is autoreleased.
+--- Call node:setProgramState(state) to keep it across frames.
+---@return ccb.ProgramState @(cc::IntrusivePtr<cc::backend::ProgramState>)
 function RenderMode:newProgramState()
 end
 

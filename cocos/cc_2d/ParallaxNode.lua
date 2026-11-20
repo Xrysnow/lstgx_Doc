@@ -2,12 +2,11 @@
 local ParallaxNode = {}
 cc.ParallaxNode = ParallaxNode
 
---- Adds a child to the container with a local z-order, parallax ratio and position offset.
----
----@param child cc.Node @(cocos2d::Node*) A child node.
+--- Attaches and holds a child with a local z-order, parallax ratio and position offset.
+---@param child cc.Node @(cc::IntrusivePtr<cc::Node>)
 ---@param z number @(int) Z order for drawing priority.
----@param parallaxRatio vec2_table @(cocos2d::Vec2) A given parallax ratio.
----@param positionOffset vec2_table @(cocos2d::Vec2) A given position offset.
+---@param parallaxRatio vec2_table @(const cc::Vec2&) A given parallax ratio.
+---@param positionOffset vec2_table @(const cc::Vec2&) A given position offset.
 ---@return self @(void)
 function ParallaxNode:addChild(child, z, parallaxRatio, positionOffset)
 end

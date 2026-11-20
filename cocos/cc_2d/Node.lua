@@ -7,54 +7,33 @@ cc.Node = Node
 function Node:_setLocalZOrder(z)
 end
 
----
---- Adds a child to the container with z order and tag
----
---- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called
---- immediately.
----
----
----@param child cc.Node @(cocos2d::Node*)     A child node.
----@param localZOrder number @(int)    Z order for drawing priority. Please refer to `setLocalZOrder(int)`.
----@param name string @(std::string_view)      A string to identify the node easily. Please refer to `setName(int)`.
+--- Attaches and holds a child with the given local z-order and name.
+--- A running parent calls onEnter immediately. It sends the transition-finish event
+--- if its own transition has finished and the same attachment is still active.
+---@param child cc.Node @(cc::IntrusivePtr<cc::Node>)
+---@param localZOrder number @(int) Z-order for drawing priority.
+---@param name string @(std::string_view) Name used to find the child. Numeric-looking strings are names.
 ---@return self @(void)
 function Node:addChild(child, localZOrder, name)
 end
 
----
---- Adds a child to the container with z order and tag.
----
---- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called
---- immediately.
----
----
---- Please use `addChild(Node* child, int localZOrder, const std::string &name)` instead.
----@param child cc.Node @(cocos2d::Node*)         A child node.
----@param localZOrder number @(int)   Z order for drawing priority. Please refer to `setLocalZOrder(int)`.
----@param tag number @(int)           An integer to identify the node easily. Please refer to `setTag(int)`.
+--- Attaches a child with the given local z-order and tag.
+---@param child cc.Node @(cc::IntrusivePtr<cc::Node>)
+---@param localZOrder number @(int) Z-order for drawing priority.
+---@param tag number @(int) Tag used to find the child.
 ---@return self @(void)
 function Node:addChild(child, localZOrder, tag)
 end
 
----
---- Adds a child to the container with a local z-order.
----
---- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called
---- immediately.
----
----@param child cc.Node @(cocos2d::Node*)     A child node.
----@param localZOrder number @(int)    Z order for drawing priority. Please refer to `setLocalZOrder(int)`.
+--- Attaches a child with the given local z-order.
+---@param child cc.Node @(cc::IntrusivePtr<cc::Node>)
+---@param localZOrder number @(int) Z-order for drawing priority.
 ---@return self @(void)
 function Node:addChild(child, localZOrder)
 end
 
----
---- Adds a child to the container with z-order as 0.
----
---- If the child is added to a 'running' node, then 'onEnter' and 'onEnterTransitionDidFinish' will be called
---- immediately.
----
----@param child cc.Node @(cocos2d::Node*) A child node.
+--- Attaches a child using its current local z-order.
+---@param child cc.Node @(cc::IntrusivePtr<cc::Node>)
 ---@return self @(void)
 function Node:addChild(child)
 end
@@ -524,7 +503,8 @@ end
 function Node:getPositionZ()
 end
 
----@return ccb.ProgramState @(cocos2d::backend::ProgramState*)
+--- Borrows the state currently held by this node.
+---@return ccb.ProgramState|nil @(cc::backend::ProgramState*)
 function Node:getProgramState()
 end
 
@@ -1172,19 +1152,11 @@ end
 function Node:setPositionZ(positionZ)
 end
 
----
---- Sets ProgramState with retain
----@param programState ccb.ProgramState @(cocos2d::backend::ProgramState*)
----@param needsRetain boolean @(bool)
+--- Holds a reference to state. Returns true when a different non-nil state is installed.
+--- Passing nil clears the state on nodes that support clearing.
+---@param state ccb.ProgramState|nil @(cc::IntrusivePtr<cc::backend::ProgramState>)
 ---@return boolean @(bool)
-function Node:setProgramState(programState, needsRetain)
-end
-
----
---- Sets ProgramState with retain
----@param programState ccb.ProgramState @(cocos2d::backend::ProgramState*)
----@return boolean @(bool)
-function Node:setProgramState(programState)
+function Node:setProgramState(state)
 end
 
 ---@param programType number @(uint32_t)
