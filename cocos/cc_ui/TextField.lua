@@ -9,13 +9,6 @@ local TextField = {}
 ccui.TextField = TextField
 --------------------------------
 
---- brief Toggle attach with IME.
---- param attach True if attach with IME, false otherwise.
----@param attach boolean
----@return ccui.TextField
-function TextField:setAttachWithIME(attach)
-end
-
 --------------------------------
 
 --- brief Query the font size.
@@ -67,10 +60,9 @@ end
 
 --------------------------------
 
---- brief Query whether the IME is attached or not.
---- return True if IME is attached, false otherwise.
+--- brief Return whether the field has an active text input session.
 ---@return boolean
-function TextField:getAttachWithIME()
+function TextField:isEditing()
 end
 
 --------------------------------
@@ -109,12 +101,6 @@ function TextField:setString(text)
 end
 
 --------------------------------
-
---- brief Query whether IME is detached or not.
---- return True if IME is detached, false otherwise.
----@return boolean
-function TextField:getDetachWithIME()
-end
 
 --------------------------------
 
@@ -161,9 +147,14 @@ end
 
 --------------------------------
 
---- brief Attach the IME for inputing.
+--- Begin a text input session for this field.
 ---@return ccui.TextField
-function TextField:attachWithIME()
+function TextField:beginEditing()
+end
+
+--- End the current text input session.
+---@return ccui.TextField
+function TextField:endEditing()
 end
 
 --------------------------------
@@ -332,13 +323,6 @@ function TextField:isMaxLengthEnabled()
 end
 
 --------------------------------
-
---- brief Toggle detach with IME.
---- param detach True if detach with IME, false otherwise.
----@param detach boolean
----@return ccui.TextField
-function TextField:setDetachWithIME(detach)
-end
 
 --------------------------------
 

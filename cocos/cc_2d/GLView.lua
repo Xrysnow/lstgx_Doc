@@ -201,13 +201,6 @@ end
 function GLView:setFrameZoomFactor(param1)
 end
 
---- Open or close IME keyboard , subclass must implement this method.
----
----@param open boolean @(bool) Open or close IME keyboard.
----@return self @(void)
-function GLView:setIMEKeyboardState(open)
-end
-
 --- Set window icon (implemented for windows and linux).
 --- Best icon (based on size) will be auto selected.
 ---
