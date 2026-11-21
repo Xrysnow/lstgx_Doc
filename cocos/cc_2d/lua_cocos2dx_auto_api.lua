@@ -337,9 +337,6 @@
 
 
 --------------------------------------------------------
--- the cc EventListenerController
--- @field [parent=#cc] EventListenerController#EventListenerController EventListenerController preloaded module
-
 
 --------------------------------------------------------
 -- the cc EventListenerTouchOneByOne
@@ -352,9 +349,6 @@
 
 
 --------------------------------------------------------
--- the cc EventController
--- @field [parent=#cc] EventController#EventController EventController preloaded module
-
 
 --------------------------------------------------------
 -- the cc ActionCamera

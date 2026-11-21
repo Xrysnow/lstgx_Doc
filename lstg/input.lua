@@ -35,32 +35,4 @@ end
 function GetMouseState(button)
 end
 
----
----@return cc.Controller[]
-function GetAllControllers()
-end
-
----
----@param f fun(controller:cc.Controller, keyCode:number, value:number, isPressed:boolean, isAnalog:boolean)
-function SetOnControllerKeyDown(f)
-end
-
----
----@param f fun(controller:cc.Controller, keyCode:number, value:number, isPressed:boolean, isAnalog:boolean)
-function SetOnControllerKeyUp(f)
-end
-
----
----@param f fun(controller:cc.Controller, keyCode:number, value:number, isPressed:boolean, isAnalog:boolean)
-function SetOnControllerAxisEvent(f)
-end
-
----
----@param f fun(controller:cc.Controller)
-function SetOnControllerConnect(f)
-end
-
----
----@param f fun(controller:cc.Controller)
-function SetOnControllerDisconnect(f)
-end
+---@see cc.gamepad
