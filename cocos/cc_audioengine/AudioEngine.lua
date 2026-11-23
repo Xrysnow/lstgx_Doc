@@ -15,7 +15,7 @@ cc.AudioEngine = AudioEngine
 
 ---@alias cc.AudioChannelPosition 'frontLeft'|'frontRight'|'frontCenter'|'lfe'|'rearLeft'|'rearRight'|'sideLeft'|'sideRight'
 ---@alias cc.AudioOutputError 'None'|'InvalidArgument'|'Unsupported'|'Disconnected'|'ChannelManaged'|'Busy'|'QueueFull'|'BackendFailure'
----@alias cc.AudioPlaybackState 'ready'|'buffering'|'playing'|'paused'|'stopped'|'ended'|'failed'|'closed'
+---@alias cc.AudioPlaybackStateName 'ready'|'buffering'|'playing'|'paused'|'stopped'|'ended'|'failed'|'closed'
 
 ---@class cc.AudioOutputChannel
 ---@field position cc.AudioChannelPosition
@@ -32,7 +32,7 @@ cc.AudioEngine = AudioEngine
 ---@field output cc.AudioChannelPosition
 
 ---@class cc.AudioDirectPlaybackSnapshot
----@field state cc.AudioPlaybackState
+---@field state cc.AudioPlaybackStateName
 ---@field error cc.AudioOutputError
 ---@field positionSeconds number
 ---@field durationSeconds number? Present when the input duration is known.
