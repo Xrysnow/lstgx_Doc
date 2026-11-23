@@ -10,6 +10,91 @@ local AudioEngine = {}
 cc.AudioEngine = AudioEngine
 --------------------------------
 
+--- An opaque endpoint identifier valid for one connection.
+---@alias cc.AudioEndpointId string
+
+---@alias cc.AudioChannelPosition 'frontLeft'|'frontRight'|'frontCenter'|'lfe'|'rearLeft'|'rearRight'|'sideLeft'|'sideRight'
+---@alias cc.AudioOutputError 'None'|'InvalidArgument'|'Unsupported'|'Disconnected'|'ChannelManaged'|'Busy'|'QueueFull'|'BackendFailure'
+---@alias cc.AudioPlaybackState 'ready'|'buffering'|'playing'|'paused'|'stopped'|'ended'|'failed'|'closed'
+
+---@class cc.AudioOutputChannel
+---@field position cc.AudioChannelPosition
+---@field managed boolean
+
+---@class cc.AudioOutputEndpoint
+---@field id cc.AudioEndpointId
+---@field name string
+---@field isDefault boolean
+---@field channels cc.AudioOutputChannel[]
+
+---@class cc.AudioChannelRoute
+---@field input integer The source channel, starting at 1.
+---@field output cc.AudioChannelPosition
+
+---@class cc.AudioDirectPlaybackSnapshot
+---@field state cc.AudioPlaybackState
+---@field error cc.AudioOutputError
+---@field positionSeconds number
+---@field durationSeconds number? Present when the input duration is known.
+---@field gain number
+---@field looping boolean
+---@field seekable boolean
+
+---@class cc.AudioDirectPlayback
+local AudioDirectPlayback = {}
+
+---@return true? success
+---@return cc.AudioOutputError? error
+function AudioDirectPlayback:play() end
+
+---@return true? success
+---@return cc.AudioOutputError? error
+function AudioDirectPlayback:pause() end
+
+---@return true? success
+---@return cc.AudioOutputError? error
+function AudioDirectPlayback:resume() end
+
+---@return true? success
+---@return cc.AudioOutputError? error
+function AudioDirectPlayback:stop() end
+
+---@param seconds number
+---@return true? success
+---@return cc.AudioOutputError? error
+function AudioDirectPlayback:seekTime(seconds) end
+
+---@param enabled boolean
+---@return true? success
+---@return cc.AudioOutputError? error
+function AudioDirectPlayback:setLooping(enabled) end
+
+---@param gain number A finite nonnegative linear gain.
+---@return true? success
+---@return cc.AudioOutputError? error
+function AudioDirectPlayback:setGain(gain) end
+
+---@return cc.AudioDirectPlaybackSnapshot
+function AudioDirectPlayback:snapshot() end
+
+---@return true success
+function AudioDirectPlayback:close() end
+
+--- Enumerates connected output endpoints and their known channels.
+---@return cc.AudioOutputEndpoint[]? endpoints
+---@return cc.AudioOutputError? error
+function AudioEngine:getOutputEndpoints() end
+
+--- Prepares a playback handle for the selected endpoint connection. Retain the handle during playback.
+---@param source cc.AudioSource
+---@param endpoint cc.AudioEndpointId
+---@param channelMap cc.AudioChannelRoute[]
+---@return cc.AudioDirectPlayback? playback
+---@return cc.AudioOutputError? error
+function AudioEngine:createDirectPlayback(source, endpoint, channelMap) end
+
+--------------------------------
+
 --- Gets a list of the names of the currently enabled effects.
 --- return The list of the names of the currently enabled effects.
 ---@return string[]
