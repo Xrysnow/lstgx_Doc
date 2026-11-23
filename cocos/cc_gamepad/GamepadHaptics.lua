@@ -14,50 +14,41 @@
 ---@class cc.gamepad.HapticPlayback
 local HapticPlayback = {}
 
----@return true? success
----@return cc.gamepad.Error? error
+---@return cc.gamepad.Error status
 function HapticPlayback:play() end
 
----@return true? success
----@return cc.gamepad.Error? error
+---@return cc.gamepad.Error status
 function HapticPlayback:pause() end
 
----@return true? success
----@return cc.gamepad.Error? error
+---@return cc.gamepad.Error status
 function HapticPlayback:resume() end
 
----@return true? success
----@return cc.gamepad.Error? error
+---@return cc.gamepad.Error status
 function HapticPlayback:stop() end
 
 ---@param seconds number
----@return true? success
----@return cc.gamepad.Error? error
+---@return cc.gamepad.Error status
 function HapticPlayback:seekTime(seconds) end
 
 ---@param enabled boolean
----@return true? success
----@return cc.gamepad.Error? error
+---@return cc.gamepad.Error status
 function HapticPlayback:setLooping(enabled) end
 
 ---@param intensity number A finite value between 0 and 1.
----@return true? success
----@return cc.gamepad.Error? error
+---@return cc.gamepad.Error status
 function HapticPlayback:setIntensity(intensity) end
 
 ---@return cc.gamepad.HapticPlaybackSnapshot
 function HapticPlayback:snapshot() end
 
----@return true success
 function HapticPlayback:close() end
 
----@class cc.gamepad
-local gamepad = {}
-cc.gamepad = gamepad
+---@class cc.gamepad.GamepadService
+local GamepadService = {}
 
 --- Prepares waveform playback for a connected controller. Retain the handle while it plays.
 ---@param id integer The device ID returned by the gamepad frame.
 ---@param source cc.AudioSource A static or independently reopenable mono or stereo source.
 ---@return cc.gamepad.HapticPlayback? playback
 ---@return cc.gamepad.Error? error
-function gamepad.createHapticPlayback(id, source) end
+function GamepadService:createHapticPlayback(id, source) end
