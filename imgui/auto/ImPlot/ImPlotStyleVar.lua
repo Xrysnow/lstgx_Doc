@@ -1,0 +1,25 @@
+---@class implot.ImPlotStyleVar
+local ImPlotStyleVar = {
+	PlotDefaultSize = 0,
+	PlotMinSize = 1,
+	PlotBorderSize = 2,
+	MinorAlpha = 3,
+	MajorTickLen = 4,
+	MinorTickLen = 5,
+	MajorTickSize = 6,
+	MinorTickSize = 7,
+	MajorGridSize = 8,
+	MinorGridSize = 9,
+	PlotPadding = 10,
+	LabelPadding = 11,
+	LegendPadding = 12,
+	LegendInnerPadding = 13,
+	LegendSpacing = 14,
+	MousePosPadding = 15,
+	AnnotationPadding = 16,
+	FitPadding = 17,
+	DigitalPadding = 18,
+	DigitalSpacing = 19,
+	COUNT = 20,
+}
+implot.ImPlotStyleVar = ImPlotStyleVar

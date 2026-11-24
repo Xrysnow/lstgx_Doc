@@ -1,0 +1,15 @@
+---@class imgui.ImGuiSliderFlags
+local ImGuiSliderFlags = {
+	None = 0,
+	Logarithmic = 32,
+	NoRoundToFormat = 64,
+	NoInput = 128,
+	WrapAround = 256,
+	ClampOnInput = 512,
+	ClampZeroRange = 1024,
+	NoSpeedTweaks = 2048,
+	ColorMarkers = 4096,
+	AlwaysClamp = 1536,
+	InvalidMask_ = 1879048207,
+}
+imgui.ImGuiSliderFlags = ImGuiSliderFlags

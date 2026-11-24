@@ -1,0 +1,17 @@
+---@class imgui.ImGuiTabBarFlags
+local ImGuiTabBarFlags = {
+	None = 0,
+	Reorderable = 1,
+	AutoSelectNewTabs = 2,
+	TabListPopupButton = 4,
+	NoCloseWithMiddleMouseButton = 8,
+	NoTabListScrollingButtons = 16,
+	NoTooltip = 32,
+	DrawSelectedOverline = 64,
+	FittingPolicyMixed = 128,
+	FittingPolicyShrink = 256,
+	FittingPolicyScroll = 512,
+	FittingPolicyMask_ = 896,
+	FittingPolicyDefault_ = 128,
+}
+imgui.ImGuiTabBarFlags = ImGuiTabBarFlags

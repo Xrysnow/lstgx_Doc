@@ -1,0 +1,25 @@
+---@class imgui.ImGuiMultiSelectFlags
+local ImGuiMultiSelectFlags = {
+	ImGuiMultiSelectFlags_None = 0,
+	ImGuiMultiSelectFlags_SingleSelect = 1,
+	ImGuiMultiSelectFlags_NoSelectAll = 2,
+	ImGuiMultiSelectFlags_NoRangeSelect = 4,
+	ImGuiMultiSelectFlags_NoAutoSelect = 8,
+	ImGuiMultiSelectFlags_NoAutoClear = 16,
+	ImGuiMultiSelectFlags_NoAutoClearOnReselect = 32,
+	ImGuiMultiSelectFlags_BoxSelect1d = 64,
+	ImGuiMultiSelectFlags_BoxSelect2d = 128,
+	ImGuiMultiSelectFlags_BoxSelectNoScroll = 256,
+	ImGuiMultiSelectFlags_ClearOnEscape = 512,
+	ImGuiMultiSelectFlags_ClearOnClickVoid = 1024,
+	ImGuiMultiSelectFlags_ScopeWindow = 2048,
+	ImGuiMultiSelectFlags_ScopeRect = 4096,
+	ImGuiMultiSelectFlags_SelectOnAuto = 8192,
+	ImGuiMultiSelectFlags_SelectOnClickAlways = 16384,
+	ImGuiMultiSelectFlags_SelectOnClickRelease = 32768,
+	ImGuiMultiSelectFlags_NavWrapX = 65536,
+	ImGuiMultiSelectFlags_NoSelectOnRightClick = 131072,
+	ImGuiMultiSelectFlags_SelectOnMask_ = 57344,
+	ImGuiMultiSelectFlags_CheckboxMode_ = 1048576,
+}
+imgui.ImGuiMultiSelectFlags = ImGuiMultiSelectFlags

@@ -1,0 +1,9 @@
+---@class imgui.ImGuiCond
+local ImGuiCond = {
+	None = 0,
+	Always = 1,
+	Once = 2,
+	FirstUseEver = 4,
+	Appearing = 8,
+}
+imgui.ImGuiCond = ImGuiCond

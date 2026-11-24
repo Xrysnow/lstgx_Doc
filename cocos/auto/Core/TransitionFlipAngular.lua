@@ -1,0 +1,26 @@
+--- @class TransitionFlipAngular
+--- @brief TransitionFlipAngular:
+--- Flips the screen half horizontally and half vertically.
+--- The front face is the outgoing scene and the back face is the incoming scene.
+---@class cc.TransitionFlipAngular:cc.TransitionSceneOriented
+local TransitionFlipAngular = {}
+cc.TransitionFlipAngular = TransitionFlipAngular
+
+--- Creates a transition with duration, incoming scene and orientation.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cc::Scene*) A given scene.
+---@param o cc.TransitionScene.Orientation @(cc::TransitionScene::Orientation) A given orientation.
+---@return cc.TransitionFlipAngular @(cc::IntrusivePtr<cc::TransitionFlipAngular>) A owned TransitionFlipAngular object.
+function TransitionFlipAngular:create(t, s, o)
+end
+
+--- Creates a transition with duration and incoming scene.
+---
+--- (static)
+---@param t number @(float) Duration time, in seconds.
+---@param s cc.Scene @(cc::Scene*) A given scene.
+---@return cc.TransitionFlipAngular @(cc::IntrusivePtr<cc::TransitionFlipAngular>) A owned TransitionFlipAngular object.
+function TransitionFlipAngular:create(t, s)
+end

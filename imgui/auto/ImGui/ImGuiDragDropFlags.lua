@@ -1,0 +1,18 @@
+---@class imgui.ImGuiDragDropFlags
+local ImGuiDragDropFlags = {
+	None = 0,
+	SourceNoPreviewTooltip = 1,
+	SourceNoDisableHover = 2,
+	SourceNoHoldToOpenOthers = 4,
+	SourceAllowNullID = 8,
+	SourceExtern = 16,
+	PayloadAutoExpire = 32,
+	PayloadNoCrossContext = 64,
+	PayloadNoCrossProcess = 128,
+	AcceptBeforeDelivery = 1024,
+	AcceptNoDrawDefaultRect = 2048,
+	AcceptNoPreviewTooltip = 4096,
+	AcceptDrawAsHovered = 8192,
+	AcceptPeekOnly = 3072,
+}
+imgui.ImGuiDragDropFlags = ImGuiDragDropFlags
