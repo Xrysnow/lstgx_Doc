@@ -1,10 +1,28 @@
 --- 
---- ResourceMgr is a singleton class that manages ResourcePacks and cache local files.
---- Like ResourcePack, you have to manully release caches of local files.
---- It is connected to FileUtils (by XFileUtils class) so that cocos engine can load files from here.
+--- ResourceMgr mounts resource packs in FileUtils and caches file snapshots.
 ---@class lstg.ResourceMgr
 local ResourceMgr = {}
 lstg.ResourceMgr = ResourceMgr
+
+---@param hit cc.FileHit
+---@return lstg.ResourcePack|nil
+function ResourceMgr:getResourcePackForHit(hit)
+end
+
+---@param hit cc.FileHit
+---@return boolean
+function ResourceMgr:cacheFileHit(hit)
+end
+
+---@param hit cc.FileHit|nil
+---@param callback? fun()
+function ResourceMgr:cacheFileHitAsync(hit, callback)
+end
+
+---@param hit cc.FileHit
+---@return boolean
+function ResourceMgr:removeFileHitCache(hit)
+end
 
 ---@param pack lstg.ResourcePack @(lstg::ResourcePack*)
 ---@param override boolean @(bool)

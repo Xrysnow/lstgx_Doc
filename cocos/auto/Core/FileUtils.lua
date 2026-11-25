@@ -112,6 +112,96 @@ end
 function FileUtils:fullPathForFilename(filename)
 end
 
+--- Resolves a platform directory path. Returns an empty string when it is absent.
+---@param dirname string
+---@return string
+function FileUtils:fullPathForDirectory(dirname)
+end
+
+---@class cc.FileHit
+---@field adapterId string
+---@field kind string
+---@field name string
+---@field priority number
+---@field root string|nil
+---@field entryKey string
+---@field source string
+---@field nativePath string|nil
+---@field sizeHint number|string|nil
+
+---@class cc.IOError
+---@field code number
+---@field domain number
+---@field nativeCode number
+
+---@class cc.ReadAdapterInfo
+---@field id string
+---@field name string
+---@field kind string
+---@field priority number
+---@field roots string[]
+
+--- Returns a read-only hit that keeps its selected source alive.
+---@param name string
+---@return cc.FileHit|nil, cc.IOError|nil
+function FileUtils:findFile(name)
+end
+
+---@param name string
+---@return cc.FileHit[]|nil, cc.IOError|nil
+function FileUtils:findAllFiles(name)
+end
+
+---@param adapterId string
+---@param name string
+---@return cc.FileHit|nil, cc.IOError|nil
+function FileUtils:findFileIn(adapterId, name)
+end
+
+---@param name string
+---@return cc.FileHit|nil, cc.IOError|nil
+function FileUtils:findPlatformFile(name)
+end
+
+---@param parent cc.FileHit
+---@param name string
+---@return cc.FileHit|nil, cc.IOError|nil
+function FileUtils:findSibling(parent, name)
+end
+
+---@param hit cc.FileHit
+---@return string|nil, cc.IOError|nil
+function FileUtils:readFile(hit)
+end
+
+---@param hit cc.FileHit
+---@return number|string|nil, cc.IOError|nil
+function FileUtils:fileSize(hit)
+end
+
+---@return cc.ReadAdapterInfo[]
+function FileUtils:getReadAdapters()
+end
+
+---@param adapterId string
+---@param priority number
+---@return true|nil, cc.IOError|nil
+function FileUtils:setAdapterPriority(adapterId, priority)
+end
+
+---@param adapterId string
+---@param roots string[]
+---@return true|nil, cc.IOError|nil
+function FileUtils:setAdapterSearchPaths(adapterId, roots)
+end
+
+---@param adapterId string
+---@param root string
+---@param front? boolean
+---@return true|nil, cc.IOError|nil
+function FileUtils:addAdapterSearchPath(adapterId, root, front)
+end
+
 ---
 --- Gets full path from a file name and the path of the relative file.
 --- e.g. filename: hello.png, pszRelativeFile:Userpath1path2hello.plist

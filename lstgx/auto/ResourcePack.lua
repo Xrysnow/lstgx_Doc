@@ -45,7 +45,7 @@ function ResourcePack:getCRC32(fpath)
 end
 
 ---@param fpath string @(std::string)
----@return number @(uint32_t)
+---@return number|string
 function ResourcePack:getCompressedSize(fpath)
 end
 
@@ -71,7 +71,7 @@ function ResourcePack:getStringFromFile(fpath)
 end
 
 ---@param fpath string @(std::string)
----@return number @(uint32_t)
+---@return number|string
 function ResourcePack:getUncompressedSize(fpath)
 end
 
