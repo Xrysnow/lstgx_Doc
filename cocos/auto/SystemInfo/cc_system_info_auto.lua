@@ -1,0 +1,12 @@
+------------------------------
+--- Tag: cc_system_info
+------------------------------
+
+---@class cc.SystemInfoSnapshot
+---@field ok boolean? Empty poll results have no fields.
+---@field missing table<string,string>? Reason for each unavailable field.
+---@field error string? Whole-query failure.
+---@field nativeCode integer?
+---@field nativeDomain string?
+---@field context string?
+--- Snapshots are recursively copied Lua tables. Capacities use bytes, frequencies use Hz, and chargeFraction is in [0,1]. Identifiers and interface addresses require explicit opt-in.
