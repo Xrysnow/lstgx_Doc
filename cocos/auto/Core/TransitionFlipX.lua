@@ -1,4 +1,3 @@
---- @class TransitionFlipX
 --- @brief TransitionFlipX:
 --- Flips the screen horizontally.
 --- The front face is the outgoing scene and the back face is the incoming scene.

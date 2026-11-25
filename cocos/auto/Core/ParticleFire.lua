@@ -1,4 +1,3 @@
---- @class ParticleFire
 --- @brief A fire particle system.
 ---@class cc.ParticleFire:cc.ParticleSystemQuad
 local ParticleFire = {}

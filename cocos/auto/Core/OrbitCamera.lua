@@ -1,4 +1,3 @@
---- @class OrbitCamera
 ---
 --- @brief OrbitCamera action.
 --- Orbits the camera around the center of the screen using spherical coordinates.

@@ -1,4 +1,3 @@
---- @class DelayTime
 --- @brief Delays the action a certain amount of seconds.
 ---@class cc.DelayTime:cc.ActionInterval
 local DelayTime = {}

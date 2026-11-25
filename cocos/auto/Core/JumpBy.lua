@@ -1,4 +1,3 @@
---- @class JumpBy
 --- @brief Moves a Node object simulating a parabolic jump movement by modifying it's position attribute.
 ---@class cc.JumpBy:cc.ActionInterval
 local JumpBy = {}

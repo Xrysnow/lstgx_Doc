@@ -1,4 +1,3 @@
---- @class TransitionTurnOffTiles
 --- @brief TransitionTurnOffTiles:
 --- Turn off the tiles of the outgoing scene in random order
 ---@class cc.TransitionTurnOffTiles:cc.TransitionScene

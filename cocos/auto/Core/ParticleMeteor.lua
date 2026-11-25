@@ -1,4 +1,3 @@
---- @class ParticleMeteor
 --- @brief A meteor particle system.
 ---@class cc.ParticleMeteor:cc.ParticleSystemQuad
 local ParticleMeteor = {}

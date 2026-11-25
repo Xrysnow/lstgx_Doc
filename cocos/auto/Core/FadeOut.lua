@@ -1,4 +1,3 @@
---- @class FadeOut
 --- @brief Fades Out an object that implements the RGBAProtocol protocol. It modifies the opacity from 255 to 0.
 ---  The "reverse" of this action is FadeIn
 ---@class cc.FadeOut:cc.FadeTo

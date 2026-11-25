@@ -1,4 +1,3 @@
---- @class Spawn
 --- @brief Spawn a new action immediately
 ---@class cc.Spawn:cc.ActionInterval
 local Spawn = {}

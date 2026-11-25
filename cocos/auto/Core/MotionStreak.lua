@@ -1,4 +1,3 @@
---- @class MotionStreak.
 --- @brief Creates a trailing path.
 ---@class cc.MotionStreak:cc.Node
 local MotionStreak = {}

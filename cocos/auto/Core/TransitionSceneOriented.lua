@@ -1,4 +1,3 @@
---- @class TransitionSceneOriented
 --- @brief A Transition that supports orientation like.
 --- Possible orientation: LeftOver, RightOver, UpOver, DownOver
 ---@class cc.TransitionSceneOriented:cc.TransitionScene

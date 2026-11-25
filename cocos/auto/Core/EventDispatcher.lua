@@ -1,4 +1,3 @@
---- @class EventDispatcher
 --- @brief This class manages event listener subscriptions
 --- and event dispatching.
 ---

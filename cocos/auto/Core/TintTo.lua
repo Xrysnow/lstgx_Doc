@@ -1,4 +1,3 @@
---- @class TintTo
 --- @brief Tints a Node that implements the NodeRGB protocol from current tint to a custom one.
 ---  @warning This action doesn't support "reverse"
 ---  @since v0.7.2

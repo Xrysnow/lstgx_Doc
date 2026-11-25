@@ -1,5 +1,4 @@
 ---
---- @class Device
 --- @brief
 ---@class cc.Device
 local Device = {}

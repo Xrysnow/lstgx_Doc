@@ -1,4 +1,3 @@
---- @class TransitionRotoZoom
 --- @brief TransitionRotoZoom:
 --- Rotate and zoom out the outgoing scene, and then rotate and zoom in the incoming
 ---@class cc.TransitionRotoZoom:cc.TransitionScene

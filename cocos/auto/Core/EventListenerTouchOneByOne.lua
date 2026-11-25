@@ -1,4 +1,3 @@
---- @class EventListenerTouchOneByOne
 --- @brief Single touch event listener.
 ---@class cc.EventListenerTouchOneByOne:cc.EventListener
 local EventListenerTouchOneByOne = {}

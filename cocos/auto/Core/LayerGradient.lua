@@ -1,4 +1,3 @@
---- @class LayerGradient
 --- @brief LayerGradient is a subclass of LayerColor that draws gradients across the background.
 ---
 --- All features from LayerColor are valid, plus the following new features:

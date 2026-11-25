@@ -1,4 +1,3 @@
---- @class TransitionMoveInT
 --- @brief TransitionMoveInT:
 --- Move in from to the top the incoming scene.
 ---@class cc.TransitionMoveInT:cc.TransitionMoveInL

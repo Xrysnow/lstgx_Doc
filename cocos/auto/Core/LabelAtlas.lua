@@ -1,5 +1,4 @@
 ---
---- @class LabelAtlas
 --- @brief LabelAtlas is a subclass of AtlasNode.
 ---
 --- It can be as a replacement of Label since it is MUCH faster.

@@ -1,4 +1,3 @@
---- @class FiniteTimeAction
 --- @brief
 --- Base class actions that do have a finite time duration.
 --- Possible actions:

@@ -1,4 +1,3 @@
---- @class JumpTo
 --- @brief Moves a Node object to a parabolic position simulating a jump movement by modifying it's position attribute.
 ---@class cc.JumpTo:cc.JumpBy
 local JumpTo = {}

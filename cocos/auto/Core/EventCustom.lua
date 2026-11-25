@@ -1,4 +1,3 @@
---- @class EventCustom
 --- @brief Custom event.
 ---@class cc.EventCustom:cc.Event
 local EventCustom = {}

@@ -1,5 +1,4 @@
 ---
---- @class ActionFloat
 --- @brief Action used to animate any value in range [from,to] over specified time interval
 ---@class cc.ActionFloat:cc.ActionInterval
 local ActionFloat = {}

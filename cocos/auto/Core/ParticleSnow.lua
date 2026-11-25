@@ -1,4 +1,3 @@
---- @class ParticleSnow
 --- @brief An snow particle system.
 ---@class cc.ParticleSnow:cc.ParticleSystemQuad
 local ParticleSnow = {}

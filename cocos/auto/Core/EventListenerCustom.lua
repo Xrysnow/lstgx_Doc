@@ -1,4 +1,3 @@
---- @class EventListenerCustom
 --- @brief Custom event listener.
 --- @code Usage:
 ---        auto dispatcher = Director::getInstance()->getEventDispatcher();

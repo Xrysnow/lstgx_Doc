@@ -1,4 +1,3 @@
---- @class Scene
 --- @brief Scene is a subclass of Node that is used only as an abstract concept.
 ---
 --- Scene and Node are almost identical with the difference that Scene has its

@@ -1,4 +1,3 @@
---- @class Follow
 --- @brief Follow is an action that "follows" a node.
 --- Eg:
 --- @code

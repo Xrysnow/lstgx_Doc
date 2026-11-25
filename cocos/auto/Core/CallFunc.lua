@@ -1,4 +1,3 @@
---- @class CallFunc
 --- @brief Calls a 'callback'.
 ---@class cc.CallFunc:cc.ActionInstant
 local CallFunc = {}

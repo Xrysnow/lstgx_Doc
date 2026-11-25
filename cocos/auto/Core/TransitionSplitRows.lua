@@ -1,4 +1,3 @@
---- @class TransitionSplitRows
 --- @brief TransitionSplitRows:
 --- The odd rows goes to the left while the even rows goes to the right.
 ---@class cc.TransitionSplitRows:cc.TransitionSplitCols

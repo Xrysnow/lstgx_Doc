@@ -1,4 +1,3 @@
---- @class ParticleGalaxy
 --- @brief A galaxy particle system.
 ---@class cc.ParticleGalaxy:cc.ParticleSystemQuad
 local ParticleGalaxy = {}

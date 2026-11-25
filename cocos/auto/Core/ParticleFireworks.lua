@@ -1,4 +1,3 @@
---- @class ParticleFireworks
 --- @brief A fireworks particle system.
 ---@class cc.ParticleFireworks:cc.ParticleSystemQuad
 local ParticleFireworks = {}

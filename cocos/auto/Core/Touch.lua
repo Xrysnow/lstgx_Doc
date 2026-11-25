@@ -1,4 +1,3 @@
---- @class Touch
 --- @brief Encapsulates the Touch information, such as touch point, id and so on,
 ---  and provides the methods that commonly used.
 ---@class cc.Touch:cc.Ref

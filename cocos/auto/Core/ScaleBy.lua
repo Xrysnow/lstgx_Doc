@@ -1,4 +1,3 @@
---- @class ScaleBy
 --- @brief Scales a Node object a zoom factor by modifying it's scale attribute.
 ---  @warning The physics body contained in Node doesn't support this action.
 ---@class cc.ScaleBy:cc.ScaleTo

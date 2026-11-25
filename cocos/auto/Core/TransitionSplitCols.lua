@@ -1,4 +1,3 @@
---- @class TransitionSplitCols
 --- @brief TransitionSplitCols:
 --- The odd columns goes upwards while the even columns goes downwards.
 ---@class cc.TransitionSplitCols:cc.TransitionScene

@@ -1,4 +1,3 @@
---- @class Animation
 --- A Animation object is used to perform animations on the Sprite objects.
 --- The Animation object contains AnimationFrame objects, and a possible delay between the frames.
 --- You can animate a Animation object by using the Animate action. Example:

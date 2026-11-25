@@ -1,4 +1,3 @@
---- @class MoveTo
 --- @brief Moves a Node object to the position x,y. x and y are absolute coordinates by modifying it's position
 ---  attribute. Several MoveTo actions can be concurrently called, and the resulting movement will be the sum of individual
 ---  movements.

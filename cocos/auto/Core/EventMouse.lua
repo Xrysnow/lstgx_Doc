@@ -1,4 +1,3 @@
---- @class EventMouse
 --- @brief The mouse event.
 ---@class cc.EventMouse:cc.Event
 local EventMouse = {}

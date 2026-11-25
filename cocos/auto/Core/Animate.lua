@@ -1,4 +1,3 @@
---- @class Animate
 --- @brief Animates a sprite given the name of an Animation.
 ---@class cc.Animate:cc.ActionInterval
 local Animate = {}

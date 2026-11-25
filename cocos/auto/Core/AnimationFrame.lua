@@ -1,4 +1,3 @@
---- @class AnimationFrame
 ---
 --- A frame of the animation. It contains information like:
 --- - sprite frame name.

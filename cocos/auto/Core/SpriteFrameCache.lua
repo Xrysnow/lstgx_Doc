@@ -1,4 +1,3 @@
---- @class SpriteFrameCache
 --- @brief Singleton that handles the loading of the sprite frames.
 ---
 ---  The SpriteFrameCache loads SpriteFrames from a .plist file.

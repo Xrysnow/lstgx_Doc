@@ -1,4 +1,3 @@
---- @class LayerRadialGradient
 --- @brief LayerRadialGradient is a subclass of Layer that draws radial gradients across the background.
 ---  @since v3.16
 ---@class cc.LayerRadialGradient:cc.Node

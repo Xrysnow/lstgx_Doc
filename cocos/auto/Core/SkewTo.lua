@@ -1,4 +1,3 @@
---- @class SkewTo
 --- @brief Skews a Node object to given angles by modifying it's skewX and skewY attributes
 --- @since v1.0
 ---@class cc.SkewTo:cc.ActionInterval

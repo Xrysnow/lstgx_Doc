@@ -1,4 +1,3 @@
---- @class MoveBy
 --- @brief Moves a Node object x,y pixels by modifying it's position attribute.
 ---  x and y are relative to the position of the object.
 ---  Several MoveBy actions can be concurrently called, and the resulting

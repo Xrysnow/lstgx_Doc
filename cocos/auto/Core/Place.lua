@@ -1,4 +1,3 @@
---- @class Place
 --- @brief Places the node in a certain position.
 ---@class cc.Place:cc.ActionInstant
 local Place = {}

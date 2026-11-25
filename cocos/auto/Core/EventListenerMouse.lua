@@ -1,4 +1,3 @@
---- @class EventListenerMouse
 --- @brief Mouse event listener.
 ---@class cc.EventListenerMouse:cc.EventListener
 local EventListenerMouse = {}

@@ -1,4 +1,3 @@
---- @class RotateTo
 --- @brief Rotates a Node object to a certain angle by modifying it's rotation attribute.
 ---  The direction will be decided by the shortest angle.
 ---@class cc.RotateTo:cc.ActionInterval

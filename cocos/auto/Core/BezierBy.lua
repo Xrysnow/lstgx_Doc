@@ -1,4 +1,3 @@
---- @class BezierBy
 --- @brief An action that moves the target with a cubic Bezier curve by a certain distance.
 ---@class cc.BezierBy:cc.ActionInterval
 local BezierBy = {}

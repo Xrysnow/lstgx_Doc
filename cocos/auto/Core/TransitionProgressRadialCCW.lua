@@ -1,4 +1,3 @@
---- @class TransitionProgressRadialCCW
 --- @brief TransitionRadialCCW transition.
 ---  A counter clock-wise radial transition to the next scene
 ---@class cc.TransitionProgressRadialCCW:cc.TransitionProgress

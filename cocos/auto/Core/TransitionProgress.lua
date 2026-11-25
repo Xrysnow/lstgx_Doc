@@ -1,7 +1,6 @@
 ---
 --- @addtogroup _2d
 ---
----  @class TransitionProgress
 --- @brief A base class of progress transition.
 ---@class cc.TransitionProgress:cc.TransitionScene
 local TransitionProgress = {}

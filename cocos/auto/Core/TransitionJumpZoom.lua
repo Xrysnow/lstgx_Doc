@@ -1,4 +1,3 @@
---- @class TransitionJumpZoom
 --- @brief TransitionJumpZoom:
 --- Zoom out and jump the outgoing scene, and then jump and zoom in the incoming
 ---@class cc.TransitionJumpZoom:cc.TransitionScene

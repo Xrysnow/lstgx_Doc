@@ -1,4 +1,3 @@
---- @class EventTouch
 --- @brief Touch event.
 ---@class cc.EventTouch:cc.Event
 local EventTouch = {}

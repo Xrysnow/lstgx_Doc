@@ -1,4 +1,3 @@
---- @class Speed
 --- @brief Changes the speed of an action, making it take longer (speed>1)
 --- or shorter (speed<1) time.
 --- Useful to simulate 'slow motion' or 'fast forward' effect.

@@ -1,4 +1,3 @@
---- @class TransitionFadeTR
 --- @brief TransitionFadeTR:
 --- Fade the tiles of the outgoing scene from the left-bottom corner the to top-right corner.
 ---@class cc.TransitionFadeTR:cc.TransitionScene

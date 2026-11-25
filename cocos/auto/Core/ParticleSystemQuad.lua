@@ -1,4 +1,3 @@
---- @class ParticleSystemQuad
 --- @brief ParticleSystemQuad is a subclass of ParticleSystem.
 ---
 --- It includes all the features of ParticleSystem.

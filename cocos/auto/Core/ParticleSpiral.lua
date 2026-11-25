@@ -1,4 +1,3 @@
---- @class ParticleSpiral
 --- @brief An spiral particle system.
 ---@class cc.ParticleSpiral:cc.ParticleSystemQuad
 local ParticleSpiral = {}

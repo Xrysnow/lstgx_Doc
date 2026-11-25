@@ -1,4 +1,3 @@
---- @class TargetedAction
 --- @brief Overrides the target of an action so that it always runs on the target
 --- specified at action creation rather than the one specified by runAction.
 ---@class cc.TargetedAction:cc.ActionInterval

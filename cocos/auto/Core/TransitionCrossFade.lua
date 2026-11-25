@@ -1,4 +1,3 @@
---- @class TransitionCrossFade
 --- @brief TransitionCrossFade:
 --- Cross fades two scenes using the RenderTexture object.
 ---@class cc.TransitionCrossFade:cc.TransitionScene

@@ -1,4 +1,3 @@
---- @class FlipX
 --- @brief Flips the sprite horizontally.
 --- @since v0.99.0
 ---@class cc.FlipX:cc.ActionInstant

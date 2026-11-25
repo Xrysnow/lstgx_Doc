@@ -1,4 +1,3 @@
---- @class BezierTo
 --- @brief An action that moves the target with a cubic Bezier curve to a destination point.
 ---  @since v0.8.2
 ---@class cc.BezierTo:cc.BezierBy

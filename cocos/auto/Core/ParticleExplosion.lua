@@ -1,4 +1,3 @@
---- @class ParticleExplosion
 --- @brief An explosion particle system.
 ---@class cc.ParticleExplosion:cc.ParticleSystemQuad
 local ParticleExplosion = {}

@@ -1,4 +1,3 @@
---- @class TransitionScene
 --- @brief Base class for Transition scenes.
 ---@class cc.TransitionScene:cc.Scene
 local TransitionScene = {}

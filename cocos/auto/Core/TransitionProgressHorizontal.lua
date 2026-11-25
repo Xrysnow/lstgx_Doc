@@ -1,4 +1,3 @@
---- @class TransitionProgressHorizontal
 --- @brief TransitionProgressHorizontal transition.
 ---  A  clock-wise radial transition to the next scene
 ---@class cc.TransitionProgressHorizontal:cc.TransitionProgress

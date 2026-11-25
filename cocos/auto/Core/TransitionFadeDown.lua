@@ -1,4 +1,3 @@
---- @class TransitionFadeDown
 --- @brief TransitionFadeDown:
 --- Fade the tiles of the outgoing scene from the top to the bottom.
 ---@class cc.TransitionFadeDown:cc.TransitionFadeTR

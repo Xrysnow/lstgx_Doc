@@ -1,4 +1,3 @@
---- @class TransitionSlideInB
 --- @brief TransitionSlideInB:
 --- Slide in the incoming scene from the bottom border.
 ---@class cc.TransitionSlideInB:cc.TransitionSlideInL

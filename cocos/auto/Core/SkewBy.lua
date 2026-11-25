@@ -1,4 +1,3 @@
---- @class SkewBy
 --- @brief Skews a Node object by skewX and skewY degrees.
 --- @since v1.0
 ---@class cc.SkewBy:cc.SkewTo

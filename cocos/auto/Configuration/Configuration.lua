@@ -1,4 +1,3 @@
---- @class Configuration
 --- @brief Configuration contains some openGL variables
 --- @since v0.99.0
 ---@class cc.Configuration

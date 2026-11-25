@@ -1,4 +1,3 @@
---- @class TransitionProgressOutIn
 --- @brief TransitionProgressOutIn transition.
 ---@class cc.TransitionProgressOutIn:cc.TransitionProgress
 local TransitionProgressOutIn = {}

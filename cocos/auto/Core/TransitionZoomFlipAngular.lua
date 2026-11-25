@@ -1,4 +1,3 @@
---- @class TransitionZoomFlipAngular
 --- @brief TransitionZoomFlipAngular:
 --- Flips the screen half horizontally and half vertically doing a little zooming outin.
 --- The front face is the outgoing scene and the back face is the incoming scene.

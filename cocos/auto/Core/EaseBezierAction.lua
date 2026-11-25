@@ -1,5 +1,4 @@
 ---
----  @class EaseBezierAction
 ---  @brief Ease Bezier
 ---  @ingroup Actions
 ---@class cc.EaseBezierAction:cc.ActionEase

@@ -1,4 +1,3 @@
---- @class TransitionFlipY
 --- @brief TransitionFlipY:
 --- Flips the screen vertically.
 --- The front face is the outgoing scene and the back face is the incoming scene.

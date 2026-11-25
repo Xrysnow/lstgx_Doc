@@ -1,4 +1,3 @@
---- @class ActionManager
 ---  @brief ActionManager is a singleton that manages all the actions.
 ---  Normally you won't need to use this singleton directly. 99% of the cases you will use the Node interface,
 ---  which uses this singleton.

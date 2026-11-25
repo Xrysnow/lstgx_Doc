@@ -1,4 +1,3 @@
---- @class RemoveSelf
 --- @brief Remove the node.
 ---@class cc.RemoveSelf:cc.ActionInstant
 local RemoveSelf = {}

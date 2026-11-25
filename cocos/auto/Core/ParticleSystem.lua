@@ -1,4 +1,3 @@
---- @class ParticleSystem
 --- @brief Particle System base class.
 --- Attributes of a Particle System:
 --- - emission rate of the particles

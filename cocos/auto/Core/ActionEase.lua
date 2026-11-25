@@ -1,5 +1,4 @@
 ---
----  @class ActionEase
 ---  @brief Base class for Easing actions.
 ---  @details Ease actions are created from other interval actions.
 ---  The ease action will change the timeline of the inner action.

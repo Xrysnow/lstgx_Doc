@@ -1,4 +1,3 @@
---- @class Sequence
 --- @brief Runs actions sequentially, one after another.
 ---@class cc.Sequence:cc.ActionInterval
 local Sequence = {}

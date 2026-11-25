@@ -1,5 +1,4 @@
 ---
---- @class GridAction
 --- @brief Base class for Grid actions.
 --- @details Grid actions are the actions take effect on GridBase.
 ---@class cc.GridAction:cc.ActionInterval

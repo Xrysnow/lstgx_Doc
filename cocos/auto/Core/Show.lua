@@ -1,4 +1,3 @@
---- @class Show
 --- @brief Show the node.
 ---
 ---@class cc.Show:cc.ActionInstant

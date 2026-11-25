@@ -1,4 +1,3 @@
---- @class LayerMultiplex
 --- @brief MultipleLayer is a Layer with the ability to multiplex it's children.
 --- Features:
 --- - It supports one or more children

@@ -1,4 +1,3 @@
---- @class Hide
 --- @brief Hide the node.
 ---@class cc.Hide:cc.ActionInstant
 local Hide = {}

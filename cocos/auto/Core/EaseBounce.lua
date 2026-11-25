@@ -1,5 +1,4 @@
 ---
----  @class EaseBounce
 ---  @brief EaseBounce abstract class.
 ---  @since v0.8.2
 ---  @ingroup Actions

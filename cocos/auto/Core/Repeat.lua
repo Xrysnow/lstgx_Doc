@@ -1,4 +1,3 @@
---- @class Repeat
 --- @brief Repeats an action a number of times.
 --- To repeat an action forever use the RepeatForever action.
 ---@class cc.Repeat:cc.ActionInterval

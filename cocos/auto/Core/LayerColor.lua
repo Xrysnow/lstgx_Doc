@@ -1,4 +1,3 @@
---- @class LayerColor
 --- @brief LayerColor is a subclass of Layer that implements the RGBAProtocol protocol.
 --- All features from Layer are valid, plus the following new features:
 --- - opacity

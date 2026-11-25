@@ -1,5 +1,4 @@
 ---
----  @class EaseRateAction
 ---  @brief Base class for Easing actions with rate parameters
 ---  @details Ease the inner action with specified rate.
 ---  @ingroup Actions

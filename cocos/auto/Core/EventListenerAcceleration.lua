@@ -1,4 +1,3 @@
---- @class EventListenerAcceleration
 --- @brief Acceleration event listener.
 ---@class cc.EventListenerAcceleration:cc.EventListener
 local EventListenerAcceleration = {}

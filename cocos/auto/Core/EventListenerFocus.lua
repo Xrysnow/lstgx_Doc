@@ -1,4 +1,3 @@
---- @class EventListenerFocus
 --- @brief Focus event listener.
 ---@class cc.EventListenerFocus:cc.EventListener
 local EventListenerFocus = {}

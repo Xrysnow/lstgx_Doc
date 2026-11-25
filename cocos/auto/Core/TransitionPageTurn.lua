@@ -1,4 +1,3 @@
---- @class TransitionPageTurn
 --- @brief A transition which peels back the bottom right hand corner of a scene
 --- to transition to the scene beneath it simulating a page turn.
 ---

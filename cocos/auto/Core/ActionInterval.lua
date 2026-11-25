@@ -1,4 +1,3 @@
---- @class ActionInterval
 --- @brief An interval action is an action that takes place within a certain period of time.
 --- It has an start time, and a finish time. The finish time is the parameter
 --- duration plus the start time.

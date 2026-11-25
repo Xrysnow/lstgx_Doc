@@ -1,4 +1,3 @@
---- @class MotionStreak3D.
 --- @brief Creates a trailing path. It is created from a line segment sweeping along the path.
 ---@class cc.MotionStreak3D:cc.Node
 local MotionStreak3D = {}

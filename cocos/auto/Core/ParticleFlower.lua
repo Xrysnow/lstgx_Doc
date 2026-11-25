@@ -1,4 +1,3 @@
---- @class ParticleFlower
 --- @brief A flower particle system.
 ---@class cc.ParticleFlower:cc.ParticleSystemQuad
 local ParticleFlower = {}

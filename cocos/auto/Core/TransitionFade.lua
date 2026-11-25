@@ -1,4 +1,3 @@
---- @class TransitionFade
 --- @brief TransitionFade:
 --- Fade out the outgoing scene and then fade in the incoming scene.'''
 ---@class cc.TransitionFade:cc.TransitionScene

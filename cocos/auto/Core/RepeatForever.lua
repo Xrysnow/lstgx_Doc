@@ -1,4 +1,3 @@
---- @class RepeatForever
 --- @brief Repeats an action for ever.
 ---  To repeat the an action for a limited number of times use the Repeat action.
 --- @warning This action can't be Sequenceable because it is not an IntervalAction.

@@ -1,4 +1,3 @@
---- @class TintBy
 ---  @brief Tints a Node that implements the NodeRGB protocol from current tint to a custom one.
 ---  @since v0.7.2
 ---@class cc.TintBy:cc.ActionInterval

@@ -1,4 +1,3 @@
---- @class ParticleSmoke
 --- @brief An smoke particle system.
 ---@class cc.ParticleSmoke:cc.ParticleSystemQuad
 local ParticleSmoke = {}

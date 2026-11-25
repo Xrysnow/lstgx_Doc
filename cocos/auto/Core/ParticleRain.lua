@@ -1,4 +1,3 @@
---- @class ParticleRain
 --- @brief A rain particle system.
 ---@class cc.ParticleRain:cc.ParticleSystemQuad
 local ParticleRain = {}

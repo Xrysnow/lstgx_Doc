@@ -1,4 +1,3 @@
---- @class TransitionZoomFlipY
 --- @brief TransitionZoomFlipY:
 --- Flips the screen vertically doing a little zooming outin
 --- The front face is the outgoing scene and the back face is the incoming scene.

@@ -1,5 +1,4 @@
 ---
----  @class EaseElastic
 ---  @brief Ease Elastic abstract class
 ---  @since v0.8.2
 ---  @ingroup Actions

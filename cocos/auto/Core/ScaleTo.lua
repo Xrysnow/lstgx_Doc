@@ -1,4 +1,3 @@
---- @class ScaleTo
 ---  @brief Scales a Node object to a zoom factor by modifying it's scale attribute.
 ---  @warning This action doesn't support "reverse".
 ---  @warning The physics body contained in Node doesn't support this action.

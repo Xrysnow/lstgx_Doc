@@ -1,4 +1,3 @@
---- @class FadeTo
 --- @brief Fades an object that implements the RGBAProtocol protocol. It modifies the opacity from the current value to a
 ---  custom one.
 ---  @warning This action doesn't support "reverse"

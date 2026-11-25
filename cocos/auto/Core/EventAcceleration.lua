@@ -1,4 +1,3 @@
---- @class EventAcceleration
 --- @brief Accelerometer event.
 ---@class cc.EventAcceleration:cc.Event
 local EventAcceleration = {}

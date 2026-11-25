@@ -1,4 +1,3 @@
---- @class DrawNode
 --- @brief Node that draws dots, segments and polygons.
 --- Faster than the "drawing primitives" since they draws everything in one single batch.
 --- @since v2.1

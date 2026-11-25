@@ -1,4 +1,3 @@
---- @class TransitionFlipAngular
 --- @brief TransitionFlipAngular:
 --- Flips the screen half horizontally and half vertically.
 --- The front face is the outgoing scene and the back face is the incoming scene.

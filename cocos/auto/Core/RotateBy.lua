@@ -1,4 +1,3 @@
---- @class RotateBy
 --- @brief Rotates a Node object clockwise a number of degrees by modifying it's rotation attribute.
 ---@class cc.RotateBy:cc.ActionInterval
 local RotateBy = {}

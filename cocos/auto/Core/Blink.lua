@@ -1,4 +1,3 @@
---- @class Blink
 --- @brief Blinks a Node object by modifying it's visible attribute.
 ---@class cc.Blink:cc.ActionInterval
 local Blink = {}

@@ -1,4 +1,3 @@
---- @class EventListenerKeyboard
 --- @brief Keyboard event listener.
 ---@class cc.EventListenerKeyboard:cc.EventListener
 local EventListenerKeyboard = {}

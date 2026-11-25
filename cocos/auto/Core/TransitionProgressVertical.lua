@@ -1,4 +1,3 @@
---- @class TransitionProgressVertical
 --- @brief TransitionProgressVertical transition.
 ---@class cc.TransitionProgressVertical:cc.TransitionProgress
 local TransitionProgressVertical = {}

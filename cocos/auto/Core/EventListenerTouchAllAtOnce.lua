@@ -1,4 +1,3 @@
---- @class EventListenerTouchAllAtOnce
 --- @brief Multiple touches event listener.
 ---@class cc.EventListenerTouchAllAtOnce:cc.EventListener
 local EventListenerTouchAllAtOnce = {}

@@ -1,4 +1,3 @@
---- @class ToggleVisibility
 --- @brief Toggles the visibility of a node.
 ---@class cc.ToggleVisibility:cc.ActionInstant
 local ToggleVisibility = {}

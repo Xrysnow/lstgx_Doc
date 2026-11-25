@@ -1,4 +1,3 @@
---- @class TransitionShrinkGrow
 --- @brief Shrink the outgoing scene while grow the incoming scene
 ---@class cc.TransitionShrinkGrow:cc.TransitionScene
 local TransitionShrinkGrow = {}

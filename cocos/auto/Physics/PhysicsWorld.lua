@@ -1,5 +1,4 @@
 ---
---- @class PhysicsWorld PhysicsWorld.h
 --- @brief An PhysicsWorld object simulates collisions and other physical properties. You do not create PhysicsWorld
 --- objects directly; instead, you can get it from an Scene object.
 ---@class cc.PhysicsWorld

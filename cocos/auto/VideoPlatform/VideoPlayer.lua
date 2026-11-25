@@ -1,5 +1,4 @@
 ---
---- @class VideoPlayer
 --- @brief Displays a video file.
 ---
 --- @note VideoPlayer displays a video file base on system widget.

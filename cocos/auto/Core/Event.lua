@@ -1,4 +1,3 @@
---- @class Event
 --- @brief Base class of all kinds of events.
 ---@class cc.Event:cc.Ref
 local Event = {}

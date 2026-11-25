@@ -1,4 +1,3 @@
---- @class Node
 --- @brief Node is the base element of the Scene Graph. Elements of the Scene Graph must be Node objects or subclasses of
 --- it. The most common Node objects are: Scene, Layer, Sprite, Menu, Label.
 ---

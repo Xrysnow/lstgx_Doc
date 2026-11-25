@@ -1,5 +1,4 @@
 ---
---- @class AsyncTaskPool
 --- @brief This class allows to perform background operations without having to manipulate threads.
 ---@class cc.AsyncTaskPool
 local AsyncTaskPool = {}

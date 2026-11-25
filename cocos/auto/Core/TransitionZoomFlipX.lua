@@ -1,4 +1,3 @@
---- @class TransitionZoomFlipX
 --- @brief TransitionZoomFlipX:
 --- Flips the screen horizontally doing a zoom outin
 --- The front face is the outgoing scene and the back face is the incoming scene.

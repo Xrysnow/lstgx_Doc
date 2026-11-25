@@ -1,4 +1,3 @@
---- @class ParticleSun
 --- @brief A sun particle system.
 ---@class cc.ParticleSun:cc.ParticleSystemQuad
 local ParticleSun = {}
