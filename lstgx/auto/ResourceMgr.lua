@@ -124,9 +124,3 @@ end
 ---@return lstg.ResourceMgr @(lstg::ResourceMgr*)
 function ResourceMgr:getInstance()
 end
-
---- (static)
----@param bytes std.shared_ptr<std.vector<unsigned char>> @(lstg::FileBytes)
----@return cc.io.Result<cc.ThreadSafeRefPtr<cc.io.Stream>> @(cc::io::Result<cc::ThreadSafeRefPtr<cc::io::Stream>>)
-function ResourceMgr:openFileSnapshot(bytes)
-end
