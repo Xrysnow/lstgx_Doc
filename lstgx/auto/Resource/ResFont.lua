@@ -114,7 +114,7 @@ end
 function ResFont:getHAlign()
 end
 
----@return XLabel @(XLabel*)
+---@return cc.Label @(cc::Label*)
 function ResFont:getLabel()
 end
 

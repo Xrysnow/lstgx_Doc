@@ -1,17 +1,4 @@
----
---- @brief Label is a subclass of Node that knows how to render text labels.
----
---- Label can be created with:
---- - A true type font file.
---- - A bitmap font file.
---- - A char map file.
---- - The built in system font.
----
---- Bitmap Font supported editors:
---- - http:glyphdesigner.71squared.com (Commercial, Mac OS X)
---- - http:www.n4te.comhierohiero.jnlp (Free, Java)
---- - http:slick.cokeandcode.comdemoshiero.jnlp (Free, Java)
---- - http:www.angelcode.comproductsbmfont (Free, Windows only)
+
 ---@class cc.Label:cc.Node
 local Label = {}
 cc.Label = Label
@@ -54,7 +41,7 @@ end
 
 ---
 --- Enable outline effect to Label.
---- @warning Limiting use to only when the Label created with true type font or system font.
+--- Supports system fonts and file fonts created with SDF or MSDF rasterization.
 ---@param outlineColor color4b_table @(cc::Color4B)
 ---@param outlineSize number @(int)
 ---@return self @(void)
@@ -63,7 +50,7 @@ end
 
 ---
 --- Enable outline effect to Label.
---- @warning Limiting use to only when the Label created with true type font or system font.
+--- Supports system fonts and file fonts created with SDF or MSDF rasterization.
 ---@param outlineColor color4b_table @(cc::Color4B)
 ---@return self @(void)
 function Label:enableOutline(outlineColor)
@@ -165,8 +152,12 @@ end
 function Label:getEffectColor()
 end
 
----@return cc.FontAtlas @(cc::FontAtlas*)
+---@return cc.FontAtlas|nil @(cc::FontAtlas*)
 function Label:getFontAtlas()
+end
+
+---@return cc.GlyphRenderPolicy @(cc::GlyphRenderPolicy)
+function Label:getGlyphRenderPolicy()
 end
 
 ---@return number @(float)
@@ -228,6 +219,10 @@ end
 ---
 ---@return cc.Label.Overflow @(cc::Label::Overflow) see `Overflow`
 function Label:getOverflow()
+end
+
+---@return cc.FontRasterMode @(cc::FontRasterMode)
+function Label:getRasterMode()
 end
 
 ---
@@ -379,6 +374,18 @@ end
 function Label:isWrapEnabled()
 end
 
+--- Queues glyphs for the supplied text using this Label's current file font.
+---@param utf8 string @(std::string_view)
+---@return cc.GlyphTicket @(cc::GlyphTicket)
+function Label:prefetchGlyphs(utf8)
+end
+
+--- Prepares the current text synchronously in an active render frame.
+--- Ready means the glyphs are available to subsequent draws in that frame.
+---@return cc.GlyphStatus @(cc::GlyphStatus)
+function Label:prepareGlyphsNow()
+end
+
 ---@param cleanup boolean @(bool)
 ---@return self @(void)
 function Label:removeAllChildrenWithCleanup(cleanup)
@@ -518,6 +525,16 @@ end
 function Label:setDimensions(width, height)
 end
 
+---@param font cc.FontConfig @(cc::FontConfig)
+---@return boolean @(bool)
+function Label:setFontConfig(font)
+end
+
+---@param policy cc.GlyphRenderPolicy @(cc::GlyphRenderPolicy)
+---@return self @(void)
+function Label:setGlyphRenderPolicy(policy)
+end
+
 ---
 --- Makes the Label exactly this untransformed height.
 ---
@@ -606,7 +623,7 @@ end
 ---
 --- The text color is different from the color of Node.
 ---
---- @warning Limiting use to only when the Label created with true type font or system font.
+--- Supports system fonts and file fonts created with SDF or MSDF rasterization.
 ---@param color color4b_table @(cc::Color4B)
 ---@return self @(void)
 function Label:setTextColor(color)
@@ -744,6 +761,21 @@ end
 ---@param plistFile string @(std::string_view) A configuration file of char map.
 ---@return cc.Label @(cc::IntrusivePtr<cc::Label>) An automatically released Label object.
 function Label:createWithCharMap(plistFile)
+end
+
+--- (static)
+---@param font cc.FontConfig @(cc::FontConfig)
+---@param text string @(std::string_view)
+---@param mode cc.FontRasterMode @(cc::FontRasterMode)
+---@return cc.Label|nil @(cc::IntrusivePtr<cc::Label>)
+function Label:createWithFont(font, text, mode)
+end
+
+--- (static)
+---@param font cc.FontConfig @(cc::FontConfig)
+---@param text string @(std::string_view)
+---@return cc.Label|nil @(cc::IntrusivePtr<cc::Label>)
+function Label:createWithFont(font, text)
 end
 
 ---
