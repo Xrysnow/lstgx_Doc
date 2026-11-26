@@ -50,16 +50,7 @@ function MonitorHelper:setGammaRamp(ramp)
 end
 
 --- (static)
----@return lstg.MonitorHelper @(cc::IntrusivePtr<lstg::MonitorHelper>)
-function MonitorHelper:getCurrentMonitor()
-end
-
---- (static)
----@return lstg.MonitorHelper[] @(std::vector<cc::IntrusivePtr<lstg::MonitorHelper>>)
-function MonitorHelper:getMonitors()
-end
-
---- (static)
----@return lstg.MonitorHelper @(cc::IntrusivePtr<lstg::MonitorHelper>)
-function MonitorHelper:getPrimaryMonitor()
+---@param id string @(cc::DisplayId)
+---@return lstg.MonitorHelper|nil @(cc::IntrusivePtr<lstg::MonitorHelper>)
+function MonitorHelper:getByDisplayId(id)
 end

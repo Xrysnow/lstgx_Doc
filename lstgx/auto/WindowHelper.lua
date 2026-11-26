@@ -11,10 +11,6 @@ end
 function WindowHelper:getClipboardString()
 end
 
----@return vec2_table @(cc::Vec2)
-function WindowHelper:getDisplayResolution()
-end
-
 ---@return number @(float)
 function WindowHelper:getDpiScale()
 end
@@ -135,17 +131,6 @@ end
 function WindowHelper:getInstance()
 end
 
----@class lstg.WindowHelper.Operation
-local Operation = {
-	SHOW = 0,
-	HIDE = 1,
-	FOCUS = 2,
-	ICONIFY = 3,
-	RESTORE = 4,
-	MAXIMIZE = 5,
-}
-WindowHelper.Operation = Operation
-
 ---@class lstg.WindowHelper.CursorType
 local CursorType = {
 	ARROW = 0,
@@ -157,3 +142,14 @@ local CursorType = {
 	CUSTOM = 6,
 }
 WindowHelper.CursorType = CursorType
+
+---@class lstg.WindowHelper.Operation
+local Operation = {
+	SHOW = 0,
+	HIDE = 1,
+	FOCUS = 2,
+	ICONIFY = 3,
+	RESTORE = 4,
+	MAXIMIZE = 5,
+}
+WindowHelper.Operation = Operation

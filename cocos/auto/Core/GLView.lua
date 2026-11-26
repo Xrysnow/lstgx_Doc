@@ -7,6 +7,10 @@
 local GLView = {}
 cc.GLView = GLView
 
+---@return cc.DisplayInfo|nil @(std::optional<cc::DisplayInfo>)
+function GLView:getCurrentDisplayInfo()
+end
+
 --- Force destroying EGL view, subclass must implement this method.
 ---
 ---@return self @(void)
