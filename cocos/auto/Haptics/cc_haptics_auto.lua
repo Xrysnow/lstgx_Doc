@@ -4,7 +4,7 @@
 
 ---@class cc.haptics.ImportOptions
 ---@field format cc.haptics.AssetFormat Default infers the input format.
----@field policy cc.haptics.ImportPolicy Default permits documented AHAP approximations.
+---@field policy cc.haptics.ImportPolicy Default permits documented portable approximations.
 
 ---@class cc.haptics.PlayOptions
 ---@field track cc.haptics.Track Defaults to the normal voice pool.
@@ -170,7 +170,7 @@
 ---@class cc.haptics.RawPlayerId @Opaque connection-scoped identity.
 ---@return cc.haptics.HapticService @Borrowed for the current Director generation.
 function cc.Director:getHaptics() end
---- Read a complete preset synchronously through the engine resource system.
+--- Read a complete .haptic, .ahap or .he preset synchronously through the engine resource system.
 --- (static)
 ---@param path string @(std::string_view) Nonempty resource path. A recognized extension must match the content.
 ---@param options? cc.haptics.ImportOptions @(cc::haptics::ImportOptions) Optional format and import policy, compatible by default.
@@ -178,7 +178,7 @@ function cc.Director:getHaptics() end
 ---@return cc.haptics.Diagnostic[]|cc.haptics.ErrorInfo diagnosticsOrError @Warnings on success or the failure.
 function cc.haptics.load(path, options) end
 
---- Compile length-delimited UTF-8 bytes. Embedded NUL bytes are invalid.
+--- Compile Meta, AHAP or HE from length-delimited UTF-8 bytes. Embedded NUL bytes are invalid.
 --- (static)
 ---@param bytes string @(std::string_view) Complete JSON document of at most 1 MiB, borrowed only during this call.
 ---@param options? cc.haptics.ImportOptions @(cc::haptics::ImportOptions) Optional format and import policy, compatible by default.
@@ -364,10 +364,14 @@ local AssetFormat = {
 	MetaHaptic = 1,
 	--- Apple Haptic and Audio Pattern version 1.
 	AppleAhap = 2,
+	--- RichTap HE version 1, with one event pattern.
+	RichTapHeV1 = 3,
+	--- RichTap HE version 2, with absolute-time pattern groups.
+	RichTapHeV2 = 4,
 }
 cc.haptics.AssetFormat = AssetFormat
 
---- Treatment of lossy AHAP features.
+--- Treatment of lossy preset features.
 ---@class cc.haptics.ImportPolicy
 local ImportPolicy = {
 	--- Clamp or skip recognized losses with field diagnostics (default).
@@ -436,7 +440,7 @@ end
 function HapticClip:importPolicy()
 end
 
---- Read a complete preset synchronously through the engine resource system.
+--- Read a complete .haptic, .ahap or .he preset synchronously through the engine resource system.
 --- (static)
 ---@param path string @(std::string_view) Nonempty resource path. A recognized extension must match the content.
 ---@param options cc.haptics.ImportOptions @(cc::haptics::ImportOptions) Optional format and import policy, compatible by default.
@@ -445,7 +449,7 @@ end
 function HapticClip:load(path, options)
 end
 
---- Read a complete preset synchronously through the engine resource system.
+--- Read a complete .haptic, .ahap or .he preset synchronously through the engine resource system.
 --- (static)
 ---@param path string @(std::string_view) Nonempty resource path. A recognized extension must match the content.
 ---@return cc.haptics.ImportResult|nil @(cc::haptics::Result<cc::haptics::ImportResult>) Imported clip and diagnostics, or a resource access, format or validation error.
@@ -453,7 +457,7 @@ end
 function HapticClip:load(path)
 end
 
---- Compile length-delimited UTF-8 bytes. Embedded NUL bytes are invalid.
+--- Compile Meta, AHAP or HE from length-delimited UTF-8 bytes. Embedded NUL bytes are invalid.
 --- (static)
 ---@param bytes string @(std::string_view) Complete JSON document of at most 1 MiB, borrowed only during this call.
 ---@param options cc.haptics.ImportOptions @(cc::haptics::ImportOptions) Optional format and import policy, compatible by default.
@@ -462,7 +466,7 @@ end
 function HapticClip:parse(bytes, options)
 end
 
---- Compile length-delimited UTF-8 bytes. Embedded NUL bytes are invalid.
+--- Compile Meta, AHAP or HE from length-delimited UTF-8 bytes. Embedded NUL bytes are invalid.
 --- (static)
 ---@param bytes string @(std::string_view) Complete JSON document of at most 1 MiB, borrowed only during this call.
 ---@return cc.haptics.ImportResult|nil @(cc::haptics::Result<cc::haptics::ImportResult>) Imported clip and diagnostics, or a field-specific validation error.
